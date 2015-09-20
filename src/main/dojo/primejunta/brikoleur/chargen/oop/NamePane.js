@@ -28,10 +28,6 @@ function( declare,
     return declare( [ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
         dict : i18n,
         templateString : template,
-        createCharacter : function()
-        {
-            domClass.toggle( document.body, "br-characterCreated" );
-        },
         publishJuju : function()
         {
             topic.publish( "/JujuChanged/", this.jujuInput.get( "value" ) );

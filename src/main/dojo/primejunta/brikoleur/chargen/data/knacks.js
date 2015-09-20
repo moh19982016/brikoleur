@@ -3,42 +3,6 @@ define( {
     cost: 4,
     list: [
         {
-            name: "Close Combat",
-            description: "Training in Close Combat reduces difficulty of attack and defence when up close and personal. Thrown weapons fall under this knack.",
-            type: "combat",
-            closed: true,
-            list: [
-                {
-                    name: "Unarmed Combat",
-                    list: [
-                        {
-                            name: "Boxing"
-                        },
-                        {
-                            name: "Ju-jutsu"
-                        }
-                    ]
-                },
-                {
-                    name: "Melee Weapons",
-                    list: [
-                        { name: "Knifefighting" },
-                        { name: "Historical European Martial Arts" }
-                    ]
-                },
-                {
-                    name: "Thrown Weapons",
-                    description: "Covers all types of thrown weapons plus bows, but not crossbows.",
-                    list: [
-                        { name: "Bow" },
-                        { name: "Sling" },
-                        { name: "Boomerang" },
-                        { name: "Hand grenade" }
-                    ]
-                }
-            ]
-        },
-        {
             name: "Ranged Combat",
             description: "Training in Ranged Combat reduces difficulty of attack with ranged weapons. Ranged Defense is a dedicated skill.",
             type: "combat",
@@ -89,6 +53,42 @@ define( {
                         { name: "Grenade Launcher" },
                         { name: "Heavy Sniper Rifle" },
                         { name: "Heavy Machine Gun" }
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Close Combat",
+            description: "Training in Close Combat reduces difficulty of attack and defence when up close and personal. Thrown weapons fall under this knack.",
+            type: "combat",
+            closed: true,
+            list: [
+                {
+                    name: "Unarmed Combat",
+                    list: [
+                        {
+                            name: "Boxing"
+                        },
+                        {
+                            name: "Ju-jutsu"
+                        }
+                    ]
+                },
+                {
+                    name: "Melee Weapons",
+                    list: [
+                        { name: "Knifefighting" },
+                        { name: "Historical European Martial Arts" }
+                    ]
+                },
+                {
+                    name: "Thrown Weapons",
+                    description: "Covers all types of thrown weapons plus bows, but not crossbows.",
+                    list: [
+                        { name: "Bow" },
+                        { name: "Sling" },
+                        { name: "Boomerang" },
+                        { name: "Hand grenade" }
                     ]
                 }
             ]

@@ -21,7 +21,7 @@ define({
         "Armour" : "Armour",
         "ActivePowerSlots" : "Active Power Slots",
         "OhunSlots" : "Ohun Slots",
-        "SelectATrait" : "-- Select a Trait --",
+        "SelectOrType" : "Invent or select",
         "TrainingPresent" : "You already have this training.",
         "SpecialisationPresent" : "You already have this specialisation.",
         "StuntPresent" : "You already have this stunt.",

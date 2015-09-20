@@ -58,8 +58,8 @@ function( declare,
             this.knacksPane = new KnacksPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
             this.numbersPane = new NumbersPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
             this.powersPane = new PowersPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.stuntsPane = new StuntsPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
             this.ohunPane = new OhunPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
+            this.stuntsPane = new StuntsPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
             this.gearPane = new GearPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
             this.descriptionPane = new DescriptionPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
         },

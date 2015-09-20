@@ -73,7 +73,7 @@ function( declare,
             else
             {
                 domClass.remove( this.controlNode, "br-emptyClosedList" );
-                this._selector = new ( this.data.closed ? Select : ComboBox )({ store : this._store }).placeAt( this.selectorNode );
+                this._selector = new ( this.data.closed ? Select : ComboBox )({ store : this._store, placeholder : i18n.SelectOrType }).placeAt( this.selectorNode );
             }
         },
         addItem : function()
