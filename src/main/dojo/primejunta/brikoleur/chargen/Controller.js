@@ -1,6 +1,6 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
-         "./DynamicGrid",
+         "./_base/DynamicGrid",
          "./oop/NamePane",
          "./oop/DescriptionPane",
          "./oop/GearPane",

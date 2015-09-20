@@ -1,5 +1,5 @@
 define([ "dojo/_base/declare",
-        "./../_FeaturePaneBase",
+        "./../_base/_FeaturePaneBase",
         "./_base/_ControlPaneMixin",
         "./_TraitControl",
         "dojo/i18n!primejunta/brikoleur/nls//CharGen" ],
