@@ -96,7 +96,7 @@ function( declare,
             this.addChildControl();
             if( this.parent )
             {
-                this.parent.featureAdded( this._store.get( this.value ) || { id : this.value, name : this.value } );
+                this.parent.featureAdded();
             }
             Controller.set( "juju", Controller.get( "juju" ) - this.getCost() );
             this.controlNode.style.display = "none";

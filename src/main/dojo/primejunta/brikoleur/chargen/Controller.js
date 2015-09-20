@@ -1,5 +1,6 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
+        "dojo/_base/array",
          "./_base/DynamicGrid",
          "./oop/NamePane",
          "./oop/DescriptionPane",
@@ -23,6 +24,7 @@ define([ "dojo/_base/declare",
          "dojo/i18n!../nls/CharGen" ],
 function( declare,
           lang,
+          array,
           DynamicGrid,
           NamePane,
           DescriptionPane,
@@ -66,6 +68,10 @@ function( declare,
             if( prop == "juju" )
             {
                 return this.namePane.jujuInput.get( "value" );
+            }
+            else if( array.indexOf( this.numbersPane.get( "properties" ), prop ) != -1 )
+            {
+                return this.numbersPane.get( prop );
             }
             else
             {

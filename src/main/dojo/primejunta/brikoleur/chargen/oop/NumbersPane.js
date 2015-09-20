@@ -15,7 +15,6 @@ function( declare,
         icon : "calculator",
         postCreate : function()
         {
-
             this.addField( "body", new _NumberField({ title : i18n.Body, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1 } ) );
             this.addField( "mind", new _NumberField({ title : i18n.Mind, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1  } ) );
             this.addField( "stamina", new _NumberField({ title : i18n.Stamina, value : 12, readonly : true } ) );

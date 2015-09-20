@@ -1,9 +1,11 @@
 define([ "dojo/_base/declare",
         "dojo/_base/lang",
+        "dojo/_base/array",
         "dojo/topic",
         "./../../_base/util" ],
 function( declare,
           lang,
+          array,
           topic,
           util )
 {
@@ -13,6 +15,27 @@ function( declare,
         {
             this.controls = [];
             this.featureAdded();
+        },
+        setupSubPanes : function( features )
+        {
+            var values = util.getValues( this.controls );
+            for( var i = 0; i < features.length; i++ )
+            {
+                if( features[ i ] && array.indexOf( values, features[ i ] ) == -1 )
+                {
+                    var items = this._store.get( features[ i ] )[ this.featureProperty ];
+                    if( items )
+                    {
+                        for( var j = 0; j < items.length; j++ )
+                        {
+                            this.featureAdded({
+                                value : features[ i ],
+                                data : items[ j ]
+                            });
+                        }
+                    }
+                }
+            }
         },
         featureAdded : function( kwObj )
         {

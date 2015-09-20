@@ -78,7 +78,11 @@ function( declare,
         },
         get : function( prop )
         {
-            if( this._props[ prop ] )
+            if( prop == "properties" )
+            {
+                return this._props.keys();
+            }
+            else if( this._props[ prop ] )
             {
                 return this._props[ prop ].get( "value" );
             }
