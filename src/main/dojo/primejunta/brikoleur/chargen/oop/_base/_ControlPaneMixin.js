@@ -14,11 +14,11 @@ function( declare,
             this.controls = [];
             this.featureAdded();
         },
-        featureAdded : function()
+        featureAdded : function( kwObj )
         {
-            if( this.controls.length < this.allowedControls )
+            if( this.allowedControls < 0 || this.controls.length < this.allowedControls )
             {
-                this.controls.push( new this.featureControl( { parent : this } ).placeAt( this.containerNode ) );
+                this.controls.push( new this.featureControl( lang.mixin( kwObj || {}, { parent : this } )).placeAt( this.containerNode ) );
             }
             topic.publish( this.selectedFeaturesTopic, util.getValues( this.controls ) );
         },

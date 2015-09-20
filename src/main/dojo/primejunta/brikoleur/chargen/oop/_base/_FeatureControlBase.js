@@ -32,14 +32,17 @@ function( declare,
     var Constr = declare([ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
         data : {},
         dict : i18n,
+        title : "",
         filter : [],
         cost : 0,
+        level : 0,
         parent : false,
         type : "",
         templateString : template,
         jujuChangedTopic : "/JujuChanged/",
         featureAddedTopic : "",
         selectedFeaturesTopic : "",
+        childProperties : {},
         postCreate : function()
         {
             this.controls = [];
@@ -93,9 +96,9 @@ function( declare,
             this.addChildControl();
             if( this.parent )
             {
-                this.parent.featureAdded();
+                this.parent.featureAdded( this._store.get( this.value ) || { id : this.value, name : this.value } );
             }
-            Controller.set( "juju", Controller.get( "juju" ) - this.cost );
+            Controller.set( "juju", Controller.get( "juju" ) - this.getCost() );
             this.controlNode.style.display = "none";
             this.displayNode.style.display = "block";
             topic.publish( this.featureAddedTopic, this );
@@ -106,22 +109,24 @@ function( declare,
         },
         onJujuChange : function( juju )
         {
-            this.set( "disabled", juju < this.cost );
+            this.set( "disabled", juju < this.getCost() );
         },
         addChildControl : function()
         {
             var child = this._store.get( this.value );
             if( child && child.list )
             {
-                this.controls.push( new Constr({
+                this.controls.push( new Constr( lang.mixin( lang.clone( this.childProperties ), {
                     data : child,
                     cost : this.get( "cost" ),
                     type : this.type,
+                    level : this.level + 1,
+                    childProperties : this.childProperties,
                     featureAddedTopic : this.featureAddedTopic,
                     selectedFeaturesTopic : this.selectedFeaturesTopic + "-" + this.value,
                     propertyPresentWarning : this.propertyPresentWarning,
                     parent : this
-                }).placeAt( this.childrenNode ) );
+                })).placeAt( this.childrenNode ) );
             }
         },
         featureAdded : function()
@@ -146,11 +151,15 @@ function( declare,
             }
             return out;
         },
+        getCost : function()
+        {
+            return this.data.cost || this.cost;
+        },
         get : function( prop )
         {
             if( prop == "cost" )
             {
-                return this.data.cost || this.cost;
+                return this.getCost();
             }
             else
             {

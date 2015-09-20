@@ -157,6 +157,10 @@
     display: none;
 }
 
+.br-subPaneTitle {
+    font-family: Iceberg, sans-serif;
+}
+
 /* Field */
 .br-fieldTitle {
     width: 50%;

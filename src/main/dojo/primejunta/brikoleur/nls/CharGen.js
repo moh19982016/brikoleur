@@ -24,6 +24,7 @@ define({
         "SelectATrait" : "-- Select a Trait --",
         "TrainingPresent" : "You already have this training.",
         "SpecialisationPresent" : "You already have this specialisation.",
-        "StuntPresent" : "You already have this stunt."
+        "StuntPresent" : "You already have this stunt.",
+        "PowerPresent" : "You already have this power."
     }
 });
