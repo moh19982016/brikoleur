@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Index page for Character Creation Utility. -->
+  <title>brikoleur</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="user-scalable=no,initial-scale=1.0,width=device-width" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="icon" type="image/png" href="ikons/brikoleur-icon-48.png" sizes="48x48">
+  <link rel="icon" type="image/png" href="ikons/brikoleur-icon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="ikons/brikoleur-icon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="ikons/brikoleur-icon-60.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="ikons/brikoleur-icon-76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="ikons/brikoleur-icon-120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="ikons/brikoleur-icon-152.png">
+  <style type="text/css">
+    @import "css/chargen.css";
+  </style>
+  <script type="text/javascript" src="dojo/dojo/dojo.js"
+          data-dojo-config="async: true, parseOnLoad: false"></script>
+  <script type="text/javascript">
+    require([ "primejunta/brikoleur/chargen/Controller" ],
+            function( Controller )
+            {
+              new Controller({ "class" : "br-controller" }).placeAt( document.body ).startup();
+            });
+  </script>
+</head>
+<body class="claro">
+<div class="br-noJavaScript">
+  Brikoleur Character Generator
+</div>
+</body>
+</html>

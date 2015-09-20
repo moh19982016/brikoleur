@@ -1,0 +1,222 @@
+@import "brikoleur.css";
+@import "../dojo/dijit/themes/claro/claro.css";
+@import "../font-awesome/css/font-awesome.min.css";
+
+.br-controller {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fafafa;
+}
+
+.br-header {
+    font-family: Stalinist One, sans-serif;
+    font-size: 24px;
+    color: #333;
+    height: 40px;
+    padding-left: 66px !important;
+}
+
+.br-header-left {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 56px;
+    bottom: 0;
+    background-color: black;
+}
+
+.br-header-bg {
+    background-color: black;
+    opacity: 0.5;
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.br-sidebar {
+    background-color: #444;
+    color: #fafafa;
+    width: 40px;
+}
+
+.br-footer {
+    background-color: #666;
+    color: #fafafa;
+    font-family: Abel, sans-serif;
+    font-size: 15px;
+    text-align:right;
+}
+
+.br-featurePane {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    background-color: #fafafa;
+    margin: 4px;
+    box-sizing: border-box;
+    border: 2px solid silver;
+    transition: border-color 300ms;
+}
+
+.br-featureContainer {
+    padding: 4px;
+}
+
+.br-flashPane {
+    border-color: gold;
+    background-color: white;
+}
+
+.br-flashPane .br-featureTitle {
+    background-color: #f00;
+}
+
+.br-zoomer {
+    position: fixed;
+    transition: top 300ms, left 300ms, width 300ms, height 300ms;
+    border: 2px solid #888;
+}
+
+.br-featurePaneMinimized {
+    width: 0;
+    height: 0;
+}
+
+.br-featurePaneMinimized .br-field {
+    display: none;
+}
+
+.br-featureTitle {
+    background-color: #c00;
+    color: #fafafa;
+    font-family: Iceberg, sans-serif;
+    padding: 6px;
+    cursor: pointer;
+    transition: background-color 300ms;
+}
+
+.br-minimizeButton {
+    float: right;
+}
+
+.br-featureTitle:hover {
+    color: gold;
+}
+
+/* Dock icon */
+.br-dockIcon {
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fafafa;
+    cursor: pointer;
+    font-size: 19px;
+    height: 40px;
+    margin: 5px 0;
+    padding: 8px;
+    text-align: center;
+    transition: color 300ms, border: 300ms;
+    width: 40px;
+    background-color: #222;
+    border: 2px solid #666;
+}
+
+.br-dockIconMaximized {
+    background-color: transparent;
+    border: 2px solid transparent;
+}
+
+.br-dockIcon:hover {
+    color: gold;
+    border-color: gold;
+}
+
+/* Training */
+.br-indented {
+    display: none;
+    padding-left: 28px;
+}
+
+/* Field */
+.br-fieldTitle {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    padding: 4px;
+    text-align: right;
+}
+
+.br-fieldControl {
+    width: 50%;
+    float: right;
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+/* dynamic grid */
+.br-dynamicGridColumn {
+    float: left;
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+.dijitNumberTextBox {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+/* Character creation */
+.br-characterCreated .br-indented {
+    display: block;
+}
+
+.br-hideForNew {
+    display: none;
+}
+
+.br-characterCreated .br-hideForNew {
+    display: unset;
+}
+
+.br-characterCreated .br-hideForCreated {
+    display: none;
+}
+
+/* Powers */
+.br-powerSelectMode .br-indented, .br-powerSelectMode .br-valueNode  {
+    display: none;
+}
+
+.br-powerSelectedMode .br-indented {
+    display: block;
+}
+
+.br-powerSelectedMode .br-baseControlNode {
+    display: none;
+}
+
+.br-powersNotAllowed .br-controlNode  {
+    display: none;
+}
+
+.br-powersAllowed .br-controlNode {
+    display: block;
+}
+
+
+
+/* Dijits */
+.dijitNumberTextBox  .dijitInputInner {
+    padding-top: 8px !important;
+    text-align: center;
+}
+
+.dijitTextBoxFocused .dijitInputContainer {
+    background-color: transparent !important;
+}

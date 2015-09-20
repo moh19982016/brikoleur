@@ -1,0 +1,292 @@
+define( {
+    cost: 4,
+    list: [
+        {
+            name: "Close Combat",
+            combat: true,
+            description: "Training in Close Combat reduces difficulty of attack and defence when up close and personal. Thrown weapons fall under this knack.",
+            closed: true,
+            evolve: [
+                {
+                    name: "Unarmed Combat",
+                    evolve: [
+                        {
+                            name: "Boxing"
+                        },
+                        {
+                            name: "Ju-jutsu"
+                        }
+                    ]
+                },
+                {
+                    name: "Melee Weapons",
+                    evolve: [
+                        { name: "Knifefighting" },
+                        { name: "Historical European Martial Arts" }
+                    ]
+                },
+                {
+                    name: "Thrown Weapons",
+                    description: "Covers all types of thrown weapons plus bows, but not crossbows.",
+                    evolve: [
+                        { name: "Bow" },
+                        { name: "Sling" },
+                        { name: "Boomerang" },
+                        { name: "Hand grenade" }
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Ranged Combat",
+            combat: true,
+            description: "Training in Ranged Combat reduces difficulty of attack with ranged weapons. Ranged Defense is a dedicated skill.",
+            closed: true,
+            evolve: [
+                {
+                    name: "Ranged Defence",
+                    description: "Reduces difficulty of defending against ranged attacks.",
+                    closed: true,
+                    evolve: [
+                        {
+                            name: "Ranged Defence (Urban Terrain)",
+                        },
+                        {
+                            name: "Ranged Defence (Natural Terrain)"
+                        }
+                    ]
+                },
+                {
+                    name: "Light Ranged Weapons",
+                    description: "Covers one-handed, pistol-type ranged weapons, including hand crossbows, and submachine guns.",
+                    evolve: [
+                        { name: "Pistol" },
+                        { name: "Submachine Gun" },
+                        { name: "Hand Crossbow" },
+                        { name: "Taser" }
+                    ]
+                },
+                {
+                    name: "Medium Ranged Weapons",
+                    description: "Covers two-handed, rifle-type ranged weapons, including crossbows, but not including heavy weapons such as RPG's, heavy machine guns, or heavy sniper rifles.",
+                    evolve: [
+                        { name: "Assault Rifle" },
+                        { name: "Hunting Rifle" },
+                        { name: "Sniper Rifle" },
+                        { name: "Laser Rifle" },
+                        { name: "Light Machine Gun" }
+                    ]
+                },
+                {
+                    name: "Heavy Ranged Weapons",
+                    description: "Covers heavy infantry weapons, such as RPG's, shoulder-launched missiles, heavy machine guns, heavy sniper rifles, and field mortars.",
+                    evolve: [
+                        { name: "Rocket-propelled grenade" },
+                        { name: "Field Artillery" },
+                        { name: "Shoulder-launched SAM" },
+                        { name: "Field Mortar" },
+                        { name: "Grenade Launcher" },
+                        { name: "Heavy Sniper Rifle" },
+                        { name: "Heavy Machine Gun" }
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Subterfuge",
+            description: "Covers stealth, deception, subterfuge, and other similarly underhanded approaches to solving problems. Sometimes overlaps with knack for People.",
+            evolve: [
+                {
+                    name: "Lie",
+                    evolve: [ { name : "Social Engineering" } ]
+                },
+                {
+                    name: "Disguise",
+                    evolve: [
+                        { name : "Impersonation" } ]
+                },
+                {
+                    name: "Hide",
+                    evolve: [
+                        { name : "Active Camouflage Armour" } ]
+                },
+                {
+                    name: "Ambush",
+                    evolve: [
+                        { name : "Lay Traps" } ]
+                }
+            ]
+        },
+        {
+            name: "Technology",
+            description: "The character has a knack for getting technological things to do what she wants.",
+            evolve: [
+                {
+                    name: "Mechanics",
+                    evolve: [ { name : "Weapon Crafting" },
+                        { name : "Trapmaking" },
+                        { name : "Drone Crafting" } ]
+                },
+                {
+                    name: "Computer Use",
+                    evolve: [
+                        { name : "Intrusion" },
+                        { name : "Data Retrieval and Analysis" },
+                        { name : "Programming" } ]
+                },
+                {
+                    name: "Drone Control",
+                    evolve: [
+                        { name : "Micro-Drones" },
+                        { name : "Fixed-Wing" },
+                        { name : "Gunships" },
+                        { name : "Powered Armour" } ]
+                }
+            ]
+        },
+        {
+            name: "Q-Space",
+            description: "You have an unusual affinity for Q-Space, and all the happens in it.",
+            evolve: [
+                {
+                    name: "Q-Space Navigation",
+                    evolve: [ { name : "Nearspace" },
+                        { name : "Wildspace" },
+                        { name : "Farspace" },
+                        { name : "Palès" } ]
+                },
+                {
+                    name: "Q-Space Crafting",
+                    evolve: [ { name : "Craft Esprí" },
+                        { name : "Craft Environment" },
+                        { name : "Craft Fwé" } ]
+                },
+                {
+                    name: "Intrusion",
+                    evolve: [
+                        { name : "Break Security" },
+                        { name : "Non-detection" } ]
+                },
+                {
+                    name: "Q-Space Combat",
+                    evolve: [
+                        { name : "Combat Against Brikoleurs" },
+                        { name : "Combat Against Esprís" } ]
+                }
+            ]
+        },
+        {
+            name: "People",
+            description: "You grok what makes people tick, and can turn it to your advantage.",
+            evolve: [
+                {
+                    name: "Power Relations",
+                    evolve: [ { name : "Corporate" },
+                        { name : "Politics" },
+                        { name : "Governmental" },
+                        { name : "Streetwise" },
+                        { name : "Police" },
+                        { name : "Socialite" } ]
+                },
+                {
+                    name: "Deception",
+                    evolve: [
+                        { name : "Confidence Trickster" },
+                        { name : "Fast Talk" } ]
+                },
+                {
+                    name: "Persuasion",
+                    evolve: [
+                        { name : "Debate" },
+                        { name : "Seduction" },
+                        { name : "Intimidation" } ]
+                }
+            ]
+        },
+        {
+            name: "Spiritual Practice",
+            description: "You have a feel for the numinous, whether it has to do with the lwa of Q-Space, the teachings of the Buddha, or the hikmat behind the laws of Islam.",
+            evolve: [
+                {
+                    name: "Santería",
+                    evolve: [ { name : "Ghede Lwa" },
+                        { name : "Rada Lwa" } ]
+                },
+                {
+                    name: "Islam",
+                    evolve: [
+                        { name : "Islamic Law" },
+                        { name : "Mysticism" } ]
+                }
+            ]
+        },
+        {
+            name: "Knowledge",
+            description: "You're good with facts, and understanding what they mean.",
+            evolve: [
+                {
+                    name: "Biomedicine",
+                    evolve: [ { name : "Immunology" } ]
+                },
+                {
+                    name: "Chemistry",
+                    evolve: [
+                        { name : "Materials Science" },
+                        { name : "Pharmaceutical Synthesis" },
+                        { name : "Explosives" } ]
+                },
+                {
+                    name: "History",
+                    evolve: [
+                        { name : "Pre-Columbian Mesoamerica" } ]
+                },
+                {
+                    name: "Linguistics",
+                    evolve: [
+                        { name : "Classical Latin" } ]
+                },
+                {
+                    name: "Political Science",
+                    evolve: [
+                        { name : "Anarcho-Trotskyite Theory" } ]
+                }
+            ]
+        },
+        {
+            name: "Athletics",
+            description: "You're physically talented: naturally faster, stronger, and better coordinated than most people.",
+            evolve: [
+                {
+                    name: "Running",
+                    evolve: [ { name : "Parkour" },
+                        { name : "Sprinting" },
+                        { name : "Endurance Running" } ]
+                },
+                {
+                    name: "Swimming",
+                    evolve: [
+                        { name : "Sprint Swimming" },
+                        { name : "Endurance Swimming" } ]
+                },
+                {
+                    name: "Jumping",
+                    evolve: [
+                        { name : "High Jump" },
+                        { name : "Long Jump" } ]
+                },
+                {
+                    name: "Throwing (overlaps with Combat Skill: Thrown Weapons)",
+                    evolve: [
+                        { name : "Javelin" },
+                        { name : "Hand Grenade" } ]
+                },
+                {
+                    name: "Climbing",
+                    evolve: [
+                        { name : "Mountaineering" },
+                        { name : "Free Climbing" } ]
+                }
+            ]
+        }
+    ]
+});
