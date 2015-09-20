@@ -128,9 +128,6 @@ function( declare,
         {
             this.addChildControl();
             topic.publish( this.selectedFeaturesTopic + "-" + this.value, this.listFeatures() );
-
-            console.log( "PUBLISHED", this.selectedFeaturesTopic + "-" + this.value, this.listFeatures() );
-
             this.descendantFeatureAdded();
         },
         descendantFeatureAdded : function()
