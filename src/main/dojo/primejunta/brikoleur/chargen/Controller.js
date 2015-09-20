@@ -50,7 +50,7 @@ function( declare,
         templateString : template,
         postCreate : function()
         {
-            window.CharacterGenerator = this;
+            window.Controller = this;
             this.namePane = new NamePane().placeAt( this.nameContainer );
             this.traitsPane = new TraitsPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
             this.knacksPane = new KnacksPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );

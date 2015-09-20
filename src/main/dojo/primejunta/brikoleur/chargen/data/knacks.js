@@ -1,15 +1,16 @@
 define( {
+    name: "Knack",
     cost: 4,
     list: [
         {
             name: "Close Combat",
-            combat: true,
             description: "Training in Close Combat reduces difficulty of attack and defence when up close and personal. Thrown weapons fall under this knack.",
+            type: "combat",
             closed: true,
-            evolve: [
+            list: [
                 {
                     name: "Unarmed Combat",
-                    evolve: [
+                    list: [
                         {
                             name: "Boxing"
                         },
@@ -20,7 +21,7 @@ define( {
                 },
                 {
                     name: "Melee Weapons",
-                    evolve: [
+                    list: [
                         { name: "Knifefighting" },
                         { name: "Historical European Martial Arts" }
                     ]
@@ -28,7 +29,7 @@ define( {
                 {
                     name: "Thrown Weapons",
                     description: "Covers all types of thrown weapons plus bows, but not crossbows.",
-                    evolve: [
+                    list: [
                         { name: "Bow" },
                         { name: "Sling" },
                         { name: "Boomerang" },
@@ -39,15 +40,15 @@ define( {
         },
         {
             name: "Ranged Combat",
-            combat: true,
             description: "Training in Ranged Combat reduces difficulty of attack with ranged weapons. Ranged Defense is a dedicated skill.",
+            type: "combat",
             closed: true,
-            evolve: [
+            list: [
                 {
                     name: "Ranged Defence",
                     description: "Reduces difficulty of defending against ranged attacks.",
                     closed: true,
-                    evolve: [
+                    list: [
                         {
                             name: "Ranged Defence (Urban Terrain)",
                         },
@@ -59,7 +60,7 @@ define( {
                 {
                     name: "Light Ranged Weapons",
                     description: "Covers one-handed, pistol-type ranged weapons, including hand crossbows, and submachine guns.",
-                    evolve: [
+                    list: [
                         { name: "Pistol" },
                         { name: "Submachine Gun" },
                         { name: "Hand Crossbow" },
@@ -69,7 +70,7 @@ define( {
                 {
                     name: "Medium Ranged Weapons",
                     description: "Covers two-handed, rifle-type ranged weapons, including crossbows, but not including heavy weapons such as RPG's, heavy machine guns, or heavy sniper rifles.",
-                    evolve: [
+                    list: [
                         { name: "Assault Rifle" },
                         { name: "Hunting Rifle" },
                         { name: "Sniper Rifle" },
@@ -80,7 +81,7 @@ define( {
                 {
                     name: "Heavy Ranged Weapons",
                     description: "Covers heavy infantry weapons, such as RPG's, shoulder-launched missiles, heavy machine guns, heavy sniper rifles, and field mortars.",
-                    evolve: [
+                    list: [
                         { name: "Rocket-propelled grenade" },
                         { name: "Field Artillery" },
                         { name: "Shoulder-launched SAM" },
@@ -95,24 +96,24 @@ define( {
         {
             name: "Subterfuge",
             description: "Covers stealth, deception, subterfuge, and other similarly underhanded approaches to solving problems. Sometimes overlaps with knack for People.",
-            evolve: [
+            list: [
                 {
                     name: "Lie",
-                    evolve: [ { name : "Social Engineering" } ]
+                    list: [ { name : "Social Engineering" } ]
                 },
                 {
                     name: "Disguise",
-                    evolve: [
+                    list: [
                         { name : "Impersonation" } ]
                 },
                 {
                     name: "Hide",
-                    evolve: [
+                    list: [
                         { name : "Active Camouflage Armour" } ]
                 },
                 {
                     name: "Ambush",
-                    evolve: [
+                    list: [
                         { name : "Lay Traps" } ]
                 }
             ]
@@ -120,23 +121,23 @@ define( {
         {
             name: "Technology",
             description: "The character has a knack for getting technological things to do what she wants.",
-            evolve: [
+            list: [
                 {
                     name: "Mechanics",
-                    evolve: [ { name : "Weapon Crafting" },
+                    list: [ { name : "Weapon Crafting" },
                         { name : "Trapmaking" },
                         { name : "Drone Crafting" } ]
                 },
                 {
                     name: "Computer Use",
-                    evolve: [
+                    list: [
                         { name : "Intrusion" },
                         { name : "Data Retrieval and Analysis" },
                         { name : "Programming" } ]
                 },
                 {
                     name: "Drone Control",
-                    evolve: [
+                    list: [
                         { name : "Micro-Drones" },
                         { name : "Fixed-Wing" },
                         { name : "Gunships" },
@@ -147,29 +148,29 @@ define( {
         {
             name: "Q-Space",
             description: "You have an unusual affinity for Q-Space, and all the happens in it.",
-            evolve: [
+            list: [
                 {
                     name: "Q-Space Navigation",
-                    evolve: [ { name : "Nearspace" },
+                    list: [ { name : "Nearspace" },
                         { name : "Wildspace" },
                         { name : "Farspace" },
                         { name : "Palès" } ]
                 },
                 {
                     name: "Q-Space Crafting",
-                    evolve: [ { name : "Craft Esprí" },
+                    list: [ { name : "Craft Esprí" },
                         { name : "Craft Environment" },
                         { name : "Craft Fwé" } ]
                 },
                 {
                     name: "Intrusion",
-                    evolve: [
+                    list: [
                         { name : "Break Security" },
                         { name : "Non-detection" } ]
                 },
                 {
                     name: "Q-Space Combat",
-                    evolve: [
+                    list: [
                         { name : "Combat Against Brikoleurs" },
                         { name : "Combat Against Esprís" } ]
                 }
@@ -178,10 +179,10 @@ define( {
         {
             name: "People",
             description: "You grok what makes people tick, and can turn it to your advantage.",
-            evolve: [
+            list: [
                 {
                     name: "Power Relations",
-                    evolve: [ { name : "Corporate" },
+                    list: [ { name : "Corporate" },
                         { name : "Politics" },
                         { name : "Governmental" },
                         { name : "Streetwise" },
@@ -190,13 +191,13 @@ define( {
                 },
                 {
                     name: "Deception",
-                    evolve: [
+                    list: [
                         { name : "Confidence Trickster" },
                         { name : "Fast Talk" } ]
                 },
                 {
                     name: "Persuasion",
-                    evolve: [
+                    list: [
                         { name : "Debate" },
                         { name : "Seduction" },
                         { name : "Intimidation" } ]
@@ -206,15 +207,15 @@ define( {
         {
             name: "Spiritual Practice",
             description: "You have a feel for the numinous, whether it has to do with the lwa of Q-Space, the teachings of the Buddha, or the hikmat behind the laws of Islam.",
-            evolve: [
+            list: [
                 {
                     name: "Santería",
-                    evolve: [ { name : "Ghede Lwa" },
+                    list: [ { name : "Ghede Lwa" },
                         { name : "Rada Lwa" } ]
                 },
                 {
                     name: "Islam",
-                    evolve: [
+                    list: [
                         { name : "Islamic Law" },
                         { name : "Mysticism" } ]
                 }
@@ -223,31 +224,31 @@ define( {
         {
             name: "Knowledge",
             description: "You're good with facts, and understanding what they mean.",
-            evolve: [
+            list: [
                 {
                     name: "Biomedicine",
-                    evolve: [ { name : "Immunology" } ]
+                    list: [ { name : "Immunology" } ]
                 },
                 {
                     name: "Chemistry",
-                    evolve: [
+                    list: [
                         { name : "Materials Science" },
                         { name : "Pharmaceutical Synthesis" },
                         { name : "Explosives" } ]
                 },
                 {
                     name: "History",
-                    evolve: [
+                    list: [
                         { name : "Pre-Columbian Mesoamerica" } ]
                 },
                 {
                     name: "Linguistics",
-                    evolve: [
+                    list: [
                         { name : "Classical Latin" } ]
                 },
                 {
                     name: "Political Science",
-                    evolve: [
+                    list: [
                         { name : "Anarcho-Trotskyite Theory" } ]
                 }
             ]
@@ -255,34 +256,34 @@ define( {
         {
             name: "Athletics",
             description: "You're physically talented: naturally faster, stronger, and better coordinated than most people.",
-            evolve: [
+            list: [
                 {
                     name: "Running",
-                    evolve: [ { name : "Parkour" },
+                    list: [ { name : "Parkour" },
                         { name : "Sprinting" },
                         { name : "Endurance Running" } ]
                 },
                 {
                     name: "Swimming",
-                    evolve: [
+                    list: [
                         { name : "Sprint Swimming" },
                         { name : "Endurance Swimming" } ]
                 },
                 {
                     name: "Jumping",
-                    evolve: [
+                    list: [
                         { name : "High Jump" },
                         { name : "Long Jump" } ]
                 },
                 {
                     name: "Throwing (overlaps with Combat Skill: Thrown Weapons)",
-                    evolve: [
+                    list: [
                         { name : "Javelin" },
                         { name : "Hand Grenade" } ]
                 },
                 {
                     name: "Climbing",
-                    evolve: [
+                    list: [
                         { name : "Mountaineering" },
                         { name : "Free Climbing" } ]
                 }

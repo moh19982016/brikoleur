@@ -1,5 +1,6 @@
 define({
-    open : false,
+    name : "Trait",
+    closed: true,
     list : [
         {
             name : "Akoto Interface",
@@ -9,15 +10,15 @@ define({
                     name : "Blast",
                     mind : 1,
                     description : "Area attack with the zam’s base damage on an Immediate area. Standard difficulty.",
-                    evolve : {
+                    list : {
                         name : "Improved Blast",
                         mind : 4,
                         description : "Area attack on a Small area, with Mind cost added to zam’s damage. Difficulty of attack lowered by 1.",
-                        evolve : {
+                        list : {
                             name : "Expert Blast",
                             mind : 8,
                             description : "Area attack on a Medium area which ignores friendly targets, with Mind cost added to zam’s damage. Difficulty of attack lowered by 2.",
-                            evolve : {
+                            list : {
                                 name : "Master Blast",
                                 mind : 12,
                                 description : "Area attack on a Large area which ignores friendly targets, with Mind cost added to zam’s damage. Difficulty of attack lowered by 3."

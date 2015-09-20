@@ -2,7 +2,8 @@ define([ "dojo/_base/declare",
         "dojo/_base/lang",
         "dojo/dom-class",
         "dojo/topic",
-        "./_PowerControl",
+        "./_StuntControl",
+        "./_base/util",
         "../data/stunts",
         "../_FeaturePaneBase",
          "dojo/i18n!primejunta/brikoleur/nls//CharGen" ],
@@ -10,7 +11,8 @@ function( declare,
           lang,
           domClass,
           topic,
-          _PowerControl,
+          _StuntControl,
+          util,
           stunts,
           _FeaturePaneBase,
           i18n )
@@ -19,19 +21,59 @@ function( declare,
     {
         title : i18n.Stunts,
         icon : "crosshairs",
+        stuntsAllowed : 0,
+        controls : [],
         postCreate : function()
         {
-            this.own( topic.subscribe( "/CombatTrainingAdded/", lang.hitch( this, this._allowStunt ) ) );
-            this.own( topic.subscribe( "/StuntAdded/", lang.hitch( this, this._disAllowStunt ) ) );
+            this.own( topic.subscribe( "/TrainingAdded/", lang.hitch( this, this.checkStunt ) ) );
         },
-        _allowStunt  : function( knack )
+        checkStunt : function( control )
         {
-            this.own( new _PowerControl({ manager : this, link : knack } ).placeAt( this.containerNode ) );
-            domClass.replace( this.domNode, "br-powersAllowed", "br-powersNotAllowed" );
+            if( control.type == "combat" )
+            {
+                this.stuntsAllowed++;
+                this.enableAddStunt();
+            }
         },
-        _disAllowStunt : function( stunt )
+        enableAddStunt : function()
         {
-            domClass.replace( this.domNode, "br-powersNotAllowed", "br-powersAllowed" );
+            this.featureAdded();
+        },
+        featureAdded : function()
+        {
+            topic.publish( "/SelectedStunts/", util.getValues( this.controls ) );
+            this.checkCreateControl();
+            this.descendantFeatureAdded();
+        },
+        descendantFeatureAdded : function()
+        {
+            if( util.countItems( this.controls ) >= this.stuntsAllowed )
+            {
+                domClass.add( this.domNode, "br-maxPowers" );
+            }
+            else
+            {
+                domClass.remove( this.domNode, "br-maxPowers" );
+                this.checkCreateControl();
+            }
+        },
+        checkCreateControl : function()
+        {
+            if( !this._hasOpenStunt() )
+            {
+                this.controls.push( new _StuntControl({ parent : this } ).placeAt( this.containerNode ) );
+            }
+        },
+        _hasOpenStunt : function()
+        {
+            for( var i = 0; i < this.controls.length; i++ )
+            {
+                if( !this.controls[ i ].complete )
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     });
 });

@@ -4,7 +4,7 @@ define([ "dojo/_base/declare",
         "./_FieldBase",
         "dijit/form/Button",
         "dijit/form/NumberTextBox",
-        "./util" ],
+        "./oop/_base/util" ],
 function( declare,
           lang,
           topic,
@@ -32,14 +32,14 @@ function( declare,
         buyPoint : function( evt )
         {
             evt.stopPropagation();
-            if( CharacterGenerator.get( "juju" ) < this.cost )
+            if( Controller.get( "juju" ) < this.cost )
             {
                 util.showWarning( i18n.notEnoughJuju, this.controlNode );
             }
             else
             {
                 this.set( "value", this.get( "value" ) + 1 );
-                CharacterGenerator.set( "juju", CharacterGenerator.get( "juju" ) - this.cost );
+                Controller.set( "juju", Controller.get( "juju" ) - this.cost );
             }
         }
     });

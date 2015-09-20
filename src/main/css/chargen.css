@@ -2,6 +2,7 @@
 @import "../dojo/dijit/themes/claro/claro.css";
 @import "../font-awesome/css/font-awesome.min.css";
 
+/* Layout */
 .br-controller {
     position: fixed !important;
     top: 0;
@@ -52,6 +53,7 @@
     text-align:right;
 }
 
+/* Feature pane */
 .br-featurePane {
     display: block;
     position: relative;
@@ -136,10 +138,23 @@
     border-color: gold;
 }
 
-/* Training */
-.br-indented {
+/* Trees */
+.br-controlsDisabled .br-controlNode {
     display: none;
+}
+
+.br-indented {
     padding-left: 28px;
+}
+
+
+.br-emptyClosedList.br-controlNode {
+    display: none;
+}
+
+/* Powers */
+.br-maxPowers .br-controlNode {
+    display: none;
 }
 
 /* Field */
@@ -172,10 +187,6 @@
 }
 
 /* Character creation */
-.br-characterCreated .br-indented {
-    display: block;
-}
-
 .br-hideForNew {
     display: none;
 }
@@ -187,28 +198,6 @@
 .br-characterCreated .br-hideForCreated {
     display: none;
 }
-
-/* Powers */
-.br-powerSelectMode .br-indented, .br-powerSelectMode .br-valueNode  {
-    display: none;
-}
-
-.br-powerSelectedMode .br-indented {
-    display: block;
-}
-
-.br-powerSelectedMode .br-baseControlNode {
-    display: none;
-}
-
-.br-powersNotAllowed .br-controlNode  {
-    display: none;
-}
-
-.br-powersAllowed .br-controlNode {
-    display: block;
-}
-
 
 
 /* Dijits */

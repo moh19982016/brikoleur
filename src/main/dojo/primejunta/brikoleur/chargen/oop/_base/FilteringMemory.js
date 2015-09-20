@@ -13,6 +13,10 @@ define([ "dojo/_base/declare", "dojo/_base/array", "dojo/store/Memory" ], functi
                 }
             }
             return out;
+        },
+        getLabel : function( item )
+        {
+            return item.name;
         }
     });
 });
