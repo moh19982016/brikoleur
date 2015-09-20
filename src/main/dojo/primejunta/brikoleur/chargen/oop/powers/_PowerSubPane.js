@@ -1,5 +1,5 @@
 define([ "dojo/_base/declare",
-        "./_base/_FeatureSubPane",
+        "./../_base/_FeatureSubPane",
         "./_PowerControl" ],
 function( declare,
           _FeatureSubPane,

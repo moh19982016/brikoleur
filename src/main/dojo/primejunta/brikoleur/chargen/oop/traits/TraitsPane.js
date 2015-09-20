@@ -1,6 +1,6 @@
 define([ "dojo/_base/declare",
-        "./../_base/_FeaturePaneBase",
-        "./_base/_ControlPaneMixin",
+        "./../../_base/_FeaturePaneBase",
+        "./../_base/_ControlPaneMixin",
         "./_TraitControl",
         "dojo/i18n!primejunta/brikoleur/nls//CharGen" ],
 function( declare,
