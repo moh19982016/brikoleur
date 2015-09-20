@@ -55,11 +55,11 @@ function( declare,
             this.traitsPane = new TraitsPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
             this.knacksPane = new KnacksPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
             this.numbersPane = new NumbersPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.powersPane = new PowersPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.stuntsPane = new StuntsPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.ohunPane = new OhunPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.gearPane = new GearPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.descriptionPane = new DescriptionPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
+            this.powersPane = new PowersPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
+            this.stuntsPane = new StuntsPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
+            this.ohunPane = new OhunPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
+            this.gearPane = new GearPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
+            this.descriptionPane = new DescriptionPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
         },
         get : function( prop )
         {

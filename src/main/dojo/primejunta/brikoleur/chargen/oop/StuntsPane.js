@@ -44,6 +44,10 @@ function( declare,
             topic.publish( "/SelectedStunts/", util.getValues( this.controls ) );
             this.checkCreateControl();
             this.descendantFeatureAdded();
+            if( this.minimized )
+            {
+                this.maximize();
+            }
         },
         descendantFeatureAdded : function()
         {

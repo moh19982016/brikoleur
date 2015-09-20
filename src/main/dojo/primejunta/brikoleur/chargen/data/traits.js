@@ -57,15 +57,18 @@ define({
             ohun : [
                 {
                     name : "Vévés",
-                    description : "The santero invokes his lwa by drawing a vévé on a suitable surface. They are drawn on the spot. It takes a minimum of 1 round to draw one. The santero may draw as many vévés on a Job as he has Ohun slots, except for vévés which cost no juju, which can be drawn without limitations."
+                    description : "The santero invokes his lwa by drawing a vévé on a suitable surface. They are drawn on the spot. It takes a minimum of 1 round to draw one. The santero may draw as many vévés on a Job as he has Ohun slots, except for vévés which cost no juju, which can be drawn without limitations.",
+                    list : []
                 },
                 {
                     name : "Zombies",
-                    description : "Santeros can turn people into zombies through use of Scrolls prepared for them by their lwa. Each golem accompanying the santero uses one ohun slot."
+                    description : "Santeros can turn people into zombies through use of Scrolls prepared for them by their lwa. Each golem accompanying the santero uses one ohun slot.",
+                    list : []
                 },
                 {
                     name : "Golems",
-                    description : "Santeros can turn drones into golems through use of Scrolls prepared for them by their lwa. Each golem accompanying the santero uses one ohun slot."
+                    description : "Santeros can turn drones into golems through use of Scrolls prepared for them by their lwa. Each golem accompanying the santero uses one ohun slot.",
+                    list : []
                 }]
         }
     ]

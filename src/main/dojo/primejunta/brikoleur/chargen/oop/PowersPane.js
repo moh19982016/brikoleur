@@ -34,7 +34,7 @@ function( declare,
             this._store = new FilteringMemory({ data : util.listToStoreData( traits.list ) });
             topic.subscribe( "/SelectedTraits/", lang.hitch( this, this.setupPowers ) );
         },
-        setupPowers : function( traits )
+        setupPowers : function( traits ) // TODO: abstract out to cover Ohun
         {
             var values = util.getValues( this.controls );
             for( var i = 0; i < traits.length; i++ )

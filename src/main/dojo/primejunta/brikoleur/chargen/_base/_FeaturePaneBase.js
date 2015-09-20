@@ -23,6 +23,7 @@ function( declare,
         dock : {},
         animDuration : 300,
         container : {},
+        minimized : false,
         buildRendering : function()
         {
             this.inherited( arguments );
@@ -33,6 +34,11 @@ function( declare,
             this.containerNode = domConstruct.create( "div", { "class" : "br-featureContainer" }, this.domNode );
             this.own( on( tNode, "click", lang.hitch( this, this.minimize ) ) );
             this._button = new _DockButton({ pane : this }).placeAt( this.dock );
+            if( this.minimized )
+            {
+                this.domNode.style.display = "none";
+                domClass.remove( this._button.domNode, "br-dockIconMaximized" );
+            }
         },
         addField : function( prop, field )
         {

@@ -21,6 +21,10 @@ function( declare,
                 this.controls.push( new this.featureControl( lang.mixin( kwObj || {}, { parent : this } )).placeAt( this.containerNode ) );
             }
             topic.publish( this.selectedFeaturesTopic, util.getValues( this.controls ) );
+            if( this.minimized && this.maximize )
+            {
+                this.maximize();
+            }
         },
         descendantFeatureAdded : function()
         {
