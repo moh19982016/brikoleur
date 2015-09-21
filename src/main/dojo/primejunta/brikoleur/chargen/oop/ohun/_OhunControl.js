@@ -11,6 +11,7 @@ function( declare,
         data : {},
         selectedFeaturesTopic : "/SelectedOhun/",
         featureAddedTopic : "/OhunAdded/",
+        maxLevel : 0,
         propertyPresentWarning : i18n.PowerPresent
     });
 });

@@ -1,3 +1,11 @@
+/**
+ * Traits. Apart from the standard fields (name, description, list), traits have the following properties:
+ *
+ * ohun
+ * - defaults: not ad_hoc, min_level 1, not durable.
+ * powers
+ * features
+ */
 define({
     name : "Trait",
     closed: true,
@@ -27,28 +35,31 @@ define({
                     }]
                 }]
             }],
-            ohun : [{
-                name : "Fwés",
-                description : "Fwés are purpose-built artefacts deployed in Q-Space. They are consumed when used.",
-                list : [{
-                    "name" : "Armour",
-                    "level" : "$NUMBER",
-                    "description" : "Increases the user's armour by ${calc(4 * this.level)} for ${calc( 2 * level)} rounds."
+            ohun : [
+                {
+                    name : "Fwés",
+                    description : "Fwés are purpose-built artefacts deployed in Q-Space. They are consumed when used.",
+                    list : [{
+                        "name" : "Armour",
+                        "level" : "$NUMBER",
+                        "description" : "Increases the user's armour by ${calc(4 * this.level)} for ${calc( 2 * level)} rounds."
+                    },
+                    {
+                        "name" : "Damage",
+                        "level" : "$NUMBER",
+                        "description" : "Increases the user's zam damage by ${calc(4 * this.level)} for ${calc( 2 * level )} rounds."
+                    }]
                 },
                 {
-                    "name" : "Damage",
-                    "level" : "$NUMBER",
-                    "description" : "Increases the user's zam damage by ${calc(4 * this.level)} for ${calc( 2 * level )} rounds."
-                }]
-            },
-            {
-                name : "Esprís",
-                description : "Esprís are autonomous Q-Space constructs with a variety of capabilities. They are reusable unless destroyed.",
-                list : []
-            }],
+                    name : "Esprís",
+                    description : "Esprís are autonomous Q-Space constructs with a variety of capabilities. They are reusable unless destroyed.",
+                    list : []
+                }
+            ],
             features : [{
                 name : "Oga",
-                description : "Ogas are skill packages slotted into the Akoto interface. It takes 24 hours for an oga to integrate, but can be removed at any time. The user cannot jack into Q-Space when one is slotted."
+                description : "Ogas are skill packages slotted into the Akoto interface. It takes 24 hours for an oga to integrate, but can be removed at any time. The user cannot jack into Q-Space when one is slotted.",
+                list : []
             }]
         },
         {
@@ -57,19 +68,24 @@ define({
             ohun : [
                 {
                     name : "Vévés",
+                    min_level : 0,
+                    ad_hoc : true,
                     description : "The santero invokes his lwa by drawing a vévé on a suitable surface. They are drawn on the spot. It takes a minimum of 1 round to draw one. The santero may draw as many vévés on a Job as he has Ohun slots, except for vévés which cost no juju, which can be drawn without limitations.",
                     list : []
                 },
                 {
                     name : "Zombies",
+                    durable : true,
                     description : "Santeros can turn people into zombies through use of Scrolls prepared for them by their lwa. Each golem accompanying the santero uses one ohun slot.",
                     list : []
                 },
                 {
                     name : "Golems",
+                    durable : true,
                     description : "Santeros can turn drones into golems through use of Scrolls prepared for them by their lwa. Each golem accompanying the santero uses one ohun slot.",
                     list : []
-                }]
+                }
+            ]
         }
     ]
 });

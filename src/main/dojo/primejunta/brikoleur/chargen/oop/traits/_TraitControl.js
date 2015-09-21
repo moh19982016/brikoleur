@@ -14,6 +14,7 @@ function( declare,
         selectedFeaturesTopic : "/SelectedTraits/",
         featureAddedTopic : "/TraitAdded/",
         propertyPresentWarning : i18n.TraitPresent,
+        maxLevel : 0,
         closed : true
     });
 });

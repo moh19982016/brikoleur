@@ -38,6 +38,7 @@ function( declare,
         level : 0,
         parent : false,
         type : "",
+        maxLevel : 2,
         templateString : template,
         jujuChangedTopic : "/JujuChanged/",
         featureAddedTopic : "",
@@ -114,13 +115,14 @@ function( declare,
         addChildControl : function()
         {
             var child = this._store.get( this.value );
-            if( child && child.list )
+            if( child && child.list || this.level < this.maxLevel )
             {
                 this.controls.push( new Constr( lang.mixin( lang.clone( this.childProperties ), {
-                    data : child,
+                    data : child || { id : "", name : "", list : [] },
                     cost : this.get( "cost" ),
                     type : this.type,
                     level : this.level + 1,
+                    maxLevel : this.maxLevel,
                     childProperties : this.childProperties,
                     featureAddedTopic : this.featureAddedTopic,
                     selectedFeaturesTopic : this.selectedFeaturesTopic + "-" + this.value,

@@ -12,6 +12,7 @@ function( declare,
         selectedFeaturesTopic : "/SelectedPowers/",
         featureAddedTopic : "/PowerAdded/",
         propertyPresentWarning : i18n.PowerPresent,
+        maxLevel : 3,
         childProperties : {
             getCost : function()
             {
