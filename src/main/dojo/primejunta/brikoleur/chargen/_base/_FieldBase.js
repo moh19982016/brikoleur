@@ -27,22 +27,38 @@ function( declare,
         },
         set : function( prop, val )
         {
-            this.inherited( arguments );
-            this._input.set( prop, val );
+            if( prop == "state" )
+            {
+                this._setState( val );
+            }
+            else
+            {
+                this.inherited( arguments );
+                this._input.set( prop, val );
+            }
         },
         get : function( prop )
         {
             if( prop == "state" )
             {
-                return {
-                    name : this.name,
-                    value : this._input.get( "value" )
-                }
+                return this._getState();
             }
             else
             {
                 return this._input.get( prop );
             }
+        },
+        _getState : function()
+        {
+            return {
+                name : this.name,
+                value : this._input.get( "value" )
+            }
+        },
+        _setState : function( state )
+        {
+            this.name = state.name;
+            this._input.set( "value", state.value );
         }
     });
 });

@@ -1,6 +1,7 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
         "dojo/_base/array",
+        "dojo/json",
          "./_base/DynamicGrid",
          "./oop/NamePane",
          "./oop/description/DescriptionPane",
@@ -25,6 +26,7 @@ define([ "dojo/_base/declare",
 function( declare,
           lang,
           array,
+          json,
           DynamicGrid,
           NamePane,
           DescriptionPane,
@@ -68,6 +70,14 @@ function( declare,
         {
             console.log( this.get( "state" ) );
         },
+        saveState : function()
+        {
+            window.localStorage._debugState = json.stringify( this.get( "state" ) );
+        },
+        loadState : function()
+        {
+            this.set( "state", json.parse( window.localStorage._debugState ) );
+        },
         get : function( prop )
         {
             if( prop == "juju" )
@@ -97,6 +107,13 @@ function( declare,
             if( prop == "juju" )
             {
                 this._panes.name.jujuInput.set( "value", val );
+            }
+            else if( prop == "state" )
+            {
+                for( var o in this._panes )
+                {
+                    this._panes[ o ].set( "state", val[ o ] );
+                }
             }
             else
             {

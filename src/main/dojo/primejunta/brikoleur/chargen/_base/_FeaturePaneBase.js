@@ -86,12 +86,7 @@ function( declare,
             }
             else if( prop == "state" )
             {
-                var out = [];
-                for( var i = 0; i < this.controls.length; i++ )
-                {
-                    out.push( this.controls[ i ].get( "state" ) );
-                }
-                return out;
+                return this._getState();
             }
             else if( this._props[ prop ] )
             {
@@ -107,6 +102,10 @@ function( declare,
             if( this._props[ prop ] )
             {
                 this._props[ prop ].set( "value", val );
+            }
+            else if( prop == "state" )
+            {
+                this._setState( val );
             }
             else
             {
@@ -141,6 +140,22 @@ function( declare,
             node.style.top = coords.y + "px";
             node.style.width = coords.w + "px";
             node.style.height = coords.h + "px";
+        },
+        _getState : function()
+        {
+            var out = [];
+            for( var i = 0; i < this.controls.length; i++ )
+            {
+                out.push( this.controls[ i ].get( "state" ) );
+            }
+            return out;
+        },
+        _setState : function( state )
+        {
+            for( var i = 0; i < this.controls.length; i++ )
+            {
+                this.controls[ i ].set( "state", state[ i ] );
+            }
         }
     });
 });

@@ -31,6 +31,32 @@ function( declare,
         publishJuju : function()
         {
             topic.publish( "/StatChanged/-juju", this.jujuInput.get( "value" ) );
+        },
+        get : function( prop )
+        {
+            if( prop == "state" )
+            {
+                return {
+                    characterName : this.nameInput.get( "value" ),
+                    juju : this.jujuInput.get( "value" )
+                }
+            }
+            else
+            {
+                return this.inherited( arguments );
+            }
+        },
+        set : function( prop, val )
+        {
+            if( prop == "state" )
+            {
+                this.nameInput.set( "value", val.characterName );
+                this.jujuInput.set( "value", val.juju );
+            }
+            else
+            {
+                this.inherited( arguments );
+            }
         }
     });
 });
