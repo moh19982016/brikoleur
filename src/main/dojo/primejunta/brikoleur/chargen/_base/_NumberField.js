@@ -1,5 +1,6 @@
 define([ "dojo/_base/declare",
         "dojo/_base/lang",
+        "dojo/on",
         "dojo/topic",
         "./_FieldBase",
         "dijit/form/Button",
@@ -7,6 +8,7 @@ define([ "dojo/_base/declare",
         "./util" ],
 function( declare,
           lang,
+          on,
           topic,
           _FieldBase,
           Button,
@@ -23,11 +25,15 @@ function( declare,
             {
                 this._input.set( "readonly", true );
                 this._incrementButton = new Button({ label : "<i class='fa fa-plus-square'></i>", onClick: lang.hitch( this, this.buyPoint ) } ).placeAt( this.controlNode );
-                topic.subscribe( "/JujuChanged/", lang.hitch( this, function( juju )
+                topic.subscribe( "/StatChanged/-juju", lang.hitch( this, function( juju )
                 {
                     this._incrementButton.domNode.style.display = juju < this.cost  ? "none" : "unset";
                 }))
             }
+            this.own( on( this._input, "change", lang.hitch( this, function( val )
+            {
+                topic.publish( "/StatChanged/-" + this.name, val );
+            })));
         },
         buyPoint : function( evt )
         {

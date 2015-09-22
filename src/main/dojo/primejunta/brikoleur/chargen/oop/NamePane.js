@@ -30,7 +30,7 @@ function( declare,
         templateString : template,
         publishJuju : function()
         {
-            topic.publish( "/JujuChanged/", this.jujuInput.get( "value" ) );
+            topic.publish( "/StatChanged/-juju", this.jujuInput.get( "value" ) );
         }
     });
 });

@@ -15,12 +15,12 @@ function( declare,
         icon : "calculator",
         postCreate : function()
         {
-            this.addField( "body", new _NumberField({ title : i18n.Body, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1 } ) );
-            this.addField( "mind", new _NumberField({ title : i18n.Mind, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1  } ) );
-            this.addField( "stamina", new _NumberField({ title : i18n.Stamina, value : 12, readonly : true } ) );
-            this.addField( "armour", new _NumberField({ title : i18n.Armour, value : 0 } ) );
-            this.addField( "aps", new _NumberField({ title : i18n.ActivePowerSlots, value : 2, cost : 4 } ) );
-            this.addField( "os", new _NumberField({ title : i18n.OhunSlots, value : 2, cost : 4 } ) );
+            this.addField( "body", _NumberField, { title : i18n.Body, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1 } );
+            this.addField( "mind", _NumberField, { title : i18n.Mind, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1  } );
+            this.addField( "stamina", _NumberField, { title : i18n.Stamina, value : 12, readonly : true } );
+            this.addField( "armour", _NumberField, { title : i18n.Armour, value : 0 } );
+            this.addField( "aps", _NumberField, { title : i18n.ActivePowerSlots, value : 2, cost : 4 } );
+            this.addField( "os", _NumberField, { title : i18n.OhunSlots, value : 2, cost : 4 } );
         },
         _recalcStamina : function()
         {

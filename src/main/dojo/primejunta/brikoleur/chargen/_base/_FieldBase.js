@@ -13,13 +13,14 @@ function( declare,
 {
     return declare([ _WidgetBase, _TemplatedMixin ], {
         title : "",
+        name : "",
         templateString : template,
         inputWidget : TextBox,
         readonly : false,
         buildRendering : function()
         {
             this.inherited( arguments );
-            this._input = new this.inputWidget({ readonly : this.readonly, onChange : this.onChange }).placeAt( this.controlNode );
+            this._input = new this.inputWidget({ name : this.name, readonly : this.readonly, onChange : this.onChange }).placeAt( this.controlNode );
         },
         onChange : function()
         {

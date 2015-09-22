@@ -40,7 +40,7 @@ function( declare,
         type : "",
         maxLevel : 2,
         templateString : template,
-        jujuChangedTopic : "/JujuChanged/",
+        jujuChangedTopic : "/StatChanged/-juju",
         featureAddedTopic : "",
         selectedFeaturesTopic : "",
         childProperties : {},
@@ -79,13 +79,8 @@ function( declare,
         },
         addItem : function()
         {
-            var _value = this._selector.get( "value" );
-            if( array.indexOf( util.getValues( this.parent.controls ), _value ) != -1 )
-            {
-                util.showWarning( this.propertyPresentWarning, this._selector.domNode );
-                return;
-            }
-            else if( _value )
+            var _value = this._readValue();
+            if( _value && this.mayAdd( _value ) )
             {
                 this.set( "value", _value );
             }
@@ -103,6 +98,18 @@ function( declare,
             this.controlNode.style.display = "none";
             this.displayNode.style.display = "block";
             topic.publish( this.featureAddedTopic, this );
+        },
+        mayAdd : function( value )
+        {
+            if( array.indexOf( util.getValues( this.parent.controls ), value ) != -1 )
+            {
+                util.showWarning( this.propertyPresentWarning, this._selector.domNode );
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         },
         countItems : function()
         {
@@ -186,6 +193,10 @@ function( declare,
                 }
             }
             this.inherited( arguments );
+        },
+        _readValue : function()
+        {
+            return this._selector.get( "value" );
         },
         _updateFilter : function( filter )
         {

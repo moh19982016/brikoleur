@@ -40,10 +40,10 @@ function( declare,
                 domClass.remove( this._button.domNode, "br-dockIconMaximized" );
             }
         },
-        addField : function( prop, field )
+        addField : function( prop, constr, props )
         {
-            this._props[ prop ] = field;
-            field.placeAt( this.containerNode );
+            props.name = prop;
+            this._props[ prop ] = new constr( props ).placeAt( this.containerNode );
         },
         minimize : function()
         {
@@ -80,7 +80,7 @@ function( declare,
         {
             if( prop == "properties" )
             {
-                return this._props.keys();
+                return Object.keys( this._props );
             }
             else if( this._props[ prop ] )
             {

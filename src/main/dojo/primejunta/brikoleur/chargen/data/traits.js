@@ -2,7 +2,6 @@
  * Traits. Apart from the standard fields (name, description, list), traits have the following properties:
  *
  * ohun
- * - defaults: not ad_hoc, min_level 1, not durable.
  * powers
  * features
  */
@@ -52,7 +51,8 @@ define({
                 },
                 {
                     name : "Esprís",
-                    description : "Esprís are autonomous Q-Space constructs with a variety of capabilities. They are reusable unless destroyed.",
+                    type : "persistent",
+                    description : "Esprís are autonomous Q-Space constructs with a variety of capabilities. They are reusable unless destroyed. Each esprí takes up an ohun slot, whether active or not.",
                     list : []
                 }
             ],
@@ -69,20 +69,21 @@ define({
                 {
                     name : "Vévés",
                     min_level : 0,
-                    ad_hoc : true,
-                    description : "The santero invokes his lwa by drawing a vévé on a suitable surface. They are drawn on the spot. It takes a minimum of 1 round to draw one. The santero may draw as many vévés on a Job as he has Ohun slots, except for vévés which cost no juju, which can be drawn without limitations.",
+                    type : "ad-hoc",
+                    verb : "inscribe",
+                    description : "While preparation such as intel can help make them, vévés are drawn in the field. The santero invokes his lwa by drawing a vévé on a suitable surface. They are drawn on the spot. It takes a minimum of 1 round to draw one. Vévés which cost no juju may can be drawn without limitations.",
                     list : []
                 },
                 {
                     name : "Zombies",
-                    durable : true,
-                    description : "Santeros can turn people into zombies through use of Scrolls prepared for them by their lwa. Each golem accompanying the santero uses one ohun slot.",
+                    type : "persistent",
+                    description : "Santeros can turn humans or other organics into zombies by connecting a Q-tech Scroll prepared for them by their lwa to their Akoto or Military Neural interface. Each golem accompanying the santero uses one ohun slot.",
                     list : []
                 },
                 {
                     name : "Golems",
-                    durable : true,
-                    description : "Santeros can turn drones into golems through use of Scrolls prepared for them by their lwa. Each golem accompanying the santero uses one ohun slot.",
+                    type : "persistent",
+                    description : "Santeros can turn drones into golems by connecting a Q-tech Scroll prepared for them by their lwa to their control module. Each golem accompanying the santero uses one ohun slot.",
                     list : []
                 }
             ]

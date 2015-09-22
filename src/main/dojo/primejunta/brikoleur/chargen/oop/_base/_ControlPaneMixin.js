@@ -49,6 +49,10 @@ function( declare,
                 this.maximize();
             }
         },
+        countItems : function()
+        {
+            return util.countItems( this.controls );
+        },
         descendantFeatureAdded : function()
         {
         }
