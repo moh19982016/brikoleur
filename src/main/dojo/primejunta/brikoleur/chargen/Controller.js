@@ -50,28 +50,42 @@ function( declare,
     return declare([ LayoutContainer, _TemplatedMixin, _WidgetsInTemplateMixin  ], {
         dict : i18n,
         templateString : template,
+        _panes : {},
         postCreate : function()
         {
             window.Controller = this;
-            this.namePane = new NamePane().placeAt( this.nameContainer );
-            this.traitsPane = new TraitsPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.knacksPane = new KnacksPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.numbersPane = new NumbersPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.powersPane = new PowersPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.ohunPane = new OhunPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.stuntsPane = new StuntsPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.gearPane = new GearPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
-            this.descriptionPane = new DescriptionPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid );
+            this._addPane( "name", new NamePane().placeAt( this.nameContainer ) );
+            this._addPane( "traits", new TraitsPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
+            this._addPane( "knacks", new KnacksPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
+            this._addPane( "numbers", new NumbersPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
+            this._addPane( "powers", new PowersPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
+            this._addPane( "ohun", new OhunPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
+            this._addPane( "stunts", new StuntsPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
+            this._addPane( "gear", new GearPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
+            this._addPane( "description", new DescriptionPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
+        },
+        logState : function()
+        {
+            console.log( this.get( "state" ) );
         },
         get : function( prop )
         {
             if( prop == "juju" )
             {
-                return this.namePane.jujuInput.get( "value" );
+                return this._panes.name.jujuInput.get( "value" );
             }
-            else if( array.indexOf( this.numbersPane.get( "properties" ), prop ) != -1 )
+            else if( prop == "state" )
             {
-                return this.numbersPane.get( prop );
+                var out = {};
+                for( var o in this._panes )
+                {
+                    out[ o ] = this._panes[ o ].get( "state" );
+                }
+                return out;
+            }
+            else if( array.indexOf( this._panes.numbers.get( "properties" ), prop ) != -1 )
+            {
+                return this._panes.numbers.get( prop );
             }
             else
             {
@@ -82,12 +96,16 @@ function( declare,
         {
             if( prop == "juju" )
             {
-                this.namePane.jujuInput.set( "value", val );
+                this._panes.name.jujuInput.set( "value", val );
             }
             else
             {
                 this.inherited( arguments );
             }
+        },
+        _addPane : function( point, pane )
+        {
+            this._panes[ point ] = pane;
         }
     });
 });

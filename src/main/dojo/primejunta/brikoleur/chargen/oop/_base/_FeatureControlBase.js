@@ -47,6 +47,10 @@ function( declare,
         postCreate : function()
         {
             this.controls = [];
+            this.state = {
+                name : this.data.name,
+                value : false
+            };
             if( this.data.type )
             {
                 this.type = this.data.type;
@@ -83,6 +87,7 @@ function( declare,
             if( _value && this.mayAdd( _value ) )
             {
                 this.set( "value", _value );
+                this.set( "state", this._readState() );
             }
             else
             {
@@ -170,6 +175,16 @@ function( declare,
             {
                 return this.getCost();
             }
+            else if( prop == "state" )
+            {
+                var chld = [];
+                for( var i = 0; i < this.controls.length; i++ )
+                {
+                    chld.push( this.controls[ i ].get( "state" ) );
+                }
+                this.state.controls = chld;
+                return this.state;
+            }
             else
             {
                 return this.inherited( arguments );
@@ -197,6 +212,10 @@ function( declare,
         _readValue : function()
         {
             return this._selector.get( "value" );
+        },
+        _readState : function()
+        {
+            return { name : this.data.name, value : this._readValue() };
         },
         _updateFilter : function( filter )
         {

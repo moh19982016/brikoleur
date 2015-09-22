@@ -84,6 +84,21 @@ function( declare,
         {
             return "(L" + this._levelSelector.get( "value" ) + ") " + this._selector.get( "value" );
         },
+        _readState : function()
+        {
+            if( this._levelSelector )
+            {
+                return {
+                    name : this.data.name,
+                    level : this._levelSelector.get( "value" ),
+                    value : this._selector.get( "value" )
+                }
+            }
+            else
+            {
+                return this.inherited( arguments );
+            }
+        },
         _updateState : function()
         {
             var count = util.countItems( this.parent.parent.controls );

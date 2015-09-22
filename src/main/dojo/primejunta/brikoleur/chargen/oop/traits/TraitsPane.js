@@ -12,7 +12,7 @@ function( declare,
     return declare([ _FeaturePaneBase, _ControlPaneMixin ],
     {
         title : i18n.Traits,
-        icon : "magic",
+        icon : "asterisk",
         allowedControls : 2,
         featureControl : _TraitControl,
         selectedFeaturesTopic : "/SelectedTraits/"

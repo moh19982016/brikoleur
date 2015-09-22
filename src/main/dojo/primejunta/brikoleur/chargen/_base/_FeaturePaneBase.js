@@ -27,6 +27,7 @@ function( declare,
         buildRendering : function()
         {
             this.inherited( arguments );
+            this.controls = [];
             this._props = {};
             domClass.add( this.domNode, "br-featurePane" );
             var tNode = domConstruct.create( "div", { "class" : "br-featureTitle", innerHTML : "<div><i class=\"fa fa-" + this.icon + "\"></i>&nbsp;&nbsp;" + this.title + "</div>" }, this.domNode, "first" )
@@ -44,6 +45,7 @@ function( declare,
         {
             props.name = prop;
             this._props[ prop ] = new constr( props ).placeAt( this.containerNode );
+            this.controls.push( this._props[ prop ] );
         },
         minimize : function()
         {
@@ -81,6 +83,15 @@ function( declare,
             if( prop == "properties" )
             {
                 return Object.keys( this._props );
+            }
+            else if( prop == "state" )
+            {
+                var out = [];
+                for( var i = 0; i < this.controls.length; i++ )
+                {
+                    out.push( this.controls[ i ].get( "state" ) );
+                }
+                return out;
             }
             else if( this._props[ prop ] )
             {

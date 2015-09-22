@@ -32,7 +32,17 @@ function( declare,
         },
         get : function( prop )
         {
-            return this._input.get( prop );
+            if( prop == "state" )
+            {
+                return {
+                    name : this.name,
+                    value : this._input.get( "value" )
+                }
+            }
+            else
+            {
+                return this._input.get( prop );
+            }
         }
     });
 });

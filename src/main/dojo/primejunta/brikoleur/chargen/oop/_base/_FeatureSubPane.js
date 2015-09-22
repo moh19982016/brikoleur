@@ -21,6 +21,22 @@ function( declare,
             kwObj = kwObj || {};
             kwObj.data = this.data;
             this.inherited( arguments, [ kwObj ] );
+        },
+        get : function( prop )
+        {
+            if( prop == "state" )
+            {
+                var ctl = [];
+                for( var i = 0; i < this.controls.length; i++ )
+                {
+                    ctl.push( this.controls[ i ].get( "state" ) );
+                }
+                return { name : this.data.name, controls : ctl }
+            }
+            else
+            {
+                return this.inherited( arguments );
+            }
         }
     });
 });
