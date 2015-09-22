@@ -14,6 +14,7 @@ define({
         "Numbers" : "Numbers",
         "Traits" : "Traits",
         "Knacks" : "Knacks",
+        "KnacksAndTraining" : "Knacks and Training",
         "Powers" : "Powers",
         "Stunts" : "Stunts",
         "Ohun" : "Ohun",

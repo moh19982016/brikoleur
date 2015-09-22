@@ -6,6 +6,6 @@ function( declare, _FeaturePaneBase, i18n )
     return declare([ _FeaturePaneBase ],
     {
         title : i18n.Gear,
-        icon : "cog"
+        icon : "suitcase"
     });
 });

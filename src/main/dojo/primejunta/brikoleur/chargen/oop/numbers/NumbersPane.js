@@ -12,7 +12,7 @@ function( declare,
     return declare([ _FeaturePaneBase ],
     {
         title : i18n.Numbers,
-        icon : "calculator",
+        icon : "dashboard",
         postCreate : function()
         {
             this.addField( "body", _NumberField, { title : i18n.Body, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1 } );
