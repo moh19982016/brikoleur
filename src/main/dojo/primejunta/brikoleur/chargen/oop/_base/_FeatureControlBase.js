@@ -95,19 +95,20 @@ function( declare,
             {
                 return;
             }
-            this.complete = true;
+            this.markComplete();
             this.addChildControl();
             if( this.parent )
             {
                 this.parent.featureAdded();
             }
             Controller.set( "juju", Controller.get( "juju" ) - this.getCost() );
+            topic.publish( this.featureAddedTopic, this );
+        },
+        markComplete : function()
+        {
+            this.complete = true;
             this.controlNode.style.display = "none";
             this.displayNode.style.display = "block";
-            if( !Controller.loading )
-            {
-                topic.publish( this.featureAddedTopic, this );
-            }
         },
         mayAdd : function( value )
         {
@@ -134,20 +135,26 @@ function( declare,
             var child = this._store.get( this.value );
             if( child && child.list || this.level < this.maxLevel )
             {
-                this.controls.push( new Constr( lang.mixin( lang.clone( this.childProperties ), {
-                    data : child || { id : "", name : "", list : [] },
-                    cost : this.get( "cost" ),
-                    type : this.type,
-                    level : this.level + 1,
-                    key : this.key,
-                    maxLevel : this.maxLevel,
-                    childProperties : this.childProperties,
-                    featureAddedTopic : this.featureAddedTopic,
-                    selectedFeaturesTopic : this.selectedFeaturesTopic + "-" + this.value,
-                    propertyPresentWarning : this.propertyPresentWarning,
-                    parent : this
-                })).placeAt( this.childrenNode ) );
+                this.createChildControl( child );
             }
+        },
+        createChildControl : function( child )
+        {
+            var ctl = new Constr( lang.mixin( lang.clone( this.childProperties ), {
+                data : child || { id : "", name : "", list : [] },
+                cost : this.get( "cost" ),
+                type : this.type,
+                level : this.level + 1,
+                key : this.key,
+                maxLevel : this.maxLevel,
+                childProperties : this.childProperties,
+                featureAddedTopic : this.featureAddedTopic,
+                selectedFeaturesTopic : this.selectedFeaturesTopic + "-" + this.value,
+                propertyPresentWarning : this.propertyPresentWarning,
+                parent : this
+            })).placeAt( this.childrenNode );
+            this.controls.push( ctl );
+            return ctl;
         },
         featureAdded : function()
         {
@@ -198,6 +205,14 @@ function( declare,
             if( prop == "value" )
             {
                 this.valueNode.innerHTML = val;
+                if( this._selector )
+                {
+                    this._selector.set( "value", val );
+                }
+            }
+            else if( prop == "state" )
+            {
+                this._setState( val );
             }
             else if( prop == "disabled" )
             {
@@ -212,9 +227,21 @@ function( declare,
             }
             this.inherited( arguments );
         },
+        clear : function()
+        {
+            while( this.controls.length > 0 )
+            {
+                this.controls.pop().destroy();
+            }
+        },
         _readValue : function()
         {
             return this._selector.get( "value" );
+        },
+        _writeValue : function( val )
+        {
+            this.set( "value",  val );
+            this._selector.set( "value", val );
         },
         _readState : function()
         {
@@ -229,6 +256,20 @@ function( declare,
             }
             this.state.controls = chld;
             return this.state;
+        },
+        _setState : function( state )
+        {
+            this.clear();
+            this.state = state;
+            if( state.value )
+            {
+                this.set( "value", state.value );
+                this.markComplete();
+                for( var i = 0; i < state.controls.length; i++ )
+                {
+                    this.createChildControl().set( "state", state.controls[ i ] );
+                }
+            }
         },
         _updateFilter : function( filter )
         {

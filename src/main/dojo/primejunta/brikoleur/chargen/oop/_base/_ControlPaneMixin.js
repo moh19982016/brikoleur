@@ -42,7 +42,7 @@ function( declare,
         {
             if( this.allowedControls < 0 || this.controls.length < this.allowedControls )
             {
-                this.controls.push( new this.featureControl( lang.mixin( kwObj || {}, { parent : this } )).placeAt( this.containerNode ) );
+                this.addControl( kwObj );
             }
             if( !Controller.loading )
             {
@@ -53,6 +53,12 @@ function( declare,
                 this.maximize();
             }
         },
+        addControl : function( kwObj )
+        {
+            var ctl = new this.featureControl( lang.mixin( kwObj || {}, { parent : this } )).placeAt( this.containerNode );
+            this.controls.push( ctl );
+            return ctl;
+        },
         countItems : function()
         {
             return util.countItems( this.controls );
@@ -60,9 +66,20 @@ function( declare,
         descendantFeatureAdded : function()
         {
         },
+        clear : function()
+        {
+            while( this.controls.length > 0 )
+            {
+                this.controls.pop().destroy();
+            }
+        },
         _setState : function( state )
         {
-            console.log( "SET STATE FROM", state );
+            this.clear();
+            for( var i = 0; i < state.length; i++ )
+            {
+                this.addControl().set( "state", state[ i ] );
+            }
         }
     });
 });

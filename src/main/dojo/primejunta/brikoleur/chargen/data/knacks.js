@@ -9,19 +9,6 @@ define( {
             closed: true,
             list: [
                 {
-                    name: "Ranged Defence",
-                    description: "Reduces difficulty of defending against ranged attacks.",
-                    closed: true,
-                    list: [
-                        {
-                            name: "Ranged Defence (Urban Terrain)",
-                        },
-                        {
-                            name: "Ranged Defence (Natural Terrain)"
-                        }
-                    ]
-                },
-                {
                     name: "Light Ranged Weapons",
                     description: "Covers one-handed, pistol-type ranged weapons, including hand crossbows, and submachine guns.",
                     list: [
@@ -53,6 +40,19 @@ define( {
                         { name: "Grenade Launcher" },
                         { name: "Heavy Sniper Rifle" },
                         { name: "Heavy Machine Gun" }
+                    ]
+                },
+                {
+                    name: "Ranged Defence",
+                    description: "Reduces difficulty of defending against ranged attacks.",
+                    closed: true,
+                    list: [
+                        {
+                            name: "Ranged Defence (Urban Terrain)",
+                        },
+                        {
+                            name: "Ranged Defence (Natural Terrain)"
+                        }
                     ]
                 }
             ]
