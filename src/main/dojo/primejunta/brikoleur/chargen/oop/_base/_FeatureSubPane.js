@@ -35,6 +35,17 @@ function( declare,
                 return this.inherited( arguments );
             }
         },
+        set : function( prop, val )
+        {
+            if( prop == "state" )
+            {
+                this._setState( val );
+            }
+            else
+            {
+                return this.inherited( arguments );
+            }
+        },
         _getState : function()
         {
             var ctl = [];
@@ -46,6 +57,14 @@ function( declare,
                 name : this.data.name,
                 key : this.key,
                 controls : ctl
+            }
+        },
+        _setState : function( state )
+        {
+            this.inherited( arguments );
+            for( var i = 0; i < state.controls.length; i++ )
+            {
+                this.addControl({ data : this.data }).set( "state", state.controls[ i ] );
             }
         }
     });

@@ -56,7 +56,7 @@ function( declare,
                 opts.push({ value : "" + i, label : "" + i });
             }
             this._levelSelector = new Select({ options : opts }).placeAt( this.levelSelectorNode );
-            this._levelSelector.own( on( this._levelSelector, "change", lang.hitch( this, this._checkAddButton ) ) );
+            this._levelSelector.own( on( this._levelSelector, "change", lang.hitch( this, this._onLevelChange ) ) );
             if( this._level )
             {
                 this._levelSelector.set( "value", this._level );
@@ -82,7 +82,7 @@ function( declare,
         },
         _readValue : function()
         {
-            return "(L" + this._levelSelector.get( "value" ) + ") " + this._selector.get( "value" );
+            return "(L" + this.level + ") " + this.value;
         },
         _readState : function()
         {
@@ -119,9 +119,27 @@ function( declare,
                 domClass.remove( this.domNode, "br-controlsDisabled" );
             }
         },
+        _onLevelChange : function( val )
+        {
+            this.level = val;
+            this._checkAddButton();
+        },
         _checkAddButton : function()
         {
             this.addButton.set( "disabled", parseInt( this._levelSelector.get( "value" ) ) > Controller.get( "juju" ) );
+        },
+        _setValue : function( val )
+        {
+            this.valueNode.innerHTML = "(" + this.level + ") " +  val;
+            if( this._selector )
+            {
+                this._selector.set( "value", val );
+            }
+        },
+        _setState : function( state )
+        {
+            this.level = state.level;
+            this.inherited( arguments );
         }
     });
 });

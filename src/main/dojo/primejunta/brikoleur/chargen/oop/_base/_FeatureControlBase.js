@@ -1,6 +1,7 @@
 define([ "dojo/_base/declare",
         "dojo/_base/lang",
         "dojo/_base/array",
+        "dojo/on",
         "dojo/topic",
         "dojo/dom-class",
         "dijit/form/Select",
@@ -16,6 +17,7 @@ define([ "dojo/_base/declare",
 function( declare,
           lang,
           array,
+          on,
           topic,
           domClass,
           Select,
@@ -81,6 +83,7 @@ function( declare,
             {
                 domClass.remove( this.controlNode, "br-emptyClosedList" );
                 this._selector = new ( this.data.closed ? Select : ComboBox )({ store : this._store, placeholder : i18n.SelectOrType }).placeAt( this.selectorNode );
+                this._selector.own( on( this._selector, "change", lang.hitch( this, this.set, "value" ) ) );
             }
         },
         addItem : function()
@@ -204,11 +207,7 @@ function( declare,
         {
             if( prop == "value" )
             {
-                this.valueNode.innerHTML = val;
-                if( this._selector )
-                {
-                    this._selector.set( "value", val );
-                }
+                this._setValue( val );
             }
             else if( prop == "state" )
             {
@@ -232,6 +231,14 @@ function( declare,
             while( this.controls.length > 0 )
             {
                 this.controls.pop().destroy();
+            }
+        },
+        _setValue : function( val )
+        {
+            this.valueNode.innerHTML = val;
+            if( this._selector )
+            {
+                this._selector.set( "value", val );
             }
         },
         _readValue : function()
@@ -265,7 +272,7 @@ function( declare,
             {
                 this.set( "value", state.value );
                 this.markComplete();
-                for( var i = 0; i < state.controls.length; i++ )
+                for( var i = 0; i < ( state.controls || [] ).length; i++ )
                 {
                     this.createChildControl().set( "state", state.controls[ i ] );
                 }
