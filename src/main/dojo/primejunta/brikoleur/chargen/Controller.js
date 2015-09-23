@@ -76,6 +76,7 @@ function( declare,
         },
         loadState : function()
         {
+            console.log( "LOAD FROM", json.parse( window.localStorage._debugState ) );
             this.set( "state", json.parse( window.localStorage._debugState ) );
         },
         get : function( prop )
@@ -110,10 +111,12 @@ function( declare,
             }
             else if( prop == "state" )
             {
+                this.loading = true;
                 for( var o in this._panes )
                 {
                     this._panes[ o ].set( "state", val[ o ] );
                 }
+                this.loading = false;
             }
             else
             {

@@ -39,7 +39,10 @@ function( declare,
         },
         featureAdded : function()
         {
-            topic.publish( "/SelectedStunts/", util.getValues( this.controls ) );
+            if( !Controller.loading )
+            {
+                topic.publish( "/SelectedStunts/", util.getValues( this.controls ) );
+            }
             this.checkCreateControl();
             this.descendantFeatureAdded();
             if( this.minimized )

@@ -30,7 +30,10 @@ function( declare,
         templateString : template,
         publishJuju : function()
         {
-            topic.publish( "/StatChanged/-juju", this.jujuInput.get( "value" ) );
+            if( !Controller.loading )
+            {
+                topic.publish( "/StatChanged/-juju", this.jujuInput.get( "value" ) );
+            }
         },
         get : function( prop )
         {

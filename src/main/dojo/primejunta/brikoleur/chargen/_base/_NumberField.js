@@ -32,7 +32,10 @@ function( declare,
             }
             this.own( on( this._input, "change", lang.hitch( this, function( val )
             {
-                topic.publish( "/StatChanged/-" + this.name, val );
+                if( !Controller.loading )
+                {
+                    topic.publish( "/StatChanged/-" + this.name, val );
+                }
             })));
         },
         buyPoint : function( evt )

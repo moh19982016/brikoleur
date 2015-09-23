@@ -104,7 +104,10 @@ function( declare,
             Controller.set( "juju", Controller.get( "juju" ) - this.getCost() );
             this.controlNode.style.display = "none";
             this.displayNode.style.display = "block";
-            topic.publish( this.featureAddedTopic, this );
+            if( !Controller.loading )
+            {
+                topic.publish( this.featureAddedTopic, this );
+            }
         },
         mayAdd : function( value )
         {
@@ -149,7 +152,10 @@ function( declare,
         featureAdded : function()
         {
             this.addChildControl();
-            topic.publish( this.selectedFeaturesTopic + "-" + this.value, this.listFeatures() );
+            if( !Controller.loading )
+            {
+                topic.publish( this.selectedFeaturesTopic + "-" + this.value, this.listFeatures() );
+            }
             this.descendantFeatureAdded();
         },
         descendantFeatureAdded : function()
