@@ -38,12 +38,15 @@ function( lang, on, Tooltip )
                 return false;
             }
         },
-        getValues : function( controls )
+        getValues : function( controls, self )
         {
             var out = [];
             for( var i = 0; i < controls.length; i++ )
             {
-                out.push( controls[ i ].get( "value" ) );
+                if( controls[ i ] !== self )
+                {
+                    out.push( controls[ i ].get( "value" ) );
+                }
             }
             return out;
         },
