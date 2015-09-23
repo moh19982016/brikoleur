@@ -274,7 +274,7 @@ function( declare,
                 this.markComplete();
                 for( var i = 0; i < ( state.controls || [] ).length; i++ )
                 {
-                    this.createChildControl().set( "state", state.controls[ i ] );
+                    this.createChildControl( this._store.get( this.value ) ).set( "state", state.controls[ i ] );
                 }
             }
         },
