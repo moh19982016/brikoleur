@@ -29,6 +29,7 @@ function( declare,
                         for( var j = 0; j < items.length; j++ )
                         {
                             this.featureAdded({
+                                key : features[ i ],
                                 value : features[ i ],
                                 data : items[ j ]
                             });

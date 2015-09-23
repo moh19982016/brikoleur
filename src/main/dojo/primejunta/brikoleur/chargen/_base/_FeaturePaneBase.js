@@ -38,6 +38,7 @@ function( declare,
             if( this.minimized )
             {
                 this.domNode.style.display = "none";
+                this._button.domNode.style.display = "none";
                 domClass.remove( this._button.domNode, "br-dockIconMaximized" );
             }
         },
@@ -57,6 +58,7 @@ function( declare,
         {
             this.minimized = false;
             this.domNode.style.display = "block";
+            this._button.domNode.style.display = "block";
             this._move( domGeometry.position( this._button.domNode ), domGeometry.position( this.domNode ), false );
             domClass.add( this._button.domNode, "br-dockIconMaximized" );
         },

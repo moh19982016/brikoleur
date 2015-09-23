@@ -16,9 +16,11 @@ function( declare,
         templateString : template,
         allowedControls : -1,
         value : "",
+        key : "",
         featureAdded : function( kwObj )
         {
             kwObj = kwObj || {};
+            kwObj.key = this.key;
             kwObj.data = this.data;
             this.inherited( arguments, [ kwObj ] );
         },
@@ -26,16 +28,24 @@ function( declare,
         {
             if( prop == "state" )
             {
-                var ctl = [];
-                for( var i = 0; i < this.controls.length; i++ )
-                {
-                    ctl.push( this.controls[ i ].get( "state" ) );
-                }
-                return { name : this.data.name, controls : ctl }
+                return this._getState();
             }
             else
             {
                 return this.inherited( arguments );
+            }
+        },
+        _getState : function()
+        {
+            var ctl = [];
+            for( var i = 0; i < this.controls.length; i++ )
+            {
+                ctl.push( this.controls[ i ].get( "state" ) );
+            }
+            return {
+                name : this.data.name,
+                key : this.key,
+                controls : ctl
             }
         }
     });

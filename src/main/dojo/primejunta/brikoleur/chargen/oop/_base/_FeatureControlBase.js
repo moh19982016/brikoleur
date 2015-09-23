@@ -38,6 +38,7 @@ function( declare,
         level : 0,
         parent : false,
         type : "",
+        key : "",
         maxLevel : 2,
         templateString : template,
         jujuChangedTopic : "/StatChanged/-juju",
@@ -49,7 +50,8 @@ function( declare,
             this.controls = [];
             this.state = {
                 name : this.data.name,
-                value : false
+                value : false,
+                key : this.key
             };
             if( this.data.type )
             {
@@ -134,6 +136,7 @@ function( declare,
                     cost : this.get( "cost" ),
                     type : this.type,
                     level : this.level + 1,
+                    key : this.key,
                     maxLevel : this.maxLevel,
                     childProperties : this.childProperties,
                     featureAddedTopic : this.featureAddedTopic,
@@ -177,13 +180,7 @@ function( declare,
             }
             else if( prop == "state" )
             {
-                var chld = [];
-                for( var i = 0; i < this.controls.length; i++ )
-                {
-                    chld.push( this.controls[ i ].get( "state" ) );
-                }
-                this.state.controls = chld;
-                return this.state;
+                return this._getState();
             }
             else
             {
@@ -216,6 +213,16 @@ function( declare,
         _readState : function()
         {
             return { name : this.data.name, value : this._readValue() };
+        },
+        _getState : function()
+        {
+            var chld = [];
+            for( var i = 0; i < this.controls.length; i++ )
+            {
+                chld.push( this.controls[ i ].get( "state" ) );
+            }
+            this.state.controls = chld;
+            return this.state;
         },
         _updateFilter : function( filter )
         {
