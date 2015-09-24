@@ -1,11 +1,13 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
+         "dojo/_base/array",
          "dijit/form/TextBox",
          "dijit/_WidgetBase",
          "dijit/_TemplatedMixin",
          "dojo/text!./templates/_FieldBase.html" ],
 function( declare,
           lang,
+          array,
           TextBox,
           _WidgetBase,
           _TemplatedMixin,
@@ -16,10 +18,15 @@ function( declare,
         name : "",
         templateString : template,
         inputWidget : TextBox,
+        inputProperties : [ "value", "disabled", "readonly", "selectedIndex", "options" ],
         readonly : false,
         buildRendering : function()
         {
             this.inherited( arguments );
+            this.makeInput();
+        },
+        makeInput : function()
+        {
             this._input = new this.inputWidget({ name : this.name, readonly : this.readonly, onChange : this.onChange }).placeAt( this.controlNode );
         },
         onChange : function()
@@ -34,7 +41,10 @@ function( declare,
             else
             {
                 this.inherited( arguments );
-                this._input.set( prop, val );
+                if( array.indexOf( this.inputProperties, prop ) != -1 )
+                {
+                    this._input.set( prop, val );
+                }
             }
         },
         get : function( prop )

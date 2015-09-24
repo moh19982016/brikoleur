@@ -7,7 +7,14 @@ function( lang, on, Tooltip )
             for( var i = 0; i < list.length; i++ )
             {
                 var cur = list[ i ];
-                cur.id = cur.name;
+                if( typeof cur == "string" )
+                {
+                    list[ i ] = { id : cur, name : cur };
+                }
+                else if( cur.name )
+                {
+                    cur.id = cur.name;
+                }
             }
             return list;
         },

@@ -1,7 +1,11 @@
 define([ "dojo/_base/declare",
+        "dojo/store/Memory",
+        "./../../_base/util",
         "./../../_base/_FieldBase",
         "dijit/form/Select" ],
 function( declare,
+          Memory,
+          util,
           _FieldBase,
           Select )
 {
@@ -22,14 +26,14 @@ function( declare,
             "venus-double",
             "venus-mars"
         ],
-        postCreate : function()
+        makeInput : function()
         {
             var opts = [];
-            for( var i = 0; i < this.genders.length; i++ )
+            var store = new Memory({ data : util.listToStoreData( this.genders ), getLabel : function( item )
             {
-                opts.push({ value : "" + i, label : "<i class='fa fa-" + this.genders[ i ] + "'></i>" });
-            }
-            this._input.set( "options", opts );
+                return '<i class="fa fa-' + item.id + '"></i>';
+            }});
+            this._input = new Select({ name : this.name, store : store } ).placeAt( this.controlNode );
         }
     });
 });
