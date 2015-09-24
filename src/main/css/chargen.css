@@ -53,6 +53,15 @@
     text-align:right;
 }
 
+.br-nameContainer {
+    height: 40px;
+}
+
+.br-characterName {
+    font-size: 24px;
+    font-family: Iceberg, sans-serif;
+}
+
 /* Colors */
 .br-blue {
     color: #538aff;
