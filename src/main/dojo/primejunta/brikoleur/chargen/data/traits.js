@@ -90,12 +90,14 @@ define({
                 {
                     "name": "Zombies",
                     "type": "persistent",
-                    "description": "Santeros can turn humans or other organics into zombies by connecting a Q-tech Scroll prepared for them by their lwa to their Akoto or Military Neural interface. Each golem accompanying the santero uses one ohun slot."
+                    "description": "Santeros can turn humans or other organics into zombies by connecting a Q-tech Scroll prepared for them by their lwa to their Akoto or Military Neural interface. Each golem accompanying the santero uses one ohun slot.",
+                    "list": []
                 },
                 {
                     "name": "Golems",
                     "type": "persistent",
-                    "description": "Santeros can turn drones into golems by connecting a Q-tech Scroll prepared for them by their lwa to their control module. Each golem accompanying the santero uses one ohun slot."
+                    "description": "Santeros can turn drones into golems by connecting a Q-tech Scroll prepared for them by their lwa to their control module. Each golem accompanying the santero uses one ohun slot.",
+                    "list": []
                 }
             ]
         },
