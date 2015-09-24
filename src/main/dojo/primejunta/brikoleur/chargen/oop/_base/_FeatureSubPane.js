@@ -1,5 +1,6 @@
 define([ "dojo/_base/declare",
-         "dojo/_base/lang",
+        "dojo/_base/lang",
+        "dojo/_base/array",
          "dojo/topic",
          "./_ControlPaneMixin",
          "dijit/_WidgetBase",
@@ -7,6 +8,7 @@ define([ "dojo/_base/declare",
          "dojo/text!./templates/_FeatureSubPane.html" ],
 function( declare,
           lang,
+          array,
           topic,
           _ControlPaneMixin,
           _WidgetBase,
@@ -30,6 +32,11 @@ function( declare,
             kwObj.key = this.key;
             kwObj.data = this.data;
             this.inherited( arguments, [ kwObj ] );
+        },
+        pleaseRemove : function( item )
+        {
+            this.controls.splice( array.indexOf( this.controls, item ), 1 );
+            this.publishStatus();
         },
         get : function( prop )
         {

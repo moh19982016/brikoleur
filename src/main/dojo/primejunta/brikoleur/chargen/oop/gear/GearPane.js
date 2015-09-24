@@ -26,11 +26,6 @@ function( declare,
             this.addItemControl = new Button({ label : "<i class='fa fa-plus-square br-blue'></i>", onClick : lang.hitch( this, this._addItem ), "class" : "br-wideAddButton" } ).placeAt( this.containerNode );
             this._addItem();
         },
-        pleaseRemove : function( item )
-        {
-            this.controls.splice( array.indexOf( this.controls, item ), 1 );
-            this._checkRemove();
-        },
         _addItem : function( props )
         {
             this.addField( "item", _ItemControl, lang.mixin( props || {}, { parent : this } ), this.addItemControl.domNode, "before" );

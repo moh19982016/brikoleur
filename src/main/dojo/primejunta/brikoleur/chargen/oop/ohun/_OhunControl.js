@@ -81,6 +81,11 @@ function( declare,
             this._levelSelector.set( "options", opts );
             this._checkAddButton();
         },
+        pleaseDestroy : function()
+        {
+            this.parent.pleaseRemove( this );
+            this.destroy();
+        },
         _readState : function()
         {
             if( this._levelSelector )
@@ -105,7 +110,11 @@ function( declare,
                 var cap = os - count;
                 var min = this.data.min_level !== undefined ? this.data.min_level : 1;
                 var max = os + 2;
-                this.valueNode.innerHTML = string.substitute( i18n.AdHocOhunDescription, { name : this.data.name.toLowerCase(), verb : this.data.verb || "create", cap : cap, min : min, max : max });
+                if( this.data.type == "ad-hoc" )
+                {
+                    this.valueNode.innerHTML = string.substitute( i18n.AdHocOhunDescription, { name : this.data.name.toLowerCase(), verb : this.data.verb || "create", cap : cap, min : min, max : max });
+                    this.deleteButton.domNode.style.display = "none";
+                }
             }
             else if( count >= os )
             {

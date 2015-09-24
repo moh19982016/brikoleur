@@ -1,6 +1,7 @@
 define([ "dojo/_base/declare",
-         "dojo/_base/lang",
-        "dojo/topic",
+        "dojo/_base/lang",
+        "dojo/_base/array",
+         "dojo/topic",
          "dojo/on",
          "dojo/dom-class",
          "dojo/dom-construct",
@@ -9,6 +10,7 @@ define([ "dojo/_base/declare",
          "dijit/_WidgetBase" ],
 function( declare,
           lang,
+          array,
           topic,
           on,
           domClass,
@@ -83,6 +85,11 @@ function( declare,
         },
         publishStatus : function()
         {
+        },
+        pleaseRemove : function( item )
+        {
+            this.controls.splice( array.indexOf( this.controls, item ), 1 );
+            this._checkRemove();
         },
         get : function( prop )
         {
