@@ -43,6 +43,9 @@ function( declare,
                 this.inherited( arguments );
                 if( array.indexOf( this.inputProperties, prop ) != -1 )
                 {
+
+                    console.log( "SET", prop, val );
+
                     this._input.set( prop, val );
                 }
             }

@@ -1,5 +1,5 @@
 @import "brikoleur.css";
-@import "../dojo/dijit/themes/claro/claro.css";
+@import "../dojo/dijit/themes/tundra/tundra.css";
 @import "../font-awesome/css/font-awesome.min.css";
 
 /* Layout */
@@ -58,7 +58,7 @@
     display: block;
     position: relative;
     width: 100%;
-    min-height: 300px;
+    min-height: 150px;
     background-color: #fafafa;
     margin: 4px;
     box-sizing: border-box;
@@ -163,18 +163,19 @@
 
 /* Field */
 .br-fieldTitle {
-    width: 50%;
+    width: 130px;
     float: left;
     box-sizing: border-box;
     padding: 4px;
     text-align: right;
+    font-family: Iceberg;
 }
 
 .br-fieldControl {
-    width: 50%;
-    float: right;
     box-sizing: border-box;
+    float: right;
     padding: 4px;
+    width: calc(100% - 130px);
 }
 
 /* dynamic grid */
@@ -190,19 +191,23 @@
     border-radius: 20px;
 }
 
-/* Character creation */
-.br-hideForNew {
-    display: none;
+/* Gear pane */
+
+.br-buttonSpacer {
+    height: 40px;
 }
 
-.br-characterCreated .br-hideForNew {
-    display: unset;
+.br-wideAddButton {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
-.br-characterCreated .br-hideForCreated {
-    display: none;
+.br-wideAddButton .dijitButtonNode {
+    width: calc( 100% - 0.4em );
 }
-
 
 /* Dijits */
 .dijitNumberTextBox  .dijitInputInner {

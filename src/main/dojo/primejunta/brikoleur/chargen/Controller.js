@@ -3,6 +3,7 @@ define([ "dojo/_base/declare",
         "dojo/topic",
         "dojo/_base/array",
         "dojo/json",
+        "dojo/dom-class",
          "./_base/DynamicGrid",
          "./oop/NamePane",
          "./oop/description/DescriptionPane",
@@ -29,6 +30,7 @@ function( declare,
           topic,
           array,
           json,
+          domClass,
           DynamicGrid,
           NamePane,
           DescriptionPane,
@@ -58,6 +60,7 @@ function( declare,
         postCreate : function()
         {
             window.Controller = this;
+            domClass.replace( document.body, "tundra", "claro" );
             this._addPane( "name", new NamePane().placeAt( this.nameContainer ) );
             this._addPane( "traits", new TraitsPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
             this._addPane( "knacks", new KnacksPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );

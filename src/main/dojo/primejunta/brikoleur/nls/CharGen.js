@@ -20,6 +20,7 @@ define({
         "Ohun" : "Ohun",
         "Stamina" : "Stamina",
         "Armour" : "Armour",
+        "Weapon" : "Weapon",
         "Level" : "Level ",
         "ActivePowerSlots" : "Active Power Slots",
         "OhunSlots" : "Ohun Slots",

@@ -1,0 +1,11 @@
+<div>
+    <input type="checkbox" data-dojo-type="dijit/form/CheckBox" data-dojo-attach-point="activeControl"/>
+    <select data-dojo-type="dijit/form/Select" data-dojo-attach-point="typeSelect">
+        <option value="gear">${dict.Gear}</option>
+        <option value="weapon">${dict.Weapon}</option>
+        <option value="armour">${dict.Armour}</option>
+    </select>
+    <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="levelInput"/>
+    <input data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="descriptionInput"/>
+    <button data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick:pleaseDestroy"><i class="fa fa-minus-square"></i></button>
+</div>
