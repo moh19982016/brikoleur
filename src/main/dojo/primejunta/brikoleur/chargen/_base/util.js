@@ -38,7 +38,7 @@ function( lang, on, Tooltip )
                 return false;
             }
         },
-        getProperties : function( prop, controls, self )
+        getProperties : function( prop, controls, self, recurse )
         {
             var out = [];
             for( var i = 0; i < controls.length; i++ )
@@ -46,6 +46,10 @@ function( lang, on, Tooltip )
                 if( controls[ i ] !== self )
                 {
                     out.push( controls[ i ].get( prop ) );
+                    if( recurse && controls[ i ].controls )
+                    {
+                        out = out.concat( this.getProperties( prop, controls[ i ].controls, self, recurse ) );
+                    }
                 }
             }
             return out;

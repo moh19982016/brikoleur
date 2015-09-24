@@ -1,11 +1,13 @@
 define([ "dojo/_base/declare",
         "dojo/_base/lang",
+        "dojo/topic",
         "dijit/form/CheckBox",
         "./../_base/_FeatureControlBase",
         "dojo/text!./templates/_PowerControl.html",
         "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
+          topic,
           CheckBox,
           _FeatureControlBase,
           template,
@@ -21,6 +23,7 @@ function( declare,
         postCreate : function()
         {
             this.inherited( arguments );
+            this.own( topic.subscribe( "/SetActiveControlDisabled/", lang.hitch( this, this._setActiveControlDisabled ) ) );
             this.childConstructor = Constr;
         },
         childProperties : {
@@ -33,9 +36,17 @@ function( declare,
         {
             return this.level + 2;
         },
+        _setActiveControlDisabled : function( to )
+        {
+            if( !this.activeBox.get( "checked" ) )
+            {
+                this.activeBox.set( "disabled", to );
+            }
+        },
         _setActive : function()
         {
             this.active = this.activeBox.get( "checked" );
+            topic.publish( "/ActivePowerSet/" );
         },
         _getState : function()
         {
