@@ -19,9 +19,13 @@ function( declare,
             this._store = new FilteringMemory({ data : util.listToStoreData( this.data.list ) });
             topic.subscribe( this.selectedMasterItemTopic, lang.hitch( this, this.setupSubPanes ) );
         },
-        setupSubPanes : function( features )
+        setupSubPanes : function( features, synthetic )
         {
-            var values = util.getValues( this.controls );
+            if( synthetic )
+            {
+                return;
+            }
+            var values = util.getProperties( "key", this.controls );
             for( var i = 0; i < features.length; i++ )
             {
                 if( features[ i ] && array.indexOf( values, features[ i ] ) == -1 )
@@ -46,7 +50,7 @@ function( declare,
             this.clear();
             for( var i = 0; i < state.length; i++ )
             {
-                this.addControl({ data : this._lookup( state[ i ].key, state[ i ].name ), key : state[ i ].key }).set( "state", state[ i ] );
+                this.addControl({ data : this._lookup( state[ i ].key, state[ i ].name ), key : state[ i ].key, value : state[ i ].value }).set( "state", state[ i ] );
             }
             if( this.controls.length > 0 )
             {

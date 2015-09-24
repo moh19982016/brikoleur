@@ -61,6 +61,7 @@ function( declare,
             {
                 this._levelSelector.set( "value", this._level );
             }
+            this.onJujuChange( Controller.get( "juju" ) );
         },
         mayAdd : function( value )
         {
@@ -79,10 +80,6 @@ function( declare,
             }
             this._levelSelector.set( "options", opts );
             this._checkAddButton();
-        },
-        _readValue : function()
-        {
-            return this.level + "/" + this.value;
         },
         _readState : function()
         {

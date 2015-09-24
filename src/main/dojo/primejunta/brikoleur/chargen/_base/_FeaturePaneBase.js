@@ -34,7 +34,7 @@ function( declare,
             var mNode = domConstruct.create( "i", { "class" : "br-minimizeButton fa fa-minus-circle" }, tNode, "first" );
             this.containerNode = domConstruct.create( "div", { "class" : "br-featureContainer" }, this.domNode );
             this.own( on( tNode, "click", lang.hitch( this, this.minimize ) ) );
-            this.own( topic.subscribe( "/PleasePublishState/", lang.hitch( this, this.publishState ) ) );
+            this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
             this._button = new _DockButton({ pane : this }).placeAt( this.dock );
             if( this.minimized )
             {
@@ -81,7 +81,7 @@ function( declare,
         {
             domClass.remove( this.domNode, "br-flashPane" );
         },
-        publishState : function()
+        publishStatus : function()
         {
         },
         get : function( prop )

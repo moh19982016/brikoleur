@@ -41,7 +41,7 @@ function( declare,
         {
             if( !Controller.loading )
             {
-                topic.publish( "/SelectedStunts/", util.getValues( this.controls ) );
+                this.publishStatus();
             }
             this.checkCreateControl();
             this.descendantFeatureAdded();
@@ -49,6 +49,10 @@ function( declare,
             {
                 this.maximize();
             }
+        },
+        publishStatus : function( synthetic )
+        {
+            topic.publish( "/SelectedStunts/", util.getProperties( "value", this.controls ), synthetic );
         },
         descendantFeatureAdded : function()
         {

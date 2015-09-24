@@ -30,16 +30,16 @@ function( declare,
         templateString : template,
         postCreate : function()
         {
-            this.own( topic.subscribe( "/PleasePublishState/", lang.hitch( this, this.publishState ) ) );
+            this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
         },
         publishJuju : function()
         {
             if( !Controller.loading )
             {
-                this.publishState();
+                this.publishStatus();
             }
         },
-        publishState : function()
+        publishStatus : function()
         {
             topic.publish( "/StatChanged/-juju", this.jujuInput.get( "value" ) );
         },

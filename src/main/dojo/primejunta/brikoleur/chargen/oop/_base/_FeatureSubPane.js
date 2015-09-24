@@ -1,11 +1,13 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
+         "dojo/topic",
          "./_ControlPaneMixin",
          "dijit/_WidgetBase",
          "dijit/_TemplatedMixin",
          "dojo/text!./templates/_FeatureSubPane.html" ],
 function( declare,
           lang,
+          topic,
           _ControlPaneMixin,
           _WidgetBase,
           _TemplatedMixin,
@@ -17,6 +19,14 @@ function( declare,
         allowedControls : -1,
         value : "",
         key : "",
+        postMixInProperties : function()
+        {
+            this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
+        },
+        publishStatus : function()
+        {
+            // stub
+        },
         featureAdded : function( kwObj )
         {
             kwObj = kwObj || {};

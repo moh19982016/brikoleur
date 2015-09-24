@@ -24,12 +24,16 @@ function( declare,
             }
             if( !Controller.loading )
             {
-                topic.publish( this.selectedFeaturesTopic, util.getValues( this.controls ) );
+                this.publishStatus();
             }
             if( this.minimized && this.maximize )
             {
                 this.maximize();
             }
+        },
+        publishStatus : function( synthetic)
+        {
+            topic.publish( this.selectedFeaturesTopic, util.getProperties( "value", this.controls ), synthetic );
         },
         addControl : function( kwObj )
         {

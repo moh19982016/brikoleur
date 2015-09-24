@@ -38,14 +38,14 @@ function( lang, on, Tooltip )
                 return false;
             }
         },
-        getValues : function( controls, self )
+        getProperties : function( prop, controls, self )
         {
             var out = [];
             for( var i = 0; i < controls.length; i++ )
             {
                 if( controls[ i ] !== self )
                 {
-                    out.push( controls[ i ].get( "value" ) );
+                    out.push( controls[ i ].get( prop ) );
                 }
             }
             return out;

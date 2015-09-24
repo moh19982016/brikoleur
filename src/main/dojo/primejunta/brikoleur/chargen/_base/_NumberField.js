@@ -21,22 +21,27 @@ function( declare,
         buildRendering : function()
         {
             this.inherited( arguments );
+            this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
             if( this.cost )
             {
                 this._input.set( "readonly", true );
                 this._incrementButton = new Button({ label : "<i class='fa fa-plus-square'></i>", onClick: lang.hitch( this, this.buyPoint ) } ).placeAt( this.controlNode );
-                topic.subscribe( "/StatChanged/-juju", lang.hitch( this, function( juju )
+                this.own( topic.subscribe( "/StatChanged/-juju", lang.hitch( this, function( juju )
                 {
                     this._incrementButton.domNode.style.display = juju < this.cost  ? "none" : "unset";
-                }))
+                })));
             }
             this.own( on( this._input, "change", lang.hitch( this, function( val )
             {
                 if( !Controller.loading )
                 {
-                    topic.publish( "/StatChanged/-" + this.name, val );
+                    this.publishStatus();
                 }
             })));
+        },
+        publishStatus : function()
+        {
+            topic.publish( "/StatChanged/-" + this.name, this.get( "value" ) );
         },
         buyPoint : function( evt )
         {

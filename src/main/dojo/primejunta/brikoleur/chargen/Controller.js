@@ -118,7 +118,7 @@ function( declare,
                 {
                     this._panes[ o ].set( "state", val[ o ] );
                 }
-                topic.publish( "/PleasePublishState/" );
+                topic.publish( "/PleasePublishStatus/", true );
                 this.loading = false;
             }
             else

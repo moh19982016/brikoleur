@@ -66,6 +66,7 @@ function( declare,
                 this.own( topic.subscribe( this.selectedFeaturesTopic, lang.hitch( this, this._updateFilter ) ) );
             }
             this.own( topic.subscribe( this.jujuChangedTopic, lang.hitch( this, this.onJujuChange ) ) );
+            this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
             this.onJujuChange( Controller.get( "juju" ) );
         },
         createSelector : function()
@@ -115,7 +116,7 @@ function( declare,
         },
         mayAdd : function( value )
         {
-            if( array.indexOf( util.getValues( this.parent.controls, this ), value ) != -1 )
+            if( array.indexOf( util.getProperties( "value", this.parent.controls, this ), value ) != -1 )
             {
                 util.showWarning( this.propertyPresentWarning, this._selector.domNode );
                 return false;
@@ -164,9 +165,13 @@ function( declare,
             this.addChildControl();
             if( !Controller.loading )
             {
-                topic.publish( this.selectedFeaturesTopic + "-" + this.value, this.listFeatures() );
+                this.publishStatus();
             }
             this.descendantFeatureAdded();
+        },
+        publishStatus : function( synthetic )
+        {
+            topic.publish( this.selectedFeaturesTopic + "-" + this.value, this.listFeatures(), synthetic );
         },
         descendantFeatureAdded : function()
         {
