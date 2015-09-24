@@ -79,6 +79,17 @@ function( declare,
                 }
             }
             return false;
+        },
+        _setState : function( state )
+        {
+            this.clear();
+            for( var i = 0; i < state.length; i++ )
+            {
+                var ctl = new _StuntControl({ parent : this } ).placeAt( this.containerNode );
+                ctl.set( "state", state[ i ] );
+                this.controls.push( ctl );
+            }
+            this.maximize();
         }
     });
 });

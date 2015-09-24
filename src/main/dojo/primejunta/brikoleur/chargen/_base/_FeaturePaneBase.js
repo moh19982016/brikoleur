@@ -118,6 +118,13 @@ function( declare,
                 this.inherited( arguments );
             }
         },
+        clear : function()
+        {
+            while( this.controls.length > 0 )
+            {
+                this.controls.pop().destroy();
+            }
+        },
         _move : function( from, to, hide )
         {
             var zoomer = domConstruct.create( "div", { "class" : "br-zoomer" }, document.body );
