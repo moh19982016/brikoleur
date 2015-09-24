@@ -49,6 +49,7 @@ function( declare,
         childProperties : {},
         postCreate : function()
         {
+            this.childConstructor = Constr;
             this.controls = [];
             this.state = {
                 name : this.data.name,
@@ -144,7 +145,7 @@ function( declare,
         },
         createChildControl : function( child )
         {
-            var ctl = new Constr( lang.mixin( lang.clone( this.childProperties ), {
+            var ctl = new this.childConstructor( lang.mixin( lang.clone( this.childProperties ), {
                 data : child || { id : "", name : "", list : [] },
                 cost : this.get( "cost" ),
                 type : this.type,

@@ -19,13 +19,10 @@ function( declare,
         allowedControls : -1,
         value : "",
         key : "",
-        postMixInProperties : function()
+        postCreate : function()
         {
+            this.inherited( arguments );
             this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
-        },
-        publishStatus : function()
-        {
-            // stub
         },
         featureAdded : function( kwObj )
         {

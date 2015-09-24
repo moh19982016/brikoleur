@@ -1,18 +1,28 @@
 define([ "dojo/_base/declare",
         "dojo/_base/lang",
+        "dijit/form/CheckBox",
         "./../_base/_FeatureControlBase",
+        "dojo/text!./templates/_PowerControl.html",
         "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
+          CheckBox,
           _FeatureControlBase,
+          template,
           i18n )
 {
-    return declare([ _FeatureControlBase ], {
+    var Constr = declare([ _FeatureControlBase ], {
         data : {},
         selectedFeaturesTopic : "/SelectedPowers/",
         featureAddedTopic : "/PowerAdded/",
         propertyPresentWarning : i18n.PowerPresent,
+        templateString : template,
         maxLevel : 3,
+        postCreate : function()
+        {
+            this.inherited( arguments );
+            this.childConstructor = Constr;
+        },
         childProperties : {
             getCost : function()
             {
@@ -22,6 +32,23 @@ function( declare,
         getCost : function()
         {
             return this.level + 2;
+        },
+        _setActive : function()
+        {
+            this.active = this.activeBox.get( "checked" );
+        },
+        _getState : function()
+        {
+            var stat = this.inherited( arguments );
+            stat.active = this.activeBox.get( "checked" );
+            return stat;
+        },
+        _setState : function( stat )
+        {
+            this.inherited( arguments );
+            this.active = stat.active;
+            this.activeBox.set( "checked", stat.active );
         }
     });
+    return Constr;
 });
