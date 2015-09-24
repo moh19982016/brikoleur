@@ -1,15 +1,17 @@
 define([ "dojo/_base/declare",
-    "dojo/_base/lang",
+        "dojo/_base/lang",
+        "dojo/topic",
         "dijit/form/CheckBox",
         "dijit/form/Select",
-    "dijit/form/TextBox",
-    "dijit/_WidgetBase",
-    "dijit/_TemplatedMixin",
-    "dijit/_WidgetsInTemplateMixin",
-    "dojo/text!./templates/_ItemControl.html",
-    "dojo/i18n!../../../nls/CharGen"],
+        "dijit/form/TextBox",
+        "dijit/_WidgetBase",
+        "dijit/_TemplatedMixin",
+        "dijit/_WidgetsInTemplateMixin",
+        "dojo/text!./templates/_ItemControl.html",
+        "dojo/i18n!../../../nls/CharGen" ],
 function( declare,
           lang,
+          topic,
           CheckBox,
           Select,
           TextBox,
@@ -23,9 +25,12 @@ function( declare,
         parent : {},
         dict : i18n,
         templateString : template,
+        postCreate : function()
+        {
+            this.own( topic.subscribe( "/SetGearRemoveLock/", lang.hitch( this, this._setGearRemoveLock ) ) )
+        },
         chooseType : function()
         {
-
         },
         pleaseDestroy : function()
         {
@@ -57,6 +62,10 @@ function( declare,
                 this.levelInput.set( "value", parseInt( values[ 2 ] ) );
                 this.descriptionInput.set( "value", this._unesc( values[ 3 ] ) );
             }
+        },
+        _setGearRemoveLock : function( to )
+        {
+            this.deleteButton.set( "disabled", to );
         },
         _getState : function()
         {

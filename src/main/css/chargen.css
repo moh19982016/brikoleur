@@ -53,6 +53,15 @@
     text-align:right;
 }
 
+/* Colors */
+.br-blue {
+    color: #538aff;
+}
+
+.br-red {
+    color: #c00;
+}
+
 /* Feature pane */
 .br-featurePane {
     display: block;
@@ -189,10 +198,29 @@
     width: 40px;
     height: 40px;
     border-radius: 20px;
+    background-image: none !important;
+    background-color: white;
+}
+/* Numbers pane */
+.br-floatLeft, .br-floatRight {
+    width: 50%;
+    box-sizing: border-box;
 }
 
-/* Gear pane */
+.br-floatLeft {
+    float: left;
+}
 
+.br-floatRight {
+    float: right;
+}
+
+.br-stamina .dijitTextBoxDisabled {
+    color: black !important;
+}
+
+
+/* Gear pane */
 .br-buttonSpacer {
     height: 40px;
 }
@@ -209,6 +237,27 @@
     width: calc( 100% - 0.4em );
 }
 
+.br-typeSelect {
+    display: inline-block;
+    width: 75px;
+}
+
+/* Buttons */
+.br-smallButton .dijitButtonNode {
+    background: none;
+    border: none;
+    border-radius: 4px;
+}
+
+.tundra .br-smallButton.dijitButtonHover .dijitButtonNode {
+    background: none;
+    background-color: #ddd;
+}
+
+.dijitButtonDisabled .br-red, .dijitButtonDisabled .br-blue {
+    color: gray;
+}
+
 /* Dijits */
 .dijitNumberTextBox  .dijitInputInner {
     padding-top: 8px !important;
@@ -217,4 +266,8 @@
 
 .dijitTextBoxFocused .dijitInputContainer {
     background-color: transparent !important;
+}
+
+.dijitTextArea {
+    font-family: Abel, sans-serif;
 }
