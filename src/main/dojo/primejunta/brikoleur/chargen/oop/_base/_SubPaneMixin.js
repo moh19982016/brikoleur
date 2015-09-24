@@ -55,12 +55,16 @@ function( declare,
         },
         _lookup : function( key, name )
         {
-            var items = this._store.get( key )[ this.featureProperty ];
-            for( var i = 0; i < items.length; i++ )
+            var itm = this._store.get( key );
+            if( itm && itm[ this.featureProperty ])
             {
-                if( items[ i ].name == name )
+                var items = itm[ this.featureProperty ];
+                for( var i = 0; i < items.length; i++ )
                 {
-                    return items[ i ];
+                    if( items[ i ].name == name )
+                    {
+                        return items[ i ];
+                    }
                 }
             }
             throw( "Couldn't find feature [" + key + "], [" + name + "]. Incompatible data?" );

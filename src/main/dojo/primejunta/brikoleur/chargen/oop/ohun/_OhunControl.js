@@ -82,7 +82,7 @@ function( declare,
         },
         _readValue : function()
         {
-            return "(L" + this.level + ") " + this.value;
+            return this.level + "/" + this.value;
         },
         _readState : function()
         {
@@ -130,7 +130,7 @@ function( declare,
         },
         _setValue : function( val )
         {
-            this.valueNode.innerHTML = "(" + this.level + ") " +  val;
+            this.valueNode.innerHTML = "(" + i18n.Level + this.level + ") " +  val;
             if( this._selector )
             {
                 this._selector.set( "value", val );
@@ -138,6 +138,7 @@ function( declare,
         },
         _setState : function( state )
         {
+            this.key = state.key;
             this.level = state.level;
             this.inherited( arguments );
         }

@@ -28,12 +28,20 @@ function( declare,
     return declare( [ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
         dict : i18n,
         templateString : template,
+        postCreate : function()
+        {
+            this.own( topic.subscribe( "/PleasePublishState/", lang.hitch( this, this.publishState ) ) );
+        },
         publishJuju : function()
         {
             if( !Controller.loading )
             {
-                topic.publish( "/StatChanged/-juju", this.jujuInput.get( "value" ) );
+                this.publishState();
             }
+        },
+        publishState : function()
+        {
+            topic.publish( "/StatChanged/-juju", this.jujuInput.get( "value" ) );
         },
         get : function( prop )
         {

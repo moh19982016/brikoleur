@@ -62,6 +62,7 @@ function( declare,
         _setState : function( state )
         {
             this.inherited( arguments );
+            this.key = state.key;
             for( var i = 0; i < state.controls.length; i++ )
             {
                 this.addControl({ data : this.data }).set( "state", state.controls[ i ] );

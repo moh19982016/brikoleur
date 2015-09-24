@@ -40,7 +40,7 @@ function( declare,
         level : 0,
         parent : false,
         type : "",
-        key : "",
+        key : false,
         maxLevel : 2,
         templateString : template,
         jujuChangedTopic : "/StatChanged/-juju",
@@ -262,12 +262,14 @@ function( declare,
                 chld.push( this.controls[ i ].get( "state" ) );
             }
             this.state.controls = chld;
+            this.state.key = this.key;
             return this.state;
         },
         _setState : function( state )
         {
             this.clear();
             this.state = state;
+            this.key = state.key;
             if( state.value )
             {
                 this.set( "value", state.value );

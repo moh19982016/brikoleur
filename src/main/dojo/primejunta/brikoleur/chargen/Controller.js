@@ -1,5 +1,6 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
+        "dojo/topic",
         "dojo/_base/array",
         "dojo/json",
          "./_base/DynamicGrid",
@@ -25,6 +26,7 @@ define([ "dojo/_base/declare",
          "dojo/i18n!../nls/CharGen" ],
 function( declare,
           lang,
+          topic,
           array,
           json,
           DynamicGrid,
@@ -116,6 +118,7 @@ function( declare,
                 {
                     this._panes[ o ].set( "state", val[ o ] );
                 }
+                topic.publish( "/PleasePublishState/" );
                 this.loading = false;
             }
             else
