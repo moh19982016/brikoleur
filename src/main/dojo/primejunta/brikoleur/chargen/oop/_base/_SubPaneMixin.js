@@ -46,7 +46,7 @@ function( declare,
             this.clear();
             for( var i = 0; i < state.length; i++ )
             {
-                this.addControl({ data : this._lookup( state[ i ].key, state[ i ].name )}).set( "state", state[ i ] );
+                this.addControl({ data : this._lookup( state[ i ].key, state[ i ].name ), key : state[ i ].key }).set( "state", state[ i ] );
             }
             if( this.controls.length > 0 )
             {

@@ -252,7 +252,10 @@ function( declare,
         },
         _readState : function()
         {
-            return { name : this.data.name, value : this._readValue() };
+            return lang.mixin( this.state || {}, {
+                name : this.data.name,
+                value : this._readValue()
+            });
         },
         _getState : function()
         {
