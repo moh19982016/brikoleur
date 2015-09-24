@@ -28,6 +28,10 @@ define({
         "SpecialisationPresent" : "You already have this specialisation.",
         "StuntPresent" : "You already have this stunt.",
         "PowerPresent" : "You already have this power.",
-        "AdHocOhunDescription" : "You may ${verb} up to ${cap} ${name} (level ${min}-${max})."
+        "AdHocOhunDescription" : "You may ${verb} up to ${cap} ${name} (level ${min}-${max}).",
+        "Gender" : "Gender",
+        "Handle" : "Handle",
+        "Ekip" : "Ekip",
+        "Background" : "Background"
     }
 });

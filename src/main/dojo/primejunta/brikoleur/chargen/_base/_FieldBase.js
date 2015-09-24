@@ -57,7 +57,6 @@ function( declare,
         },
         _setState : function( state )
         {
-            this.name = state.name;
             this._input.set( "value", state.value );
         }
     });

@@ -66,7 +66,7 @@ function( declare,
             this._addPane( "ohun", new OhunPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
             this._addPane( "stunts", new StuntsPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
             this._addPane( "gear", new GearPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
-            this._addPane( "description", new DescriptionPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
+            this._addPane( "description", new DescriptionPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
         },
         logState : function()
         {
