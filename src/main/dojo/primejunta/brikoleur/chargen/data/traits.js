@@ -47,7 +47,7 @@ define({
             "ohun": [
                 {
                     "name": "Fwés",
-                    "description": "Fwés are purpose-built artefacts deployed in Q-Space. They are consumed when used.",
+                    "description": "Fwés are single-use artefacts used in Q-Space.",
                     "list": [
                         {
                             "name": "Armour",
@@ -64,14 +64,14 @@ define({
                 {
                     "name": "Esprís",
                     "type": "persistent",
-                    "description": "Esprís are autonomous Q-Space constructs with a variety of capabilities. They are reusable unless destroyed. Each esprí takes up an ohun slot, whether active or not.",
+                    "description": "Esprís are autonomous Q-Space constructs. They are reusable unless destroyed.",
                     "list": []
                 }
             ],
             "features": [
                 {
                     "name": "Oga",
-                    "description": "Ogas are skill packages slotted into the Akoto interface. It takes 24 hours for an oga to integrate, but can be removed at any time. The user cannot jack into Q-Space when one is slotted.",
+                    "description": "Ogas are skill packages slotted into the Akoto interface.",
                     "list": []
                 }
             ]
@@ -85,18 +85,18 @@ define({
                     "min_level": 0,
                     "type": "ad-hoc",
                     "verb": "inscribe",
-                    "description": "While preparation such as intel can help make them, vévés are drawn in the field. The santero invokes his lwa by drawing a vévé on a suitable surface. They are drawn on the spot. It takes a minimum of 1 round to draw one. Vévés which cost no juju may can be drawn without limitations."
+                    "description": "Vévés are drawn on the spot. Santeros invoke their lwa with them."
                 },
                 {
                     "name": "Zombies",
                     "type": "persistent",
-                    "description": "Santeros can turn humans or other organics into zombies by connecting a Q-tech Scroll prepared for them by their lwa to their Akoto or Military Neural interface. Each golem accompanying the santero uses one ohun slot.",
+                    "description": "Santeros can turn humans and animals into zombies by use of Q-tech scrolls.",
                     "list": []
                 },
                 {
                     "name": "Golems",
                     "type": "persistent",
-                    "description": "Santeros can turn drones into golems by connecting a Q-tech Scroll prepared for them by their lwa to their control module. Each golem accompanying the santero uses one ohun slot.",
+                    "description": "Santeros can turn drones into golems by use of Q-tech scrolls.",
                     "list": []
                 }
             ]
@@ -107,6 +107,7 @@ define({
             "ohun": [
                 {
                     "name": "Cards",
+                    "description" : "Cards manipulate probabilities.",
                     "list": [
                         {
                             "name": "Protect against firearms",
@@ -259,6 +260,7 @@ define({
             "ohun": [
                 {
                     "name": "Drones",
+                    "description": "Drones are remote-controlled devices driven through the MNI.",
                     "list": [
                         {
                             "name": "Microdrone"
@@ -287,6 +289,7 @@ define({
             "powers": [
                 {
                     "name": "Military Grade Wetware",
+                    "description": "Mil-grade wetware can enhance the user's capabilities. Many do not require Mind points to use.",
                     "list": [
                         {
                             "name": "Enhanced senses",

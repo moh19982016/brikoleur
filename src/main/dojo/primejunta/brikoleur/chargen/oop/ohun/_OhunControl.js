@@ -42,6 +42,7 @@ function( declare,
             {
                 this.displayNode.style.display = "block";
                 this.controlNode.style.display = "none";
+                this.complete = true;
                 return;
             }
             this.inherited( arguments );
@@ -112,6 +113,7 @@ function( declare,
                 var max = os + 2;
                 if( this.data.type == "ad-hoc" )
                 {
+                    this.valueContainer.style.width = "100%";
                     this.valueNode.innerHTML = string.substitute( i18n.AdHocOhunDescription, { name : this.data.name.toLowerCase(), verb : this.data.verb || "create", cap : cap, min : min, max : max });
                     this.deleteButton.domNode.style.display = "none";
                 }
@@ -136,7 +138,7 @@ function( declare,
         },
         _setValue : function( val )
         {
-            this.valueNode.innerHTML = "(" + i18n.Level + this.level + ") " +  val;
+            this.valueNode.innerHTML =  this.level + "/" +  val;
             if( this._selector )
             {
                 this._selector.set( "value", val );

@@ -21,6 +21,7 @@ function( declare,
         allowedControls : -1,
         value : "",
         key : "",
+        description : "",
         postCreate : function()
         {
             this.inherited( arguments );

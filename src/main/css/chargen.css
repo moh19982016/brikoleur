@@ -70,7 +70,7 @@
 }
 
 .br-red {
-    color: #c00;
+    color: #666;
 }
 
 /* Feature pane */
@@ -187,9 +187,21 @@
     padding-left: 18px;
 }
 
+.br-rowItem {
+    border: 1px solid #e4e4e4;
+    border-top:none;
+}
+
+.br-rowItem:first-of-type {
+    border-top: 1px solid #e4e4e4;
+}
 
 .br-emptyClosedList.br-controlNode {
     display: none;
+}
+
+.br-addControl {
+    border: 1px dashed #bbb;
 }
 
 /* Powers */
@@ -218,6 +230,15 @@
     float: right;
     padding: 4px;
     width: calc(100% - 130px);
+}
+
+.br-fullWidth {
+    width: 100%;
+}
+
+.br-rowHeader {
+    color: gray;
+    border: none !important;
 }
 
 /* dynamic grid */
@@ -277,24 +298,42 @@
 
 /* Buttons */
 .br-smallButton .dijitButtonNode {
-    background: none;
+    background: none !important;
     border: none;
     border-radius: 4px;
 }
 
 .tundra .br-smallButton.dijitButtonHover .dijitButtonNode {
     background: none;
-    background-color: #ddd;
 }
 
 .dijitButtonDisabled .br-red, .dijitButtonDisabled .br-blue {
-    color: gray;
+    color: #e4e4e4;
 }
 
 /* Dijits */
 .br-statField   .dijitInputInner {
     padding-top: 8px !important;
     text-align: center;
+}
+
+.tundra .dijitNumberTextBox {
+    text-align: center;
+}
+
+
+.tundra .dijitSelect .dijitButtonContents, .tundra .dijitSelect, .tundra .dijitTextBox {
+    border-color: #e4e4e4;
+    background: none !important;
+}
+
+.tundra .dijitSelect .dijitButtonContents, .tundra .dijitTextBox .dijitButtonNode {
+    border-color: #e4e4e4;
+}
+
+.tundra .dijitTextBoxFocused {
+    border-color: #3a5cac;
+    background-color: white !important;
 }
 
 .dijitTextBoxFocused .dijitInputContainer {
@@ -304,3 +343,4 @@
 .dijitTextArea {
     font-family: Abel, sans-serif;
 }
+

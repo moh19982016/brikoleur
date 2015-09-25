@@ -18,8 +18,8 @@ function( declare,
         postCreate : function()
         {
             this.addField( "gender", _GenderField, { title : i18n.Gender, value : "0" } );
-            this.addField( "handle", _FieldBase, { title : i18n.Handle } );
-            this.addField( "ekip", _FieldBase, { title : i18n.Ekip } );
+            this.addField( "handle", _FieldBase, { title : i18n.Handle, inputClass : "br-fullWidth" } );
+            this.addField( "ekip", _FieldBase, { title : i18n.Ekip, inputClass : "br-fullWidth" } );
             this.addField( "background", _TextAreaField, { title : i18n.Background } );
         }
     });

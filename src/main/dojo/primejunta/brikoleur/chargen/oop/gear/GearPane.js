@@ -5,6 +5,7 @@ define([ "dojo/_base/declare",
         "dojo/dom-construct",
         "dijit/form/Button",
         "./_ItemControl",
+        "./_ItemHeader",
          "./../../_base/_FeaturePaneBase",
          "dojo/i18n!primejunta/brikoleur/nls//CharGen" ],
 function( declare,
@@ -14,6 +15,7 @@ function( declare,
           domConstruct,
           Button,
           _ItemControl,
+          _ItemHeader,
           _FeaturePaneBase, i18n )
 {
     return declare([ _FeaturePaneBase ],
@@ -24,6 +26,7 @@ function( declare,
         {
             domConstruct.create( "div", { "class" : "br-buttonSpacer" }, this.domNode, "last" );
             this.addItemControl = new Button({ label : "<i class='fa fa-plus-square br-blue'></i>", onClick : lang.hitch( this, this._addItem ), "class" : "br-wideAddButton" } ).placeAt( this.containerNode );
+            new _ItemHeader().placeAt( this.addItemControl.domNode, "before" );
             this._addItem();
         },
         _addItem : function( props )

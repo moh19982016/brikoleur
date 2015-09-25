@@ -1,15 +1,15 @@
 <div>
     <div data-dojo-attach-point="titleNode" class="br-propertyTitle">${title}</div>
-    <div data-dojo-attach-point="displayNode" style="display: none">
+    <div data-dojo-attach-point="displayNode" class="br-ohunItem" style="display: none">
         <div class="br-controlRight" style="width:30px;">
             <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton" data-dojo-attach-event="onClick:pleaseDestroy" class="br-smallButton"><i class="fa fa-minus-square br-red"></i></button>
         </div>
-        <div class="br-controlStretch" style="width:calc( 100% - 30px )">
+        <div class="br-controlStretch br-inputContainer" data-dojo-attach-point="valueContainer" style="width:calc( 100% - 30px )">
             <span data-dojo-attach-point="valueNode"></span>
         </div>
         <div style="clear:both"></div>
     </div>
-    <div data-dojo-attach-point="controlNode" class="br-controlNode">
+    <div data-dojo-attach-point="controlNode" class="br-controlNode br-addControl">
         <div class="br-controlLeft br-inputContainer" style="width:55px;">
             <span data-dojo-attach-point="levelSelectorNode"></span>
         </div>
