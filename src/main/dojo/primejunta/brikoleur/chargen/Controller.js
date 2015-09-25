@@ -67,6 +67,7 @@ function( declare,
         {
             window.Controller = this;
             domClass.replace( document.body, "tundra", "claro" );
+            this.newCharacterButton = new Button({ label : i18n.NewCharacter, "class" : "br-headerButton", iconClass : "fa fa-sun-o br-gold", onClick : lang.hitch( this, this.newCharacter) } ).placeAt( this.headerContentNode, "first" );
             this._rosterMenu = new DropDownMenu();
             var keys = CharacterStore.list();
             for( var i = 0; i < keys.length; i++ )
@@ -79,7 +80,7 @@ function( declare,
             this._rosterMenu.startup();
             this.rosterButton = new DropDownButton({ dropDown : this._rosterMenu, label : i18n.Roster, "class" : "br-headerButton", iconClass : "fa fa-users" } ).placeAt( this.headerContentNode, "first" );
             this.rosterButton.startup();
-            this.own( this._rosterMenu, this.rosterButton );
+            this.own( this._rosterMenu, this.rosterButton, this.newCharacterButton );
             this._addPane( "name", new NamePane().placeAt( this.nameContainer ) );
             this._addPane( "traits", new TraitsPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
             this._addPane( "knacks", new KnacksPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
@@ -106,6 +107,11 @@ function( declare,
         loadState : function()
         {
             this.set( "state", json.parse( window.localStorage._debugState ) );
+        },
+        newCharacter : function()
+        {
+            this.saveCharacter();
+            this.clear();
         },
         loadCharacter : function( name, dontSave )
         {
@@ -151,7 +157,7 @@ function( declare,
         {
             var pn = this.domNode.parentNode;
             this.destroy();
-            new Constr().placeAt( pn );
+            new Constr().placeAt( pn ).startup();
         },
         get : function( prop )
         {

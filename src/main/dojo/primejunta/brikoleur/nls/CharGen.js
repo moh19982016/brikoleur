@@ -41,6 +41,7 @@ define({
         "Gender" : "Gender",
         "Handle" : "Handle",
         "Ekip" : "Ekip",
-        "Background" : "Background"
+        "Background" : "Background",
+        "NewCharacter" : "New Character"
     }
 });

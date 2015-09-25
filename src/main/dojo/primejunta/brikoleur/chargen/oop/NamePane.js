@@ -30,8 +30,6 @@ function( declare,
         isValidName : function()
         {
             var name = this.nameInput.get( "value" );
-            console.log( "NAME IS", name );
-
             if( name && Controller.isValidName( name ) )
             {
                 this.saveButton.set( "disabled", false );

@@ -9,10 +9,20 @@ function( declare,
           _FeatureControlBase,
           i18n )
 {
-    return declare([ _FeatureControlBase ], {
+    var Constr = declare([ _FeatureControlBase ], {
         data : knacks,
         selectedFeaturesTopic : "/SelectedKnacks/",
         featureAddedTopic : "/TrainingAdded/",
-        propertyPresentWarning : i18n.TrainingPresent
+        propertyPresentWarning : i18n.TrainingPresent,
+        postCreate : function()
+        {
+            this.inherited( arguments );
+            this.childConstructor = Constr;
+        },
+        getCost : function()
+        {
+            return this.level > 0 ? 4 : 0;
+        }
     });
+    return Constr;
 });

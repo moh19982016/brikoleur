@@ -44,6 +44,7 @@
     background: #444;
     color: silver;
     border-color: black;
+    border-radius: 3px;
 }
 
 .tundra .dijitMenuItem {
@@ -131,6 +132,10 @@
 
 .br-red {
     color: #b00;
+}
+
+.br-gold {
+    color: orange;
 }
 
 .br-gray {
