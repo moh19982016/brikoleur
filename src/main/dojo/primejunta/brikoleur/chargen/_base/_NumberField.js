@@ -17,6 +17,7 @@ function( declare,
 {
     return declare([ _FieldBase ], {
         inputWidget : NumberTextBox,
+        inputClass : "br-statField",
         cost : 0,
         buildRendering : function()
         {

@@ -19,6 +19,7 @@ function( declare,
         templateString : template,
         inputWidget : TextBox,
         inputProperties : [ "value", "disabled", "readonly", "selectedIndex", "options" ],
+        inputClass : "br-inputField",
         readonly : false,
         buildRendering : function()
         {
@@ -27,7 +28,7 @@ function( declare,
         },
         makeInput : function()
         {
-            this._input = new this.inputWidget({ name : this.name, readonly : this.readonly, onChange : this.onChange }).placeAt( this.controlNode );
+            this._input = new this.inputWidget({ name : this.name, readonly : this.readonly, onChange : this.onChange, "class" : this.inputClass }).placeAt( this.controlNode );
         },
         onChange : function()
         {

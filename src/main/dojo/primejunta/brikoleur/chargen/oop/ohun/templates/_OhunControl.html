@@ -1,13 +1,25 @@
 <div>
     <div data-dojo-attach-point="titleNode" class="br-propertyTitle">${title}</div>
     <div data-dojo-attach-point="displayNode" style="display: none">
-        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton" data-dojo-attach-event="onClick:pleaseDestroy" class="br-smallButton"><i class="fa fa-minus-square br-red"></i></button>
-        <span data-dojo-attach-point="valueNode"></span>
+        <div class="br-controlRight" style="width:30px;">
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton" data-dojo-attach-event="onClick:pleaseDestroy" class="br-smallButton"><i class="fa fa-minus-square br-red"></i></button>
+        </div>
+        <div class="br-controlStretch" style="width:calc( 100% - 30px )">
+            <span data-dojo-attach-point="valueNode"></span>
+        </div>
+        <div style="clear:both"></div>
     </div>
     <div data-dojo-attach-point="controlNode" class="br-controlNode">
-        <button data-dojo-attach-point="addButton" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick:addItem" class="br-smallButton"><i class="fa fa-plus-square br-blue"></i></button>
-        <span data-dojo-attach-point="levelSelectorNode"></span>
-        <span data-dojo-attach-point="selectorNode"></span>
+        <div class="br-controlLeft br-inputContainer" style="width:55px;">
+            <span data-dojo-attach-point="levelSelectorNode"></span>
+        </div>
+        <div class="br-controlRight" style="width:30px;">
+            <button data-dojo-attach-point="addButton" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick:addItem" class="br-smallButton"><i class="fa fa-plus-square br-blue"></i></button>
+        </div>
+        <div class="br-controlStretch br-inputContainer" style="width:calc(100% - 85px);">
+            <span data-dojo-attach-point="selectorNode"></span>
+        </div>
+        <div style="clear:both"></div>
     </div>
     <div data-dojo-attach-point="childrenNode" class="br-indented">
 

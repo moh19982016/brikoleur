@@ -1,11 +1,22 @@
 <div>
     <div data-dojo-attach-point="titleNode" class="br-propertyTitle">${title}</div>
     <div data-dojo-attach-point="displayNode" style="display: none">
-        <input type="checkbox" data-dojo-attach-point="activeBox" data-dojo-attach-event="onChange:_setActive" data-dojo-type="dijit/form/CheckBox"/> <span data-dojo-attach-point="valueNode"></span>
+        <div class="br-controlLeft br-inputContainer" style="width:25px;">
+            <input type="checkbox" data-dojo-attach-point="activeBox" data-dojo-attach-event="onChange:_setActive" data-dojo-type="dijit/form/CheckBox"/>
+        </div>
+        <div class="br-controlStretch br-inputContainer" style="width:calc( 100% - 25px )">
+            <span data-dojo-attach-point="valueNode"></span>
+        </div>
+        <div style="clear:both"></div>
     </div>
     <div data-dojo-attach-point="controlNode" class="br-controlNode">
-        <button data-dojo-attach-point="addButton" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick:addItem" class="br-smallButton"><i class="fa fa-plus-square br-blue"></i></button>
-        <span data-dojo-attach-point="selectorNode"></span>
+        <div class="br-controlRight" style="width:30px;">
+            <button data-dojo-attach-point="addButton" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick:addItem" class="br-smallButton"><i class="fa fa-plus-square br-blue"></i></button>
+        </div>
+        <div class="br-controlStretch br-inputContainer" style="width:calc(100% - 30px);">
+            <span data-dojo-attach-point="selectorNode"></span>
+        </div>
+        <div style="clear:both"></div>
     </div>
     <div data-dojo-attach-point="childrenNode" class="br-indented">
 
