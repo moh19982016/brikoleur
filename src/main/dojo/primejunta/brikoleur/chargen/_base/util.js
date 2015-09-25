@@ -69,6 +69,14 @@ function( lang, on, Tooltip )
                 n += controls[ i ].countItems();
             }
             return n;
+        },
+        showTooltip : function( label, node )
+        {
+            Tooltip.show( label, node );
+            setTimeout( lang.hitch( this, function()
+            {
+                on.once( document.body, "click", lang.hitch( Tooltip, Tooltip.hide, node ) );
+            }), 1 );
         }
     }
 });

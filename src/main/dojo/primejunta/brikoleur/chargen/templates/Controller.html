@@ -2,7 +2,9 @@
   <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" class="br-header">
     <div class="br-header-left"></div>
     <div class="br-header-bg"></div>
-    <div>${!dict.headerText}</div>
+    <div data-dojo-attach-point="headerContentNode" class="br-headerContent">
+      <a href="/index.html" class="br-headerLink">Brikoleur <i class="fa fa-external-link-square"></i></a>
+    </div>
   </div>
   <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left'" class="br-sidebar" data-dojo-attach-point="dockContainer">
   </div>
@@ -15,13 +17,6 @@
     </div>
     <div data-dojo-type="dijit/layout/ContentPane" title="${dict.InPlay}" data-dojo-attach-point="ipTab">
       ip
-    </div>
-  </div>
-  <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'" class="br-footer">
-    <div>${dict.footerText}
-      <button data-dojo-attach-event="onclick:logState" style="z-index:999;">Log state</button>
-      <button data-dojo-attach-event="onclick:saveState" style="z-index:999;">Save state</button>
-      <button data-dojo-attach-event="onclick:loadState" style="z-index:999;">Load state</button>
     </div>
   </div>
 </div>

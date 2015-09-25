@@ -1,11 +1,8 @@
 define([ "dojo/_base/declare",
         "dojo/_base/lang",
         "dojo/topic",
-        "dijit/form/TextBox",
+        "dijit/form/ValidationTextBox",
         "dijit/form/Button",
-        "dojo/dom-class",
-        "dojo/dom-construct",
-        "dojo/dom-geometry",
         "dijit/_WidgetBase",
         "dijit/_TemplatedMixin",
         "dijit/_WidgetsInTemplateMixin",
@@ -14,11 +11,8 @@ define([ "dojo/_base/declare",
 function( declare,
           lang,
           topic,
-          TextBox,
+          ValidationTextBox,
           Button,
-          domClass,
-          domConstruct,
-          domGeometry,
           _WidgetBase,
           _TemplatedMixin,
           _WidgetsInTemplateMixin,
@@ -30,7 +24,21 @@ function( declare,
         templateString : template,
         postCreate : function()
         {
+            this.nameInput.isValid = lang.hitch( this, this.isValidName );
+            this.nameInput.invalidMessage = i18n.NameInUse;
             this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
+        },
+        isValidName : function( name )
+        {
+            if( Controller.isValidName( name ) )
+            {
+                this.saveButton.set( "disabled", false );
+                return true;
+            }
+            else
+            {
+                this.saveButton.set( "disabled", true );
+            }
         },
         publishJuju : function()
         {
@@ -42,6 +50,10 @@ function( declare,
         publishStatus : function()
         {
             topic.publish( "/StatChanged/-juju", this.jujuInput.get( "value" ) );
+        },
+        saveCharacter : function()
+        {
+            Controller.saveCharacter();
         },
         get : function( prop )
         {
@@ -62,6 +74,8 @@ function( declare,
             if( prop == "state" )
             {
                 this.nameInput.set( "value", val.characterName );
+                this.nameInput.set( "disabled", true );
+                this.saveButton.set( "disabled", false );
                 this.jujuInput.set( "value", val.juju );
             }
             else

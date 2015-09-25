@@ -14,13 +14,16 @@ define([ "dojo/_base/declare",
         "./oop/powers/PowersPane",
         "./oop/stunts/StuntsPane",
         "./oop/ohun/OhunPane",
+        "./store/CharacterStore",
          "dijit/layout/LayoutContainer",
          "dijit/layout/TabContainer",
          "dijit/layout/ContentPane",
          "dijit/form/NumberTextBox",
          "dijit/form/TextBox",
-         "dijit/form/Button",
-         "dijit/_WidgetBase",
+        "dijit/form/DropDownButton",
+        "dijit/DropDownMenu",
+        "dijit/MenuItem",
+        "dijit/form/Button",
          "dijit/_TemplatedMixin",
          "dijit/_WidgetsInTemplateMixin",
          "dojo/text!./templates/Controller.html",
@@ -41,13 +44,16 @@ function( declare,
           PowersPane,
           StuntsPane,
           OhunPane,
+          CharacterStore,
           LayoutContainer,
           TabContainer,
           ContentPane,
           NumberTextBox,
           TextBox,
+          DropDownButton,
+          DropDownMenu,
+          MenuItem,
           Button,
-          _WidgetBase,
           _TemplatedMixin,
           _WidgetsInTemplateMixin,
           template,
@@ -61,6 +67,20 @@ function( declare,
         {
             window.Controller = this;
             domClass.replace( document.body, "tundra", "claro" );
+
+
+            this._rosterMenu = new DropDownMenu();
+            var keys = CharacterStore.list();
+            for( var i = 0; i < keys.length; i++ )
+            {
+                this._rosterMenu.addChild( new MenuItem({
+                    label: keys[ i ],
+                    onClick: lang.hitch( this, this.loadCharacter, keys[ i ] )
+                }));
+            }
+            this._rosterMenu.startup();
+            this.rosterButton = new DropDownButton({ dropDown : this._rosterMenu, label : i18n.Roster, "class" : "br-headerButton" } ).placeAt( this.headerContentNode, "first" );
+            this.rosterButton.startup();
             this._addPane( "name", new NamePane().placeAt( this.nameContainer ) );
             this._addPane( "traits", new TraitsPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
             this._addPane( "knacks", new KnacksPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
@@ -81,8 +101,23 @@ function( declare,
         },
         loadState : function()
         {
-            console.log( "LOAD FROM", json.parse( window.localStorage._debugState ) );
             this.set( "state", json.parse( window.localStorage._debugState ) );
+        },
+        loadCharacter : function( name )
+        {
+            this.saveCharacter();
+            this.set( "state", CharacterStore.load( name ) );
+        },
+        isValidName : function( name )
+        {
+            return !CharacterStore.nameInUse( name );
+        },
+        saveCharacter : function()
+        {
+            if( this._panes.name.get( "state" ).characterName )
+            {
+                CharacterStore.save( this._panes.name.get( "state" ).characterName, this.get( "state" ) );
+            }
         },
         get : function( prop )
         {

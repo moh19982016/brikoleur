@@ -13,8 +13,8 @@
 }
 
 .br-header {
-    font-family: Stalinist One, sans-serif;
-    font-size: 24px;
+    font-family: Abel, sans-serif;
+    font-size: 18px;
     color: #333;
     height: 40px;
     padding-left: 66px !important;
@@ -27,6 +27,7 @@
     width: 56px;
     bottom: 0;
     background-color: black;
+    border-right: 4px solid #a00;
 }
 
 .br-header-bg {
@@ -39,10 +40,45 @@
     bottom: 0;
 }
 
+.tundra .br-headerButton .dijitButtonNode {
+    background: #444;
+    color: silver;
+    border-color: black;
+}
+
+.tundra .dijitMenuItem {
+    font-family: Abel, sans-serif;
+}
+
+.br-headerContent {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    right: 0;
+    bottom: 0;
+    z-index : 999;
+    overflow: hidden;
+}
+
+.br-headerLink {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: silver;
+    text-decoration: none;
+    font-size: 24px;
+    vertical-align: -3px;
+}
+
+.br-headerLink:hover {
+    text-decoration: underline;
+}
+
 .br-sidebar {
     background-color: #444;
     color: #fafafa;
     width: 56px;
+    border-right: 4px solid #c00;
 }
 
 .br-footer {
@@ -58,10 +94,21 @@
     overflow: hidden;
 }
 
+.br-namePane {
+    width:100%;
+}
+
 .br-characterName {
     font-size: 24px;
     font-family: Iceberg, sans-serif;
     margin: 12px 4px;
+    width: calc( 100% - 8px );
+    box-sizing: border-box;
+}
+
+.br-characterName.dijitDisabled {
+    border: none;
+    color: #c00;
 }
 
 /* Colors */
@@ -71,6 +118,14 @@
 
 .br-red {
     color: #b00;
+}
+
+.br-gray {
+    color: #888;
+}
+
+.br-active {
+    cursor: pointer;
 }
 
 /* Feature pane */

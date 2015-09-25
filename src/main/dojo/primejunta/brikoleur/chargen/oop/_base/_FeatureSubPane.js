@@ -3,6 +3,7 @@ define([ "dojo/_base/declare",
         "dojo/_base/array",
          "dojo/topic",
          "./_ControlPaneMixin",
+        "./../../_base/util",
          "dijit/_WidgetBase",
          "dijit/_TemplatedMixin",
          "dojo/text!./templates/_FeatureSubPane.html" ],
@@ -11,6 +12,7 @@ function( declare,
           array,
           topic,
           _ControlPaneMixin,
+          util,
           _WidgetBase,
           _TemplatedMixin,
           template )
@@ -26,6 +28,14 @@ function( declare,
         {
             this.inherited( arguments );
             this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
+            if( this.data.description )
+            {
+                this.infoButton.style.visibility = "visible";
+            }
+        },
+        showInfo : function()
+        {
+            util.showTooltip( this.data.description, this.infoButton );
         },
         featureAdded : function( kwObj )
         {

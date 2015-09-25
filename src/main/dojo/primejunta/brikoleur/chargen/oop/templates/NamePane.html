@@ -1,4 +1,11 @@
 <div class="br-namePane">
-    <label style="float:right">${dict.Juju} <input class="br-statField" data-dojo-attach-point="jujuInput" data-dojo-type="dijit/form/NumberTextBox" value="99" data-dojo-attach-event="onChange:publishJuju"/></label>
-    <input data-dojo-attach-point="nameInput" data-dojo-type="dijit/form/TextBox" placeholder="${dict.CharacterName}" class="br-characterName"/>
+    <div class="br-controlRight" style="width:100px;">
+        <label>${dict.Juju} <input class="br-statField" data-dojo-attach-point="jujuInput" data-dojo-type="dijit/form/NumberTextBox" value="99" data-dojo-attach-event="onChange:publishJuju"/></label>
+    </div>
+    <div class="br-controlRight" style="width:100px;padding:10px 0 0;">
+        <button data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick:saveCharacter" data-dojo-type="dijit/form/Button" disabled="disabled">${dict.Save}</button>
+    </div>
+    <div class="br-controlStretch" style="width:calc( 100% - 200px )">
+        <input data-dojo-attach-point="nameInput" data-dojo-type="dijit/form/ValidationTextBox" placeholder="${dict.CharacterName}" class="br-characterName"/>
+    </div>
 </div>
