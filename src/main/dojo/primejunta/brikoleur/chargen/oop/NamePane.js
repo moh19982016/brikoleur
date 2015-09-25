@@ -26,11 +26,13 @@ function( declare,
         {
             this.nameInput.isValid = lang.hitch( this, this.isValidName );
             this.nameInput.invalidMessage = i18n.NameInUse;
-            this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
         },
-        isValidName : function( name )
+        isValidName : function()
         {
-            if( Controller.isValidName( name ) )
+            var name = this.nameInput.get( "value" );
+            console.log( "NAME IS", name );
+
+            if( name && Controller.isValidName( name ) )
             {
                 this.saveButton.set( "disabled", false );
                 return true;
@@ -40,20 +42,17 @@ function( declare,
                 this.saveButton.set( "disabled", true );
             }
         },
-        publishJuju : function()
-        {
-            if( !Controller.loading )
-            {
-                this.publishStatus();
-            }
-        },
-        publishStatus : function()
-        {
-            topic.publish( "/StatChanged/-juju", this.jujuInput.get( "value" ) );
-        },
         saveCharacter : function()
         {
             Controller.saveCharacter();
+        },
+        deleteCharacter : function()
+        {
+            Controller.deleteCharacter();
+        },
+        revertCharacter : function()
+        {
+            Controller.revertCharacter();
         },
         get : function( prop )
         {
@@ -61,7 +60,6 @@ function( declare,
             {
                 return {
                     characterName : this.nameInput.get( "value" ),
-                    juju : this.jujuInput.get( "value" )
                 }
             }
             else
@@ -76,7 +74,8 @@ function( declare,
                 this.nameInput.set( "value", val.characterName );
                 this.nameInput.set( "disabled", true );
                 this.saveButton.set( "disabled", false );
-                this.jujuInput.set( "value", val.juju );
+                this.revertButton.set( "disabled", false );
+                this.deleteButton.set( "disabled", false );
             }
             else
             {

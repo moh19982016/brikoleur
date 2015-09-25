@@ -74,6 +74,19 @@
     text-decoration: underline;
 }
 
+.br-jujuField {
+    color: #c00;
+    font-family: Iceberg, sans-serif;
+    padding: 8px;
+    font-size: 20px;
+    text-align: right;
+}
+
+.tundra .br-jujuField .dijitTextBox {
+    width: 40px;
+    border: 1px solid #c00;
+}
+
 .br-sidebar {
     background-color: #444;
     color: #fafafa;
@@ -371,7 +384,7 @@ i.br-minimizeButton:hover {
 }
 
 .dijitButtonDisabled .br-red, .dijitButtonDisabled .br-blue {
-    color: #e4e4e4;
+    color: #ccc;
 }
 
 /* Dijits */

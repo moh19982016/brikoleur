@@ -25,6 +25,8 @@ define({
         "Type": "Type",
         "Lvl" : "Lvl",
         "Save" : "Save",
+        "Delete" : "Delete",
+        "Revert" : "Revert",
         "Roster" : "Roster",
         "NameInUse" : "The name is already in use.",
         "ItemDescription" : "Description",

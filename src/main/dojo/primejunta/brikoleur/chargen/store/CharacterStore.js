@@ -3,6 +3,7 @@ function( lang, array, json )
 {
     return {
         STORE_NAME : "primejunta.brikoleur.store",
+        SETTINGS_NAME : "primejunta.brikoleur.settings",
         nameInUse : function( name )
         {
             return array.indexOf( this.list(), name ) != -1;
@@ -38,7 +39,15 @@ function( lang, array, json )
         },
         remove : function( name )
         {
-            delete this.store[ name ];
+            delete localStorage[ this.STORE_NAME + "." + name ];
+        },
+        set : function( prop, val )
+        {
+            localStorage[ this.SETTINGS_NAME + "." + prop ] = val;
+        },
+        get : function( prop )
+        {
+            return localStorage[ this.SETTINGS_NAME + "." + prop ];
         }
     };
 });

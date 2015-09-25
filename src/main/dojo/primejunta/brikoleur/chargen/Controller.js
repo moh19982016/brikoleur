@@ -59,7 +59,7 @@ function( declare,
           template,
           i18n )
 {
-    return declare([ LayoutContainer, _TemplatedMixin, _WidgetsInTemplateMixin  ], {
+    var Constr = declare([ LayoutContainer, _TemplatedMixin, _WidgetsInTemplateMixin  ], {
         dict : i18n,
         templateString : template,
         _panes : {},
@@ -67,8 +67,6 @@ function( declare,
         {
             window.Controller = this;
             domClass.replace( document.body, "tundra", "claro" );
-
-
             this._rosterMenu = new DropDownMenu();
             var keys = CharacterStore.list();
             for( var i = 0; i < keys.length; i++ )
@@ -79,8 +77,9 @@ function( declare,
                 }));
             }
             this._rosterMenu.startup();
-            this.rosterButton = new DropDownButton({ dropDown : this._rosterMenu, label : i18n.Roster, "class" : "br-headerButton" } ).placeAt( this.headerContentNode, "first" );
+            this.rosterButton = new DropDownButton({ dropDown : this._rosterMenu, label : i18n.Roster, "class" : "br-headerButton", iconClass : "fa fa-users" } ).placeAt( this.headerContentNode, "first" );
             this.rosterButton.startup();
+            this.own( this._rosterMenu, this.rosterButton );
             this._addPane( "name", new NamePane().placeAt( this.nameContainer ) );
             this._addPane( "traits", new TraitsPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
             this._addPane( "knacks", new KnacksPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
@@ -90,6 +89,11 @@ function( declare,
             this._addPane( "stunts", new StuntsPane({ minimized : true, dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
             this._addPane( "gear", new GearPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
             this._addPane( "description", new DescriptionPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
+            this.loadSettings();
+        },
+        loadSettings : function()
+        {
+            this.set( "juju", CharacterStore.get( "juju" ) || 0 );
         },
         logState : function()
         {
@@ -103,9 +107,12 @@ function( declare,
         {
             this.set( "state", json.parse( window.localStorage._debugState ) );
         },
-        loadCharacter : function( name )
+        loadCharacter : function( name, dontSave )
         {
-            this.saveCharacter();
+            if( !dontSave )
+            {
+                this.saveCharacter();
+            }
             this.set( "state", CharacterStore.load( name ) );
         },
         isValidName : function( name )
@@ -119,11 +126,38 @@ function( declare,
                 CharacterStore.save( this._panes.name.get( "state" ).characterName, this.get( "state" ) );
             }
         },
+        deleteCharacter : function()
+        {
+            if( this._panes.name.get( "state" ).characterName && confirm( "U SURE M8???" ) )
+            {
+                CharacterStore.remove( this._panes.name.get( "state" ).characterName );
+                this.clear();
+            }
+        },
+        revertCharacter : function()
+        {
+            if( this._panes.name.get( "state" ).characterName )
+            {
+                this.loadCharacter( this._panes.name.get( "state" ).characterName, true );
+            }
+        },
+        publishJuju : function()
+        {
+            var juju = this.jujuInput.get( "value" );
+            CharacterStore.set( "juju", juju );
+            topic.publish( "/StatChanged/-juju", juju );
+        },
+        clear : function()
+        {
+            var pn = this.domNode.parentNode;
+            this.destroy();
+            new Constr().placeAt( pn );
+        },
         get : function( prop )
         {
             if( prop == "juju" )
             {
-                return this._panes.name.jujuInput.get( "value" );
+                return this.jujuInput.get( "value" );
             }
             else if( prop == "state" )
             {
@@ -147,7 +181,7 @@ function( declare,
         {
             if( prop == "juju" )
             {
-                this._panes.name.jujuInput.set( "value", val );
+                this.jujuInput.set( "value", val );
             }
             else if( prop == "state" )
             {
@@ -156,6 +190,7 @@ function( declare,
                 {
                     this._panes[ o ].set( "state", val[ o ] );
                 }
+                this.publishJuju();
                 topic.publish( "/PleasePublishStatus/", true );
                 this.loading = false;
             }
@@ -167,6 +202,8 @@ function( declare,
         _addPane : function( point, pane )
         {
             this._panes[ point ] = pane;
+            this.own( pane );
         }
     });
+    return Constr;
 });
