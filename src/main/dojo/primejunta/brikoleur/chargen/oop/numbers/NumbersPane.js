@@ -33,7 +33,7 @@ function( declare,
             this.addField( "stamina", _NumberField, { title : " = " + i18n.Stamina, value : 12, disabled : true, "class" : "br-stamina" }, this.q2 );
             this.addField( "aps", _NumberField, { title : i18n.ActivePowerSlots, value : 2, cost : 4 }, this.q3 );
             this.addField( "os", _NumberField, { title : i18n.OhunSlots, value : 2, cost : 4 }, this.q4 );
-            this.resize();
+            setTimeout( lang.hitch( this, this.resize ), 1 );
         },
         maximize : function()
         {
