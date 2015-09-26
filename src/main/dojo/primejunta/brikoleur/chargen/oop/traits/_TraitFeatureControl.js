@@ -1,15 +1,31 @@
 define([ "dojo/_base/declare",
-    "dojo/_base/lang",
+        "dojo/_base/lang",
         "dojo/topic",
-    "dijit/form/Button",
-    "dijit/form/Select",
-    "dijit/form/TextBox",
-    "dijit/_WidgetBase",
-    "dijit/_TemplatedMixin",
-    "dijit/_WidgetsInTemplateMixin",
-    "dojo/text!./templates/_TraitFeatureControl.html",
-    "dojo/i18n!./../../../nls/CharGen" ],
-function( declare, lang, topic, Button, Select, TextBox, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, template, i18n )
+        "dojo/store/Memory",
+        "dijit/form/ComboBox",
+        "dijit/form/Button",
+        "dijit/form/Select",
+        "dijit/form/TextBox",
+        "./../../_base/util",
+        "dijit/_WidgetBase",
+        "dijit/_TemplatedMixin",
+        "dijit/_WidgetsInTemplateMixin",
+        "dojo/text!./templates/_TraitFeatureControl.html",
+        "dojo/i18n!./../../../nls/CharGen" ],
+function( declare,
+          lang,
+          topic,
+          Memory,
+          ComboBox,
+          Button,
+          Select,
+          TextBox,
+          util,
+          _WidgetBase,
+          _TemplatedMixin,
+          _WidgetsInTemplateMixin,
+          template,
+          i18n )
 {
     return declare([ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
         manager : {},
@@ -18,6 +34,7 @@ function( declare, lang, topic, Button, Select, TextBox, _WidgetBase, _Templated
         dict : i18n,
         selector : true,
         value : "",
+        list : false,
         templateString : template,
         postCreate : function()
         {
@@ -27,6 +44,16 @@ function( declare, lang, topic, Button, Select, TextBox, _WidgetBase, _Templated
                 this.typeNode.style.display = "inline";
                 this.typeSelect.domNode.style.display = "none";
             }
+            if( this.list )
+            {
+                var store = new Memory({ data : util.listToStoreData( this.list )});
+                this.valueInput = new ComboBox({ onChange : lang.hitch( this, this.checkAdd ), style : "width:100%", store : store, placeholder : i18n.SelectOrType } ).placeAt( this.valueInputNode );
+            }
+            else
+            {
+                this.valueInput = new TextBox({ onChange : lang.hitch( this, this.checkAdd ), style : "width:100%" } ).placeAt( this.valueInputNode );
+            }
+            this.own( this.valueInput );
             this._count = 0;
             this.own( topic.subscribe( "/FreeFeatureAdded/", lang.hitch( this, this.checkCap ) ) );
         },
@@ -52,21 +79,21 @@ function( declare, lang, topic, Button, Select, TextBox, _WidgetBase, _Templated
         },
         checkAdd : function()
         {
-            this.addButton.set( "disabled", !this.descriptionInput.get( "value" ) );
+            this.addButton.set( "disabled", !this.valueInput.get( "value" ) );
         },
         addFeature : function()
         {
             this.manager.addFreeFeature({
                 type : this.selector ? this.typeSelect.get( "value" ) : this.value,
                 name : this.selector ? this.typeSelect.get( "displayedValue" ) : this.value,
-                value : this.descriptionInput.get( "value" )
+                value : this.valueInput.get( "value" )
             }, this );
             this.clear();
         },
         clear : function()
         {
             this.typeSelect.set( "value", this.typeSelect.options[ 0 ].value );
-            this.descriptionInput.set( "value", "" );
+            this.valueInput.set( "value", "" );
             this.checkAdd();
         }
     });

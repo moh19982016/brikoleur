@@ -70,6 +70,11 @@ define({
             ],
             "features": [
                 {
+                    "name": "Jack In",
+                    "value": "You may jack into Q-Space at an exposed Q-Net node, unless you have an Oga slotted.",
+                    "type": "passive"
+                },
+                {
                     "name": "Oga",
                     "value": "Oga are skill packages that give the equivalent of Knack + Training in a single skill. You may not jack in while one is slotted. It takes 24 hours for an oga to integrate.",
                     "type": "passive"
@@ -442,20 +447,23 @@ define({
                     "value" : "Minor Curse",
                     "selector" : false,
                     "type" : "free",
-                    "max" : 9
+                    "max" : 9,
+                    "list" : [ "Repulsive: -2/Social", "Mute", "Deaf", "Cannibal", "Semiplegic", "Hemiplegic", "Berserk" ]
                 },
                 {
                     "name" : "Major Curses",
                     "value" : "Major Curse",
                     "selector" : false,
                     "type" : "free",
-                    "max" : 9
+                    "max" : 9,
+                    "list" : [ "Quadriplegic", "Violence-inhibited", "Blind", "Dustman" ]
                 },
                 {
                     "name" : "Gifts",
                     "value" : "Gift",
                     "selector" : false,
                     "type" : "free",
+                    "list" : [ "Jack In", "Smart Weapons", "Ohun - Cards", "Ohun - Vévés", "Ohun - Drones", "Empath", "Telepath", "Chameleon", "Psychic Assault", "Machine Empathy" ],
                     "checkMax" : function( features )
                     {
                         return 1 + ( features[ "Minor Curses" ] || [] ).length + 2 * ( features[ "Major Curses" ] || [] ).length;
