@@ -26,6 +26,10 @@ function( declare,
         {
             this.nameInput.isValid = lang.hitch( this, this.isValidName );
             this.nameInput.invalidMessage = i18n.NameInUse;
+            this.saveButton = new Button({ disabled : true, label : i18n.Save, "class" : "br-headerButton", iconClass : "fa fa-check-circle br-blue", onClick : lang.hitch( Controller, Controller.saveCharacter ) } ).placeAt( this.buttonContainer );
+            this.revertButton = new Button({ disabled : true, label : i18n.Revert, "class" : "br-headerButton br-compactButton br-splitButtonLeft", iconClass : "fa fa-undo", onClick : lang.hitch( Controller, Controller.revertCharacter ) } ).placeAt( this.buttonContainer );
+            this.deleteButton = new Button({ disabled : true, label : i18n.Delete, "class" : "br-headerButton br-compactButton br-splitButtonRight", iconClass : "fa fa-trash br-red", onClick : lang.hitch( Controller, Controller.deleteCharacter ) } ).placeAt( this.buttonContainer );
+            this.own( this.revertButton, this.saveButton, this.deleteButton );
         },
         isValidName : function()
         {
@@ -57,8 +61,8 @@ function( declare,
             if( prop == "state" )
             {
                 return {
-                    characterName : this.nameInput.get( "value" ),
-                }
+                    characterName : this.nameInput.get( "value" )
+                };
             }
             else
             {
@@ -72,8 +76,8 @@ function( declare,
                 this.nameInput.set( "value", val.characterName );
                 this.nameInput.set( "disabled", true );
                 this.saveButton.set( "disabled", false );
-                this.revertButton.set( "disabled", false );
                 this.deleteButton.set( "disabled", false );
+                this.revertButton.set( "disabled", false );
             }
             else
             {

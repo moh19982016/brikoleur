@@ -22,11 +22,11 @@ function( declare,
         threshold : 440,
         postCreate : function()
         {
-            this.q1 = domConstruct.create( "div", { "class" : "br-floatLeft" }, this.containerNode );
-            this.q2 = domConstruct.create( "div", { "class" : "br-floatRight" }, this.containerNode );
+            this.q1 = domConstruct.create( "div", { "class" : "br-formLayoutLeft" }, this.containerNode );
+            this.q2 = domConstruct.create( "div", { "class" : "br-formLayoutRight" }, this.containerNode );
             domConstruct.create( "div", { "style" : "clear:both" }, this.containerNode );
-            this.q3 = domConstruct.create( "div", { "class" : "br-floatLeft" }, this.containerNode );
-            this.q4 = domConstruct.create( "div", { "class" : "br-floatRight" }, this.containerNode );
+            this.q3 = domConstruct.create( "div", { "class" : "br-formLayoutLeft" }, this.containerNode );
+            this.q4 = domConstruct.create( "div", { "class" : "br-formLayoutRight" }, this.containerNode );
             domConstruct.create( "div", { "style" : "clear:both" }, this.containerNode );
             this.addField( "body", _NumberField, { title : i18n.Body, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1 }, this.q1 );
             this.addField( "mind", _NumberField, { title : " + " + i18n.Mind, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1  }, this.q2 );
@@ -44,17 +44,17 @@ function( declare,
         {
             if( domGeometry.getContentBox( this.containerNode ).w < this.threshold )
             {
-                domClass.remove( this.q1, "br-floatLeft" );
-                domClass.remove( this.q2, "br-floatRight" );
-                domClass.remove( this.q3, "br-floatLeft" );
-                domClass.remove( this.q4, "br-floatRight" );
+                domClass.remove( this.q1, "br-formLayoutLeft" );
+                domClass.remove( this.q2, "br-formLayoutRight" );
+                domClass.remove( this.q3, "br-formLayoutLeft" );
+                domClass.remove( this.q4, "br-formLayoutRight" );
             }
             else
             {
-                domClass.add( this.q1, "br-floatLeft" );
-                domClass.add( this.q2, "br-floatRight" );
-                domClass.add( this.q3, "br-floatLeft" );
-                domClass.add( this.q4, "br-floatRight" );
+                domClass.add( this.q1, "br-formLayoutLeft" );
+                domClass.add( this.q2, "br-formLayoutRight" );
+                domClass.add( this.q3, "br-formLayoutLeft" );
+                domClass.add( this.q4, "br-formLayoutRight" );
             }
         },
         _recalcStamina : function()

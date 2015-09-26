@@ -27,7 +27,7 @@ define({
         "Save" : "Save",
         "Delete" : "Delete",
         "Revert" : "Revert",
-        "Roster" : "Roster",
+        "Ekip" : "Ekip",
         "NameInUse" : "The name is already in use.",
         "ItemDescription" : "Description",
         "ActivePowerSlots" : "Active Powers",
@@ -40,8 +40,7 @@ define({
         "AdHocOhunDescription" : "You may ${verb} up to ${cap} ${name} (level ${min}-${max}).",
         "Gender" : "Gender",
         "Handle" : "Handle",
-        "Ekip" : "Ekip",
         "Background" : "Background",
-        "NewCharacter" : "New Character"
+        "NewCharacter" : "Create Character"
     }
 });

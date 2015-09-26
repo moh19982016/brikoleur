@@ -1,10 +1,7 @@
 <div class="br-namePane">
-    <div class="br-controlRight" style="width:250px;padding:10px 0 0;">
-        <button data-dojo-attach-point="saveButton" data-dojo-attach-event="onClick:saveCharacter" data-dojo-type="dijit/form/Button" data-dojo-props="iconClass:'fa fa-save br-blue'" disabled="disabled">${dict.Save}</button>
-        <button data-dojo-attach-point="deleteButton" data-dojo-attach-event="onClick:deleteCharacter" data-dojo-type="dijit/form/Button" data-dojo-props="iconClass:'fa fa-trash br-red'" disabled="disabled">${dict.Delete}</button>
-        <button data-dojo-attach-point="revertButton" data-dojo-attach-event="onClick:revertCharacter" data-dojo-type="dijit/form/Button" data-dojo-props="iconClass:'fa fa-undo'" disabled="disabled">${dict.Revert}</button>
+    <div class="br-floatRight br-namePaneButtons" data-dojo-attach-point="buttonContainer">
     </div>
-    <div class="br-controlStretch" style="width:calc( 100% - 250px )">
+    <div class="br-floatRight br-namePaneInput">
         <input data-dojo-attach-point="nameInput" data-dojo-type="dijit/form/ValidationTextBox" placeholder="${dict.CharacterName}" class="br-characterName"/>
     </div>
 </div>
