@@ -16,14 +16,23 @@
   <style type="text/css">
     @import "css/chargen.css";
   </style>
-  <script type="text/javascript" src="dojo/dojo/dojo.js"
-          data-dojo-config="async: true, parseOnLoad: false"></script>
   <script type="text/javascript">
-    require([ "primejunta/brikoleur/chargen/Controller" ],
-            function( Controller )
-            {
-              new Controller({ "class" : "br-controller" }).placeAt( document.body ).startup();
-            });
+    var dojoConfig = {
+      async : true,
+      parseOnLoad : false,
+      locale : "en",
+      deps : [],
+      callback : function()
+      {
+        require([ "primejunta/brikoleur/chargen/Controller", "dojo/domReady!" ],
+        function( Controller )
+        {
+          new Controller({ "class" : "br-controller" }).placeAt( document.body ).startup();
+        });
+      }
+    }
+  </script>
+  <script type="text/javascript" src="dojo/dojo/dojo.js">
   </script>
 </head>
 <body class="tundra">

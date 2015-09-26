@@ -27,7 +27,7 @@ var profile = {
         "dijit/dijit" : {
             include : [ "dijit/dijit-all" ]
         },
-        "primejunta/numenera" : {
+        "primejunta/brikoleur" : {
             include : [ "primejunta/brikoleur/chargen/Controller" ]
         }
     },

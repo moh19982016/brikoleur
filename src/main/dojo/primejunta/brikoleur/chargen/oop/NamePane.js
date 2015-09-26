@@ -64,7 +64,7 @@ function( declare,
             {
                 return;
             }
-            else if( Controller.get( "new" ) )
+            else if( Controller.get( "is_new" ) )
             {
                 this.isValidName();
             }

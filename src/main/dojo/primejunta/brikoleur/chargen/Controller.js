@@ -73,7 +73,7 @@ function( declare,
         postCreate : function()
         {
             window.Controller = this;
-            this.set( "new", true );
+            this.set( "is_new", true );
             domClass.replace( document.body, "tundra", "claro" );
             if( this.hasFullScreen() )
             {
@@ -108,7 +108,7 @@ function( declare,
                 !document.webkitFullscreenElement &&
                 !document.msFullscreenElement )
             {
-                addClass( document.body, "em-fullScreen" );
+                domClass.add( document.body, "em-fullScreen" );
                 // current working methods
                 if( document.documentElement.requestFullscreen)
                 {
@@ -129,7 +129,7 @@ function( declare,
             }
             else
             {
-                removeClass( document.body, "em-fullScreen" );
+                domClass.remove( document.body, "em-fullScreen" );
                 if( document.exitFullscreen)
                 {
                     document.exitFullscreen();
@@ -168,9 +168,16 @@ function( declare,
         {
             if( !dontSave )
             {
-                this.saveCharacter();
+                this.saveCharacter().then( lang.hitch( this, this.doLoadCharacter, name ));
             }
-            this.set( "new", false );;
+            else
+            {
+                this.doLoadCharacter( name );
+            }
+        },
+        doLoadCharacter : function( name )
+        {
+            this.set( "is_new", false );
             this.set( "juju", CharacterStore.get( "juju" ) || 0 );
             this.set( "state", CharacterStore.load( name ) );
         },
@@ -181,15 +188,15 @@ function( declare,
         saveCharacter : function()
         {
             var cName = this._panes.name.get( "state" ).characterName;
-            var juju = this.get( "juju" );
-            var diff = CharacterStore.get( "juju" ) - juju;
+            var juju = this.get( "juju" ) || 0;
+            var diff = ( CharacterStore.get( "juju" ) || 0 ) - juju;
             if( cName )
             {
-                if( this.new && juju > 0 )
+                if( this.is_new && juju > 0 )
                 {
                     util.alert( i18n.YouHaveUnusedJuju );
                 }
-                else if( diff == 0 || this.new )
+                else if( diff == 0 || this.is_new )
                 {
                     this.doSaveCharacter( cName, juju );
                 }
@@ -203,11 +210,11 @@ function( declare,
         {
             var cName = this._panes.name.get( "state" ).characterName;
             var juju = this.get( "juju" );
-            if( !this.new )
+            if( !this.is_new )
             {
                 CharacterStore.set( "juju", juju );
             }
-            this.set( "new", false );
+            this.set( "is_new", false );
             CharacterStore.save( cName, this.get( "state" ) );
             topic.publish( "/CharacterSaved/" );
             this.refreshEkip();
@@ -297,9 +304,9 @@ function( declare,
             {
                 this.jujuInput.set( "value", val );
             }
-            else if( prop == "new" )
+            else if( prop == "is_new" )
             {
-                this.new = val;
+                this.is_new = val;
                 if( val )
                 {
                     domClass.add( this.domNode, "br-newCharacter" );

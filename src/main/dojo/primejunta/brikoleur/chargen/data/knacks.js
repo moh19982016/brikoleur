@@ -48,7 +48,7 @@ define( {
                     closed: true,
                     list: [
                         {
-                            name: "Ranged Defence (Urban Terrain)",
+                            name: "Ranged Defence (Urban Terrain)"
                         },
                         {
                             name: "Ranged Defence (Natural Terrain)"

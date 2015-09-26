@@ -8,7 +8,8 @@ echo Clearing sandbox
 rm -Rf work/
 mkdir work
 echo Copying resources to source directory
-cp $BRIKOLEUR_HOME/brikoleur/src/main/html/index.html ../devbox/
+cp -R $BRIKOLEUR_HOME/brikoleur/src/main/html/* ../devbox/
+sed -E 's/deps : \[\]/deps : \[ "primejunta\/brikoleur" \]/' < ../devbox/index.html > ../devbox/_index.html;mv ../devbox/_index.html ../devbox/index.html
 cp -RL ../devbox/*  work
 echo Updating build script
 cp $BRIKOLEUR_HOME/brikoleur/src/main/assembly/sh/build.sh . # update this file for next time
@@ -26,8 +27,12 @@ mkdir work/package/dojo
 mv work/release/* work/package/dojo/
 mv work/css work/package/
 mv work/index.html work/package/
+mv work/ikons work/package/
 mv work/font-awesome work/package/
 #cp -R $BRIKOLEUR_HOME/brikoleur/src/main/assets release/
 echo Creating package
-zip -r brikoleur.zip work/package/ > /dev/null
-echo Done. Release is in directory release/ and a zip package in brikoleur.zip.
+rm brikoleur.zip
+cd work/package/
+zip -r ../../brikoleur.zip * > /dev/null
+cd ../..
+echo Done. Release is in directory package/ and a zip package in brikoleur.zip.
