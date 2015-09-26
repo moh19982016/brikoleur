@@ -82,6 +82,10 @@ function( declare,
             this._levelSelector.set( "options", opts );
             this._checkAddButton();
         },
+        getCost : function()
+        {
+            return this.level;
+        },
         pleaseDestroy : function()
         {
             this.parent.pleaseRemove( this );

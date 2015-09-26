@@ -37,11 +37,7 @@ function( declare,
             this.state.free_features[ ctrl.key ] = this.state.free_features[ ctrl.key ] || [];
             this.state.free_features[ ctrl.key ].push( kwObj );
             this._printFeature( kwObj, ctrl.domNode, "before" );
-            ctrl.max--;
-            if( ctrl.max == 0 )
-            {
-                ctrl.destroy();
-            }
+            topic.publish( "/FreeFeatureAdded/", ctrl.key, this.state.free_features );
         },
         _setState : function( state )
         {
@@ -80,7 +76,10 @@ function( declare,
                         }
                         else
                         {
-                            this.own( new _TraitFeatureControl({ manager : this, key : features[ i ].name, max : features[ i ].max || 1 } ).placeAt( this.featuresNode ) );
+                            this.own( new _TraitFeatureControl( lang.mixin({
+                                manager : this,
+                                key : features[ i ].name
+                            }, features[ i ] ) ).placeAt( this.featuresNode ) );
                         }
                         break;
                     default :

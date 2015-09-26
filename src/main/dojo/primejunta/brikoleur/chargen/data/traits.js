@@ -71,7 +71,7 @@ define({
             "features": [
                 {
                     "name": "Oga",
-                    "value": "Ogas are skill packages slotted into the Akoto interface.",
+                    "value": "Oga are skill packages that give the equivalent of Knack + Training in a single skill. You may not jack in while one is slotted. It takes 24 hours for an oga to integrate.",
                     "type": "passive"
                 }
             ]
@@ -79,6 +79,11 @@ define({
         {
             "name": "Lwa's Horse",
             "description": "A Lwa's Horse is crowned with a lwa. He serves it, and in turn may petition it for favours. Lwa's Horses are respected by their friends and feared by their enemies.",
+            "features" : [{
+                "name" : "Respect",
+                "type" : "passive",
+                "value" : "All interactions involving Power Relations are 1 level easier."
+            }],
             "ohun": [
                 {
                     "name": "Vévés",
@@ -104,6 +109,11 @@ define({
         {
             "name": "Contra-Synchronicity",
             "description": "Guns pointed at you will misfire. You can manipulate probabilities. You can create and use Cards to produce persistent effects distorting probabilities. You can acquire special abilities that produce specific and powerful CS effects.",
+            "features" : [{
+                "name" : "Deck",
+                "type" : "passive",
+                "value" : "A Player with a Deck may play Cards ad-hoc, without having to prepare them in advance."
+            }],
             "ohun": [
                 {
                     "name": "Cards",
@@ -410,6 +420,46 @@ define({
                     "name" : "Adaptations and Resistances",
                     "type" : "free",
                     "max" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Zonetouched",
+            "description" : "The Zonetouched have been altered by the powers in the Zone. They manifest Gifts and Curses that set them apart from the rest of humanity.",
+            "ohun" : [{
+                "name" : "Gift Ohun",
+                "description" : "Some Zonetouched can use Ohun resembling those of other Traits, or entirely unique. Like all Zonetouched features, this is subject to agreement with your GM.",
+                "list" : []
+            }],
+            "powers" : [{
+                "name" : "Gift Powers",
+                "description" : "Some Zonetouched can use Powers resembling those of other Traits, or entirely unique. Like all Zonetouched features, this is subject to agreement with your GM.",
+                "list" : []
+            }],
+            "features" : [
+                {
+                    "name" : "Minor Curses",
+                    "value" : "Minor Curse",
+                    "selector" : false,
+                    "type" : "free",
+                    "max" : 9
+                },
+                {
+                    "name" : "Major Curses",
+                    "value" : "Major Curse",
+                    "selector" : false,
+                    "type" : "free",
+                    "max" : 9
+                },
+                {
+                    "name" : "Gifts",
+                    "value" : "Gift",
+                    "selector" : false,
+                    "type" : "free",
+                    "checkMax" : function( features )
+                    {
+                        return 1 + ( features[ "Minor Curses" ] || [] ).length + 2 * ( features[ "Major Curses" ] || [] ).length;
+                    }
                 }
             ]
         }
