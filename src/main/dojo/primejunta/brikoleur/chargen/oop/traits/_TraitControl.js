@@ -36,8 +36,46 @@ function( declare,
             this.state.free_features = this.state.free_features || {};
             this.state.free_features[ ctrl.key ] = this.state.free_features[ ctrl.key ] || [];
             this.state.free_features[ ctrl.key ].push( kwObj );
+            if( kwObj.type == "Gift" )
+            {
+                this._checkGift( kwObj );
+            }
             this._printFeature( kwObj, ctrl.domNode, "before" );
             topic.publish( "/FreeFeatureAdded/", ctrl.key, this.state.free_features );
+        },
+        _checkGift : function( gift )
+        {
+            if( gift.value.indexOf( "Ohun - " ) == 0 )
+            {
+                topic.publish( "/AddBonusOhun/", this._lookupProperty( "ohun", gift.value.substring( "Ohun - ".length ) ) );
+            }
+            if( gift.value.indexOf( "Power - " ) == 0 )
+            {
+                topic.publish( "/AddBonusPower/", this._lookupProperty( "powers", gift.value.substring( "Power - ".length ) ) );
+            }
+        },
+        _lookupProperty : function( prop, val )
+        {
+            for( var i = 0; i < traits.list.length; i++ )
+            {
+                for( var j = 0; j < ( traits.list[ i ][ prop ] || [] ).length; j++ )
+                {
+                    if( traits.list[ i ][ prop ][ j ].name == val )
+                    {
+                        return {
+                            key : traits.list[ i ].name,
+                            data : traits.list[ i ][ prop ][ j ]
+                        }
+                    }
+                }
+            }
+            return {
+                key : "Zonetouched",
+                data : [{
+                    name : "Zone Gift",
+                    list : []
+                }]
+            }
         },
         _setState : function( state )
         {

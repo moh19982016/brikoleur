@@ -1,5 +1,6 @@
 /**
- * Traits. Apart from the standard fields (name, description, list), traits have the following properties:
+ * Traits. Apart from the standard fields (name,
+description, list), traits have the following properties:
  *
  * ohun
  * powers
@@ -431,16 +432,6 @@ define({
         {
             "name" : "Zonetouched",
             "description" : "The Zonetouched have been altered by the powers in the Zone. They manifest Gifts and Curses that set them apart from the rest of humanity.",
-            "ohun" : [{
-                "name" : "Gift Ohun",
-                "description" : "Some Zonetouched can use Ohun resembling those of other Traits, or entirely unique. Like all Zonetouched features, this is subject to agreement with your GM.",
-                "list" : []
-            }],
-            "powers" : [{
-                "name" : "Gift Powers",
-                "description" : "Some Zonetouched can use Powers resembling those of other Traits, or entirely unique. Like all Zonetouched features, this is subject to agreement with your GM.",
-                "list" : []
-            }],
             "features" : [
                 {
                     "name" : "Minor Curses",
@@ -463,7 +454,25 @@ define({
                     "value" : "Gift",
                     "selector" : false,
                     "type" : "free",
-                    "list" : [ "Jack In", "Smart Weapons", "Ohun - Cards", "Ohun - Vévés", "Ohun - Drones", "Empath", "Telepath", "Chameleon", "Psychic Assault", "Machine Empathy" ],
+                    "list" : [ "Ohun - Fwés",
+                               "Ohun - Esprís",
+                               "Ohun - Cards",
+                               "Ohun - Vévés",
+                               "Ohun - Zombies",
+                               "Ohun - Golems",
+                               "Ohun - Drones",
+                               "Power - Plays",
+                               "Power - Military Grade Wetware",
+                               "Power - Zoutis",
+                               "Adaptation - Resilient",
+                               "Adaptation - Hibernation",
+                               "Jack In",
+                               "Smart Weapons",
+                               "Empath",
+                               "Telepath",
+                               "Chameleon",
+                               "Psychic Assault",
+                               "Machine Empathy" ],
                     "checkMax" : function( features )
                     {
                         return 1 + ( features[ "Minor Curses" ] || [] ).length + 2 * ( features[ "Major Curses" ] || [] ).length;

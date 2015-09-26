@@ -34,6 +34,14 @@ function( declare,
             this.inherited( arguments );
             this.own( topic.subscribe( "/ActivePowerSet/", lang.hitch( this, this._checkActivePowers ) ) );
             this.own( topic.subscribe( "/StatChanged/-aps", lang.hitch( this, this._checkActivePowers ) ) );
+            this.own( topic.subscribe( "/AddBonusPower/", lang.hitch( this, function( kwObj )
+            {
+                this.featureAdded({
+                    key : kwObj.key,
+                    value : kwObj.key,
+                    data : kwObj.data
+                });
+            })));
         },
         _checkActivePowers : function()
         {

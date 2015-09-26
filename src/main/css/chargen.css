@@ -377,6 +377,14 @@ i.br-minimizeButton:hover {
     font-family: Iceberg, sans-serif;
 }
 
+.br-traitFeatureControl {
+    display: none;
+}
+
+.br-newCharacter .br-traitFeatureControl {
+    display: list-item;
+}
+
 /* Inventory */
 
 /* Field */
