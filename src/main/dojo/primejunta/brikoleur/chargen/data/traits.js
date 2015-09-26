@@ -71,7 +71,7 @@ define({
             "features": [
                 {
                     "name": "Oga",
-                    "description": "Ogas are skill packages slotted into the Akoto interface.",
+                    "value": "Ogas are skill packages slotted into the Akoto interface.",
                     "type": "passive"
                 }
             ]
@@ -254,7 +254,7 @@ define({
             "features": [
                 {
                     "name": "Smart Weapons",
-                    "description": "You may use Smart Weapons with a compatible interface.",
+                    "value": "You may use Smart Weapons with a compatible interface.",
                     "type" : "passive"
                 }
             ],
@@ -340,8 +340,7 @@ define({
                 },
                 {
                     "name" : "Adaptation",
-                    "value" : "Aquatic",
-                    "description" : "May breathe underwater if sufficient dissolved oxygen is present.",
+                    "value" : "Aquatic - May breathe underwater if sufficient dissolved oxygen is present.",
                     "type" : "passive"
                 },
                 {
@@ -362,14 +361,12 @@ define({
                 },
                 {
                     "name" : "Adaptation",
-                    "value" : "Resilient",
-                    "description" : "Functions normally when Wounded.",
+                    "value" : "Resilient - Functions normally when Wounded.",
                     "type" : "passive"
                 },
                 {
                     "name" : "Adaptation",
-                    "value" : "Hibernate",
-                    "description" : "Survives Incapacitation for 24 hours. May be revived if dead from hypoxia or hypothermia and body is frozen.",
+                    "value" : "Hibernate - Survives Incapacitation for 24 hours. May be revived if dead from hypoxia or hypothermia and body is frozen.",
                     "type" : "passive"
                 },
                 {
@@ -390,8 +387,7 @@ define({
                 },
                 {
                     "name" : "Adaptation",
-                    "value" : "Damage Bonus",
-                    "description" : "4/Melee Damage",
+                    "value" : "Damage Bonus - 4/Melee Damage",
                     "type" : "passive"
                 },
                 {
@@ -411,8 +407,9 @@ define({
                     "type" : "knack"
                 },
                 {
-                    "name" : "Adaptations, Resistances, and Abilities",
-                    "type" : "freetext"
+                    "name" : "Adaptations and Resistances",
+                    "type" : "free",
+                    "max" : 4
                 }
             ]
         }

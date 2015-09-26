@@ -2,6 +2,7 @@ define([ "dojo/_base/declare",
         "dojo/_base/lang",
         "dojo/topic",
         "dojo/dom-construct",
+        "./_TraitFeatureControl",
         "../../data/traits",
         "./../_base/_FeatureControlBase",
         "dojo/text!./templates/_TraitControl.html",
@@ -10,6 +11,7 @@ function( declare,
           lang,
           topic,
           domConstruct,
+          _TraitFeatureControl,
           traits,
           _FeatureControlBase,
           template,
@@ -28,6 +30,19 @@ function( declare,
             this.inherited( arguments );
             this._processFeatures();
         },
+        addFreeFeature : function( kwObj, ctrl )
+        {
+            this.state = this.state || {};
+            this.state.free_features = this.state.free_features || {};
+            this.state.free_features[ ctrl.key ] = this.state.free_features[ ctrl.key ] || [];
+            this.state.free_features[ ctrl.key ].push( kwObj );
+            this._printFeature( kwObj, ctrl.domNode, "before" );
+            ctrl.max--;
+            if( ctrl.max == 0 )
+            {
+                ctrl.destroy();
+            }
+        },
         _setState : function( state )
         {
             this.inherited( arguments );
@@ -44,6 +59,10 @@ function( declare,
             {
                 features = data.features || [];
             }
+            this._displayFeatures( features );
+        },
+        _displayFeatures : function( features )
+        {
             for( var i = 0; i < features.length; i++ )
             {
                 switch( features[ i ].type )
@@ -54,17 +73,25 @@ function( declare,
                             topic.publish( "/AddBonusKnack/", features[ i ].value );
                         }
                         break;
-                    case "resistance" :
-                        domConstruct.create( "li", { innerHTML : "<b>" + features[ i ].name + ":</b> " + features[ i ].value }, this.featuresNode );
-                        break;
-                    case "freetext" :
-
+                    case "free" :
+                        if( this.state.free_features && this.state.free_features[ features[ i ].name ] )
+                        {
+                            this._displayFeatures( this.state.free_features[ features[ i ].name ] );
+                        }
+                        else
+                        {
+                            this.own( new _TraitFeatureControl({ manager : this, key : features[ i ].name, max : features[ i ].max || 1 } ).placeAt( this.featuresNode ) );
+                        }
                         break;
                     default :
-                        domConstruct.create( "li", { innerHTML : "<b>" + features[ i ].name + ( features[ i ].value ? " - " + features[ i ].value : "" ) + ":</b> " + features[ i ].description }, this.featuresNode );
+                        this._printFeature( features[ i ] );
 
                 }
             }
+        },
+        _printFeature : function( feature, refNode, pos )
+        {
+            domConstruct.create( "li", { innerHTML : "<b>" + feature.name + ":</b> " + feature.value }, refNode || this.featuresNode, pos || "last" );
         }
     });
 });

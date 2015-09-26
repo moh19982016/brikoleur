@@ -43,9 +43,10 @@ define({
         "Background" : "Background",
         "NewCharacter" : "Create Character",
         "DialogTitle" : "Brikoleur",
-        "Accept" : "Accept",
         "Continue" : "Continue",
         "Cancel" : "Cancel",
+        "Passive" : "Passive",
+        "Resistance" : "Resistance",
         "YouHaveUnusedJuju" : "You have unused juju. Please spend it all before saving!",
         "ConfirmSpendJuju" : "You have spent ${juju} juju from the ekip pool. Continue?",
         "ConfirmDeleteCharacter" : "Are you sure you want to delete ${charName}? You cannot undo this action."

@@ -1,0 +1,20 @@
+<li>
+    <div class="br-featureItemWrapper">
+        <div class="br-floatLeft br-inputContainer" style="width:100px;">
+            <select data-dojo-attach-point="typeSelect" data-dojo-type="dijit/form/Select" style="width:100%">
+                <option value="adaptation">${dict.Passive}</option>
+                <option value="resistance-1">${dict.Resistance}/1</option>
+                <option value="resistance-2">${dict.Resistance}/2</option>
+                <option value="resistance-3">${dict.Resistance}/3</option>
+                <option value="resistance-4">${dict.Resistance}/4</option>
+            </select>
+        </div>
+        <div class="br-floatRight" style="width:30px;margin-right:-4px;">
+            <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="addButton" data-dojo-attach-event="onClick:addFeature" class="br-smallButton" disabled="disabled"><i class="fa fa-plus-square br-blue"></i></button>
+        </div>
+        <div class="br-floatRight br-inputContainer" style="width:calc( 100% - 130px )">
+            <input data-dojo-attach-point="descriptionInput" data-dojo-type="dijit/form/TextBox" data-dojo-attach-event="onChange:checkAdd" style="width:100%"/>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+</li>

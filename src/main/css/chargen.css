@@ -437,6 +437,12 @@ i.br-minimizeButton:hover {
     color: black !important;
 }
 
+/* Traits pane */
+.br-featureItemWrapper {
+    display: inline-block;
+    vertical-align: -12px;
+    width: 100%;
+}
 
 /* Gear pane */
 .br-buttonSpacer {
