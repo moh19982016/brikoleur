@@ -72,7 +72,7 @@ define({
                 {
                     "name": "Oga",
                     "description": "Ogas are skill packages slotted into the Akoto interface.",
-                    "list": []
+                    "type": "passive"
                 }
             ]
         },
@@ -254,7 +254,8 @@ define({
             "features": [
                 {
                     "name": "Smart Weapons",
-                    "description": "You may use Smart Weapons with a compatible interface."
+                    "description": "You may use Smart Weapons with a compatible interface.",
+                    "type" : "passive"
                 }
             ],
             "ohun": [
@@ -325,6 +326,93 @@ define({
                             "list": []
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "name" : "Genetically Engineered - Aquatic",
+            "description" : "Aquatics are humans engineered for life in ocean habitats. Most are associated with the Poseidonian movement.",
+            "features" : [
+                {
+                    "name" : "Bonus knack",
+                    "value" : "Aquatic activities",
+                    "type" : "knack"
+                },
+                {
+                    "name" : "Adaptation",
+                    "value" : "Aquatic",
+                    "description" : "May breathe underwater if sufficient dissolved oxygen is present.",
+                    "type" : "passive"
+                },
+                {
+                    "name" : "Resistance",
+                    "value" : "4/Temperature and pressure",
+                    "type" : "resistance"
+                }
+            ]
+        },
+        {
+            "name" : "Genetically Engineered - Spacer",
+            "description" : "Spacers are humans who have undergone modification to cope better with low-gravity, high-radiation outer space habitats.",
+            "features" : [
+                {
+                    "name" : "Bonus knack",
+                    "value" : "Zero-Gee activities",
+                    "type" : "knack"
+                },
+                {
+                    "name" : "Adaptation",
+                    "value" : "Resilient",
+                    "description" : "Functions normally when Wounded.",
+                    "type" : "passive"
+                },
+                {
+                    "name" : "Adaptation",
+                    "value" : "Hibernate",
+                    "description" : "Survives Incapacitation for 24 hours. May be revived if dead from hypoxia or hypothermia and body is frozen.",
+                    "type" : "passive"
+                },
+                {
+                    "name" : "Resistance",
+                    "value" : "3/Gas, temperature, pressure, radiation.",
+                    "type" : "resistance"
+                }
+            ]
+        },
+        {
+            "name" : "Genetically Engineered - Jagun",
+            "description" : "Jagun are genetically enhanced super-warriors. They are faster, stronger, and tougher than baseline humans.",
+            "features" : [
+                {
+                    "name" : "Bonus knack",
+                    "value" : "Close Combat",
+                    "type" : "knack"
+                },
+                {
+                    "name" : "Adaptation",
+                    "value" : "Damage Bonus",
+                    "description" : "4/Melee Damage",
+                    "type" : "passive"
+                },
+                {
+                    "name" : "Resistance",
+                    "value" : "4/Kinetic",
+                    "type" : "resistance"
+                }
+            ]
+        },
+        {
+            "name" : "Genetically Engineered",
+            "description" : "Genetically engineered humans have various adaptations, resistances, and special abilities baseline humans lack, and a bonus knack related to their engineering.",
+            "features" : [
+                {
+                    "name" : "Bonus knack",
+                    "value" : false,
+                    "type" : "knack"
+                },
+                {
+                    "name" : "Adaptations, Resistances, and Abilities",
+                    "type" : "freetext"
                 }
             ]
         }

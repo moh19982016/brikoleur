@@ -9,7 +9,6 @@ rm -Rf work/
 mkdir work
 echo Copying resources to source directory
 cp -R $BRIKOLEUR_HOME/brikoleur/src/main/html/* ../devbox/
-sed -E 's/deps : \[\]/deps : \[ "primejunta\/brikoleur" \]/' < ../devbox/index.html > ../devbox/_index.html;mv ../devbox/_index.html ../devbox/index.html
 cp -RL ../devbox/*  work
 echo Updating build script
 cp $BRIKOLEUR_HOME/brikoleur/src/main/assembly/sh/build.sh . # update this file for next time
@@ -29,6 +28,7 @@ mv work/css work/package/
 mv work/index.html work/package/
 mv work/ikons work/package/
 mv work/font-awesome work/package/
+sed -E 's/deps : \[\]/deps : \[ "primejunta\/brikoleur" \]/' < work/package/index.html > work/package/_index.html;mv work/package/_index.html work/package/index.html
 #cp -R $BRIKOLEUR_HOME/brikoleur/src/main/assets release/
 echo Creating package
 rm brikoleur.zip

@@ -35,9 +35,9 @@ function( declare,
         {
             topic.publish( this.selectedFeaturesTopic, util.getProperties( "value", this.controls ), synthetic );
         },
-        addControl : function( kwObj )
+        addControl : function( kwObj, pos )
         {
-            var ctl = new this.featureControl( lang.mixin( kwObj || {}, { parent : this } )).placeAt( this.containerNode );
+            var ctl = new this.featureControl( lang.mixin( kwObj || {}, { parent : this } )).placeAt( this.containerNode, pos || "last" );
             this.controls.push( ctl );
             return ctl;
         },

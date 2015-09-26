@@ -1,0 +1,19 @@
+<div>
+    <div data-dojo-attach-point="titleNode" class="br-propertyTitle">${title}</div>
+    <div data-dojo-attach-point="displayNode" class="br-inputContainer" style="display: none">
+        <div data-dojo-attach-point="valueNode" class="br-subPaneTitle"></div>
+        <ul data-dojo-attach-point="featuresNode"></ul>
+    </div>
+    <div data-dojo-attach-point="controlNode" class="br-controlNode">
+        <div class="br-floatRight" style="width:30px;">
+            <button data-dojo-attach-point="addButton" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick:addItem" class="br-smallButton"><i class="fa fa-plus-square br-blue"></i></button>
+        </div>
+        <div class="br-floatRight br-inputContainer" style="width:calc(100% - 30px);">
+            <span data-dojo-attach-point="selectorNode"></span>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <div data-dojo-attach-point="childrenNode" class="br-indented">
+
+    </div>
+</div>
