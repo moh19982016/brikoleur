@@ -84,6 +84,19 @@ function( lang,
             }
             return n;
         },
+        filter : function( arr )
+        {
+            var out = [];
+            while( arr.length > 0 )
+            {
+                var cur = arr.pop();
+                if( cur )
+                {
+                    out.push( cur );
+                }
+            }
+            return out;
+        },
         showTooltip : function( label, node )
         {
             Tooltip.show( label, node );

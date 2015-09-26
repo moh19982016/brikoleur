@@ -6,6 +6,7 @@ define([ "dojo/_base/declare",
         "dojo/string",
         "dojo/dom-class",
         "dojo/dom-geometry",
+        "dojo/Deferred",
         "./_base/util",
          "./_base/DynamicGrid",
          "./oop/NamePane",
@@ -39,6 +40,7 @@ function( declare,
           string,
           domClass,
           domGeometry,
+          Deferred,
           util,
           DynamicGrid,
           NamePane,
@@ -69,7 +71,7 @@ function( declare,
         dict : i18n,
         SMALL_THRESHOLD : 650,
         templateString : template,
-        _panes : {},
+        controls : {},
         postCreate : function()
         {
             window.Controller = this;
@@ -187,28 +189,46 @@ function( declare,
         },
         saveCharacter : function()
         {
-            var cName = this._panes.name.get( "state" ).characterName;
-            var juju = this.get( "juju" ) || 0;
-            var diff = ( CharacterStore.get( "juju" ) || 0 ) - juju;
-            if( cName )
+            this.validateCharacter().then( lang.hitch( this, this.doSaveCharacter ) );
+        },
+        validateCharacter : function()
+        {
+            var reslts = [];
+            for( var o in this.controls )
             {
+                var reslt = this.controls[ o ].validate ? this.controls[ o ].validate() : { valid : true };
+                if( reslt.valid != true )
+                {
+                    reslts.push( reslt.message );
+                }
+            }
+            if( reslts.length > 0 )
+            {
+                util.alert( i18n.NotReadyToSave + "<ul><li>" + reslts.join( "</li><li>" ) + "</li></ul>" );
+                return new Deferred().reject();
+            }
+            else
+            {
+                var juju = this.get( "juju" ) || 0;
+                var diff = ( CharacterStore.get( "juju" ) || 0 ) - juju;
                 if( this.is_new && juju > 0 )
                 {
                     util.alert( i18n.YouHaveUnusedJuju );
+                    return new Deferred().reject();
                 }
                 else if( diff == 0 || this.is_new )
                 {
-                    this.doSaveCharacter( cName, juju );
+                    return new Deferred().resolve(); //( cName, juju );
                 }
                 else
                 {
-                    util.confirm( string.substitute( i18n.ConfirmSpendJuju, { juju : diff } ) ).then( lang.hitch( this, this.doSaveCharacter ) )
+                    return util.confirm( string.substitute( i18n.ConfirmSpendJuju, { juju : diff } ) ); //.then( lang.hitch( this, this.doSaveCharacter ) )
                 }
             }
         },
         doSaveCharacter : function()
         {
-            var cName = this._panes.name.get( "state" ).characterName;
+            var cName = this.controls.name.get( "state" ).characterName;
             var juju = this.get( "juju" );
             if( !this.is_new )
             {
@@ -221,7 +241,7 @@ function( declare,
         },
         deleteCharacter : function()
         {
-            var charName = this._panes.name.get( "state" ).characterName;
+            var charName = this.controls.name.get( "state" ).characterName;
             if( charName )
             {
                 util.confirm( string.substitute( i18n.ConfirmDeleteCharacter, { charName : charName } ) ).then( lang.hitch( this, function()
@@ -234,9 +254,9 @@ function( declare,
         },
         revertCharacter : function()
         {
-            if( this._panes.name.get( "state" ).characterName )
+            if( this.controls.name.get( "state" ).characterName )
             {
-                this.loadCharacter( this._panes.name.get( "state" ).characterName, true );
+                this.loadCharacter( this.controls.name.get( "state" ).characterName, true );
             }
         },
         publishJuju : function()
@@ -284,15 +304,15 @@ function( declare,
             else if( prop == "state" )
             {
                 var out = {};
-                for( var o in this._panes )
+                for( var o in this.controls )
                 {
-                    out[ o ] = this._panes[ o ].get( "state" );
+                    out[ o ] = this.controls[ o ].get( "state" );
                 }
                 return out;
             }
-            else if( array.indexOf( this._panes.numbers.get( "properties" ), prop ) != -1 )
+            else if( array.indexOf( this.controls.numbers.get( "properties" ), prop ) != -1 )
             {
-                return this._panes.numbers.get( prop );
+                return this.controls.numbers.get( prop );
             }
             else
             {
@@ -320,9 +340,9 @@ function( declare,
             else if( prop == "state" )
             {
                 this.loading = true;
-                for( var o in this._panes )
+                for( var o in this.controls )
                 {
-                    this._panes[ o ].set( "state", val[ o ] );
+                    this.controls[ o ].set( "state", val[ o ] );
                 }
                 this.publishJuju();
                 topic.publish( "/PleasePublishStatus/", true );
@@ -335,7 +355,7 @@ function( declare,
         },
         _addPane : function( point, pane )
         {
-            this._panes[ point ] = pane;
+            this.controls[ point ] = pane;
             this.own( pane );
         }
     });

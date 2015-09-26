@@ -2,15 +2,20 @@ define([ "dojo/_base/declare",
         "dojo/_base/lang",
         "dojo/_base/array",
         "dojo/topic",
-        "./../../_base/util" ],
+        "dojo/string",
+        "./../../_base/util",
+        "dojo/i18n!./../../../nls/CharGen" ],
 function( declare,
           lang,
           array,
           topic,
-          util )
+          string,
+          util,
+          i18n )
 {
     return declare([ ], {
         allowedControls : 0,
+        featureName : "",
         postCreate : function()
         {
             this.controls = [];
@@ -47,6 +52,22 @@ function( declare,
         },
         descendantFeatureAdded : function()
         {
+        },
+        validate : function()
+        {
+            if( this.allowedControls && util.filter( util.getProperties( "complete", this.controls, false, false ) ).length < this.allowedControls )
+            {
+                return {
+                    valid : false,
+                    message : string.substitute( i18n.PleaseSelectRequiredFeatures, { num : this.allowedControls, name : this.featureName } )
+                }
+            }
+            else
+            {
+                return {
+                    valid : true
+                }
+            }
         },
         clear : function()
         {

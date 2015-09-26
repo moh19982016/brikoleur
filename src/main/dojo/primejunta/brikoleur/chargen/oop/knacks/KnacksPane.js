@@ -16,6 +16,7 @@ function( declare,
     return declare([ _FeaturePaneBase, _ControlPaneMixin ],
     {
         title : i18n.KnacksAndTraining,
+        featureName : i18n.Knacks,
         icon : "mortar-board",
         allowedControls : 3,
         featureControl : _KnackControl,

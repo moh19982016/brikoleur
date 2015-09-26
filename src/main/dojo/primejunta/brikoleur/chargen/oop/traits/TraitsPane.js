@@ -12,6 +12,7 @@ function( declare,
     return declare([ _FeaturePaneBase, _ControlPaneMixin ],
     {
         title : i18n.Traits,
+        featureName : i18n.Traits,
         icon : "asterisk",
         allowedControls : 2,
         featureControl : _TraitControl,

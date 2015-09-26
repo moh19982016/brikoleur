@@ -1,15 +1,17 @@
 define([ "dojo/_base/declare",
         "dojo/_base/lang",
-        "dojo/dom-class",
         "dojo/topic",
+        "dojo/string",
+        "dojo/dom-class",
         "./_StuntControl",
         "./../../_base/util",
         "./../../_base/_FeaturePaneBase",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
-          domClass,
           topic,
+          string,
+          domClass,
           _StuntControl,
           util,
           _FeaturePaneBase,
@@ -18,8 +20,9 @@ function( declare,
     return declare([ _FeaturePaneBase ],
     {
         title : i18n.Stunts,
+        featureName : i18n.Stunts,
         icon : "crosshairs",
-        stuntsAllowed : 0,
+        allowedControls : 0,
         controls : [],
         postCreate : function()
         {
@@ -29,7 +32,7 @@ function( declare,
         {
             if( control.type == "combat" )
             {
-                this.stuntsAllowed++;
+                this.allowedControls++;
                 this.enableAddStunt();
             }
         },
@@ -50,13 +53,29 @@ function( declare,
                 this.maximize();
             }
         },
+        validate : function()
+        {
+            if( util.filter( util.getProperties( "complete", this.controls, false, true ) ).length < this.allowedControls )
+            {
+                return {
+                    valid : false,
+                    message : string.substitute( i18n.PleaseSelectRequiredFeatures, { num : this.allowedControls, name : this.featureName } )
+                }
+            }
+            else
+            {
+                return {
+                    valid : true
+                }
+            }
+        },
         publishStatus : function( synthetic )
         {
             topic.publish( "/SelectedStunts/", util.getProperties( "value", this.controls ), synthetic );
         },
         descendantFeatureAdded : function()
         {
-            if( util.countItems( this.controls ) >= this.stuntsAllowed )
+            if( util.countItems( this.controls ) >= this.allowedControls )
             {
                 domClass.add( this.domNode, "br-maxPowers" );
             }

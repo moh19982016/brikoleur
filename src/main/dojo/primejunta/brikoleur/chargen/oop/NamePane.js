@@ -46,6 +46,22 @@ function( declare,
                 return !name;
             }
         },
+        validate : function()
+        {
+            if( this.nameInput.get( "value" ) && ( !Controller.is_new || this.isValidName() ) )
+            {
+                return {
+                    valid : true
+                }
+            }
+            else
+            {
+                return {
+                    valid : false,
+                    message : i18n.NeedName
+                }
+            }
+        },
         saveCharacter : function()
         {
             Controller.saveCharacter();
