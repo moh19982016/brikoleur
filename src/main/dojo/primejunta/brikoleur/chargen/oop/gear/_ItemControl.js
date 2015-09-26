@@ -32,9 +32,14 @@ function( declare,
         chooseType : function()
         {
         },
+        publishChange : function()
+        {
+            topic.publish( "/PropertyChanged/", "inventory", this.get( "value" ) );
+        },
         pleaseDestroy : function()
         {
             this.parent.pleaseRemove( this );
+            this.publishChange();
             this.destroy();
         },
         get : function( prop )

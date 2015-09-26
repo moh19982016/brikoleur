@@ -107,7 +107,12 @@ function( declare,
                 this.parent.featureAdded();
             }
             Controller.set( "juju", Controller.get( "juju" ) - this.getCost() );
+            this.publishChange();
             topic.publish( this.featureAddedTopic, this );
+        },
+        publishChange : function()
+        {
+            topic.publish( "/PropertyChanged/", this.get( "state" ).name, this.get( "state" ).value );
         },
         markComplete : function()
         {
@@ -249,7 +254,7 @@ function( declare,
         },
         _readValue : function()
         {
-            return this._selector.get( "value" );
+            return this._selector ? this._selector.get( "value" ) : this.value || "";
         },
         _writeValue : function( val )
         {

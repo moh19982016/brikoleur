@@ -1,6 +1,8 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/_base/array",
+         "dojo/on",
+         "dojo/topic",
          "dijit/form/TextBox",
          "dijit/_WidgetBase",
          "dijit/_TemplatedMixin",
@@ -8,6 +10,8 @@ define([ "dojo/_base/declare",
 function( declare,
           lang,
           array,
+          on,
+          topic,
           TextBox,
           _WidgetBase,
           _TemplatedMixin,
@@ -29,6 +33,11 @@ function( declare,
         makeInput : function()
         {
             this._input = new this.inputWidget({ name : this.name, readonly : this.readonly, onChange : this.onChange, "class" : this.inputClass }).placeAt( this.controlNode );
+            this.own( this._input, on( this._input, "change", lang.hitch( this, this.publishChange ) ) );
+        },
+        publishChange : function()
+        {
+            topic.publish( "/PropertyChanged/", this.get( "state" ).name, this.get( "state" ).value );
         },
         onChange : function()
         {

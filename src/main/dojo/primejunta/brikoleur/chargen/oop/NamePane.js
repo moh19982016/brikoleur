@@ -26,10 +26,11 @@ function( declare,
         {
             this.nameInput.isValid = lang.hitch( this, this.isValidName );
             this.nameInput.invalidMessage = i18n.NameInUse;
-            this.saveButton = new Button({ disabled : true, label : i18n.Save, "class" : "br-headerButton", iconClass : "fa fa-check-circle br-blue", onClick : lang.hitch( Controller, Controller.saveCharacter ) } ).placeAt( this.buttonContainer );
+            this.saveButton = new Button({ disabled : true, label : i18n.Accept, "class" : "br-headerButton", iconClass : "fa fa-check-circle br-blue", onClick : lang.hitch( Controller, Controller.saveCharacter ) } ).placeAt( this.buttonContainer );
             this.revertButton = new Button({ disabled : true, label : i18n.Revert, "class" : "br-headerButton br-compactButton br-splitButtonLeft", iconClass : "fa fa-undo", onClick : lang.hitch( Controller, Controller.revertCharacter ) } ).placeAt( this.buttonContainer );
             this.deleteButton = new Button({ disabled : true, label : i18n.Delete, "class" : "br-headerButton br-compactButton br-splitButtonRight", iconClass : "fa fa-trash br-red", onClick : lang.hitch( Controller, Controller.deleteCharacter ) } ).placeAt( this.buttonContainer );
             this.own( this.revertButton, this.saveButton, this.deleteButton );
+            this.own( topic.subscribe( "/CharacterSaved/", lang.hitch( this, this.disableSave ) ), topic.subscribe( "/PropertyChanged/", lang.hitch( this, this.checkSave ) ) );
         },
         isValidName : function()
         {
@@ -42,6 +43,7 @@ function( declare,
             else
             {
                 this.saveButton.set( "disabled", true );
+                return !name;
             }
         },
         saveCharacter : function()
@@ -55,6 +57,27 @@ function( declare,
         revertCharacter : function()
         {
             Controller.revertCharacter();
+        },
+        checkSave : function()
+        {
+            if( Controller.loading )
+            {
+                return;
+            }
+            else if( Controller.get( "new" ) )
+            {
+                this.isValidName();
+            }
+            else
+            {
+                this.saveButton.set( "disabled", false );
+            }
+        },
+        disableSave : function()
+        {
+            this.saveButton.set( "disabled", true );
+            this.revertButton.set( "disabled", false );
+            this.deleteButton.set( "disabled", false );
         },
         get : function( prop )
         {
@@ -75,9 +98,7 @@ function( declare,
             {
                 this.nameInput.set( "value", val.characterName );
                 this.nameInput.set( "disabled", true );
-                this.saveButton.set( "disabled", false );
-                this.deleteButton.set( "disabled", false );
-                this.revertButton.set( "disabled", false );
+                this.disableSave();
             }
             else
             {

@@ -73,13 +73,17 @@
     margin-left: 0;
 }
 
+.tundra .dijitButtonNode {
+    border-radius: 3px;
+}
+
 .tundra .br-splitButtonRight .dijitButtonNode {
     border-radius: 0 3px 3px 0 !important;
     border-left: none !important;
 }
 
 
-.tundra .br-headerButton .dijitButtonNode {
+.tundra .br-darkButton .dijitButtonNode {
     background: #444;
     color: silver;
     border-color: black;
@@ -123,6 +127,10 @@
     width: 150px;
 }
 
+.tundra .br-newCharacter .br-jujuField {
+    color: #0c0;
+}
+
 .br-compactLayout .br-jujuField {
     width: 60px;
 }
@@ -130,6 +138,10 @@
 .tundra .br-jujuField .dijitTextBox {
     width: 40px;
     border: 1px solid #c00;
+}
+
+.tundra .br-newCharacter .br-jujuField .dijitTextBox {
+    border: 1px solid #0c0;
 }
 
 .br-sidebar {
@@ -150,7 +162,7 @@
 .br-nameContainer {
     height: 48px;
     overflow: hidden;
-    border-bottom: 2px solid #c00;
+    background-color: #c00;
 }
 
 .br-namePane {
@@ -158,13 +170,13 @@
 }
 
 .br-namePaneButtons {
-    width: 168px;
+    width: 178px;
     padding: 6px 8px 0 0;
     text-align: right;
 }
 
 .br-namePaneInput {
-    width: calc( 100% - 168px );
+    width: calc( 100% - 178px );
 }
 
 .br-compactLayout .br-namePaneButtons {
@@ -181,11 +193,22 @@
     margin: 8px;
     width: calc( 100% - 8px );
     box-sizing: border-box;
+    font-style: italic;
+    border: 1px solid #a00 !important;
+    color: black;
+}
+
+.br-characterName .dijitPlaceHolder {
+    color: #900;
+}
+
+.tundra .br-characterName.dijitTextBoxFocused {
+    background-color: #e00 !important;
 }
 
 .br-characterName.dijitDisabled {
-    border: none;
-    color: #c00;
+    border: none !important;
+    color: black;
 }
 
 /* Colors */
@@ -448,8 +471,13 @@ i.br-minimizeButton:hover {
     background: none;
 }
 
-.dijitButtonDisabled .br-red, .dijitButtonDisabled .br-blue {
-    color: #ccc;
+.dijitButtonDisabled .fa, .dijitButtonDisabled .fa {
+    color: #ccc !important;
+}
+
+.br-dialogButtons {
+    padding : 4px 0;
+    text-align: right;
 }
 
 /* Dijits */

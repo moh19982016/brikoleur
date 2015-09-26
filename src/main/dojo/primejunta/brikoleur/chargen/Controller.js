@@ -3,8 +3,10 @@ define([ "dojo/_base/declare",
         "dojo/topic",
         "dojo/_base/array",
         "dojo/json",
+        "dojo/string",
         "dojo/dom-class",
         "dojo/dom-geometry",
+        "./_base/util",
          "./_base/DynamicGrid",
          "./oop/NamePane",
          "./oop/description/DescriptionPane",
@@ -34,8 +36,10 @@ function( declare,
           topic,
           array,
           json,
+          string,
           domClass,
           domGeometry,
+          util,
           DynamicGrid,
           NamePane,
           DescriptionPane,
@@ -69,23 +73,17 @@ function( declare,
         postCreate : function()
         {
             window.Controller = this;
+            this.set( "new", true );
             domClass.replace( document.body, "tundra", "claro" );
             if( this.hasFullScreen() )
             {
-                this.own( new Button({ label : "", "class" : "br-headerButton br-floatRight br-compactButton", iconClass : "fa fa-arrows", onClick : lang.hitch( this, this.toggleFullScreen) } ).placeAt( this.headerContentNodeRight, "first" ) );
+                this.own( new Button({ label : "", "class" : "br-headerButton br-darkButton br-floatRight br-compactButton", iconClass : "fa fa-arrows", onClick : lang.hitch( this, this.toggleFullScreen) } ).placeAt( this.headerContentNodeRight, "first" ) );
             }
-            this.newCharacterButton = new Button({ label : i18n.NewCharacter, "class" : "br-headerButton", iconClass : "fa fa-sun-o br-gold", onClick : lang.hitch( this, this.newCharacter) } ).placeAt( this.headerContentNode, "first" );
+            this.newCharacterButton = new Button({ label : i18n.NewCharacter, "class" : "br-headerButton br-darkButton", iconClass : "fa fa-sun-o br-gold", onClick : lang.hitch( this, this.newCharacter) } ).placeAt( this.headerContentNode, "first" );
             this._ekipMenu = new DropDownMenu();
-            var keys = CharacterStore.list();
-            for( var i = 0; i < keys.length; i++ )
-            {
-                this._ekipMenu.addChild( new MenuItem({
-                    label: keys[ i ],
-                    onClick: lang.hitch( this, this.loadCharacter, keys[ i ] )
-                }));
-            }
+            this.refreshEkip();
             this._ekipMenu.startup();
-            this.ekipButton = new DropDownButton({ dropDown : this._ekipMenu, label : i18n.Ekip, "class" : "br-headerButton", iconClass : "fa fa-users" } ).placeAt( this.headerContentNode, "first" );
+            this.ekipButton = new DropDownButton({ dropDown : this._ekipMenu, label : i18n.Ekip, "class" : "br-headerButton br-darkButton", iconClass : "fa fa-users" } ).placeAt( this.headerContentNode, "first" );
             this.ekipButton.startup();
             this.own( this._ekipMenu, this.ekipButton, this.newCharacterButton );
             this._addPane( "name", new NamePane().placeAt( this.nameContainer ) );
@@ -152,15 +150,10 @@ function( declare,
         },
         loadSettings : function()
         {
-            this.set( "juju", CharacterStore.get( "juju" ) || 0 );
         },
         logState : function()
         {
             console.log( this.get( "state" ) );
-        },
-        saveState : function()
-        {
-            window.localStorage._debugState = json.stringify( this.get( "state" ) );
         },
         loadState : function()
         {
@@ -177,6 +170,8 @@ function( declare,
             {
                 this.saveCharacter();
             }
+            this.set( "new", false );;
+            this.set( "juju", CharacterStore.get( "juju" ) || 0 );
             this.set( "state", CharacterStore.load( name ) );
         },
         isValidName : function( name )
@@ -185,17 +180,49 @@ function( declare,
         },
         saveCharacter : function()
         {
-            if( this._panes.name.get( "state" ).characterName )
+            var cName = this._panes.name.get( "state" ).characterName;
+            var juju = this.get( "juju" );
+            var diff = CharacterStore.get( "juju" ) - juju;
+            if( cName )
             {
-                CharacterStore.save( this._panes.name.get( "state" ).characterName, this.get( "state" ) );
+                if( this.new && juju > 0 )
+                {
+                    util.alert( i18n.YouHaveUnusedJuju );
+                }
+                else if( diff == 0 || this.new )
+                {
+                    this.doSaveCharacter( cName, juju );
+                }
+                else
+                {
+                    util.confirm( string.substitute( i18n.ConfirmSpendJuju, { juju : diff } ) ).then( lang.hitch( this, this.doSaveCharacter ) )
+                }
             }
+        },
+        doSaveCharacter : function()
+        {
+            var cName = this._panes.name.get( "state" ).characterName;
+            var juju = this.get( "juju" );
+            if( !this.new )
+            {
+                CharacterStore.set( "juju", juju );
+            }
+            this.set( "new", false );
+            CharacterStore.save( cName, this.get( "state" ) );
+            topic.publish( "/CharacterSaved/" );
+            this.refreshEkip();
         },
         deleteCharacter : function()
         {
-            if( this._panes.name.get( "state" ).characterName && confirm( "U SURE M8???" ) )
+            var charName = this._panes.name.get( "state" ).characterName;
+            if( charName )
             {
-                CharacterStore.remove( this._panes.name.get( "state" ).characterName );
-                this.clear();
+                util.confirm( string.substitute( i18n.ConfirmDeleteCharacter, { charName : charName } ) ).then( lang.hitch( this, function()
+                {
+                    CharacterStore.remove( charName );
+                    this.refreshEkip();
+                    this.clear();
+                }));
             }
         },
         revertCharacter : function()
@@ -208,8 +235,19 @@ function( declare,
         publishJuju : function()
         {
             var juju = this.jujuInput.get( "value" );
-            CharacterStore.set( "juju", juju );
             topic.publish( "/StatChanged/-juju", juju );
+        },
+        refreshEkip : function()
+        {
+            this._ekipMenu.destroyDescendants();
+            var keys = CharacterStore.list();
+            for( var i = 0; i < keys.length; i++ )
+            {
+                this._ekipMenu.addChild( new MenuItem({
+                    label: keys[ i ],
+                    onClick: lang.hitch( this, this.loadCharacter, keys[ i ] )
+                }));
+            }
         },
         clear : function()
         {
@@ -259,6 +297,18 @@ function( declare,
             {
                 this.jujuInput.set( "value", val );
             }
+            else if( prop == "new" )
+            {
+                this.new = val;
+                if( val )
+                {
+                    domClass.add( this.domNode, "br-newCharacter" );
+                }
+                else
+                {
+                    domClass.remove( this.domNode, "br-newCharacter" );
+                }
+            }
             else if( prop == "state" )
             {
                 this.loading = true;
@@ -268,7 +318,7 @@ function( declare,
                 }
                 this.publishJuju();
                 topic.publish( "/PleasePublishStatus/", true );
-                this.loading = false;
+                setTimeout( lang.hitch( this, function() { this.loading = false }), 1 );
             }
             else
             {
