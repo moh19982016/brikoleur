@@ -3,6 +3,7 @@ define([ "dojo/_base/declare",
          "dojo/_base/array",
          "dojo/on",
          "dojo/topic",
+         "dojo/dom-class",
          "dijit/form/TextBox",
          "dijit/_WidgetBase",
          "dijit/_TemplatedMixin",
@@ -12,6 +13,7 @@ function( declare,
           array,
           on,
           topic,
+          domClass,
           TextBox,
           _WidgetBase,
           _TemplatedMixin,
@@ -25,9 +27,14 @@ function( declare,
         inputProperties : [ "value", "disabled", "readonly", "selectedIndex", "options" ],
         inputClass : "br-inputField",
         readonly : false,
+        layout : "across",
         buildRendering : function()
         {
             this.inherited( arguments );
+            if( this.layout == "down" )
+            {
+                domClass.add( this.domNode, "br-layoutDown" );
+            }
             this.makeInput();
         },
         makeInput : function()

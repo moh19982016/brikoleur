@@ -366,6 +366,7 @@ i.br-minimizeButton:hover {
 
 .br-addControl {
     border: 1px dashed #bbb;
+    margin: 2px 0;
 }
 
 /* Powers */
@@ -402,6 +403,13 @@ i.br-minimizeButton:hover {
     float: right;
     padding: 4px;
     width: calc(100% - 130px);
+}
+
+.br-layoutDown .br-fieldTitle,
+.br-layoutDown .br-fieldControl {
+    float : none;
+    width: 100%;
+    text-align: left;
 }
 
 .br-fullWidth {

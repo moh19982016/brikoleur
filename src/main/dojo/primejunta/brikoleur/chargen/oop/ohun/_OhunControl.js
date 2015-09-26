@@ -33,6 +33,7 @@ function( declare,
             this.inherited( arguments );
             this.own( topic.subscribe( "/StatChanged/-os", lang.hitch( this, this.createSelector )));
             this.own( topic.subscribe( this.featureAddedTopic, lang.hitch( this, this._updateState )));
+            this._updateState();
         },
         createSelector : function()
         {
@@ -40,8 +41,6 @@ function( declare,
             this._updateState();
             if( this.data.type == "ad-hoc" )
             {
-                this.displayNode.style.display = "block";
-                this.controlNode.style.display = "none";
                 this.complete = true;
                 return;
             }
@@ -110,17 +109,17 @@ function( declare,
         {
             var count = util.countItems( this.parent.parent.controls );
             var os = Controller.get( "os" );
-            if( !this._levelSelector )
+            if( this.data.type == "ad-hoc" )
             {
                 var cap = os - count;
                 var min = this.data.min_level !== undefined ? this.data.min_level : 1;
                 var max = os + 2;
-                if( this.data.type == "ad-hoc" )
-                {
-                    this.valueContainer.style.width = "100%";
-                    this.valueNode.innerHTML = string.substitute( i18n.AdHocOhunDescription, { name : this.data.name.toLowerCase(), verb : this.data.verb || "create", cap : cap, min : min, max : max });
-                    this.deleteButton.domNode.style.display = "none";
-                }
+                this.displayNode.style.display = "block";
+                this.controlNode.style.display = "none";
+                this.valueContainer.style.width = "100%";
+                this.valueNode.innerHTML = string.substitute( i18n.AdHocOhunDescription, { name : this.data.name.toLowerCase(), verb : this.data.verb || "create", cap : cap, min : min, max : max });
+                this.deleteButton.domNode.style.display = "none";
+                this.complete = true;
             }
             else if( count >= os )
             {
@@ -153,6 +152,7 @@ function( declare,
             this.key = state.key;
             this.level = state.level;
             this.inherited( arguments );
+//            this._updateState();
         }
     });
 });
