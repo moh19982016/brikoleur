@@ -45,7 +45,7 @@ define({
         "DialogTitle" : "Brikoleur",
         "Continue" : "Continue",
         "Cancel" : "Cancel",
-        "Passive" : "Passive",
+        "Adaptation" : "Adaptation",
         "Resistance" : "Resistance",
         "YouHaveUnusedJuju" : "You have unused juju. Please spend it all before saving!",
         "ConfirmSpendJuju" : "You have spent ${juju} juju from the ekip pool. Continue?",

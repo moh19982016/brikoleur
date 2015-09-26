@@ -26,12 +26,6 @@ function( declare,
             this.own( topic.subscribe( "/SetActiveControlDisabled/", lang.hitch( this, this._setActiveControlDisabled ) ) );
             this.childConstructor = Constr;
         },
-        _____childProperties : {
-            getCost : function()
-            {
-                return this.level + 2;
-            }
-        },
         getCost : function()
         {
             return this.level + 2;

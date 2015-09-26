@@ -81,10 +81,10 @@ function( declare,
             }
             this.newCharacterButton = new Button({ label : i18n.NewCharacter, "class" : "br-headerButton br-darkButton", iconClass : "fa fa-sun-o br-gold", onClick : lang.hitch( this, this.newCharacter) } ).placeAt( this.headerContentNode, "first" );
             this._ekipMenu = new DropDownMenu();
-            this.refreshEkip();
             this._ekipMenu.startup();
             this.ekipButton = new DropDownButton({ dropDown : this._ekipMenu, label : i18n.Ekip, "class" : "br-headerButton br-darkButton", iconClass : "fa fa-users" } ).placeAt( this.headerContentNode, "first" );
             this.ekipButton.startup();
+            this.refreshEkip();
             this.own( this._ekipMenu, this.ekipButton, this.newCharacterButton );
             this._addPane( "name", new NamePane().placeAt( this.nameContainer ) );
             this._addPane( "traits", new TraitsPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
@@ -255,6 +255,7 @@ function( declare,
                     onClick: lang.hitch( this, this.loadCharacter, keys[ i ] )
                 }));
             }
+            this.ekipButton.set( "disabled", keys.length == 0 );
         },
         clear : function()
         {
