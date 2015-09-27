@@ -14,6 +14,10 @@ function( declare,
         },
         _getUseCost : function()
         {
+            if( this.state.type == "passive" )
+            {
+                return 0;
+            }
             return Math.max( 0, this.level + 1 - this._getDiscount() );
         },
         _getDiscount : function()
