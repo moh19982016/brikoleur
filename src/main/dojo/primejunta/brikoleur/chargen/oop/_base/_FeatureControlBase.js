@@ -10,6 +10,7 @@ define([ "dojo/_base/declare",
         "dijit/form/Button",
         "./../../_base/util",
         "./FilteringMemory",
+        "./_DescriptionMixin",
         "dijit/_WidgetBase",
         "dijit/_TemplatedMixin",
         "dijit/_WidgetsInTemplateMixin",
@@ -27,13 +28,14 @@ function( declare,
           Button,
           util,
           FilteringMemory,
+          _DescriptionMixin,
           _WidgetBase,
           _TemplatedMixin,
           _WidgetsInTemplateMixin,
           template,
           i18n )
 {
-    var Constr = declare([ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
+    var Constr = declare([ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, _DescriptionMixin ], {
         data : {},
         dict : i18n,
         title : "",
@@ -210,34 +212,6 @@ function( declare,
         {
             return this.data.cost || this.cost;
         },
-        toggleDescription : function()
-        {
-            this._open ? this.hideDescription() : this.showDescription();
-        },
-        showDescription : function()
-        {
-            if( this.descriptionWrapper && this.description )
-            {
-                this._open = true;
-                domGeometry.setMarginBox( this.descriptionWrapper, domGeometry.getMarginBox( this.descriptionNode ) );
-                domClass.replace( this.descriptionButton, "fa-chevron-circle-down", "fa-chevron-circle-right" );
-                domClass.add( this.domNode, "br-descriptionOpen" );
-            }
-            else if( !this.description )
-            {
-                this.hideDescription();
-            }
-        },
-        hideDescription : function()
-        {
-            if( this.descriptionWrapper )
-            {
-                this._open = false;
-                domClass.replace( this.descriptionButton, "fa-chevron-circle-right", "fa-chevron-circle-down" );
-                domClass.remove( this.domNode, "br-descriptionOpen" );
-                domGeometry.setMarginBox( this.descriptionWrapper, { h : 0 } );
-            }
-        },
         get : function( prop )
         {
             if( prop == "cost" )
@@ -368,6 +342,7 @@ function( declare,
             this.description = val;
             if( val )
             {
+                val = this._processDescription( val );
                 this.descriptionNode ? this.descriptionNode.innerHTML = val : false;
                 this.descriptionButton ? this.descriptionButton.style.visibility = "visible" : false;
             }
@@ -381,6 +356,58 @@ function( declare,
         {
             this._store.filter = filter;
             this.createSelector();
+        },
+        _processDescription : function( descr )
+        {
+            var subs = this._collectSubstitutions( descr );// /\$\{([^}]+)\}/g.exec( descr );
+            var reslts = [];
+            for( var i = 0; i < subs.length; i++ )
+            {
+                if( this.level == 0 )
+                {
+                    reslts.push( subs[ i ] );
+                }
+                else
+                {
+                    var delR = /([\/+])/.exec( subs[ i ] );
+                    var del = delR ? delR[ 1 ] : false;
+                    if( !del )
+                    {
+                        return descr;
+                    }
+                    else
+                    {
+                        var cur = subs[ i ].split( del );
+                        switch( del )
+                        {
+                            case "/" :
+                                reslts.push( parseInt( cur[ 0 ] ) * parseInt( this.level ) );
+                                break;
+                            case "+" :
+                                reslts.push( parseInt( cur[ 0 ] ) + parseInt( this.level ) );
+                                break;
+                        }
+                    }
+                }
+            }
+            descr = descr.replace( /\$\{([^}]+)\}/g, "${#}" );
+            descr = descr.split( "${#}" );
+            var out = "";
+            for( var i = 0; i < descr.length; i++ )
+            {
+                out += descr[ i ] + ( reslts[ i ] || "" );
+            }
+            return out;
+        },
+        _collectSubstitutions : function( str )
+        {
+            var out = [];
+            var sub = /\$\{([^}]+)\}/g.exec( str );
+            if( sub && sub[ 1 ] )
+            {
+                out = out.concat( [ sub[ 1 ] ], this._collectSubstitutions( str.substring( str.indexOf( sub[ 1 ] ) + sub[ 1 ].length + 3 ) ) );
+            }
+            return out;
         }
     });
     return Constr;

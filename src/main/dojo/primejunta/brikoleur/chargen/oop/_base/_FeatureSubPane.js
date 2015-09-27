@@ -3,6 +3,7 @@ define([ "dojo/_base/declare",
         "dojo/_base/array",
          "dojo/topic",
          "./_ControlPaneMixin",
+        "./_DescriptionMixin",
         "./../../_base/util",
          "dijit/_WidgetBase",
          "dijit/_TemplatedMixin",
@@ -12,12 +13,13 @@ function( declare,
           array,
           topic,
           _ControlPaneMixin,
+          _DescriptionMixin,
           util,
           _WidgetBase,
           _TemplatedMixin,
           template )
 {
-    return declare([ _WidgetBase, _TemplatedMixin, _ControlPaneMixin ], {
+    return declare([ _WidgetBase, _TemplatedMixin, _ControlPaneMixin, _DescriptionMixin ], {
         data : {},
         templateString : template,
         allowedControls : -1,
@@ -30,12 +32,10 @@ function( declare,
             this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
             if( this.data.description )
             {
-                this.infoButton.style.visibility = "visible";
+                this.description = this.data.description;
+                this.descriptionButton.style.visibility = "visible";
+                this.descriptionNode.innerHTML = this.data.description;
             }
-        },
-        showInfo : function()
-        {
-            util.showTooltip( this.data.description, this.infoButton );
         },
         featureAdded : function( kwObj )
         {

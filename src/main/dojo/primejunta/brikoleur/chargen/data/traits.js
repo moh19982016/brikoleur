@@ -228,12 +228,12 @@ define({
                         {
                             "name": "Armour",
                             "level": "$NUMBER",
-                            "description": "Increases the user's armour by ${calc(4 * this.level)} for ${calc( 2 * level)} rounds."
+                            "description": "Increases the user's armour by ${3+level} for ${1+level} rounds."
                         },
                         {
                             "name": "Damage",
                             "level": "$NUMBER",
-                            "description": "Increases the user's zam damage by ${calc(4 * this.level)} for ${calc( 2 * level )} rounds."
+                            "description": "Increases the user's zam damage by ${3+level} for ${1+level} rounds."
                         }
                     ]
                 },
