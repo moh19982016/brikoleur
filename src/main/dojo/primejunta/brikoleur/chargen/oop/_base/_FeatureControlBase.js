@@ -122,7 +122,7 @@ function( declare,
         },
         mayAdd : function( value )
         {
-            if( array.indexOf( util.getProperties( "value", this.parent.controls, this ), value ) != -1 )
+            if( array.indexOf( util.getProperties( this.parent.controls, { property : "value", self : this }), value ) != -1 )
             {
                 util.showWarning( this.propertyPresentWarning, this._selector.domNode );
                 return false;

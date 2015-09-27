@@ -259,6 +259,16 @@ function( declare,
                 this.loadCharacter( this.controls.name.get( "state" ).characterName, true );
             }
         },
+        getAllowedStunts : function()
+        {
+            var stunts = util.getProperties( this.controls.knacks.controls, {
+                property : "complete",
+                recurse : true,
+                level : 1,
+                filter : true
+            });
+            return stunts.length;
+        },
         publishJuju : function()
         {
             var juju = this.jujuInput.get( "value" );

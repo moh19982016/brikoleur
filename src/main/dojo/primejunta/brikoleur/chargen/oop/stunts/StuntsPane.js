@@ -27,6 +27,7 @@ function( declare,
         postCreate : function()
         {
             this.own( topic.subscribe( "/TrainingAdded/", lang.hitch( this, this.checkStunt ) ) );
+            this.descendantFeatureAdded();
         },
         checkStunt : function( control )
         {
@@ -55,7 +56,7 @@ function( declare,
         },
         validate : function()
         {
-            if( util.filter( util.getProperties( "complete", this.controls, false, true ) ).length < this.allowedControls )
+            if( util.getProperties( this.controls, { property : "complete", recurse : true, filter : true }).length < this.allowedControls )
             {
                 return {
                     valid : false,
@@ -71,10 +72,11 @@ function( declare,
         },
         publishStatus : function( synthetic )
         {
-            topic.publish( "/SelectedStunts/", util.getProperties( "value", this.controls ), synthetic );
+            topic.publish( "/SelectedStunts/", util.getProperties( this.controls, { property : "value" }), synthetic );
         },
         descendantFeatureAdded : function()
         {
+            this.updateAllowedControls();
             if( util.countItems( this.controls ) >= this.allowedControls )
             {
                 domClass.add( this.domNode, "br-maxPowers" );
@@ -84,6 +86,10 @@ function( declare,
                 domClass.remove( this.domNode, "br-maxPowers" );
                 this.checkCreateControl();
             }
+        },
+        updateAllowedControls : function()
+        {
+            this.allowedControls = Controller.getAllowedStunts();
         },
         checkCreateControl : function()
         {

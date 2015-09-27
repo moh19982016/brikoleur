@@ -59,21 +59,36 @@ function( lang,
                 return false;
             }
         },
-        getProperties : function( prop, controls, self, recurse )
+        /**
+         * Examines a set of controls and returns the value of an attribute as an array.
+         *
+         * @param controls  - control array being traversed
+         * @param kwObj - property - property to look up
+         *              - self - control which may be in array, if provided, will be skipped
+         *              - recurse - if true, will recurse into children
+         *              - level - if true, will ignore anything of lower level
+         *              - filter - if true, will remove falsies from the array
+         * @returns {Array}
+         */
+        getProperties : function( controls, kwObj )
         {
             var out = [];
             for( var i = 0; i < controls.length; i++ )
             {
-                if( controls[ i ] !== self )
+                if( controls[ i ] !== kwObj.self )
                 {
-                    out.push( controls[ i ].get( prop ) );
-                    if( recurse && controls[ i ].controls )
+                    if( !kwObj.level || controls[ i ].level >= kwObj.level )
                     {
-                        out = out.concat( this.getProperties( prop, controls[ i ].controls, self, recurse ) );
+                        out.push( controls[ i ].get( kwObj.property ) );
+                    }
+                    if( kwObj.recurse && controls[ i ].controls )
+                    {
+                        
+                        out = out.concat( this.getProperties( controls[ i ].controls, kwObj ) );
                     }
                 }
             }
-            return out;
+            return kwObj.filter ? this.filter( out ) : out;
         },
         countItems : function( controls )
         {

@@ -38,7 +38,7 @@ function( declare,
         },
         publishStatus : function( synthetic)
         {
-            topic.publish( this.selectedFeaturesTopic, util.getProperties( "value", this.controls ), synthetic );
+            topic.publish( this.selectedFeaturesTopic, util.getProperties( this.controls, { property : "value" }), synthetic );
         },
         addControl : function( kwObj, pos )
         {
@@ -55,7 +55,7 @@ function( declare,
         },
         validate : function()
         {
-            if( this.allowedControls && util.filter( util.getProperties( "complete", this.controls, false, false ) ).length < this.allowedControls )
+            if( this.allowedControls > 0 && util.getProperties( this.controls, { property : "complete", filter : true }).length < this.allowedControls )
             {
                 return {
                     valid : false,

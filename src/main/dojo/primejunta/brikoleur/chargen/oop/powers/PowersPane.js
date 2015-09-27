@@ -45,16 +45,9 @@ function( declare,
         },
         _checkActivePowers : function()
         {
-            var actives = util.getProperties( "active", this.controls, this, true );
-            var count = 0;
-            for( var i = 0; i < actives.length; i++ )
-            {
-                if( actives[ i ] )
-                {
-                    count++;
-                }
-            }
-            topic.publish( "/SetActiveControlDisabled/", count >= Controller.get( "aps" ) );
+            console.log( "CAP!", this.controls, util.getProperties( this.controls, { property : "active", recurse : true, filter : false } ) );
+
+            topic.publish( "/SetActiveControlDisabled/", util.getProperties( this.controls, { property : "active", recurse : true, filter : true } ).length >= Controller.get( "aps" ) );
         }
     });
 });
