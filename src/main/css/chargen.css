@@ -343,6 +343,13 @@ i.br-minimizeButton:hover {
     padding: 6px 4px 3px 4px;
 }
 
+.br-displayContainer {
+    box-sizing: border-box;
+}
+
+.br-descriptionOpen .br-displayContainer {
+}
+
 .br-controlsDisabled .br-controlNode {
     display: none;
 }
@@ -366,7 +373,7 @@ i.br-minimizeButton:hover {
 
 .br-addControl {
     border: 1px dashed #bbb;
-    margin: 2px 0;
+    margin: 4px 0 0 0;
 }
 
 /* Powers */
@@ -458,6 +465,21 @@ i.br-minimizeButton:hover {
     display: inline-block;
     vertical-align: -12px;
     width: 100%;
+}
+
+.br-featureDescription {
+    overflow : hidden;
+    height : 0;
+    transition: height 200ms;
+}
+
+.br-featureDescriptionContent {
+    font-family: Old Standard TT, serif;
+    padding: 4px;
+}
+
+.br-featureList {
+    font-family: Old Standard TT, serif;
 }
 
 /* Gear pane */

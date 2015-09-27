@@ -4,6 +4,7 @@ define([ "dojo/_base/declare",
         "dojo/on",
         "dojo/topic",
         "dojo/dom-class",
+        "dojo/dom-geometry",
         "dijit/form/Select",
         "dijit/form/ComboBox",
         "dijit/form/Button",
@@ -20,6 +21,7 @@ function( declare,
           on,
           topic,
           domClass,
+          domGeometry,
           Select,
           ComboBox,
           Button,
@@ -85,7 +87,7 @@ function( declare,
             {
                 domClass.remove( this.controlNode, "br-emptyClosedList" );
                 this._selector = new ( this.data.closed ? Select : ComboBox )({ store : this._store, placeholder : i18n.SelectOrType, style : "width:100%;" }).placeAt( this.selectorNode );
-                this._selector.own( on( this._selector, "change", lang.hitch( this, this.set, "value" ) ) );
+                this._selector.own( on( this._selector, "change", lang.hitch( this, this._onSelectorChange ) ) );
             }
         },
         addItem : function()
@@ -119,6 +121,8 @@ function( declare,
             this.complete = true;
             this.controlNode.style.display = "none";
             this.displayNode.style.display = "block";
+            domClass.add( this.domNode, "br-itemComplete" );
+            this.hideDescription();
             if( this.parent && this.parent.onCompleteChild )
             {
                 this.parent.onCompleteChild();
@@ -206,6 +210,34 @@ function( declare,
         {
             return this.data.cost || this.cost;
         },
+        toggleDescription : function()
+        {
+            this._open ? this.hideDescription() : this.showDescription();
+        },
+        showDescription : function()
+        {
+            if( this.descriptionWrapper && this.description )
+            {
+                this._open = true;
+                domGeometry.setMarginBox( this.descriptionWrapper, domGeometry.getMarginBox( this.descriptionNode ) );
+                domClass.replace( this.descriptionButton, "fa-chevron-circle-down", "fa-chevron-circle-right" );
+                domClass.add( this.domNode, "br-descriptionOpen" );
+            }
+            else if( !this.description )
+            {
+                this.hideDescription();
+            }
+        },
+        hideDescription : function()
+        {
+            if( this.descriptionWrapper )
+            {
+                this._open = false;
+                domClass.replace( this.descriptionButton, "fa-chevron-circle-right", "fa-chevron-circle-down" );
+                domClass.remove( this.domNode, "br-descriptionOpen" );
+                domGeometry.setMarginBox( this.descriptionWrapper, { h : 0 } );
+            }
+        },
         get : function( prop )
         {
             if( prop == "cost" )
@@ -231,6 +263,10 @@ function( declare,
             {
                 this._setState( val );
             }
+            else if( prop == "description" )
+            {
+                this._setDescription( val );
+            }
             else if( prop == "disabled" )
             {
                 if( val )
@@ -250,6 +286,12 @@ function( declare,
             {
                 this.controls.pop().destroy();
             }
+        },
+        _onSelectorChange : function( val )
+        {
+            this.set( "value", val );
+            this._setDescription( this._getData( val ).description || "" );
+            this.showDescription();
         },
         _setValue : function( val )
         {
@@ -301,6 +343,10 @@ function( declare,
             this.state.key = this.key;
             return this.state;
         },
+        _getData : function( key )
+        {
+            return this._store ? this._store.get( key ) || {} : {};
+        },
         _setState : function( state )
         {
             this.clear();
@@ -309,11 +355,26 @@ function( declare,
             if( state.value )
             {
                 this.set( "value", state.value );
+                this.set( "description", state.description || this._getData( state.value ).description || "" );
                 this.markComplete();
                 for( var i = 0; i < ( state.controls || [] ).length; i++ )
                 {
                     this.createChildControl( this._store.get( this.value ) ).set( "state", state.controls[ i ] );
                 }
+            }
+        },
+        _setDescription : function( val )
+        {
+            this.description = val;
+            if( val )
+            {
+                this.descriptionNode ? this.descriptionNode.innerHTML = val : false;
+                this.descriptionButton ? this.descriptionButton.style.visibility = "visible" : false;
+            }
+            else
+            {
+                this.descriptionNode ? this.descriptionNode.innerHTML = "" : false;
+                this.descriptionButton ? this.descriptionButton.style.visibility = "hidden" : false;
             }
         },
         _updateFilter : function( filter )

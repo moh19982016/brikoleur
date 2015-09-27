@@ -12,6 +12,7 @@ define({
         "list": [
         {
             "name": "Akoto Interface",
+            "description" : "The Akoto Interface allows you to jack into Q-Space.",
             "powers": [
                 {
                     "name": "Zoutis",

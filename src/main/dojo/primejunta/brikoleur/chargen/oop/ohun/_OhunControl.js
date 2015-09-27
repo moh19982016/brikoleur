@@ -42,6 +42,7 @@ function( declare,
             if( this.data.type == "ad-hoc" )
             {
                 this.complete = true;
+                this._setDescription( this.data.description || "" );
                 return;
             }
             this.inherited( arguments );
@@ -116,10 +117,10 @@ function( declare,
                 var max = os + 2;
                 this.displayNode.style.display = "block";
                 this.controlNode.style.display = "none";
-                this.valueContainer.style.width = "100%";
                 this.valueNode.innerHTML = string.substitute( i18n.AdHocOhunDescription, { name : this.data.name.toLowerCase(), verb : this.data.verb || "create", cap : cap, min : min, max : max });
                 this.deleteButton.domNode.style.display = "none";
                 this.complete = true;
+                this._setDescription( this.data.description || "" );
             }
             else if( count >= os )
             {
