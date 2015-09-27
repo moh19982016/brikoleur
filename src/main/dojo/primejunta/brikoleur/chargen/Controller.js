@@ -75,11 +75,12 @@ function( declare,
         templateString : template,
         controls : {},
         manualUrl : "http://www.brikoleur.com/index.html",
+        postMixInProperties : function()
+        {
+            domClass.add( document.body, "br-hasLoaded" );
+        },
         postCreate : function()
         {
-            this.splash = window._splash || new _Splash({ manager : this } ).placeAt( document.body );
-            window._splash = this.splash;
-            this.splash.manager = this;
             window.Controller = this;
             this.set( "is_new", true );
             domClass.replace( document.body, "tundra", "claro" );
@@ -172,6 +173,24 @@ function( declare,
         },
         loadSettings : function()
         {
+            var charName = CharacterStore.get( "character" );
+            this.splash = window._splash || new _Splash({ style : "opacity:0" } ).placeAt( document.body );
+            window._splash = this.splash;
+            this.splash.manager = this;
+            if( charName && array.indexOf( CharacterStore.list(), charName ) != -1 )
+            {
+                this.domNode.style.opacity = 1;
+                if( window._splash )
+                {
+                    window._splash.domNode.style.opacity = 0;
+                    window._splash.domNode.style.zIndex = -99;
+                }
+                this.loadCharacter( charName, true );
+            }
+            else
+            {
+                this.splash.domNode.style.opacity = 1;
+            }
         },
         logState : function()
         {
@@ -198,6 +217,7 @@ function( declare,
         },
         doLoadCharacter : function( name )
         {
+            CharacterStore.set( "character", name );
             this.set( "is_new", false );
             this.set( "juju", CharacterStore.get( "juju" ) || 0 );
             this.set( "state", CharacterStore.load( name ) );
@@ -330,6 +350,7 @@ function( declare,
         clear : function()
         {
             var pn = this.domNode.parentNode;
+            CharacterStore.set( "character", false );
             this.splash.fadeIn();
             this.fadeOut();
             setTimeout( lang.hitch( this, function()

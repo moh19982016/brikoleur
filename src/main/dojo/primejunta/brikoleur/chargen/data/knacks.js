@@ -148,6 +148,7 @@ define( {
         {
             name: "Q-Space",
             description: "You have an unusual affinity for Q-Space, and all the happens in it.",
+            link: "#doc75",
             list: [
                 {
                     name: "Q-Space Navigation",

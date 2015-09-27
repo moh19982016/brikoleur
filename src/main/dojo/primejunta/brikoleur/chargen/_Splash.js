@@ -46,10 +46,7 @@ function( declare,
         {
             this.manager.set( "state", lang.mixin( this._store.get( this.archetypeSelect.get( "value" ) ).data, { name : { is_template : true, characterName : this.nameInput.get( "value" ) } } ) );
             this.manager.fadeIn();
-            this.domNode.style.opacity = 0;
-            setTimeout( lang.hitch( this, function() {
-                this.domNode.style.zIndex = "-999";
-            }), 300 );
+            this.fadeOut();
         },
         fadeIn : function()
         {
@@ -60,6 +57,13 @@ function( declare,
                 this.domNode.style.opacity = 1;
                 this.domNode.style.zIndex = "999";
             }), 1 );
+        },
+        fadeOut : function()
+        {
+            this.domNode.style.opacity = 0;
+            setTimeout( lang.hitch( this, function() {
+                this.domNode.style.zIndex = "-999";
+            }), 300 );
         },
         resize : function()
         {
