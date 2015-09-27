@@ -7,6 +7,7 @@ define([ "dojo/_base/declare",
         "dojo/dom-class",
         "dojo/dom-geometry",
         "dojo/Deferred",
+        "./_Splash",
         "./_base/util",
          "./_base/DynamicGrid",
          "./oop/NamePane",
@@ -41,6 +42,7 @@ function( declare,
           domClass,
           domGeometry,
           Deferred,
+          _Splash,
           util,
           DynamicGrid,
           NamePane,
@@ -75,6 +77,9 @@ function( declare,
         manualUrl : "http://www.brikoleur.com/index.html",
         postCreate : function()
         {
+            this.splash = window._splash || new _Splash({ manager : this } ).placeAt( document.body );
+            window._splash = this.splash;
+            this.splash.manager = this;
             window.Controller = this;
             this.set( "is_new", true );
             domClass.replace( document.body, "tundra", "claro" );
@@ -99,6 +104,20 @@ function( declare,
             this._addPane( "gear", new GearPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
             this._addPane( "description", new DescriptionPane({ dock : this.dockContainer, container : this.oopGrid }).placeAt( this.oopGrid ) );
             this.loadSettings();
+        },
+        fadeIn : function()
+        {
+            setTimeout( lang.hitch( this, function()
+            {
+                this.domNode.style.opacity = 1;
+            }), 1 );
+        },
+        fadeOut : function()
+        {
+            setTimeout( lang.hitch( this, function()
+            {
+                this.domNode.style.opacity = 0;
+            }), 1 );
         },
         hasFullScreen : function()
         {
@@ -243,7 +262,8 @@ function( declare,
         deleteCharacter : function()
         {
             var charName = this.controls.name.get( "state" ).characterName;
-            if( charName )
+            var keys = CharacterStore.list();
+            if( charName && array.indexOf( keys, charName ) != -1 )
             {
                 util.confirm( string.substitute( i18n.ConfirmDeleteCharacter, { charName : charName } ) ).then( lang.hitch( this, function()
                 {
@@ -310,8 +330,13 @@ function( declare,
         clear : function()
         {
             var pn = this.domNode.parentNode;
-            this.destroy();
-            new Constr().placeAt( pn ).startup();
+            this.splash.fadeIn();
+            this.fadeOut();
+            setTimeout( lang.hitch( this, function()
+            {
+                this.destroy();
+                new Constr().placeAt( pn ).startup();
+            }), 300);
         },
         resize : function()
         {
@@ -369,6 +394,10 @@ function( declare,
             }
             else if( prop == "state" )
             {
+
+                console.log( "SETTING STATE", val );
+
+
                 this.loading = true;
                 for( var o in this.controls )
                 {

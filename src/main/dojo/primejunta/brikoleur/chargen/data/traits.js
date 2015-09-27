@@ -17,6 +17,8 @@ define({
             "powers": [
                 {
                     "name": "Zoutis",
+                    "description": "Zoutis are Powers used in Q-Space.",
+                    "link" : "#doc280",
                     "list": [
                         {
                             "name": "Blast",
@@ -225,6 +227,7 @@ define({
                 {
                     "name": "Fwés",
                     "description": "Fwés are single-use artefacts used in Q-Space.",
+                    "link" : "#doc281",
                     "list": [
                         {
                             "name": "Armour",
@@ -261,6 +264,7 @@ define({
         {
             "name": "Lwa's Horse",
             "description": "A Lwa's Horse is crowned with a lwa. He serves it, and in turn may petition it for favours. Lwa's Horses are respected by their friends and feared by their enemies.",
+            "link" : "#doc87",
             "features" : [{
                 "name" : "Respect",
                 "type" : "passive",
@@ -272,18 +276,21 @@ define({
                     "min_level": 0,
                     "type": "ad-hoc",
                     "verb": "inscribe",
-                    "description": "Vévés are drawn on the spot. Santeros invoke their lwa with them."
+                    "description": "Vévés are drawn on the spot. Santeros invoke their lwa with them.",
+                    "link" : "#doc87"
                 },
                 {
                     "name": "Zombies",
                     "type": "persistent",
                     "description": "Santeros can turn humans and animals into zombies by use of Q-tech scrolls.",
+                    "link" : "#doc463",
                     "list": []
                 },
                 {
                     "name": "Golems",
                     "type": "persistent",
                     "description": "Santeros can turn drones into golems by use of Q-tech scrolls.",
+                    "link" : "#doc463",
                     "list": []
                 }
             ]
@@ -291,6 +298,7 @@ define({
         {
             "name": "Contra-Synchronicity",
             "description": "Guns pointed at you will misfire. You can manipulate probabilities. You can create and use Cards to produce persistent effects distorting probabilities. You can acquire special abilities that produce specific and powerful CS effects.",
+            "link": "#doc88",
             "features" : [{
                 "name" : "Deck",
                 "type" : "passive",
@@ -300,6 +308,7 @@ define({
                 {
                     "name": "Cards",
                     "description" : "Cards manipulate probabilities.",
+                    "link": "#doc272",
                     "list": [
                         {
                             "name": "Protect against firearms",
@@ -347,6 +356,8 @@ define({
             "powers": [
                 {
                     "name": "Plays",
+                    "description": "Plays are Powers which bend probabilities.",
+                    "link": "#doc271",
                     "list": [
                         {
                             "name": "Load the Dice",
@@ -452,6 +463,7 @@ define({
         {
             "name": "Military Neural Interface",
             "description": "You have been implanted with a NATO or Almaz-Norinco standard military neural interface by a former employer. You retain the interface and the possibility to implant further military-grade wetware.",
+            "link": "#doc89",
             "features": [
                 {
                     "name": "Smart Weapons",
@@ -463,6 +475,7 @@ define({
                 {
                     "name": "Drones",
                     "description": "Drones are remote-controlled devices driven through the MNI.",
+                    "link" : "#doc288",
                     "list": [
                         {
                             "name": "Microdrone"
@@ -492,6 +505,7 @@ define({
                 {
                     "name": "Military Grade Wetware",
                     "description": "Mil-grade wetware can enhance the user's capabilities. Many do not require Mind points to use.",
+                    "link" : "#doc290",
                     "list": [
                         {
                             "name": "Low-light Vision",
@@ -601,29 +615,26 @@ define({
             ]
         },
         {
-            "name" : "Genetically Engineered - Aquatic",
-            "description" : "Aquatics are humans engineered for life in ocean habitats. Most are associated with the Poseidonian movement.",
+            "name" : "Genetically Engineered",
+            "description" : "Genetically engineered humans have various adaptations, resistances, and special abilities baseline humans lack, and a bonus knack related to their engineering.",
+            "link" : "#doc90",
             "features" : [
                 {
                     "name" : "Bonus knack",
-                    "value" : "Aquatic activities",
+                    "value" : false,
                     "type" : "knack"
                 },
                 {
-                    "name" : "Adaptation",
-                    "value" : "Aquatic - May breathe underwater if sufficient dissolved oxygen is present.",
-                    "type" : "passive"
-                },
-                {
-                    "name" : "Resistance",
-                    "value" : "4/Temperature and pressure",
-                    "type" : "resistance"
+                    "name" : "Adaptations and Resistances",
+                    "type" : "free",
+                    "max" : 4
                 }
             ]
         },
         {
             "name" : "Genetically Engineered - Spacer",
             "description" : "Spacers are humans who have undergone modification to cope better with low-gravity, high-radiation outer space habitats.",
+            "link" : "#doc130",
             "features" : [
                 {
                     "name" : "Bonus knack",
@@ -648,8 +659,31 @@ define({
             ]
         },
         {
+            "name" : "Genetically Engineered - Aquatic",
+            "description" : "Aquatics are humans engineered for life in ocean habitats. Most are associated with the Poseidonian movement.",
+            "link" : "#doc131",
+            "features" : [
+                {
+                    "name" : "Bonus knack",
+                    "value" : "Aquatic activities",
+                    "type" : "knack"
+                },
+                {
+                    "name" : "Adaptation",
+                    "value" : "Aquatic - May breathe underwater if sufficient dissolved oxygen is present.",
+                    "type" : "passive"
+                },
+                {
+                    "name" : "Resistance",
+                    "value" : "4/Temperature and pressure",
+                    "type" : "resistance"
+                }
+            ]
+        },
+        {
             "name" : "Genetically Engineered - Jagun",
             "description" : "Jagun are genetically enhanced super-warriors. They are faster, stronger, and tougher than baseline humans.",
+            "link" : "#doc132",
             "features" : [
                 {
                     "name" : "Bonus knack",
@@ -669,24 +703,9 @@ define({
             ]
         },
         {
-            "name" : "Genetically Engineered",
-            "description" : "Genetically engineered humans have various adaptations, resistances, and special abilities baseline humans lack, and a bonus knack related to their engineering.",
-            "features" : [
-                {
-                    "name" : "Bonus knack",
-                    "value" : false,
-                    "type" : "knack"
-                },
-                {
-                    "name" : "Adaptations and Resistances",
-                    "type" : "free",
-                    "max" : 4
-                }
-            ]
-        },
-        {
             "name" : "Zonetouched",
             "description" : "The Zonetouched have been altered by the powers in the Zone. They manifest Gifts and Curses that set them apart from the rest of humanity.",
+            "link" : "#doc429",
             "features" : [
                 {
                     "name" : "Minor Curses",

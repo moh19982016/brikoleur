@@ -2,6 +2,45 @@
 @import "../dojo/dijit/themes/tundra/tundra.css";
 @import "../font-awesome/css/font-awesome.min.css";
 
+/* Splash */
+
+.br-splashCharacterInput {
+    font-family: Old Standard TT, serif;
+    font-size: 80px;
+    font-style: italic !important;
+    width:800px;
+
+}
+
+.tundra .br-splash .br-splashCharacterInput .dijitTextBox {
+    padding: 15px;
+    background-color: black !important;
+    color: #fafafa !important;
+}
+
+.tundra .br-splash .br-splashCharacterInput {
+    border: none !important;
+    background-color: black !important;
+    color: #fafafa !important;
+}
+
+.br-splashArchetypeSelect {
+    font-family: Iceberg, sans-serif;
+    font-size: 60px;
+}
+
+.br-splashCreateButton {
+    width: 200px;
+    height: 200px;
+    text-align:center;
+    padding: 75px 0;
+    background-color: #c00;
+    border-radius: 400px;
+    color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
 /* Layout */
 .br-controller {
     position: fixed !important;
@@ -26,8 +65,8 @@
     left: 0;
     width: 56px;
     bottom: 0;
-    background-color: black;
-    border-right: 4px solid #a00;
+    background-color: #777;
+    border-right: 4px solid #f00;
 }
 
 .br-header-bg {

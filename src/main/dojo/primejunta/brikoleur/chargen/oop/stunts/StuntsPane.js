@@ -118,7 +118,10 @@ function( declare,
                 ctl.set( "state", state[ i ] );
                 this.controls.push( ctl );
             }
-            this.maximize();
+            if( this.controls.length > 0 )
+            {
+                this.maximize();
+            }
         }
     });
 });

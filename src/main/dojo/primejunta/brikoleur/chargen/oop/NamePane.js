@@ -113,8 +113,11 @@ function( declare,
             if( prop == "state" )
             {
                 this.nameInput.set( "value", val.characterName );
-                this.nameInput.set( "disabled", true );
-                this.disableSave();
+                if( !val.is_template )
+                {
+                    this.nameInput.set( "disabled", true );
+                    this.disableSave();
+                }
             }
             else
             {

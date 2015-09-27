@@ -59,7 +59,7 @@ function( declare,
                         evt.preventDefault();
                         if( !this.manualWindow || this.manualWindow.closed )
                         {
-                            this.manualWindow = window.open( evt.target.href, "manualWindow" );
+                            this.manualWindow = window.open( evt.target.href, "manualWindow", "toolbar=no" );
                         }
                         else
                         {

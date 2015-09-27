@@ -46,6 +46,7 @@ function( declare,
         type : "",
         key : false,
         maxLevel : 2,
+        LIST_PROPS : [ "list", "powers", "features", "ohun" ],
         templateString : template,
         jujuChangedTopic : "/StatChanged/-juju",
         featureAddedTopic : "",
@@ -294,7 +295,7 @@ function( declare,
             {
                 for( var o in data )
                 {
-                    if( o != "list" )
+                    if( array.indexOf( this.LIST_PROPS, o ) == -1 )
                     {
                         out[ o ] = data[ o ];
                     }
