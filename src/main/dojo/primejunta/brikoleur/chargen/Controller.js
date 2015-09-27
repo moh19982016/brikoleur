@@ -269,6 +269,14 @@ function( declare,
             });
             return stunts.length;
         },
+        onJujuBlur : function()
+        {
+            CharacterStore.set( "juju", this.jujuInput.get( "value" ) );
+        },
+        onJujuChange : function()
+        {
+            this.publishJuju()
+        },
         publishJuju : function()
         {
             var juju = this.jujuInput.get( "value" );

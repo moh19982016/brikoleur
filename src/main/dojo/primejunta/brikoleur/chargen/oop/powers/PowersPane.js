@@ -45,8 +45,6 @@ function( declare,
         },
         _checkActivePowers : function()
         {
-            console.log( "CAP!", this.controls, util.getProperties( this.controls, { property : "active", recurse : true, filter : false } ) );
-
             topic.publish( "/SetActiveControlDisabled/", util.getProperties( this.controls, { property : "active", recurse : true, filter : true } ).length >= Controller.get( "aps" ) );
         }
     });

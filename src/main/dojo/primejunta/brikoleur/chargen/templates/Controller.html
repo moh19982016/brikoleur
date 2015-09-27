@@ -5,7 +5,7 @@
     <div data-dojo-attach-point="headerContentNode" class="br-headerContent">
       <div data-dojo-attach-point="headerContentNodeRight" class="br-floatRight" style="padding-right:8px;">
         <div class="br-floatRight br-jujuField">
-          <label><span class="br-fieldLabel">${dict.Juju}</span> <input data-dojo-attach-point="jujuInput" data-dojo-type="dijit/form/NumberTextBox" value="12" data-dojo-attach-event="onChange:publishJuju"/></label>
+          <label><span class="br-fieldLabel">${dict.Juju}</span> <input data-dojo-attach-point="jujuInput" data-dojo-type="dijit/form/NumberTextBox" value="12" data-dojo-attach-event="onChange:onJujuChange,onBlur:onJujuBlur"/></label>
         </div>
       </div>
       <a href="/index.html" class="br-headerLink">Brikoleur <i class="fa fa-external-link-square"></i></a>
