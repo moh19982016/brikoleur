@@ -347,11 +347,24 @@ i.br-minimizeButton:hover {
     box-sizing: border-box;
 }
 
+/* Description */
 .br-descriptionOpen .br-displayContainer {
 }
 
 .br-controlsDisabled .br-controlNode {
     display: none;
+}
+
+a.br-manualLink {
+    display: block;
+    margin: 8px 0;
+    text-align: right;
+    color: #c00;
+    font-family: Abel, sans-serif;
+}
+
+a.br-manualLink:hover {
+    color: #f00;
 }
 
 .br-indented {

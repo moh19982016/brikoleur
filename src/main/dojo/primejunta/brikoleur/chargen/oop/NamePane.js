@@ -28,7 +28,7 @@ function( declare,
             this.nameInput.invalidMessage = i18n.NameInUse;
             this.saveButton = new Button({ disabled : true, label : i18n.Accept, "class" : "br-headerButton", iconClass : "fa fa-check-circle br-blue", onClick : lang.hitch( Controller, Controller.saveCharacter ) } ).placeAt( this.buttonContainer );
             this.revertButton = new Button({ disabled : true, label : i18n.Revert, "class" : "br-headerButton br-compactButton br-splitButtonLeft", iconClass : "fa fa-undo", onClick : lang.hitch( Controller, Controller.revertCharacter ) } ).placeAt( this.buttonContainer );
-            this.deleteButton = new Button({ disabled : true, label : i18n.Delete, "class" : "br-headerButton br-compactButton br-splitButtonRight", iconClass : "fa fa-trash br-red", onClick : lang.hitch( Controller, Controller.deleteCharacter ) } ).placeAt( this.buttonContainer );
+            this.deleteButton = new Button({ disabled : false, label : i18n.Delete, "class" : "br-headerButton br-compactButton br-splitButtonRight", iconClass : "fa fa-trash br-red", onClick : lang.hitch( Controller, Controller.deleteCharacter ) } ).placeAt( this.buttonContainer );
             this.own( this.revertButton, this.saveButton, this.deleteButton );
             this.own( topic.subscribe( "/CharacterSaved/", lang.hitch( this, this.disableSave ) ), topic.subscribe( "/PropertyChanged/", lang.hitch( this, this.checkSave ) ) );
         },

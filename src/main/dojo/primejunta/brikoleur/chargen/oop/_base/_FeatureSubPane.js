@@ -30,12 +30,14 @@ function( declare,
         {
             this.inherited( arguments );
             this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
+            this.setDescription( this.data );
+            /*
             if( this.data.description )
             {
                 this.description = this.data.description;
                 this.descriptionButton.style.visibility = "visible";
                 this.descriptionNode.innerHTML = this.data.description;
-            }
+            }*/
         },
         featureAdded : function( kwObj )
         {

@@ -237,10 +237,6 @@ function( declare,
             {
                 this._setState( val );
             }
-            else if( prop == "description" )
-            {
-                this._setDescription( val );
-            }
             else if( prop == "disabled" )
             {
                 if( val )
@@ -264,7 +260,7 @@ function( declare,
         _onSelectorChange : function( val )
         {
             this.set( "value", val );
-            this._setDescription( this._getData( val ).description || "" );
+            this.setDescription( this._getData( val ) || {} );
             this.showDescription();
         },
         _setValue : function( val )
@@ -329,7 +325,7 @@ function( declare,
             if( state.value )
             {
                 this.set( "value", state.value );
-                this.set( "description", state.description || this._getData( state.value ).description || "" );
+                this.setDescription( state || this._getData( state.value ) || {} );
                 this.markComplete();
                 for( var i = 0; i < ( state.controls || [] ).length; i++ )
                 {
@@ -337,77 +333,10 @@ function( declare,
                 }
             }
         },
-        _setDescription : function( val )
-        {
-            this.description = val;
-            if( val )
-            {
-                val = this._processDescription( val );
-                this.descriptionNode ? this.descriptionNode.innerHTML = val : false;
-                this.descriptionButton ? this.descriptionButton.style.visibility = "visible" : false;
-            }
-            else
-            {
-                this.descriptionNode ? this.descriptionNode.innerHTML = "" : false;
-                this.descriptionButton ? this.descriptionButton.style.visibility = "hidden" : false;
-            }
-        },
         _updateFilter : function( filter )
         {
             this._store.filter = filter;
             this.createSelector();
-        },
-        _processDescription : function( descr )
-        {
-            var subs = this._collectSubstitutions( descr );// /\$\{([^}]+)\}/g.exec( descr );
-            var reslts = [];
-            for( var i = 0; i < subs.length; i++ )
-            {
-                if( this.level == 0 )
-                {
-                    reslts.push( subs[ i ] );
-                }
-                else
-                {
-                    var delR = /([\/+])/.exec( subs[ i ] );
-                    var del = delR ? delR[ 1 ] : false;
-                    if( !del )
-                    {
-                        return descr;
-                    }
-                    else
-                    {
-                        var cur = subs[ i ].split( del );
-                        switch( del )
-                        {
-                            case "/" :
-                                reslts.push( parseInt( cur[ 0 ] ) * parseInt( this.level ) );
-                                break;
-                            case "+" :
-                                reslts.push( parseInt( cur[ 0 ] ) + parseInt( this.level ) );
-                                break;
-                        }
-                    }
-                }
-            }
-            descr = descr.replace( /\$\{([^}]+)\}/g, "${#}" );
-            descr = descr.split( "${#}" );
-            var out = "";
-            for( var i = 0; i < descr.length; i++ )
-            {
-                out += descr[ i ] + ( reslts[ i ] || "" );
-            }
-            return out;
-        },
-        _collectSubstitutions : function( str )
-        {
-            var out = [];
-            var sub = /\$\{([^}]+)\}/g.exec( str );
-            if( sub && sub[ 1 ] )
-            {
-                out = out.concat( [ sub[ 1 ] ], this._collectSubstitutions( str.substring( str.indexOf( sub[ 1 ] ) + sub[ 1 ].length + 3 ) ) );
-            }
-            return out;
         }
     });
     return Constr;

@@ -72,6 +72,7 @@ function( declare,
         SMALL_THRESHOLD : 650,
         templateString : template,
         controls : {},
+        manualUrl : "http://www.brikoleur.com/index.html",
         postCreate : function()
         {
             window.Controller = this;
@@ -163,8 +164,7 @@ function( declare,
         },
         newCharacter : function()
         {
-            this.saveCharacter();
-            this.clear();
+            this.saveCharacter().then( lang.hitch( this, this.clear ));
         },
         loadCharacter : function( name, dontSave )
         {
@@ -189,7 +189,7 @@ function( declare,
         },
         saveCharacter : function()
         {
-            this.validateCharacter().then( lang.hitch( this, this.doSaveCharacter ) );
+            return this.validateCharacter().then( lang.hitch( this, this.doSaveCharacter ) );
         },
         validateCharacter : function()
         {
@@ -238,6 +238,7 @@ function( declare,
             CharacterStore.save( cName, this.get( "state" ) );
             topic.publish( "/CharacterSaved/" );
             this.refreshEkip();
+            return new Deferred().resolve();
         },
         deleteCharacter : function()
         {
@@ -250,6 +251,10 @@ function( declare,
                     this.refreshEkip();
                     this.clear();
                 }));
+            }
+            else
+            {
+                this.clear();
             }
         },
         revertCharacter : function()
