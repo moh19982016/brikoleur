@@ -17,7 +17,8 @@ function( declare,
             if( this.descriptionWrapper && this.description )
             {
                 this._open = true;
-                domGeometry.setMarginBox( this.descriptionWrapper, domGeometry.getMarginBox( this.descriptionNode ) );
+                //domGeometry.setMarginBox( this.descriptionWrapper, domGeometry.getMarginBox( this.descriptionNode ) );
+                this.descriptionWrapper.style.height = domGeometry.getMarginBox( this.descriptionNode ).h + "px";
                 domClass.replace( this.descriptionButton, "fa-chevron-circle-down", "fa-chevron-circle-right" );
                 domClass.add( this.domNode, "br-descriptionOpen" );
             }
@@ -33,7 +34,8 @@ function( declare,
                 this._open = false;
                 domClass.replace( this.descriptionButton, "fa-chevron-circle-right", "fa-chevron-circle-down" );
                 domClass.remove( this.domNode, "br-descriptionOpen" );
-                domGeometry.setMarginBox( this.descriptionWrapper, { h : 0 } );
+                //domGeometry.setMarginBox( this.descriptionWrapper, { h : 0 } );
+                this.descriptionWrapper.style.height = "0px";
             }
         }
     });
