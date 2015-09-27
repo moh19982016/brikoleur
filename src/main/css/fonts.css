@@ -2,35 +2,35 @@
     font-family: 'Abel';
     font-style: normal;
     font-weight: 400;
-    src: local('Abel'), local('Abel-Regular'), url(fonts/Abel-normal.woff2) format('woff2');
+    src: local('Abel'), local('Abel-regular'), url(fonts/Abel-regular.woff) format('woff');
 }
 @font-face {
     font-family: 'Iceberg';
     font-style: normal;
     font-weight: 400;
-    src: local('Iceberg'), local('Iceberg-Regular'), url(fonts/Iceberg-normal.woff2) format('woff2');
+    src: local('Iceberg'), local('Iceberg-regular'), url(fonts/Iceberg-regular.woff) format('woff');
 }
 @font-face {
     font-family: 'Old Standard TT';
     font-style: normal;
     font-weight: 400;
-    src: local('Old Standard TT Regular'), local('OldStandardTT-Regular'), url(fonts/Old-Standard-TT-normal.woff2) format('woff2');
+    src: local('Old Standard TT Regular'), local('OldStandardTT-regular'), url(fonts/OldStandardTT-regular.woff) format('woff');
 }
 @font-face {
     font-family: 'Old Standard TT';
     font-style: normal;
     font-weight: 700;
-    src: local('Old Standard TT Bold'), local('OldStandardTT-Bold'), url(fonts/Old-Standard-TT-bold.woff2) format('woff2');
+    src: local('Old Standard TT Bold'), local('OldStandardTT-bold'), url(fonts/OldStandardTT-bold.woff) format('woff');
 }
 @font-face {
     font-family: 'Old Standard TT';
     font-style: italic;
     font-weight: 400;
-    src: local('Old Standard TT Italic'), local('OldStandardTT-Italic'), url(fonts/Old-Standard-TT-italic.woff2) format('woff2');
+    src: local('Old Standard TT Italic'), local('OldStandardTT-italic'), url(fonts/OldStandardTT-italic.woff) format('woff');
 }
 @font-face {
     font-family: 'Stalinist One';
     font-style: normal;
     font-weight: 400;
-    src: local('Stalinist One'), local('StalinistOne-Regular'), url(fonts/Stalinist-One-normal.woff2) format('woff2');
+    src: local('Stalinist One'), local('StalinistOne-regular'), url(fonts/StalinistOne-regular.woff) format('woff');
 }

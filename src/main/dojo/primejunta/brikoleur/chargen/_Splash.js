@@ -36,6 +36,7 @@ function( declare,
         manager : {},
         postCreate : function()
         {
+            this.domNode.style.opacity = 1;
             this.own( on( window, "resize", lang.hitch( this, this.resize ) ) );
             this._store =  new Memory({ data : util.listToStoreData( archetypes.list ), getLabel : function( item ) { return item.name } } );
             this.nameInput = new TextBox({ "class" : "br-splashCharacterInput", placeholder : i18n.CharacterName } ).placeAt( this.nameInputNode );
@@ -67,8 +68,9 @@ function( declare,
         },
         resize : function()
         {
-            if( this.domNode.style.display == "block" )
+            if( this.domNode.style.opacity == 1 )
             {
+                console.log( "scale" );
                 var box = domGeometry.getContentBox( document.body );
                 this.logoNode.style.transform = "scale(" + ( box.w/this.refWidth ) + ")";
                 this.logoNode.style.top = 300 + 300 * box.w/this.refWidth + "px";
