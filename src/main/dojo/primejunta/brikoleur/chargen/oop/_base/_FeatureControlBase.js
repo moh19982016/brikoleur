@@ -104,6 +104,9 @@ function( declare,
             this.addChildControl();
             if( this.parent )
             {
+
+                console.log( "CAPPING PARENT", this.parent );
+
                 this.parent.featureAdded();
             }
             Controller.set( "juju", Controller.get( "juju" ) - this.getCost() );
@@ -119,6 +122,13 @@ function( declare,
             this.complete = true;
             this.controlNode.style.display = "none";
             this.displayNode.style.display = "block";
+            if( this.parent && this.parent.onCompleteChild )
+            {
+                this.parent.onCompleteChild();
+            }
+        },
+        onCompleteChild : function()
+        {
         },
         mayAdd : function( value )
         {

@@ -269,9 +269,16 @@ function( declare,
             });
             return stunts.length;
         },
+        onJujuFocus : function()
+        {
+            setTimeout( lang.hitch( this.jujuInput.textbox, this.jujuInput.textbox.select ), 1 );
+        },
         onJujuBlur : function()
         {
-            CharacterStore.set( "juju", this.jujuInput.get( "value" ) );
+            if( this.jujuInput.isValid() && !this.is_new )
+            {
+                CharacterStore.set( "juju", this.jujuInput.get( "value" ) );
+            }
         },
         onJujuChange : function()
         {

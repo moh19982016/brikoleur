@@ -3,6 +3,8 @@ define([ "dojo/_base/declare",
         "dojo/topic",
         "dijit/form/CheckBox",
         "./../_base/_FeatureControlBase",
+        "./../_base/_PoweredAbilityMixin",
+        "./../../_base/util",
         "dojo/text!./templates/_PowerControl.html",
         "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
@@ -10,16 +12,19 @@ function( declare,
           topic,
           CheckBox,
           _FeatureControlBase,
+          _PoweredAbilityMixin,
+          util,
           template,
           i18n )
 {
-    var Constr = declare([ _FeatureControlBase ], {
+    var Constr = declare([ _FeatureControlBase, _PoweredAbilityMixin ], {
         data : {},
         selectedFeaturesTopic : "/SelectedPowers/",
         featureAddedTopic : "/PowerAdded/",
         propertyPresentWarning : i18n.PowerPresent,
         templateString : template,
         maxLevel : 3,
+        statName : "M",
         postCreate : function()
         {
             this.inherited( arguments );
