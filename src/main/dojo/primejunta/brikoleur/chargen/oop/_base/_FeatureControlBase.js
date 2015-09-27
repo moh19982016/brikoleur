@@ -104,9 +104,6 @@ function( declare,
             this.addChildControl();
             if( this.parent )
             {
-
-                console.log( "CAPPING PARENT", this.parent );
-
                 this.parent.featureAdded();
             }
             Controller.set( "juju", Controller.get( "juju" ) - this.getCost() );
@@ -273,10 +270,25 @@ function( declare,
         },
         _readState : function()
         {
-            return lang.mixin( this.state || {}, {
-                name : this.data.name,
-                value : this._readValue()
+            var val = this._readValue();
+            return lang.mixin( ( this.state || {} ), this._getDataProps( this._store.get( val ) ), {
+                value : val
             });
+        },
+        _getDataProps : function( data )
+        {
+            var out = {};
+            if( data )
+            {
+                for( var o in data )
+                {
+                    if( o != "list" )
+                    {
+                        out[ o ] = data[ o ];
+                    }
+                }
+            }
+            return out;
         },
         _getState : function()
         {
