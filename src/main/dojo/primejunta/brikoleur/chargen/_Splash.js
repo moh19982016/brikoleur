@@ -34,7 +34,7 @@ function( declare,
     return declare([ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
         dict : i18n,
         templateString : template,
-        refWidth : 1100,
+        refWidth : 1200,
         manager : {},
         postCreate : function()
         {
@@ -72,13 +72,12 @@ function( declare,
         {
             if( this.domNode.style.opacity == 1 )
             {
-                console.log( "scale" );
                 var box = domGeometry.getContentBox( document.body );
-                var tf = "scale(" + ( box.w/this.refWidth ) + ")";
+                var tf = "scale(" + ( ( box.w + box.h ) / ( 2 * this.refWidth ) ) + ")";
                 domStyle.set( this.logoNode, {
                     transform : tf,
                     "-webkit-transform" : tf,
-                    top : 300 + 300 * box.w/this.refWidth + "px"
+                    top : ( box.h + box.w ) * ( box.h / box.w ) * 0.1 + 300 * box.w/this.refWidth + "px"
                 });
             }
         }
