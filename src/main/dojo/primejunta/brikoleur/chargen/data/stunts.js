@@ -1,6 +1,6 @@
-define({
-    name : "Stunt",
-    list : [
+define( {
+    name: "Stunt",
+    list: [
         {
             "name": "Suppressive Fire",
             "description": "Targets enemy who is behind cover. A successful attack causes the target to lose 1 AP for the next round. A critical success causes loss of all AP’s for the next round.",
@@ -47,7 +47,7 @@ define({
         },
         {
             "name": "Watch",
-            "description": "Instead of attacking, the player watches an enemy combatant who is behind cover. When the enemy emerges to move or fire, the player gets an attack with a difficulty lowered by 1 level.",
+            "description": "Instead of attacking, the player watches an enemy combatant who is behind cover. When the enemy emerges to move or fire, the player gets an attack with a bonus of 1 level.",
             "list": [
                 {
                     "name": "Improved Watch",
@@ -59,7 +59,7 @@ define({
                             "list": [
                                 {
                                     "name": "Master Watch",
-                                    "description": ": As Expert Watch, but lowers the difficulty of the riposte attack by two levels."
+                                    "description": ": As Expert Watch, but a bonus of two levels to the riposte attack."
                                 }
                             ]
                         }

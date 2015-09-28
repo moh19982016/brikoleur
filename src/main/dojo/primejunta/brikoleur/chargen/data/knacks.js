@@ -4,7 +4,7 @@ define( {
     list: [
         {
             name: "Ranged Combat",
-            description: "Training in Ranged Combat reduces difficulty of attack with ranged weapons. Ranged Defense is a dedicated skill.",
+            description: "Training in Ranged Combat adds bonuses to attack with ranged weapons. Ranged Defense is a dedicated skill.",
             type: "combat",
             closed: true,
             list: [
@@ -44,7 +44,7 @@ define( {
                 },
                 {
                     name: "Ranged Defence",
-                    description: "Reduces difficulty of defending against ranged attacks.",
+                    description: "Adds bonuses when defending against ranged attacks.",
                     closed: true,
                     list: [
                         {
@@ -59,7 +59,7 @@ define( {
         },
         {
             name: "Close Combat",
-            description: "Training in Close Combat reduces difficulty of attack and defence when up close and personal. Thrown weapons fall under this knack.",
+            description: "Training in Close Combat adds bonuses to attack and defence actions when up close and personal. Thrown weapons fall under this knack.",
             type: "combat",
             closed: true,
             list: [
@@ -147,7 +147,7 @@ define( {
         },
         {
             name: "Q-Space",
-            description: "You have an unusual affinity for Q-Space, and all the happens in it.",
+            description: "You have an unusual affinity for Q-Space, and all that happens within it.",
             link: "#doc75",
             list: [
                 {
