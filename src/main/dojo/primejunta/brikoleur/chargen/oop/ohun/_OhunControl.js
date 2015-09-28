@@ -52,7 +52,7 @@ function( declare,
                 this._levelSelector.destroy();
             }
             var opts = [];
-            for( var i = min; i <= Controller.get( "os" ) + 2; i++ )
+            for( var i = min; i <= Controller.get( "os" ); i++ )
             {
                 opts.push({ value : "" + i, label : "" + i });
             }

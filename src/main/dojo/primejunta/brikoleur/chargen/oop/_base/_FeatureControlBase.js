@@ -157,7 +157,7 @@ function( declare,
         addChildControl : function()
         {
             var child = this._store.get( this.value );
-            if( child && child.list || this.level < this.maxLevel )
+            if( this.level < this.maxLevel )
             {
                 this.createChildControl( child );
             }

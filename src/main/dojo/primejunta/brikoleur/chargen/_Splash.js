@@ -2,6 +2,7 @@ define([ "dojo/_base/declare",
         "dojo/_base/lang",
         "dojo/on",
         "dojo/dom-geometry",
+        "dojo/dom-style",
         "dojo/store/Memory",
         "dijit/form/TextBox",
         "dijit/form/Button",
@@ -17,6 +18,7 @@ function( declare,
           lang,
           on,
           domGeometry,
+          domStyle,
           Memory,
           TextBox,
           Button,
@@ -72,8 +74,12 @@ function( declare,
             {
                 console.log( "scale" );
                 var box = domGeometry.getContentBox( document.body );
-                this.logoNode.style.transform = "scale(" + ( box.w/this.refWidth ) + ")";
-                this.logoNode.style.top = 300 + 300 * box.w/this.refWidth + "px";
+                var tf = "scale(" + ( box.w/this.refWidth ) + ")";
+                domStyle.set( this.logoNode, {
+                    transform : tf,
+                    "-webkit-transform" : tf,
+                    top : 300 + 300 * box.w/this.refWidth + "px"
+                });
             }
         }
     });

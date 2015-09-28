@@ -29,11 +29,20 @@ function( declare,
         {
             this.inherited( arguments );
             this.own( topic.subscribe( "/SetActiveControlDisabled/", lang.hitch( this, this._setActiveControlDisabled ) ) );
+            this.own( topic.subscribe( "/StatChanged/-aps", lang.hitch( this, this._checkMax ) ) );
             this.childConstructor = Constr;
         },
         getCost : function()
         {
             return this.level + 2;
+        },
+        _checkMax : function( max )
+        {
+            this.maxLevel = max - 1;
+            if( this.complete && this.level == max - 2 )
+            {
+                this.addChildControl();
+            }
         },
         _setActiveControlDisabled : function( to )
         {
