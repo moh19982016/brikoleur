@@ -307,8 +307,10 @@ function( declare,
             this.key = state.key;
             if( state.value )
             {
-                this.set( "value", state.value );
-                this.setDescription( state || this._getData( state.value ) || {} );
+                this.set( "value", this.state.value );
+                var _data = this._getData( this.state.value );
+                this.state = lang.mixin( this.state, _data );
+                this.setDescription( this.state );
                 this.markComplete();
                 for( var i = 0; i < ( state.controls || [] ).length; i++ )
                 {

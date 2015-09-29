@@ -9,7 +9,6 @@ define({
                 "name": "Akoto Interface",
                 "value": "Akoto Interface",
                 "key": false,
-                "description": "The Akoto Interface allows you to jack into Q-Space.",
                 "link": "#doc86",
                 "id": "Akoto Interface",
                 "controls": []
