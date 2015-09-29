@@ -2,12 +2,14 @@ define([ "dojo/_base/declare",
         "dojo/_base/lang",
         "dojo/_base/array",
         "dojo/topic",
+        "./../../data/traits/_common",
         "./../_base/FilteringMemory",
         "./util" ],
 function( declare,
           lang,
           array,
           topic,
+          _common,
           FilteringMemory,
           util )
 {
@@ -17,6 +19,7 @@ function( declare,
         {
             this.controls = [];
             this._store = new FilteringMemory({ data : util.listToStoreData( this.data.list ) });
+            this._setupCommonFeatures();
             this.own( this._store, topic.subscribe( this.selectedMasterItemTopic, lang.hitch( this, this.setupSubPanes ) ) );
         },
         setupSubPanes : function( features, synthetic )
@@ -45,6 +48,17 @@ function( declare,
                 }
             }
         },
+        _setupCommonFeatures : function()
+        {
+            for( var i = 0; i < ( _common[ this.featureProperty ] || [] ).length; i++ )
+            {
+                this.featureAdded({
+                    key : "_common",
+                    value : "_common",
+                    data : _common[ this.featureProperty ][ i ]
+                });
+            }
+        },
         _setState : function( state )
         {
             this.clear();
@@ -60,18 +74,34 @@ function( declare,
         _lookup : function( key, name )
         {
             var itm = this._store.get( key );
+            var reslt;
             if( itm && itm[ this.featureProperty ])
             {
-                var items = itm[ this.featureProperty ];
-                for( var i = 0; i < items.length; i++ )
+                reslt = this._rLookup( itm, name );
+            }
+            if( !reslt && _common[ this.featureProperty ] )
+            {
+                reslt = this._rLookup( _common, name );
+            }
+            if( reslt )
+            {
+                return reslt;
+            }
+            else
+            {
+                throw( "Couldn't find feature [" + key + "], [" + name + "]. Incompatible data?" );
+            }
+        },
+        _rLookup : function( item, name )
+        {
+            var items = item[ this.featureProperty ];
+            for( var i = 0; i < items.length; i++ )
+            {
+                if( items[ i ].name == name )
                 {
-                    if( items[ i ].name == name )
-                    {
-                        return items[ i ];
-                    }
+                    return items[ i ];
                 }
             }
-            throw( "Couldn't find feature [" + key + "], [" + name + "]. Incompatible data?" );
         }
     });
 });

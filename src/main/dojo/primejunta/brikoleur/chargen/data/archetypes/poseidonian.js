@@ -64,7 +64,18 @@ define({
             }
         ],
         "powers": [],
-        "ohun": [],
+        "ohun": [{
+            "name": "Chems",
+            "key": "_common",
+            "controls": [
+                {
+                    "name": "Chems",
+                    "value": false,
+                    "key": "_common",
+                    "controls": []
+                }
+            ]
+        }],
         "stunts": [],
         "gear": [
             {

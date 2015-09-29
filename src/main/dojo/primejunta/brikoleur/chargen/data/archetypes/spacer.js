@@ -83,6 +83,18 @@ define({
         ],
         "ohun": [
             {
+                "name": "Chems",
+                "key": "_common",
+                "controls": [
+                    {
+                        "name": "Chems",
+                        "value": false,
+                        "key": "_common",
+                        "controls": []
+                    }
+                ]
+            },
+            {
                 "name": "Drones",
                 "key": "Military Neural Interface",
                 "controls": [

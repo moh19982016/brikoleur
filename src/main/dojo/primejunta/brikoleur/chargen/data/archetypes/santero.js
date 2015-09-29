@@ -71,6 +71,18 @@ define({
         ],
         "ohun": [
             {
+                "name": "Chems",
+                "key": "_common",
+                "controls": [
+                    {
+                        "name": "Chems",
+                        "value": false,
+                        "key": "_common",
+                        "controls": []
+                    }
+                ]
+            },
+            {
                 "name": "Fwés",
                 "key": "Akoto Interface",
                 "controls": [

@@ -40,6 +40,7 @@ function( declare,
         {
             this.domNode.style.opacity = 1;
             this.own( on( window, "resize", lang.hitch( this, this.resize ) ) );
+            this.own( on.once( document.body, "click", lang.hitch( this, this.close ) ) );
             this._store =  new Memory({ data : util.listToStoreData( archetypes.list ), getLabel : function( item ) { return item.name } } );
             this.nameInput = new TextBox({ "class" : "br-splashCharacterInput", placeholder : i18n.CharacterName } ).placeAt( this.nameInputNode );
             this.archetypeSelect = new Select({ "class" : "br-splashArchetypeSelect", store : this._store }).placeAt( this.archetypeSelectNode );
@@ -50,8 +51,7 @@ function( declare,
         createCharacter : function()
         {
             this.manager.set( "state", lang.mixin( this._store.get( this.archetypeSelect.get( "value" ) ).data, { name : { is_template : true, characterName : this.nameInput.get( "value" ) } } ) );
-            this.manager.fadeIn();
-            this.fadeOut();
+            this.close();
         },
         fadeIn : function()
         {
@@ -69,6 +69,11 @@ function( declare,
             setTimeout( lang.hitch( this, function() {
                 this.domNode.style.zIndex = "-999";
             }), 300 );
+        },
+        close : function()
+        {
+            this.manager.fadeIn();
+            this.fadeOut();
         },
         resize : function()
         {
