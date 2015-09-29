@@ -2,6 +2,7 @@ define({
     "name" : "Zonetouched",
     "description" : "The Zonetouched have been altered by the powers in the Zone. They manifest Gifts and Curses that set them apart from the rest of humanity.",
     "link" : "#doc429",
+    "ohun" : [],
     "features" : [
         {
             "name" : "Minor Curses",

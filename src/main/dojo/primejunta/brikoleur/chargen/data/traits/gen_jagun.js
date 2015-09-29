@@ -2,6 +2,7 @@ define({
     "name" : "Genetically Engineered - Jagun",
     "description" : "Jagun are genetically enhanced super-warriors. They are faster, stronger, and tougher than baseline humans.",
     "link" : "#doc132",
+    "ohun" : [],
     "features" : [
         {
             "name" : "Bonus knack",
