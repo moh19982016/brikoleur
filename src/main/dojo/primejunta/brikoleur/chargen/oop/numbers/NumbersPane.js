@@ -4,7 +4,7 @@ define([ "dojo/_base/declare",
          "dojo/dom-geometry",
          "dojo/dom-class",
          "../../_base/_FeaturePaneBase",
-         "../../_base/_NumberField",
+         "../_base/_StatField",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
@@ -12,7 +12,7 @@ function( declare,
           domGeometry,
           domClass,
           _FeaturePaneBase,
-          _NumberField,
+          _StatField,
           i18n )
 {
     return declare([ _FeaturePaneBase ],
@@ -28,11 +28,11 @@ function( declare,
             this.q3 = domConstruct.create( "div", { "class" : "br-formLayoutLeft" }, this.containerNode );
             this.q4 = domConstruct.create( "div", { "class" : "br-formLayoutRight" }, this.containerNode );
             domConstruct.create( "div", { "style" : "clear:both" }, this.containerNode );
-            this.addField( "body", _NumberField, { title : i18n.Body, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1 }, this.q1 );
-            this.addField( "mind", _NumberField, { title : " + " + i18n.Mind, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1  }, this.q2 );
-            this.addField( "stamina", _NumberField, { title : " = " + i18n.Stamina, value : 12, disabled : true, "class" : "br-stamina" }, this.q2 );
-            this.addField( "aps", _NumberField, { title : i18n.ActivePowerSlots, value : 2, cost : 4 }, this.q3 );
-            this.addField( "os", _NumberField, { title : i18n.OhunSlots, value : 2, cost : 4 }, this.q4 );
+            this.addField( "body", _StatField, { title : i18n.Body, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1 }, this.q1 );
+            this.addField( "mind", _StatField, { title : " + " + i18n.Mind, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1  }, this.q2 );
+            this.addField( "stamina", _StatField, { title : " = " + i18n.Stamina, value : 12, disabled : true, "class" : "br-stamina" }, this.q2 );
+            this.addField( "aps", _StatField, { title : i18n.ActivePowerSlots, value : 2, cost : 4 }, this.q3 );
+            this.addField( "os", _StatField, { title : i18n.OhunSlots, value : 2, cost : 4 }, this.q4 );
             setTimeout( lang.hitch( this, this.resize ), 1 );
         },
         maximize : function()

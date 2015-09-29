@@ -1,5 +1,5 @@
 define([ "dojo/_base/declare",
-         "./../../_base/util" ],
+         "./util" ],
 function( declare,
           util )
 {

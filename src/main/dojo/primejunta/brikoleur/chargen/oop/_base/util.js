@@ -1,11 +1,11 @@
 define([ "dojo/_base/lang",
-        "dojo/on",
-        "dojo/dom-construct",
-        "dojo/Deferred",
-        "dijit/Tooltip",
-        "dijit/Dialog",
-        "dijit/form/Button",
-        "dojo/i18n!./../../nls/CharGen" ],
+         "dojo/on",
+         "dojo/dom-construct",
+         "dojo/Deferred",
+         "dijit/Tooltip",
+         "dijit/Dialog",
+         "dijit/form/Button",
+         "dojo/i18n!./../../../nls/CharGen" ],
 function( lang,
           on,
           domConstruct,
@@ -111,14 +111,6 @@ function( lang,
                 }
             }
             return out;
-        },
-        showTooltip : function( label, node )
-        {
-            Tooltip.show( label, node );
-            setTimeout( lang.hitch( this, function()
-            {
-                on.once( document.body, "click", lang.hitch( Tooltip, Tooltip.hide, node ) );
-            }), 1 );
         },
         alert : function( message, title )
         {
