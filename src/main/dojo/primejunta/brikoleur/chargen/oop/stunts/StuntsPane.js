@@ -100,6 +100,14 @@ function( declare,
                 this.controls.push( new _StuntControl({ parent : this, filter : this.listFeatures() } ).placeAt( this.containerNode ) );
             }
         },
+        destroy : function()
+        {
+            while( this.controls.length > 0 )
+            {
+                this.controls.pop().destroy();
+            }
+            this.inherited( arguments );
+        },
         _hasOpenStunt : function()
         {
             for( var i = 0; i < this.controls.length; i++ )

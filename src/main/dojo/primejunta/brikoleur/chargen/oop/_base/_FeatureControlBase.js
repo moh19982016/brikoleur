@@ -75,7 +75,7 @@ function( declare,
             {
                 this._store = new FilteringMemory({ data : util.listToStoreData( this.data.list ), filter : this.filter });
                 this.createSelector();
-                this.own( topic.subscribe( this.selectedFeaturesTopic, lang.hitch( this, this._updateFilter ) ) );
+                this.own( this._store, topic.subscribe( this.selectedFeaturesTopic, lang.hitch( this, this._updateFilter ) ) );
             }
             this.own( topic.subscribe( this.jujuChangedTopic, lang.hitch( this, this.onJujuChange ) ) );
             this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
@@ -97,6 +97,7 @@ function( declare,
                 domClass.remove( this.controlNode, "br-emptyClosedList" );
                 this._selector = new ( this.data.closed ? Select : ComboBox )({ store : this._store, placeholder : i18n.SelectOrType, style : "width:100%;" }).placeAt( this.selectorNode );
                 this._selector.own( on( this._selector, "change", lang.hitch( this, this._onSelectorChange ) ) );
+                this.own( this._selector );
             }
         },
         pleaseAddItem : function()

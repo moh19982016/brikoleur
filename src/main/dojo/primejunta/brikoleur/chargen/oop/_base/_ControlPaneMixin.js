@@ -74,6 +74,11 @@ function( declare,
                 this.controls.pop().destroy();
             }
         },
+        destroy : function()
+        {
+            this.clear();
+            this.inherited( arguments );
+        },
         _setState : function( state )
         {
             this.clear();

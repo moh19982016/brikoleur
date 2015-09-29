@@ -26,7 +26,7 @@ function( declare,
         {
             domConstruct.create( "div", { "class" : "br-buttonSpacer" }, this.domNode, "last" );
             this.addItemControl = new Button({ label : "<i class='fa fa-plus-square br-blue'></i>", onClick : lang.hitch( this, this._addItem ), "class" : "br-wideAddButton" } ).placeAt( this.containerNode );
-            new _ItemHeader().placeAt( this.addItemControl.domNode, "before" );
+            this.own( this.addItemControl, new _ItemHeader().placeAt( this.addItemControl.domNode, "before" ) );
             this._addItem();
         },
         _addItem : function( props )

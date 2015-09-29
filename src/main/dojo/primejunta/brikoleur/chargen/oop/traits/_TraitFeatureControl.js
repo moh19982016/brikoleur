@@ -48,14 +48,14 @@ function( declare,
             {
                 var store = new Memory({ data : util.listToStoreData( this.list )});
                 this.valueInput = new ComboBox({ onChange : lang.hitch( this, this.checkAdd ), style : "width:100%", store : store, placeholder : i18n.SelectOrType } ).placeAt( this.valueInputNode );
+                this.own( store );
             }
             else
             {
                 this.valueInput = new TextBox({ onChange : lang.hitch( this, this.checkAdd ), style : "width:100%" } ).placeAt( this.valueInputNode );
             }
-            this.own( this.valueInput );
             this._count = 0;
-            this.own( topic.subscribe( "/FreeFeatureAdded/", lang.hitch( this, this.checkCap ) ) );
+            this.own( this.valueInput, topic.subscribe( "/FreeFeatureAdded/", lang.hitch( this, this.checkCap ) ) );
         },
         checkMax : function()
         {

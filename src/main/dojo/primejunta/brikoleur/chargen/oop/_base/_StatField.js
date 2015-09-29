@@ -27,7 +27,7 @@ function( declare,
             {
                 this._input.set( "readonly", true );
                 this._incrementButton = new Button({ label : "<i class='fa fa-plus-square br-blue'></i>", onClick: lang.hitch( this, this.buyPoint ), "class" : "br-smallButton" } ).placeAt( this.controlNode );
-                this.own( topic.subscribe( "/StatChanged/-juju", lang.hitch( this, function( juju )
+                this.own( this._incrementButton, topic.subscribe( "/StatChanged/-juju", lang.hitch( this, function( juju )
                 {
                     this._incrementButton.domNode.style.display = juju < this.cost  ? "none" : "unset";
                 })));

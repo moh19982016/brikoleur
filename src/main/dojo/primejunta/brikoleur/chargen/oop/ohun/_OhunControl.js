@@ -58,6 +58,7 @@ function( declare,
             }
             this._levelSelector = new Select({ options : opts, style : "width:100%" }).placeAt( this.levelSelectorNode );
             this._levelSelector.own( on( this._levelSelector, "change", lang.hitch( this, this._onLevelChange ) ) );
+            this.own( this._levelSelector );
             if( this._level )
             {
                 this._levelSelector.set( "value", this._level );

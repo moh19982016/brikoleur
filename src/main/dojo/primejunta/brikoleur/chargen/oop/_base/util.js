@@ -141,6 +141,13 @@ function( lang,
         _createButtons : function( options, content )
         {
             var out = [];
+            if( this._buttons )
+            {
+                while( this._buttons.length > 0 )
+                {
+                    this._buttons.pop().destroy();
+                }
+            }
             for( var i = 0; i < options.length; i++ )
             {
                 out.push( new Button({ label : options[ i ].label, onClick : lang.hitch( this, this._resolveDialog, options[ i ].value ), className : options[ i ].className } ).placeAt( content ) );

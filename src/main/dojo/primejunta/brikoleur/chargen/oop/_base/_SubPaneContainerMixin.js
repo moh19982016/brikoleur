@@ -17,7 +17,7 @@ function( declare,
         {
             this.controls = [];
             this._store = new FilteringMemory({ data : util.listToStoreData( this.data.list ) });
-            topic.subscribe( this.selectedMasterItemTopic, lang.hitch( this, this.setupSubPanes ) );
+            this.own( this._store, topic.subscribe( this.selectedMasterItemTopic, lang.hitch( this, this.setupSubPanes ) ) );
         },
         setupSubPanes : function( features, synthetic )
         {

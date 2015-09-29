@@ -38,6 +38,7 @@ function( declare,
             this.own( on( tNode, "click", lang.hitch( this, this.minimize ) ) );
             this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
             this._button = new _DockButton({ pane : this }).placeAt( this.dock );
+            this.own( this._button );
             if( this.minimized )
             {
                 this.domNode.style.display = "none";
