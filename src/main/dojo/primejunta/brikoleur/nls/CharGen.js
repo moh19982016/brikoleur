@@ -53,6 +53,7 @@ define({
         "NotReadyToSave" : "Decisions missing:",
         "PleaseSelectRequiredFeatures" : "Please select ${num} ${name}.",
         "NeedName" : "Please name your hero.",
-        "MoreInformation" : "More information "
+        "MoreInformation" : "More information ",
+        "LastModified" : "Last updated:"
     }
 });

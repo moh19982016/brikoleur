@@ -60,17 +60,21 @@
 }
 
 .br-splashNameInputNode {
+    font-family: Old Standard TT,serif;
+    left: 525px;
     position: absolute;
-    top: 300px;
-    left: 450px;
-    font-family: Old Standard TT, serif
+    top: 450px;
+    transform:rotate(-20deg);
+    -webkit-transform:rotate(-20deg);
 }
 
 .br-splashArchetypeSelectNode {
+    font-family: Iceberg,sans-serif;
+    left: 850px;
     position: absolute;
-    top: 500px;
-    left: 540px;
-    font-family: Iceberg, sans-serif;
+    top: 650px;
+    transform:rotate(-20deg);
+    -webkit-transform:rotate(-20deg);
 }
 
 .br-splashCharacterInput {
@@ -78,7 +82,6 @@
     font-size: 80px;
     font-style: italic !important;
     width: 800px;
-
 }
 
 .br-splashCreateButtonNode {
@@ -89,15 +92,28 @@
     font-family: Abel, sans-serif;
 }
 
+.br-lastModified {
+    color: gray;
+    font-size: 48px;
+    height: 50px;
+    left: -250px;
+    overflow: visible;
+    position: absolute;
+    top: 980px;
+    transform: rotate(70deg);
+    -webkit-transform:rotate(70deg);
+    width: 1200px;
+}
+
 .tundra .br-splash .br-splashCharacterInput .dijitTextBox {
     padding: 15px;
-    background-color: black !important;
+    background-color: #c00 !important;
     color: #fafafa !important;
 }
 
 .tundra .br-splash .br-splashCharacterInput {
     border: none !important;
-    background-color: black !important;
+    background-color: #c00 !important;
     color: #fafafa !important;
 }
 
