@@ -3,15 +3,17 @@ define([ "dojo/_base/declare",
          "dojo/topic",
          "dojo/string",
          "./util",
+         "./_ControlContainerMixin",
          "dojo/i18n!./../../../nls/CharGen" ],
 function( declare,
           lang,
           topic,
           string,
           util,
+          _ControlContainerMixin,
           i18n )
 {
-    return declare([], {
+    return declare([ _ControlContainerMixin ], {
         allowedControls : 0,
         featureName : "",
         postCreate : function()
@@ -36,7 +38,7 @@ function( declare,
         },
         addControl : function( kwObj, pos )
         {
-            var ctl = new this.featureControl( lang.mixin( kwObj || {}, { parent : this } )).placeAt( this.containerNode, pos || "last" );
+            var ctl = new this.featureControl( lang.mixin( kwObj || {}, { parent : this, filter : this.listFeatures() } )).placeAt( this.containerNode, pos || "last" );
             this.controls.push( ctl );
             return ctl;
         },
@@ -63,7 +65,7 @@ function( declare,
                 }
             }
         },
-        publishStatus : function( synthetic)
+        publishStatus : function( synthetic )
         {
             topic.publish( this.selectedFeaturesTopic, util.getProperties( this.controls, { property : "value" }), synthetic );
         },

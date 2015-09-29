@@ -23,7 +23,7 @@ function( declare,
 {
     return declare([ _FeatureControlBase ], {
         data : {},
-        selectedFeaturesTopic : "/SelectedOhun/",
+        selectedFeaturesTopic : "/null/", // we don't actually want to filter ohun, since you can have more than one of each
         featureAddedTopic : "/OhunAdded/",
         maxLevel : 0,
         propertyPresentWarning : i18n.PowerPresent,
@@ -154,7 +154,6 @@ function( declare,
             this.key = state.key;
             this.level = state.level;
             this.inherited( arguments );
-//            this._updateState();
         }
     });
 });
