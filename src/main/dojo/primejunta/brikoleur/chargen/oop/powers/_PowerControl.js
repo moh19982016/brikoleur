@@ -55,7 +55,7 @@ function( declare,
         {
             this.active = this.activeBox.get( "checked" );
             topic.publish( "/ActivePowerSet/" );
-            this.publishChange();
+            this._publishChange();
         },
         _getState : function()
         {

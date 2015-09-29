@@ -1,10 +1,19 @@
 define({
-    name : "Grunt",
-    data : {
+    name: "Grunt",
+    data: {
         "name": {
             "characterName": ""
         },
         "traits": [
+            {
+                "name": "Military Neural Interface",
+                "value": "Military Neural Interface",
+                "key": false,
+                "controls": [],
+                "description": "You have been implanted with a NATO or Almaz-Norinco standard military neural interface by a former employer. You retain the interface and the possibility to implant further military-grade wetware.",
+                "link": "#doc89",
+                "id": "Military Neural Interface"
+            },
             {
                 "name": "Genetically Engineered - Jagun",
                 "value": "Genetically Engineered - Jagun",
@@ -13,39 +22,33 @@ define({
                 "link": "#doc132",
                 "id": "Genetically Engineered - Jagun",
                 "controls": []
-            },
-            {
-                "name": "Military Neural Interface",
-                "value": "Military Neural Interface",
-                "key": false,
-                "description": "You have been implanted with a NATO or Almaz-Norinco standard military neural interface by a former employer. You retain the interface and the possibility to implant further military-grade wetware.",
-                "link": "#doc89",
-                "id": "Military Neural Interface",
-                "controls": []
             }
         ],
         "knacks": [
             {
-                "name": "Ranged Combat",
-                "value": "Ranged Combat",
+                "name": "Knack",
+                "value": false,
                 "key": false,
-                "description": "Training in Ranged Combat adds bonuses to attack with ranged weapons. Ranged Defense is a dedicated skill.",
-                "type": "combat",
-                "closed": true,
-                "id": "Ranged Combat",
-                "controls": [
-                    {
-                        "name": "Ranged Combat",
-                        "value": false,
-                        "key": false,
-                        "controls": []
-                    }
-                ]
+                "controls": []
             },
             {
                 "key": "Close Combat",
                 "value": "Close Combat",
                 "controls": [
+                    {
+                        "name": "Unarmed Combat",
+                        "value": "Unarmed Combat",
+                        "key": "Close Combat",
+                        "id": "Unarmed Combat",
+                        "controls": [
+                            {
+                                "name": "Unarmed Combat",
+                                "value": false,
+                                "key": "Close Combat",
+                                "controls": []
+                            }
+                        ]
+                    },
                     {
                         "name": "Close Combat",
                         "value": false,
@@ -53,12 +56,6 @@ define({
                         "controls": []
                     }
                 ]
-            },
-            {
-                "name": "Knack",
-                "value": false,
-                "key": false,
-                "controls": []
             }
         ],
         "numbers": [
@@ -83,9 +80,58 @@ define({
                 "value": 2
             }
         ],
-        "powers": [],
-        "ohun": [],
-        "stunts": [],
+        "powers": [
+            {
+                "name": "Military Grade Wetware",
+                "key": "Military Neural Interface",
+                "controls": [
+                    {
+                        "name": "Military Grade Wetware",
+                        "value": false,
+                        "key": "Military Neural Interface",
+                        "controls": [],
+                        "active": false
+                    }
+                ]
+            }
+        ],
+        "ohun": [
+            {
+                "name": "Drones",
+                "key": "Military Neural Interface",
+                "controls": [
+                    {
+                        "name": "Drones",
+                        "value": false,
+                        "key": "Military Neural Interface",
+                        "controls": []
+                    }
+                ]
+            }
+        ],
+        "stunts": [
+            {
+                "name": "Burst of Strength",
+                "value": "Burst of Strength",
+                "key": false,
+                "description": "Any combat actions involving strength are 1 level easier.",
+                "id": "Burst of Strength",
+                "controls": [
+                    {
+                        "name": "Burst of Strength",
+                        "value": false,
+                        "key": false,
+                        "controls": []
+                    }
+                ]
+            },
+            {
+                "name": "Stunt",
+                "value": false,
+                "key": false,
+                "controls": []
+            }
+        ],
         "gear": [
             {
                 "value": "false|gear|NaN|"

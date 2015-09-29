@@ -1,34 +1,34 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
-        "dojo/topic",
-        "dojo/_base/array",
-        "dojo/json",
-        "dojo/string",
-        "dojo/dom-class",
-        "dojo/dom-geometry",
-        "dojo/Deferred",
-        "./_Splash",
-        "./_base/util",
+         "dojo/topic",
+         "dojo/_base/array",
+         "dojo/json",
+         "dojo/string",
+         "dojo/dom-class",
+         "dojo/dom-geometry",
+         "dojo/Deferred",
+         "./_Splash",
+         "./_base/util",
          "./_base/DynamicGrid",
          "./oop/NamePane",
          "./oop/description/DescriptionPane",
          "./oop/gear/GearPane",
          "./oop/knacks/KnacksPane",
          "./oop/numbers/NumbersPane",
-        "./oop/traits/TraitsPane",
-        "./oop/powers/PowersPane",
-        "./oop/stunts/StuntsPane",
-        "./oop/ohun/OhunPane",
-        "./store/CharacterStore",
+         "./oop/traits/TraitsPane",
+         "./oop/powers/PowersPane",
+         "./oop/stunts/StuntsPane",
+         "./oop/ohun/OhunPane",
+         "./store/CharacterStore",
          "dijit/layout/LayoutContainer",
          "dijit/layout/TabContainer",
          "dijit/layout/ContentPane",
          "dijit/form/NumberTextBox",
          "dijit/form/TextBox",
-        "dijit/form/DropDownButton",
-        "dijit/DropDownMenu",
-        "dijit/MenuItem",
-        "dijit/form/Button",
+         "dijit/form/DropDownButton",
+         "dijit/DropDownMenu",
+         "dijit/MenuItem",
+         "dijit/form/Button",
          "dijit/_TemplatedMixin",
          "dijit/_WidgetsInTemplateMixin",
          "dojo/text!./templates/Controller.html",
@@ -192,9 +192,16 @@ function( declare,
                 this.splash.domNode.style.opacity = 1;
             }
         },
-        logState : function()
+        logState : function( asJson )
         {
-            console.log( this.get( "state" ) );
+            if( asJson )
+            {
+                console.log( json.stringify( this.get( "state" ), false, 4 ) );
+            }
+            else
+            {
+                console.log( this.get( "state" ) );
+            }
         },
         loadState : function()
         {
@@ -415,10 +422,6 @@ function( declare,
             }
             else if( prop == "state" )
             {
-
-                console.log( "SETTING STATE", val );
-
-
                 this.loading = true;
                 for( var o in this.controls )
                 {

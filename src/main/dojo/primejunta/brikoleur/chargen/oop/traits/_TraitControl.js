@@ -25,7 +25,7 @@ function( declare,
         maxLevel : 0,
         closed : true,
         templateString : template,
-        addItem : function()
+        pleaseAddItem : function()
         {
             this.inherited( arguments );
             this._processFeatures();

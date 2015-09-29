@@ -40,9 +40,9 @@ function( declare,
         makeInput : function()
         {
             this._input = new this.inputWidget({ name : this.name, readonly : this.readonly, onChange : this.onChange, "class" : this.inputClass }).placeAt( this.controlNode );
-            this.own( this._input, on( this._input, "change", lang.hitch( this, this.publishChange ) ) );
+            this.own( this._input, on( this._input, "change", lang.hitch( this, this._publishChange ) ) );
         },
-        publishChange : function()
+        _publishChange : function()
         {
             topic.publish( "/PropertyChanged/", this.get( "state" ).name, this.get( "state" ).value );
         },

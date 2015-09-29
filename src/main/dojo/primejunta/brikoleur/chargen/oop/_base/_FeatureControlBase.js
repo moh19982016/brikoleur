@@ -1,41 +1,47 @@
+/**
+ * Base class for recursively-created feature controls. Can be used as-is or may be extended to add more features to
+ * the control
+ *
+ * @public Base
+ */
 define([ "dojo/_base/declare",
-        "dojo/_base/lang",
-        "dojo/_base/array",
-        "dojo/on",
-        "dojo/topic",
-        "dojo/dom-class",
-        "dojo/dom-geometry",
-        "dijit/form/Select",
-        "dijit/form/ComboBox",
-        "dijit/form/Button",
-        "./../../_base/util",
-        "./FilteringMemory",
+         "dojo/_base/lang",
+         "dojo/_base/array",
+         "dojo/on",
+         "dojo/topic",
+         "dojo/dom-class",
+         "dijit/form/Select",
+         "dijit/form/ComboBox",
+         "dijit/form/Button",
+         "./../../_base/util",
+         "./FilteringMemory",
         "./_DescriptionMixin",
-        "dijit/_WidgetBase",
-        "dijit/_TemplatedMixin",
-        "dijit/_WidgetsInTemplateMixin",
-        "dojo/text!./templates/_FeatureControlBase.html",
-        "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
+        "./_ControlContainerMixin",
+         "dijit/_WidgetBase",
+         "dijit/_TemplatedMixin",
+         "dijit/_WidgetsInTemplateMixin",
+         "dojo/text!./templates/_FeatureControlBase.html",
+         "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
           array,
           on,
           topic,
           domClass,
-          domGeometry,
           Select,
           ComboBox,
           Button,
           util,
           FilteringMemory,
           _DescriptionMixin,
+          _ControlContainerMixin,
           _WidgetBase,
           _TemplatedMixin,
           _WidgetsInTemplateMixin,
           template,
           i18n )
 {
-    var Constr = declare([ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, _DescriptionMixin ], {
+    var Constr = declare([ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, _ControlContainerMixin, _DescriptionMixin ], {
         data : {},
         dict : i18n,
         title : "",
@@ -93,7 +99,7 @@ function( declare,
                 this._selector.own( on( this._selector, "change", lang.hitch( this, this._onSelectorChange ) ) );
             }
         },
-        addItem : function()
+        pleaseAddItem : function()
         {
             var _value = this._readValue();
             if( _value && this.mayAdd( _value ) )
@@ -112,12 +118,20 @@ function( declare,
                 this.parent.featureAdded();
             }
             Controller.set( "juju", Controller.get( "juju" ) - this.getCost() );
-            this.publishChange();
+            this._publishChange();
             topic.publish( this.featureAddedTopic, this );
         },
-        publishChange : function()
+        mayAdd : function( value )
         {
-            topic.publish( "/PropertyChanged/", this.get( "state" ).name, this.get( "state" ).value );
+            if( array.indexOf( util.getProperties( this.parent.controls, { property : "value", self : this }), value ) != -1 )
+            {
+                util.showWarning( this.propertyPresentWarning, this._selector.domNode );
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         },
         markComplete : function()
         {
@@ -133,26 +147,6 @@ function( declare,
         },
         onCompleteChild : function()
         {
-        },
-        mayAdd : function( value )
-        {
-            if( array.indexOf( util.getProperties( this.parent.controls, { property : "value", self : this }), value ) != -1 )
-            {
-                util.showWarning( this.propertyPresentWarning, this._selector.domNode );
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        },
-        countItems : function()
-        {
-            return util.countItems( this.controls ) + ( this.value ? 1 : 0 );
-        },
-        onJujuChange : function( juju )
-        {
-            this.set( "disabled", juju < this.getCost() );
         },
         addChildControl : function()
         {
@@ -189,10 +183,6 @@ function( declare,
             }
             this.descendantFeatureAdded();
         },
-        publishStatus : function( synthetic )
-        {
-            topic.publish( this.selectedFeaturesTopic + "-" + this.value, this.listFeatures(), synthetic );
-        },
         descendantFeatureAdded : function()
         {
             if( this.parent.descendantFeatureAdded )
@@ -200,18 +190,17 @@ function( declare,
                 this.parent.descendantFeatureAdded();
             }
         },
-        listFeatures : function()
+        publishStatus : function( synthetic )
         {
-            var out = [];
-            for( var i = 0; i < this.controls.length; i++ )
-            {
-                out.push( this.controls[ i ].value );
-            }
-            return out;
+            topic.publish( this.selectedFeaturesTopic + "-" + this.value, this.listFeatures(), synthetic );
         },
         getCost : function()
         {
             return this.data.cost || this.cost;
+        },
+        onJujuChange : function( juju )
+        {
+            this.set( "disabled", juju < this.getCost() );
         },
         get : function( prop )
         {
@@ -251,12 +240,9 @@ function( declare,
             }
             this.inherited( arguments );
         },
-        clear : function()
+        _publishChange : function()
         {
-            while( this.controls.length > 0 )
-            {
-                this.controls.pop().destroy();
-            }
+            topic.publish( "/PropertyChanged/", this.get( "state" ).name, this.get( "state" ).value );
         },
         _onSelectorChange : function( val )
         {
@@ -275,11 +261,6 @@ function( declare,
         _readValue : function()
         {
             return this._selector ? this._selector.get( "value" ) : this.value || "";
-        },
-        _writeValue : function( val )
-        {
-            this.set( "value",  val );
-            this._selector.set( "value", val );
         },
         _readState : function()
         {

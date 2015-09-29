@@ -4,6 +4,7 @@ define([ "dojo/_base/declare",
         "dojo/string",
         "dojo/dom-class",
         "./_StuntControl",
+        "./../_base/_ControlContainerMixin",
         "./../../_base/util",
         "./../../_base/_FeaturePaneBase",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
@@ -13,11 +14,12 @@ function( declare,
           string,
           domClass,
           _StuntControl,
+          _ControlContainerMixin,
           util,
           _FeaturePaneBase,
           i18n )
 {
-    return declare([ _FeaturePaneBase ],
+    return declare([ _FeaturePaneBase, _ControlContainerMixin ],
     {
         title : i18n.Stunts,
         featureName : i18n.Stunts,
@@ -95,7 +97,7 @@ function( declare,
         {
             if( !this._hasOpenStunt() )
             {
-                this.controls.push( new _StuntControl({ parent : this } ).placeAt( this.containerNode ) );
+                this.controls.push( new _StuntControl({ parent : this, filter : this.listFeatures() } ).placeAt( this.containerNode ) );
             }
         },
         _hasOpenStunt : function()
