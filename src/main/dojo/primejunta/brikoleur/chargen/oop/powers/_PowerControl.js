@@ -39,7 +39,7 @@ function( declare,
         _checkMax : function( max )
         {
             this.maxLevel = max - 1;
-            if( this.complete && this.level == max - 2 )
+            if( this.complete && this.level == max - 2 && !this._hasActiveChild() )
             {
                 this.addChildControl();
             }

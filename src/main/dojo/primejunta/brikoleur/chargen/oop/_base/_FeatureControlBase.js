@@ -52,7 +52,7 @@ function( declare,
         type : "",
         key : false,
         maxLevel : 2,
-        LIST_PROPS : [ "list", "powers", "features", "ohun" ],
+        LIST_PROPS : [ "list", "powers", "features", "ohun", "link" ],
         templateString : template,
         jujuChangedTopic : "/StatChanged/-juju",
         featureAddedTopic : "",
@@ -294,7 +294,7 @@ function( declare,
             }
             this.state.controls = chld;
             this.state.key = this.key;
-            return this.state;
+            return this._getDataProps( this.state );
         },
         _getData : function( key )
         {
@@ -311,12 +311,16 @@ function( declare,
                 var _data = this._getData( this.state.value );
                 this.state = lang.mixin( this.state, _data );
                 this.setDescription( this.state );
-                this.markComplete();
                 for( var i = 0; i < ( state.controls || [] ).length; i++ )
                 {
                     this.createChildControl( this._store.get( this.value ) ).set( "state", state.controls[ i ] );
                 }
+                this.markComplete();
             }
+        },
+        _hasActiveChild : function()
+        {
+            return this.controls.length > 0 && util.getProperties( this.controls, { property : "complete", filter : true } ).length != this.controls.length;
         },
         _updateFilter : function( filter )
         {
