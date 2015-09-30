@@ -36,31 +36,42 @@ function( declare,
         templateString : template,
         refWidth : 1200,
         manager : {},
+        CUSTOM_CHOICE : "I go my own way",
         postCreate : function()
         {
-            this.domNode.style.opacity = 1;
+            this.domNode.style.opacity = 0;
+            this.domNode.style.display = "block";
+            var tf = "scale(50)";
+            domStyle.set( this.logoNode, {
+                transform : tf,
+                "-webkit-transform" : tf,
+            });
             this.own( on( window, "resize", lang.hitch( this, this.resize ) ) );
-            this.own( on.once( document.body, "click", lang.hitch( this, this.close ) ) );
             this._store =  new Memory({ data : util.listToStoreData( archetypes.list ), getLabel : function( item ) { return item.name } } );
             this.nameInput = new TextBox({ "class" : "br-splashCharacterInput", placeholder : i18n.CharacterName } ).placeAt( this.nameInputNode );
             this.archetypeSelect = new Select({ "class" : "br-splashArchetypeSelect", store : this._store }).placeAt( this.archetypeSelectNode );
             this.own( this._store, this.nameInput, this.archetypeSelect );
             setTimeout( lang.hitch( this.nameInput, this.nameInput.focus ), 1 );
-            this.resize();
+            setTimeout( lang.hitch( this, this.fadeIn ), 10 );
         },
         createCharacter : function()
         {
-            this.manager.set( "state", lang.mixin( this._store.get( this.archetypeSelect.get( "value" ) ).data, { name : { is_template : true, characterName : this.nameInput.get( "value" ) } } ) );
+            var val = this.archetypeSelect.get( "value" );
+            if( val != this.CUSTOM_CHOICE )
+            {
+                this.manager.set( "state", lang.mixin( this._store.get( val ).data, { name : { is_template : true, characterName : this.nameInput.get( "value" ) } } ) );
+            }
             this.close();
         },
         fadeIn : function()
         {
+            this.resize();
             this.nameInput.set( "value", "" );
-            this.domNode.style.display = "block";
             setTimeout( lang.hitch( this, function()
             {
                 this.domNode.style.opacity = 1;
                 this.domNode.style.zIndex = "999";
+                this.own( on.once( document.body, "click", lang.hitch( this, this.close ) ) );
             }), 1 );
         },
         fadeOut : function()

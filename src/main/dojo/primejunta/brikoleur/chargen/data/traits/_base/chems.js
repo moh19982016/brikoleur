@@ -13,11 +13,15 @@ define({
         },
         {
             "name": "Focus",
-            "description": "The character may ignore ${1+level} levels of circumstantial penalties to actions for the duration of the effect. When the effect ends, the character suffers a backlash of ${1+level} Mind point, which may Wound, Incapacitate, or even kill him. Duration: 1 hour.."
+            "description": "The character may ignore ${0+level} levels of circumstantial penalties to actions for the duration of the effect. When the effect ends, the character suffers a backlash of ${1+level} Mind point, which may Wound, Incapacitate, or even kill him. Duration: 1 hour.."
         },
         {
             "name": "Neural Stim",
-            "description": "Any tasks involving Strength or Speed are ${1+level} levels easier while the chem is in effect. When the effect ends, the character suffers a backlash of ${1+level} Body points, which may Wound, Incapacitate, or even kill him. Duration: 1 hour."
+            "description": "Any tasks involving Strength or Speed are ${0+level} levels easier while the chem is in effect. When the effect ends, the character suffers a backlash of ${1+level} Body points, which may Wound, Incapacitate, or even kill him. Duration: 1 hour."
+        },
+        {
+            "name": "Amp",
+            "description": "Any tasks involving quick reactions are ${0+level} levels easier while the chem is in effect. This includes Defence and Initiative checks in combat. When the effect ends, the character suffers a backlash of ${1+level} Mind points, which may Wound, Incapacitate, or even kill him. Duration: 1 hour."
         }
     ]
 });
