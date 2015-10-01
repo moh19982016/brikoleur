@@ -44,7 +44,7 @@ function( declare,
             var tf = "scale(50)";
             domStyle.set( this.logoNode, {
                 transform : tf,
-                "-webkit-transform" : tf,
+                "-webkit-transform" : tf
             });
             this.own( on( window, "resize", lang.hitch( this, this.resize ) ) );
             this._store =  new Memory({ data : util.listToStoreData( archetypes.list ), getLabel : function( item ) { return item.name } } );

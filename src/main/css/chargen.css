@@ -89,7 +89,7 @@
     font-size: 40px;
     top: 700px;
     left: 620px;
-    font-family: Abel, sans-serif;
+    font-family: Dosis, sans-serif;
 }
 
 .br-lastModified {
@@ -134,6 +134,10 @@
     box-sizing: border-box;
 }
 
+.br-hideWhenLoaded {
+    background-color: #c00;
+}
+
 .em-partHeadingContainer {
     position: relative;
     width: 100%;
@@ -173,7 +177,7 @@
 
 .em-controlBackground {
     opacity: 0.5;
-    background-color: black;
+    background-color:  #c00; /* black; */
     z-index: 99;
 }
 
@@ -186,7 +190,17 @@
     bottom: 0;
     right: 0;
     overflow: auto;
-    background-color: silver;
+    background-color: #c00; /* silver; */
+}
+
+.em-pageContent {
+    background-color: #c00; /* #fafafa; */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 330px;
+    z-index: 1;
 }
 
 .br-hasLoaded .br-hideWhenLoaded {
@@ -203,7 +217,7 @@
 }
 
 .br-header {
-    font-family: Abel, sans-serif;
+    font-family: Dosis, sans-serif;
     font-size: 18px;
     color: #333;
     height: 40px;
@@ -281,7 +295,7 @@
 }
 
 .tundra .dijitMenuItem {
-    font-family: Abel, sans-serif;
+    font-family: Dosis, sans-serif;
 }
 
 .br-headerContent {
@@ -344,7 +358,7 @@
 .br-footer {
     background-color: #666;
     color: #fafafa;
-    font-family: Abel, sans-serif;
+    font-family: Dosis, sans-serif;
     font-size: 15px;
     text-align:right;
 }
@@ -550,7 +564,7 @@ a.br-manualLink {
     margin: 8px 0;
     text-align: right;
     color: #c00;
-    font-family: Abel, sans-serif;
+    font-family: Dosis, sans-serif;
 }
 
 a.br-manualLink:hover {
@@ -755,6 +769,6 @@ a.br-manualLink:hover {
 }
 
 .dijitTextArea {
-    font-family: Abel, sans-serif;
+    font-family: Dosis, sans-serif;
 }
 
