@@ -596,7 +596,8 @@ a.br-manualLink:hover {
 }
 
 .br-subPaneTitle {
-    font-family: Iceberg, sans-serif;
+    font-family: Dosis, sans-serif;
+    font-weight: bold;
 }
 
 .br-traitFeatureControl {
@@ -616,7 +617,8 @@ a.br-manualLink:hover {
     box-sizing: border-box;
     padding: 4px;
     text-align: right;
-    font-family: Iceberg, sans-serif;
+    font-family: Dosis, sans-serif;
+    font-weight: bold;
 }
 
 .br-fieldControl {
