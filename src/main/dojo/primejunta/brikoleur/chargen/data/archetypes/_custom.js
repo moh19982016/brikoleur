@@ -1,4 +1,4 @@
 define({
-    name : "I go my own way",
+    name : "I make my own choices",
     data : {}
 });

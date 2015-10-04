@@ -20,7 +20,19 @@ function( declare,
           i18n )
 {
     return declare( [ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
+        /**
+         * Localization.
+         *
+         * @final
+         * @public Object
+         */
         dict : i18n,
+        /**
+         * Template.
+         *
+         * @final
+         * @public string
+         */
         templateString : template,
         postCreate : function()
         {

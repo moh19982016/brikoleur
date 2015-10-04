@@ -1,12 +1,17 @@
+/**
+ * Control used to assign a trait to a character.
+ *
+ * @private Widget
+ */
 define([ "dojo/_base/declare",
-        "dojo/_base/lang",
-        "dojo/topic",
-        "dojo/dom-construct",
-        "./_TraitFeatureControl",
-        "./../../data/traits",
-        "./../_base/_FeatureControlBase",
-        "dojo/text!./templates/_TraitControl.html",
-        "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
+         "dojo/_base/lang",
+         "dojo/topic",
+         "dojo/dom-construct",
+         "./_TraitFeatureControl",
+         "./../../data/traits",
+         "./../_base/_FeatureControlBase",
+         "dojo/text!./templates/_TraitControl.html",
+         "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
           topic,
@@ -18,19 +23,73 @@ function( declare,
           i18n )
 {
     return declare([ _FeatureControlBase ], {
-        data : traits,
-        selectedFeaturesTopic : "/SelectedTraits/",
-        addFeatureTopic : "/TraitAdded/",
-        propertyPresentWarning : i18n.TraitPresent,
+        /**
+         * Maximum depth allowed for descendants for controls of this type.
+         *
+         * @public int
+         */
         maxLevel : 0,
+        /**
+         * If true, this is a "closed" list -- we'll use a Select rather than a ComboBox as the UI control.
+         *
+         * @public boolean
+         */
         closed : true,
+        /**
+         * Data for the feature.
+         *
+         * @public Object
+         */
+        data : traits,
+        /**
+         * Topic published when feature selection changes. The list of selected features will be included.
+         *
+         * @final
+         * @public string
+         */
+        selectedFeaturesTopic : "/SelectedTraits/",
+        /**
+         * Topic published when a feature of this type is added. Used to update state f.ex. if there are limits to the
+         * number of controls we can add.
+         *
+         * @final
+         * @public string
+         */
+        featureAddedTopic : "/TraitAdded/",
+        /**
+         * Warning to display if trying add another item with the same name and type.
+         *
+         * @final
+         * @public string
+         */
+        propertyPresentWarning : i18n.TraitPresent,
+        /**
+         * Template.
+         *
+         * @final
+         * @public string
+         */
         templateString : template,
+        /**
+         * Inherited, then ._processFeatures.
+         *
+         * @public void
+         */
         pleaseAddItem : function()
         {
             this.inherited( arguments );
             this._processFeatures();
         },
-        addFreeFeature : function( kwObj, ctrl )
+        /**
+         * Set up container for free_features of type ctrl.key, then push kwObj into it. If it was a Gift, ._checkGift.
+         * Then ._printFeature and publish /AddFreeFeature/ topic, which will be used by all _TraitFeatureControls to
+         * check their caps.
+         *
+         * @param kwObj
+         * @param ctrl
+         * @public void
+         */
+        addFreeFeature : function( /* Object */ kwObj, /* _TraitFeatureControl */ ctrl )
         {
             this.state = this.state || {};
             this.state.free_features = this.state.free_features || {};
@@ -41,9 +100,15 @@ function( declare,
                 this._checkGift( kwObj );
             }
             this._printFeature( kwObj, ctrl.domNode, "before" );
-            topic.publish( "/FreeaddFeature/", ctrl.key, this.state.free_features );
+            topic.publish( "/AddFreeFeature/", ctrl.key, this.state.free_features );
         },
-        _checkGift : function( gift )
+        /**
+         * If the gift was an Ohun or Power, publish a topic to that effect, with data looked up with ._lookupProperty.
+         *
+         * @param gift
+         * @private void
+         */
+        _checkGift : function( /* string */ gift )
         {
             if( gift.value.indexOf( "Ohun - " ) == 0 )
             {
@@ -54,7 +119,15 @@ function( declare,
                 topic.publish( "/AddBonusPower/", this._lookupProperty( "powers", gift.value.substring( "Power - ".length ) ) );
             }
         },
-        _lookupProperty : function( prop, val )
+        /**
+         * Recurse through traits to find item matching val from property matching prop, and return the result as
+         * kwObj with .key and .data. If nothing was found, just return an object designating it as a Zone Gift.
+         *
+         * @param prop
+         * @param val
+         * @private Object
+         */
+        _lookupProperty : function( /* string */ prop, /* string */ val )
         {
             for( var i = 0; i < traits.list.length; i++ )
             {
@@ -77,7 +150,13 @@ function( declare,
                 }]
             }
         },
-        _setState : function( state )
+        /**
+         * Inherited. Then ._processFeatures (if Controller is loading).
+         *
+         * @param state
+         * @private void
+         */
+        _setState : function( /* Object */ state )
         {
             this.inherited( arguments );
             if( Controller.loading )
@@ -85,6 +164,12 @@ function( declare,
                 this._processFeatures();
             }
         },
+        /**
+         * Lookup data from store, matching current state. If there is any and it contains .features, ._displayFeatures
+         * on the result.
+         *
+         * @private void
+         */
         _processFeatures : function()
         {
             var features = [];
@@ -95,7 +180,15 @@ function( declare,
             }
             this._displayFeatures( features );
         },
-        _displayFeatures : function( features )
+        /**
+         * Iterate through features and handle the three possible types: "knack," which adds a bonus knack, "free,"
+         * which adds a control letting you make one (or recurses with values retrieved from data), or other, which
+         * just prints it.
+         *
+         * @param features
+         * @private void
+         */
+        _displayFeatures : function( /* Object[] */ features )
         {
             for( var i = 0; i < features.length; i++ )
             {
@@ -126,7 +219,15 @@ function( declare,
                 }
             }
         },
-        _printFeature : function( feature, refNode, pos )
+        /**
+         * Prints out feature description as list item in refNode at pos.
+         *
+         * @param feature
+         * @param refNode
+         * @param pos - "before"|"after"|"first"|"last"
+         * @private void
+         */
+        _printFeature : function( /* Object */ feature, /* node */ refNode, /* string */ pos )
         {
             domConstruct.create( "li", { innerHTML : "<b>" + feature.name + ":</b> " + feature.value }, refNode || this.featuresNode, pos || "last" );
         }

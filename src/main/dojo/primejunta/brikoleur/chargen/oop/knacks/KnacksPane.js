@@ -15,11 +15,46 @@ function( declare,
 {
     return declare([ _FeaturePaneBase, _ControlPaneMixin ],
     {
+        /**
+         * Title.
+         *
+         * @final
+         * @public string
+         */
         title : i18n.KnacksAndTraining,
+        /**
+         * Feature name. Used in validation failure message.
+         *
+         * @final
+         * @public string
+         */
         featureName : i18n.Knacks,
+        /**
+         * Icon.
+         *
+         * @final
+         * @public string
+         */
         icon : "mortar-board",
+        /**
+         * Number of controls allowed.
+         *
+         * @public int
+         */
         allowedControls : 3,
+        /**
+         * Control used to assign and display the feature we're dealing with.
+         *
+         * @final
+         * @public constructor
+         */
         featureControl : _KnackControl,
+        /**
+         * Topic published when feature selection changes. The list of selected features will be included.
+         *
+         * @final
+         * @public string
+         */
         selectedFeaturesTopic : "/SelectedKnacks/",
         postCreate : function()
         {

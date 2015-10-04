@@ -8,7 +8,19 @@ function( declare,
           _OhunControl)
 {
     return declare([ _FeatureSubPane ], {
+        /**
+         * Topic published when feature selection changes. The list of selected features will be included.
+         *
+         * @final
+         * @public string
+         */
         selectedFeaturesTopic : "/SelectedOhun/",
+        /**
+         * Control used to assign and display the feature we're dealing with.
+         *
+         * @final
+         * @public constructor
+         */
         featureControl : _OhunControl,
         pleaseRemoveControl : function( control )
         {

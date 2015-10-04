@@ -20,13 +20,13 @@ function( declare,
 {
     return declare([ _ControlContainerMixin ], {
         /**
-         * How many are we allowed?
+         * Number of controls allowed.
          *
          * @public int
          */
         allowedControls : 0,
         /**
-         * ID of the feature the pane represents.
+         * Feature name. Used in validation failure message.
          *
          * @public string
          */

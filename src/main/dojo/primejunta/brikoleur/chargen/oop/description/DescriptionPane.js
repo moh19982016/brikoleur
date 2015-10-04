@@ -1,3 +1,8 @@
+/**
+ * Description pane. Just contains fields for handle, ekip, and background.
+ *
+ * @public Widget
+ */
 define([ "dojo/_base/declare",
          "dijit/form/Textarea",
          "./../../_base/_FeaturePaneBase",
@@ -11,8 +16,25 @@ function( declare,
 {
     return declare([ _FeaturePaneBase ],
     {
+        /**
+         * Title.
+         *
+         * @final
+         * @public string
+         */
         title : i18n.Description,
+        /**
+         * Icon.
+         *
+         * @final
+         * @public string
+         */
         icon : "user",
+        /**
+         * Add fields for handle, ekip, background.
+         *
+         * @public void
+         */
         postCreate : function()
         {
             this.addField( "handle", _FieldBase, { title : i18n.Handle, inputClass : "br-fullWidth", layout : "down" } );

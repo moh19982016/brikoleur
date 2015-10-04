@@ -23,7 +23,19 @@ function( declare,
 {
     return declare([ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
         parent : {},
+        /**
+         * Localization.
+         *
+         * @final
+         * @public Object
+         */
         dict : i18n,
+        /**
+         * Template.
+         *
+         * @final
+         * @public string
+         */
         templateString : template,
         postCreate : function()
         {

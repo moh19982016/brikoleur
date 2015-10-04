@@ -109,7 +109,7 @@ function( declare,
          * @final
          * @public string
          */
-        addFeatureTopic : "",
+        featureAddedTopic : "",
         /**
          * Topic for "sibling" feature list. May change filter.
          *
@@ -204,7 +204,7 @@ function( declare,
         /**
          * Check if we mayAdd an item from the current state of the control. If so, .markComplete(), .addChildControl(),
          * fire .parent.onAugmentChild(), subtract any juju cost from Controller.juju, ._publishChanged, and publish
-         * .addFeatureTopic.
+         * .featureAddedTopic.
          *
          * @public void
          */
@@ -228,7 +228,7 @@ function( declare,
             }
             Controller.set( "juju", Controller.get( "juju" ) - this.getCost() );
             this._publishChange();
-            topic.publish( this.addFeatureTopic, this );
+            topic.publish( this.featureAddedTopic, this );
         },
         /**
          * If parent doesn't already have a matching value, return true; else warn about it and return false.
@@ -291,7 +291,7 @@ function( declare,
                 key : this.key,
                 maxLevel : this.maxLevel,
                 childProperties : this.childProperties,
-                addFeatureTopic : this.addFeatureTopic,
+                featureAddedTopic : this.featureAddedTopic,
                 propertyPresentWarning : this.propertyPresentWarning,
                 selectedFeaturesTopic : this.selectedFeaturesTopic + "-" + this.value,
                 level : this.level + 1,

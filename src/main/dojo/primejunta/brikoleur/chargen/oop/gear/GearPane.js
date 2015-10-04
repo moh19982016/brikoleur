@@ -20,7 +20,19 @@ function( declare,
 {
     return declare([ _FeaturePaneBase ],
     {
+        /**
+         * Title.
+         *
+         * @final
+         * @public string
+         */
         title : i18n.Gear,
+        /**
+         * Icon.
+         *
+         * @final
+         * @public string
+         */
         icon : "suitcase",
         postCreate : function()
         {

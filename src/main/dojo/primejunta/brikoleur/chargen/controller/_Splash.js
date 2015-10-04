@@ -1,19 +1,24 @@
+/**
+ * Splash screen. Lets user pick an archetype and give a name, then opens Controller preloaded with settings from them.
+ * Also hides messy destroy and recreate of Controller when resetting it.
+ *
+ * @private Widget
+ */
 define([ "dojo/_base/declare",
-        "dojo/_base/lang",
-        "dojo/on",
-        "dojo/dom-geometry",
-        "dojo/dom-style",
-        "dojo/store/Memory",
-        "dijit/form/TextBox",
-        "dijit/form/Button",
-        "dijit/form/Select",
-        "./../oop/_base/util",
-        "./../data/archetypes",
-        "dijit/_WidgetBase",
-        "dijit/_TemplatedMixin",
-        "dijit/_WidgetsInTemplateMixin",
-        "dojo/text!./templates/_Splash.html",
-        "dojo/i18n!./../../nls/CharGen" ],
+         "dojo/_base/lang",
+         "dojo/on",
+         "dojo/dom-geometry",
+         "dojo/dom-style",
+         "dojo/store/Memory",
+         "dijit/form/TextBox",
+         "dijit/form/Select",
+         "./../oop/_base/util",
+         "./../data/archetypes",
+         "dijit/_WidgetBase",
+         "dijit/_TemplatedMixin",
+         "dijit/_WidgetsInTemplateMixin",
+         "dojo/text!./templates/_Splash.html",
+         "dojo/i18n!./../../nls/CharGen" ],
 function( declare,
           lang,
           on,
@@ -21,7 +26,6 @@ function( declare,
           domStyle,
           Memory,
           TextBox,
-          Button,
           Select,
           util,
           archetypes,
@@ -32,11 +36,45 @@ function( declare,
           i18n )
 {
     return declare([ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
+        /**
+         * Localization.
+         *
+         * @final
+         * @public Object
+         */
         dict : i18n,
+        /**
+         * Template.
+         *
+         * @final
+         * @public string
+         */
         templateString : template,
+        /**
+         * Reference scale for dynamically scaling layout. Smaller numbers yield larger magnifications.
+         *
+         * @final
+         * @public int
+         */
         refWidth : 1200,
+        /**
+         * Controller to which to fade to once we're done.
+         *
+         * @public Controller
+         */
         manager : {},
-        CUSTOM_CHOICE : "I go my own way",
+        /**
+         * Label for custom choice.
+         *
+         * @final
+         * @public string
+         */
+        CUSTOM_CHOICE : "I make my own choices",
+        /**
+         * Setup scaling and UI controls, with events connected to them.
+         *
+         * @public void
+         */
         postCreate : function()
         {
             this.domNode.style.opacity = 0;
@@ -57,6 +95,11 @@ function( declare,
             setTimeout( lang.hitch( this.nameInput, this.nameInput.focus ), 1 );
             setTimeout( lang.hitch( this, this.fadeIn ), 10 );
         },
+        /**
+         * If val is something other than CUSTOM_CHOICE, load it into Controller. In any case, .close.
+         *
+         * @public void
+         */
         createCharacter : function()
         {
             var val = this.archetypeSelect.get( "value" );
@@ -66,6 +109,12 @@ function( declare,
             }
             this.close();
         },
+        /**
+         * Call .resize, then clear .nameInput, and fade in .domNode. Also set an on.once listener on document body to
+         * close.
+         *
+         * @public void
+         */
         fadeIn : function()
         {
             this.resize();
@@ -77,6 +126,11 @@ function( declare,
                 this.own( on.once( document.body, "click", lang.hitch( this, this.close ) ) );
             }), 1 );
         },
+        /**
+         * Fade out domNode and send it waaay back.
+         *
+         * @public void
+         */
         fadeOut : function()
         {
             this.domNode.style.opacity = 0;
@@ -84,7 +138,12 @@ function( declare,
                 this.domNode.style.zIndex = "-999";
             }), 300 );
         },
-        close : function( instant )
+        /**
+         * If instant, just set domNode display to none and close. Else fadeIn manager and .fadeOut self.
+         *
+         * @param instant
+         */
+        close : function( /* boolean */ instant )
         {
             if( instant )
             {
@@ -100,6 +159,11 @@ function( declare,
                 this.fadeOut();
             }
         },
+        /**
+         * Recalculate size of dom geometry to fit screen... more or less. We're a little artistic here on purpose.
+         *
+         * @public void
+         */
         resize : function()
         {
             if( this.domNode.style.opacity == 1 )

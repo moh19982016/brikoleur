@@ -21,9 +21,32 @@ function( declare,
 {
     return declare([ _FeaturePaneBase, _ControlContainerMixin ],
     {
+        /**
+         * Title.
+         *
+         * @final
+         * @public string
+         */
         title : i18n.Stunts,
+        /**
+         * Feature name. Used in validation failure message.
+         *
+         * @final
+         * @public string
+         */
         featureName : i18n.Stunts,
+        /**
+         * Icon.
+         *
+         * @final
+         * @public string
+         */
         icon : "crosshairs",
+        /**
+         * Number of controls allowed (-1 is unlimited).
+         *
+         * @public int
+         */
         allowedControls : 0,
         controls : [],
         postCreate : function()

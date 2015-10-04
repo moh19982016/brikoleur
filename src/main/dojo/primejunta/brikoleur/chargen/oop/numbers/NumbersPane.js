@@ -17,7 +17,19 @@ function( declare,
 {
     return declare([ _FeaturePaneBase ],
     {
+        /**
+         * Title.
+         *
+         * @final
+         * @public string
+         */
         title : i18n.Numbers,
+        /**
+         * Icon.
+         *
+         * @final
+         * @public string
+         */
         icon : "dashboard",
         threshold : 440,
         postCreate : function()

@@ -9,14 +9,16 @@ define([ "dojo/_base/declare",
          "dojo/string",
          "dojo/Deferred",
          "./../oop/_base/util",
-         "./CharacterStore" ],
+         "./CharacterStore",
+         "dojo/i18n!./../../nls/CharGen" ],
 function( declare,
           lang,
           topic,
           string,
           Deferred,
           util,
-          CharacterStore )
+          CharacterStore,
+          i18n )
 {
     return declare([], {
         /**
