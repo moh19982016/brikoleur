@@ -1,6 +1,5 @@
 @import "brikoleur.css";
-@import "../dojo/dijit/themes/tundra/tundra.css";
-@import "../font-awesome/css/font-awesome.min.css";
+@import "../../../dijit/themes/tundra/tundra.css";
 
 /* Splash */
 

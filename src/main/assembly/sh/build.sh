@@ -17,7 +17,7 @@ echo Updating profile
 cp $BRIKOLEUR_HOME/brikoleur/src/main/assembly/dojo/brikoleur.profile.js work/dojo
 cd work/dojo
 # Tag splash screen with date
-sed -E "s/%\(date\)/$(date)/g" < primejunta/brikoleur/chargen/templates/_Splash.html > _tmp.html;mv _tmp.html primejunta/brikoleur/chargen/templates/_Splash.html
+sed -E "s/%\(date\)/$(date)/g" < primejunta/brikoleur/chargen/controller/templates/_Splash.html > _tmp.html;mv _tmp.html primejunta/brikoleur/chargen/controller/templates/_Splash.html
 echo Running Dojo build script
 chmod u+x util/buildscripts/build.sh
 util/buildscripts/build.sh --profile brikoleur.profile.js
