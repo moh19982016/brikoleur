@@ -1,3 +1,9 @@
+/**
+ * Collection of commonly used utility methods.
+ *
+ * @static
+ * @public Object
+ */
 define([ "dojo/_base/lang",
          "dojo/on",
          "dojo/dom-construct",
@@ -16,7 +22,13 @@ function( lang,
           i18n )
 {
     return {
-        listToStoreData : function( list )
+        /**
+         * Converts list of strings or objects to format suitable for use with Memory data stores.
+         *
+         * @param list
+         * @public Object[]
+         */
+        listToStoreData : function( /* string[]|Object[] */ list )
         {
             for( var i = 0; i < list.length; i++ )
             {
@@ -32,7 +44,14 @@ function( lang,
             }
             return list;
         },
-        showWarning : function( warning, aroundNode, aroundDir )
+        /**
+         * Shows message warning in tooltip around aroundNode, with aroundDir passed to it.
+         *
+         * @param warning
+         * @param aroundNode
+         * @param aroundDir
+         */
+        showWarning : function( /* string */ warning, /* Element */ aroundNode, /* string[] */ aroundDir )
         {
             Tooltip.show( warning, aroundNode, aroundDir || [ "before", "above", "below", "after" ] );
             setTimeout( lang.hitch( this, function()
@@ -42,22 +61,6 @@ function( lang,
                     Tooltip.hide( aroundNode );
                 }));
             }), 1 );
-        },
-        get : function( prop, selector, store )
-        {
-            if( prop == "value" )
-            {
-                return this.get( "item", selector, store ).id;
-            }
-            else if( prop == "item" )
-            {
-                var val = selector.get( "value" );
-                return store.get( val ) || { id : val, name : val };
-            }
-            else
-            {
-                return false;
-            }
         },
         /**
          * Examines a set of controls and returns the value of an attribute as an array.
@@ -90,7 +93,13 @@ function( lang,
             }
             return kwObj.filter ? this.filter( out ) : out;
         },
-        countItems : function( controls )
+        /**
+         * Recurses through controls, calling .countItems on each member, and returning the total.
+         *
+         * @param controls
+         * @public int
+         */
+        countItems : function( /* Widget[] */ controls )
         {
             var n = 0;
             for( var i = 0; i < controls.length; i++ )
@@ -99,7 +108,13 @@ function( lang,
             }
             return n;
         },
-        filter : function( arr )
+        /**
+         * Removes falsy members from arr and returns the result. Used in connection with .getProperties.
+         *
+         * @param arr
+         * @public Array
+         */
+        filter : function( /* Array */ arr )
         {
             var out = [];
             while( arr.length > 0 )
@@ -112,18 +127,45 @@ function( lang,
             }
             return out;
         },
-        alert : function( message, title )
+        /**
+         * Shows alert-like dijit/Dialog with message and title, and returns promise which is resolved once the user
+         * has clicked through it.
+         *
+         * @param message
+         * @param title
+         * @public Deferred
+         */
+        alert : function( /* string */ message, /* string? */ title )
         {
             title = title || i18n.DialogTitle;
             return this._showDialog( message, [{ value : true, label : i18n.Continue }], title );
         },
-        confirm : function( message, options, title )
+        /**
+         * Shows confirm-like dialog with message, options, and title, returning a promise which is resolved or rejected
+         * when the user makes his choice.
+         *
+         * @param message
+         * @param options - array of { value, label, className } objects, will appear as buttons, promise will be
+         *                  resolved with value unless it's false in which case it'll be rejected
+         * @param title
+         * @public Deferred
+         */
+        confirm : function( /* string */ message, /* Object[]? */ options, /* string? */ title )
         {
             title = title || i18n.DialogTitle;
             options = options || [{ value : true, label : i18n.Accept, className : "br-blueButton" }, { value : false, label : i18n.Cancel, className : "br-redButton" }];
             return this._showDialog( message, options, title );
         },
-        _showDialog : function( message, options, title )
+        /**
+         * Displays a dialog with title and message, and buttons created from options. Returns a Deferred, which will be
+         * resolved or rejected (depending on option.value) when the user clicks on it.
+         * 
+         * @param message
+         * @param options
+         * @param title
+         * @private Deferred
+         */
+        _showDialog : function( /* sring */ message, /* Object[] */ options, /* string? */ title )
         {
             if( !this._dialog )
             {
@@ -138,7 +180,15 @@ function( lang,
             this._dialogPromise = new Deferred();
             return this._dialogPromise;
         },
-        _createButtons : function( options, content )
+        /**
+         * Creates buttons from options with label from .label and className from .className. The onClick event is
+         * connected to ._resolveDialog with option.value as argument. Buttons are placed at atNode.
+         *
+         * @param options
+         * @param atNode
+         * @private void
+         */
+        _createButtons : function( /* Object[] */ options, /* Element */ atNode )
         {
             var out = [];
             if( this._buttons )
@@ -150,9 +200,20 @@ function( lang,
             }
             for( var i = 0; i < options.length; i++ )
             {
-                out.push( new Button({ label : options[ i ].label, onClick : lang.hitch( this, this._resolveDialog, options[ i ].value ), className : options[ i ].className } ).placeAt( content ) );
+                out.push( new Button({
+                    label : options[ i ].label,
+                    onClick : lang.hitch( this, this._resolveDialog, options[ i ].value ),
+                    className : options[ i ].className
+                } ).placeAt( atNode ) );
             }
         },
+        /**
+         * Hides dialog, and sets timeout to destroy its contents after animation has completed. If there is a reslt,
+         * resolves ._dialogPromise with it, else rejects the promise. This promise was returned when dialog was opened.
+         *
+         * @param reslt
+         * @private void
+         */
         _resolveDialog : function( reslt )
         {
             this._dialog.hide();
