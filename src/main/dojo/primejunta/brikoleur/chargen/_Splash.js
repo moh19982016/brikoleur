@@ -50,7 +50,10 @@ function( declare,
             this._store =  new Memory({ data : util.listToStoreData( archetypes.list ), getLabel : function( item ) { return item.name } } );
             this.nameInput = new TextBox({ "class" : "br-splashCharacterInput", placeholder : i18n.CharacterName } ).placeAt( this.nameInputNode );
             this.archetypeSelect = new Select({ "class" : "br-splashArchetypeSelect", store : this._store }).placeAt( this.archetypeSelectNode );
-            this.own( this._store, this.nameInput, this.archetypeSelect );
+            this.own( on( this.nameInput, "click", function( evt )
+            {
+                evt.stopPropagation();
+            }), this._store, this.nameInput, this.archetypeSelect );
             setTimeout( lang.hitch( this.nameInput, this.nameInput.focus ), 1 );
             setTimeout( lang.hitch( this, this.fadeIn ), 10 );
         },
