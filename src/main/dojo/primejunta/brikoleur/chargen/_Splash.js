@@ -84,10 +84,21 @@ function( declare,
                 this.domNode.style.zIndex = "-999";
             }), 300 );
         },
-        close : function()
+        close : function( instant )
         {
-            this.manager.fadeIn();
-            this.fadeOut();
+            if( instant )
+            {
+                this.domNode.style.display = "none";
+                this.close();
+                setTimeout( lang.hitch( this, function() {
+                    this.domNode.style.display = "block";
+                }), 500 );
+            }
+            else
+            {
+                this.manager.fadeIn();
+                this.fadeOut();
+            }
         },
         resize : function()
         {

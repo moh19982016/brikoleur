@@ -1,11 +1,16 @@
+/**
+ * Extends _FieldBase with an increment button letting you buy points for it, and connected to available juju.
+ *
+ * @private Widget
+ */
 define([ "dojo/_base/declare",
-        "dojo/_base/lang",
-        "dojo/on",
-        "dojo/topic",
-        "./../../_base/_FieldBase",
-        "dijit/form/Button",
-        "dijit/form/NumberTextBox",
-        "./util" ],
+         "dojo/_base/lang",
+         "dojo/on",
+         "dojo/topic",
+         "./../../_base/_FieldBase",
+         "dijit/form/Button",
+         "dijit/form/NumberTextBox",
+         "./util" ],
 function( declare,
           lang,
           on,
@@ -16,13 +21,37 @@ function( declare,
           util )
 {
     return declare([ _FieldBase ], {
+        /**
+         * The input widget is a NumberTextBox.
+         *
+         * @final
+         * @public NumberTextBox
+         */
         inputWidget : NumberTextBox,
+        /**
+         * The class makes it a circle.
+         *
+         * @final
+         * @public string
+         */
         inputClass : "br-statField",
+        /**
+         * Juju cost for augmenting it.
+         *
+         * @final
+         * @public int
+         */
         cost : 0,
+        /**
+         * Inherited, then subscribe to /PleasePublishStatus/. If there's a .cost associated with the stat, set readonly
+         * to true and create a Button at ._incrementButton to buy it. Then set a listener for changes to
+         * .publishStatus.
+         *
+         * @public void
+         */
         buildRendering : function()
         {
             this.inherited( arguments );
-            this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
             if( this.cost )
             {
                 this._input.set( "readonly", true );
@@ -32,7 +61,8 @@ function( declare,
                     this._incrementButton.domNode.style.display = juju < this.cost  ? "none" : "unset";
                 })));
             }
-            this.own( on( this._input, "change", lang.hitch( this, function( val )
+            this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ),
+                      on( this._input, "change", lang.hitch( this, function( val )
             {
                 if( !Controller.loading )
                 {
@@ -40,11 +70,23 @@ function( declare,
                 }
             })));
         },
+        /**
+         * Publish a topic with /StatChanged/- plus the name of the stat, with the value.
+         *
+         * @public void
+         */
         publishStatus : function()
         {
             topic.publish( "/StatChanged/-" + this.name, this.get( "value" ) );
         },
-        buyPoint : function( evt )
+        /**
+         * Stop the event, then augment value of self and subtract from juju. If there's not enough juju, show a warning
+         * instead (this shouldn't happen as the + button should be disabled in that case, but better safe than sorry.)
+         *
+         * @param evt
+         * @public void
+         */
+        buyPoint : function( /* Event */ evt )
         {
             evt.stopPropagation();
             if( Controller.get( "juju" ) < this.cost )

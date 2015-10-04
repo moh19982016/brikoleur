@@ -1,10 +1,15 @@
+/**
+ * Mixin which adds features for handling subpanes, such as used for ohun and powers.
+ *
+ * @public Mixin
+ */
 define([ "dojo/_base/declare",
-        "dojo/_base/lang",
-        "dojo/_base/array",
-        "dojo/topic",
-        "./../../data/traits/_common",
-        "./../_base/FilteringMemory",
-        "./util" ],
+         "dojo/_base/lang",
+         "dojo/_base/array",
+         "dojo/topic",
+         "./../../data/traits/_common",
+         "./../_base/FilteringMemory",
+         "./util" ],
 function( declare,
           lang,
           array,
@@ -13,8 +18,13 @@ function( declare,
           FilteringMemory,
           util )
 {
-    return declare([ ], {
-
+    return declare([], {
+        /**
+         * Initialize .controls and ._store, then ._setupCommonFeatures (see), and subscribe to .selectedMasterItemTopic
+         * to .setupSubPanes.
+         *
+         * @public void
+         */
         postCreate : function()
         {
             this.controls = [];
@@ -22,7 +32,16 @@ function( declare,
             this._setupCommonFeatures();
             this.own( this._store, topic.subscribe( this.selectedMasterItemTopic, lang.hitch( this, this.setupSubPanes ) ) );
         },
-        setupSubPanes : function( features, synthetic )
+        /**
+         * If synthetic, do nothing (as it was called by .setState, which will subsequently set up its own sub-panes).
+         * Else iterate through features: check if we already have the matching feature pane, and if not, look up the
+         * data for it in ._store, and call .featureAdded on it + the looked-up data to create a sub-pane.
+         *
+         * @param features
+         * @param synthetic
+         * @public void
+         */
+        setupSubPanes : function( /* string[] */ features, /* boolean */ synthetic )
         {
             if( synthetic )
             {
@@ -48,6 +67,12 @@ function( declare,
                 }
             }
         },
+        /**
+         * Looks up .featureProperty from _common (the data object containing common properties for all traits). Then
+         * calls .featureAdded on each of them.
+         *
+         * @private void
+         */
         _setupCommonFeatures : function()
         {
             for( var i = 0; i < ( _common[ this.featureProperty ] || [] ).length; i++ )
@@ -59,7 +84,13 @@ function( declare,
                 });
             }
         },
-        _setState : function( state )
+        /**
+         * Clear, then .addControl for each member of state. If we have any controls, .maximize().
+         *
+         * @param state
+         * @private void
+         */
+        _setState : function( /* Object[] */ state )
         {
             this.clear();
             for( var i = 0; i < state.length; i++ )
@@ -71,7 +102,15 @@ function( declare,
                 this.maximize();
             }
         },
-        _lookup : function( key, name )
+        /**
+         * Looks up data matching name for trait matching key. If it's not found in ._store, tries to find it in
+         * _common. Uses ._rLookup to search the data.
+         *
+         * @param key - name of the trait to which the property belongs
+         * @param name - name of the property
+         * @private Object
+         */
+        _lookup : function( /* string */ key, /* string */ name )
         {
             var itm = this._store.get( key );
             var reslt;
@@ -92,6 +131,13 @@ function( declare,
                 throw( "Couldn't find feature [" + key + "], [" + name + "]. Incompatible data?" );
             }
         },
+        /**
+         * Looks for data object matching name in item[ this.featureProperty ].
+         *
+         * @param item
+         * @param name
+         * @private Object
+         */
         _rLookup : function( item, name )
         {
             var items = item[ this.featureProperty ];

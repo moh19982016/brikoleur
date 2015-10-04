@@ -179,13 +179,8 @@ function( declare,
             this.splash.manager = this;
             if( charName && array.indexOf( CharacterStore.list(), charName ) != -1 )
             {
-                this.domNode.style.opacity = 1;
-                if( window._splash )
-                {
-                    window._splash.domNode.style.opacity = 0;
-                    window._splash.domNode.style.zIndex = -99;
-                }
                 this.loadCharacter( charName, true );
+                this.splash.close();
             }
             else
             {
