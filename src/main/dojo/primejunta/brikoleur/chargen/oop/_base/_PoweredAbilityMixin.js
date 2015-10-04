@@ -75,7 +75,7 @@ function( declare,
          */
         _printValue : function()
         {
-            this.valueNode.innerHTML = this.statName + ":" + this._getUseCost() + ( this.state.extra_cost ? "+" + this.state.extra_cost : "" ) + "/" + this.state.value;
+            this.valueNode.innerHTML = this.statName + "/" + this._getUseCost() + ( this.state.extra_cost ? "+" + this.state.extra_cost : "" ) + "/" + this.state.value;
         }
     });
 });
