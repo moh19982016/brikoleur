@@ -1,3 +1,8 @@
+/**
+ * Mixin which provides features for supporting child controls in a pane.
+ *
+ * @public Mixin
+ */
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/topic",
@@ -14,14 +19,35 @@ function( declare,
           i18n )
 {
     return declare([ _ControlContainerMixin ], {
+        /**
+         * How many are we allowed?
+         *
+         * @public int
+         */
         allowedControls : 0,
+        /**
+         * ID of the feature the pane represents.
+         *
+         * @public string
+         */
         featureName : "",
+        /**
+         * Initialize .controls, and .addFeature().
+         *
+         * @public void
+         */
         postCreate : function()
         {
             this.controls = [];
             this.addFeature();
         },
-        addFeature : function( kwObj )
+        /**
+         * If we're allowed another control, .addControl. Then .publishInfo and .maximize if we're minimized.
+         *
+         * @param kwObj
+         * @public void
+         */
+        addFeature : function( /* Object */ kwObj )
         {
             if( this.allowedControls < 0 || this.controls.length < this.allowedControls )
             {
@@ -36,23 +62,35 @@ function( declare,
                 this.maximize();
             }
         },
-        onAugmentChild : function()
-        {
-            this.addFeature();
-        },
-        addControl : function( kwObj, pos )
+        /**
+         * Create a new .featureControl in .containerNode at pos or "last", with properties from kwObj, with this as
+         * parent and filter as _ControlContainerMixin::listFeatures().
+         *
+         * @param kwObj
+         * @param pos - "before"|"after"|"first"|"last"
+         * @public Widget
+         */
+        addControl : function( /* Object */ kwObj, /* string? */ pos )
         {
             var ctl = new this.featureControl( lang.mixin( kwObj || {}, { parent : this, filter : this.listFeatures() } )).placeAt( this.containerNode, pos || "last" );
             this.controls.push( ctl );
             return ctl;
         },
-        onAddDescendant : function()
-        {
-        },
+        /**
+         * Count controls recursively with util.countItems and return it.
+         *
+         * @public int
+         */
         countItems : function()
         {
             return util.countItems( this.controls );
         },
+        /**
+         * Check that all .allowedControls are present and .complete; return valid:false with a polite message if not, else
+         * return valid:true.
+         *
+         * @public Object - { valid : {boolean}, message? : {error message} }
+         */
         validate : function()
         {
             if( this.allowedControls > 0 && util.getProperties( this.controls, { property : "complete", filter : true }).length < this.allowedControls )
@@ -69,10 +107,38 @@ function( declare,
                 }
             }
         },
+        /**
+         * When the child has been augmented, .addFeature for another one.
+         *
+         * @public void
+         */
+        onAugmentChild : function()
+        {
+            this.addFeature();
+        },
+        /**
+         * Fired when a descendant is added.
+         *
+         * @stub
+         * @public void
+         */
+        onAddDescendant : function()
+        {
+        },
+        /**
+         * Publish .selectedFeaturesTopic with list of values retrieved from .controls with util.getProperties.
+         *
+         * @param synthetic - used to distinguish .setState from user-initiated events.
+         */
         publishInfo : function( synthetic )
         {
             topic.publish( this.selectedFeaturesTopic, util.getProperties( this.controls, { property : "value" }), synthetic );
         },
+        /**
+         * Pops to destroy all .controls.
+         *
+         * @public void
+         */
         clear : function()
         {
             while( this.controls.length > 0 )
@@ -80,12 +146,23 @@ function( declare,
                 this.controls.pop().destroy();
             }
         },
+        /**
+         * Clear, then inherited.
+         *
+         * @public void
+         */
         destroy : function()
         {
             this.clear();
             this.inherited( arguments );
         },
-        _setState : function( state )
+        /**
+         * Clear, then for each item in state, .addControl and set its state to match the item.
+         *
+         * @param state
+         * @private void
+         */
+        _setState : function( /* Object[] */ state )
         {
             this.clear();
             for( var i = 0; i < state.length; i++ )
