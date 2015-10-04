@@ -1,44 +1,86 @@
+/**
+ * Base for feature panes placed in _DynamicGrid.
+ *
+ * @public Base
+ */
 define([ "dojo/_base/declare",
-        "dojo/_base/lang",
-        "dojo/_base/array",
+         "dojo/_base/lang",
+         "dojo/_base/array",
          "dojo/topic",
-         "dojo/on",
          "dojo/dom-class",
          "dojo/dom-construct",
          "dojo/dom-geometry",
          "./_DockButton",
-         "dijit/_WidgetBase" ],
+         "dijit/_WidgetBase",
+         "dijit/_TemplatedMixin",
+         "dojo/text!./templates/_FeaturePaneBase.html" ],
 function( declare,
           lang,
           array,
           topic,
-          on,
           domClass,
           domConstruct,
           domGeometry,
           _DockButton,
-          _WidgetBase )
+          _WidgetBase,
+          _TemplatedMixin,
+          template )
 {
-    return declare([ _WidgetBase ], {
+    return declare([ _WidgetBase, _TemplatedMixin ], {
+        /**
+         * Pane title.
+         *
+         * @final
+         * @public string
+         */
         title : "",
+        /**
+         * Pane icon.
+         *
+         * @final
+         * @public string
+         */
         icon : "",
+        /**
+         * Dock node.
+         *
+         * @final
+         * @public Element
+         */
         dock : {},
+        /**
+         * Duration for expand/contract animation..
+         *
+         * @final
+         * @public int
+         */
         animDuration : 300,
-        container : {},
+        /**
+         * Pane title.
+         *
+         * @final
+         * @public string
+         */
         minimized : false,
+        /**
+         * Template.
+         *
+         * @final
+         * @public string
+         */
+        templateString : template,
+        /**
+         * Inherited, then set up internal properties, dock button, and initial state.
+         * 
+         * @public void
+         */
         buildRendering : function()
         {
             this.inherited( arguments );
             this.controls = [];
             this._props = {};
-            domClass.add( this.domNode, "br-featurePane" );
-            var tNode = domConstruct.create( "div", { "class" : "br-featureTitle", innerHTML : "<div><i class=\"fa fa-" + this.icon + "\"></i>&nbsp;&nbsp;" + this.title + "</div>" }, this.domNode, "first" )
-            var mNode = domConstruct.create( "i", { "class" : "br-minimizeButton fa fa-minus-circle" }, tNode, "first" );
-            this.containerNode = domConstruct.create( "div", { "class" : "br-featureContainer" }, this.domNode );
-            this.own( on( tNode, "click", lang.hitch( this, this.minimize ) ) );
-            this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
             this._button = new _DockButton({ pane : this }).placeAt( this.dock );
-            this.own( this._button );
+            this.own( this._button, topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
             if( this.minimized )
             {
                 this.domNode.style.display = "none";
@@ -46,18 +88,39 @@ function( declare,
                 domClass.remove( this._button.domNode, "br-dockIconMaximized" );
             }
         },
-        addField : function( prop, constr, props, node, position )
+        /**
+         * Create a widget with constr in attach point prop, with properties props, placed at refNode, at position
+         * position.
+         * 
+         * @param prop
+         * @param constr
+         * @param props
+         * @param refNode
+         * @param position
+         */
+        addField : function( prop, constr, props, refNode, position )
         {
             props.name = prop;
-            this._props[ prop ] = new constr( props ).placeAt( node || this.containerNode, position || "last" );
+            this._props[ prop ] = new constr( props ).placeAt( refNode || this.containerNode, position || "last" );
             this.controls.push( this._props[ prop ] );
         },
+        /**
+         * Set .minimized, then ._move from where I am to ._button, and remove CSS class for maximized pane from button.
+         *
+         * @public void
+         */
         minimize : function()
         {
             this.minimized = true;
             this._move( domGeometry.position( this.domNode ), domGeometry.position( this._button.domNode ), true );
             domClass.remove( this._button.domNode, "br-dockIconMaximized" );
         },
+        /**
+         * Unset .minimized, then ._move from ._button location to my usual spot, set display to "block" on both domNode
+         * and ._button, and addCSS class for maximized pane to button.
+         *
+         * @public void
+         */
         maximize : function()
         {
             this.minimized = false;
@@ -66,33 +129,71 @@ function( declare,
             this._move( domGeometry.position( this._button.domNode ), domGeometry.position( this.domNode ), false );
             domClass.add( this._button.domNode, "br-dockIconMaximized" );
         },
+        /**
+         * Scroll into view and .flash().
+         *
+         * @public void
+         */
         focus : function()
         {
             this.domNode.scrollIntoView( true );
             this.flash();
         },
+        /**
+         * Call .highLight(), then unHighLight() after .animDuration.
+         *
+         * @public void
+         */
         flash : function()
         {
             this.highLight();
             setTimeout( lang.hitch( this, this.unHighLight ), this.animDuration );
         },
+        /**
+         * Add "highlighted" CSS class.
+         *
+         * @public void
+         */
         highLight : function()
         {
-            domClass.add( this.domNode, "br-flashPane" );
+            domClass.add( this.domNode, "br-paneHighlighted" );
         },
+        /**
+         * Remove "highlighted" CSS class.
+         *
+         * @public void
+         */
         unHighLight : function()
         {
-            domClass.remove( this.domNode, "br-flashPane" );
+            domClass.remove( this.domNode, "br-paneHighlighted" );
         },
+        /**
+         * Stub. Connect to this to publish status of whatever's in the pane.
+         *
+         * @stub
+         * @public void
+         */
         publishStatus : function()
         {
         },
-        pleaseRemove : function( item )
+        /**
+         * Remove item from .controls.
+         *
+         * @param item
+         * @public void
+         */
+        pleaseRemove : function( /* Object */ item )
         {
             this.controls.splice( array.indexOf( this.controls, item ), 1 );
-            this._checkRemove();
         },
-        get : function( prop )
+        /**
+         * Intercept "properties", "state", by returning keys of this._props, ._getState(), or the value
+         * of the control matching prop if it's present in ._props, else inherited.
+         *
+         * @param prop
+         * @public {*}
+         */
+        get : function( /* string */ prop )
         {
             if( prop == "properties" )
             {
@@ -111,7 +212,14 @@ function( declare,
                 return this.inherited( arguments );
             }
         },
-        set : function( prop, val )
+        /**
+         * Set prop, val on control from ._props if present; else if prop is "state", ._setState. Else inherited.
+         *
+         * @param prop
+         * @param val
+         * @public void
+         */
+        set : function( /* string */ prop, /* {*} */ val )
         {
             if( this._props[ prop ] )
             {
@@ -126,6 +234,11 @@ function( declare,
                 this.inherited( arguments );
             }
         },
+        /**
+         * Pops to destroy all .controls.
+         *
+         * @public void
+         */
         clear : function()
         {
             while( this.controls.length > 0 )
@@ -133,7 +246,16 @@ function( declare,
                 this.controls.pop().destroy();
             }
         },
-        _move : function( from, to, hide )
+        /**
+         * Plays zoom animation from node from, to node to. If hide is set, sets display of self to "none" after
+         * animation completes.
+         *
+         * @param from
+         * @param to
+         * @param hide
+         * @private void
+         */
+        _move : function( /* Element */ from, /* Element */ to, /* boolean */ hide )
         {
             var zoomer = domConstruct.create( "div", { "class" : "br-zoomer" }, document.body );
             this.domNode.style.visibility = "hidden";
@@ -155,13 +277,26 @@ function( declare,
                 topic.publish( "/PaneToggled/", this, hide );
             }), this.animDuration );
         },
-        _setPos : function( node, coords )
+        /**
+         * Sets position of node to coords using direct manipulation of .style, because we don't want the normalized
+         * coordinates domGeometry uses.
+         *
+         * @param node
+         * @param coords
+         * @private void
+         */
+        _setPos : function( /* Element */ node, /* Object */ coords )
         {
             node.style.left = coords.x + "px";
             node.style.top = coords.y + "px";
             node.style.width = coords.w + "px";
             node.style.height = coords.h + "px";
         },
+        /**
+         * Returns states of controls as Object[].
+         *
+         * @private Object[]
+         */
         _getState : function()
         {
             var out = [];
@@ -171,7 +306,13 @@ function( declare,
             }
             return out;
         },
-        _setState : function( state )
+        /**
+         * Sets states of controls from Object[].
+         *
+         * @param state
+         * @private void
+         */
+        _setState : function( /* Object[] */ state )
         {
             for( var i = 0; i < this.controls.length; i++ )
             {

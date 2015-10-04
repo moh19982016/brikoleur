@@ -1,10 +1,16 @@
+/**
+ * Widget which adapts to screen size dynamically, laying out sub-panes in one or more columns depending on available
+ * width.
+ *
+ * @public Widget
+ */
 define([ "dojo/_base/declare",
-        "dojo/_base/lang",
-        "dojo/_base/array",
-        "dojo/topic",
-        "dojo/dom-geometry",
-        "dojo/dom-construct",
-        "dijit/layout/ContentPane" ],
+          "dojo/_base/lang",
+          "dojo/_base/array",
+          "dojo/topic",
+          "dojo/dom-geometry",
+          "dojo/dom-construct",
+          "dijit/layout/ContentPane" ],
 function( declare,
           lang,
           array,
@@ -15,38 +21,64 @@ function( declare,
 {
     return declare([ ContentPane ],
     {
+        /**
+         * Minimum width for column. If it drops below this point, the number of columns is dropped by 1.
+         *
+         * @public int
+         */
         columnMinWidth : 600,
+        /**
+         * Inherited, then initialize private properties and subscribe to /PaneToggled/ with _checkReLayout.
+         *
+         * @public void
+         */
         buildRendering : function()
         {
             this.inherited( arguments );
             this._cols = [];
             this._placed = [];
             this._cur = 0;
-        },
-        postCreate : function()
-        {
-            this.inherited( arguments );
             this.own( topic.subscribe( "/PaneToggled/", lang.hitch( this, this._checkReLayout ) ) );
         },
+        /**
+         * Inherited, then _layoutColumns.
+         *
+         * @public void
+         */
         resize : function()
         {
             this.inherited( arguments );
             this._layoutColumns();
         },
-        addChild : function( child, position )
+        /**
+         * Adds child.domNode to ._placed array. If we have no columns, ._layoutColumns which will place it along with
+         * the others. Else ._placeChild.
+         *
+         * @param child
+         * @param position
+         * @public void
+         */
+        addChild : function( /* _FeaturePaneBase */ child, /* int */ position )
         {
             this._placed.push( child.domNode || child );
             if( this._cols.length == 0 )
             {
                 this._layoutColumns();
             }
-            if( this._cols.length == 0 )
+            else
             {
-                return;
+                this._placeChild( child, position );
             }
-            this._placeChild( child, position );
         },
-        _placeChild : function( child, position )
+        /**
+         * Places child in current column and augments ._cur, or sets it back to 0 if we were already at the last
+         * column.
+         *
+         * @param child
+         * @param position - NOT IMPLEMENTED YET
+         * @private void
+         */
+        _placeChild : function( /* _FeaturePaneBase */ child, /* int */ position )
         {
             var dn = child.domNode || child;
             domConstruct.place( dn, this._cols[ this._cur ] );
@@ -59,14 +91,27 @@ function( declare,
                 this._cur = 0;
             }
         },
-        _checkReLayout : function( pane, hide )
+        /**
+         * If pen isn't already a child widget, ._layoutColumns to rearrange them.
+         *
+         * @param pane
+         * @private void
+         */
+        _checkReLayout : function( /* _FeaturePaneBase */ pane )
         {
             if( array.indexOf( this.getChildren(), pane ) != -1 )
             {
                 this._layoutColumns( true );
             }
         },
-        _layoutColumns : function( force )
+        /**
+         * Calculate column widths based on available space and number of visible children. If we have the wrong number
+         * of columns or force is set, ._emptyColumns and ._createColumns.
+         *
+         * @param force
+         * @private void
+         */
+        _layoutColumns : function( /* boolean */ force )
         {
             var w = domGeometry.getContentBox( this.domNode ).w;
             if( w == 0 )
@@ -92,6 +137,11 @@ function( declare,
                 this._createColumns( n );
             }
         },
+        /**
+         * Remove the domNodes of all placed panes, then destroy column nodes.
+         *
+         * @private void
+         */
         _emptyColumns : function()
         {
             while( true )
@@ -117,7 +167,13 @@ function( declare,
                 domConstruct.destroy( this._cols.pop() );
             }
         },
-        _createColumns : function( n )
+        /**
+         * Create n columns of 100/n % width.
+         *
+         * @param n
+         * @private void
+         */
+        _createColumns : function( /* int */ n )
         {
             this._cur = 0;
             var w = ( 100 / n );

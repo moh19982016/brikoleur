@@ -1,3 +1,9 @@
+/**
+ * Internal widget belonging to _FeaturePaneBase. It's a button that's put in a dock which you can use to scroll to
+ * the pane or maximize it if it's minimized.
+ *
+ * @private Widget
+ */
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/on",
@@ -12,7 +18,17 @@ function( declare,
           _WidgetBase )
 {
     return declare([ _WidgetBase ], {
+        /**
+         * The pane to which it belongs.
+         *
+         * @public _FeaturePaneBase
+         */
         pane : {},
+        /**
+         * Inherited, then create an icon in domNode, and own a bunch of event handlers for it.
+         *
+         * @public void
+         */
         buildRendering : function()
         {
             this.inherited( arguments );
@@ -22,6 +38,11 @@ function( declare,
             this.own( on( this.domNode, "mouseover", lang.hitch( this.pane, this.pane.highLight ) ) );
             this.own( on( this.domNode, "mouseout", lang.hitch( this.pane, this.pane.unHighLight ) ) );
         },
+        /**
+         * If the pane is minimized, .maximize it. Else .focus it.
+         *
+         * @public void
+         */
         showPane : function()
         {
             if( this.pane.minimized )

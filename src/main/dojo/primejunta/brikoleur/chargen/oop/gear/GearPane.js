@@ -29,6 +29,11 @@ function( declare,
             this.own( this.addItemControl, new _ItemHeader().placeAt( this.addItemControl.domNode, "before" ) );
             this._addItem();
         },
+        pleaseRemove : function()
+        {
+            this.inherited( arguments );
+            this._checkRemove();
+        },
         _addItem : function( props )
         {
             this.addField( "item", _ItemControl, lang.mixin( props || {}, { parent : this } ), this.addItemControl.domNode, "before" );
