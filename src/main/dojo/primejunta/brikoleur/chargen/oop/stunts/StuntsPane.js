@@ -1,12 +1,17 @@
+/**
+ * Pane managing stunts.
+ *
+ * @public Widget
+ */
 define([ "dojo/_base/declare",
-        "dojo/_base/lang",
-        "dojo/topic",
-        "dojo/string",
-        "dojo/dom-class",
-        "./_StuntControl",
-        "./../_base/_ControlContainerMixin",
-        "./../_base/util",
-        "./../../_base/_FeaturePaneBase",
+         "dojo/_base/lang",
+         "dojo/topic",
+         "dojo/string",
+         "dojo/dom-class",
+         "./_StuntControl",
+         "./../_base/_ControlContainerMixin",
+         "./../_base/util",
+         "./../../_base/_FeaturePaneBase",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
@@ -48,13 +53,29 @@ function( declare,
          * @public int
          */
         allowedControls : 0,
+        /**
+         * Array for sub-controls.
+         *
+         * @public Widget[]
+         */
         controls : [],
+        /**
+         * Subscribe to /TrainingAdded/ topic with .checkStunt, and .onAddDescendant to setup initial state.
+         *
+         * @public void
+         */
         postCreate : function()
         {
             this.own( topic.subscribe( "/TrainingAdded/", lang.hitch( this, this.checkStunt ) ) );
             this.onAddDescendant();
         },
-        checkStunt : function( control )
+        /**
+         * If control represents combat training, bump .allowedControls and .enableAddStunt().
+         *
+         * @param control
+         * @public void
+         */
+        checkStunt : function( /* _KnackControl */ control )
         {
             if( control.type == "combat" )
             {
@@ -62,10 +83,21 @@ function( declare,
                 this.enableAddStunt();
             }
         },
+        /**
+         * To enable adding a stunt, .addFeature().
+         *
+         * @public void
+         */
         enableAddStunt : function()
         {
             this.addFeature();
         },
+        /**
+         * First, .publishInfo if we're not loading. Then .checkCreateControl, .onAddDescendant, and maximize if
+         * minimized.
+         *
+         * @public void
+         */
         addFeature : function()
         {
             if( !Controller.loading )
@@ -79,6 +111,11 @@ function( declare,
                 this.maximize();
             }
         },
+        /**
+         * If we have any open stunts, fail. Else succeed.
+         *
+         * @public Object - valid : {boolean}, message : {string}
+         */
         validate : function()
         {
             if( util.getProperties( this.controls, { property : "complete", recurse : true, filter : true }).length < this.allowedControls )
@@ -95,10 +132,22 @@ function( declare,
                 }
             }
         },
-        publishInfo : function( synthetic )
+        /**
+         * Publish /SelectedStunts/ from .controls.
+         *
+         * @param synthetic
+         * @public void
+         */
+        publishInfo : function( /* boolean */ synthetic )
         {
             topic.publish( "/SelectedStunts/", util.getProperties( this.controls, { property : "value" }), synthetic );
         },
+        /**
+         * Call .updateAllowedControls, and add/remove CSS class indicating if the cap for stunts has been hit or not,
+         * then .checkCreateControl if we're below the cap.
+         *
+         * @public void
+         */
         onAddDescendant : function()
         {
             this.updateAllowedControls();
@@ -112,10 +161,21 @@ function( declare,
                 this.checkCreateControl();
             }
         },
+        /**
+         * Update .allowedControls with Controller.getAllowedStunts(). Only Controller can know since it has access to
+         * the Knacks pane which has the required info.
+         *
+         * @public void
+         */
         updateAllowedControls : function()
         {
             this.allowedControls = Controller.getAllowedStunts();
         },
+        /**
+         * If we don't have an open stunt, create a new _StuntControl at .containerNode, making this the parent.
+         *
+         * @public void
+         */
         checkCreateControl : function()
         {
             if( !this._hasOpenStunt() )
@@ -123,6 +183,11 @@ function( declare,
                 this.controls.push( new _StuntControl({ parent : this, filter : this.listFeatures() } ).placeAt( this.containerNode ) );
             }
         },
+        /**
+         * Destroy all .controls, then inherited.
+         *
+         * @public void
+         */
         destroy : function()
         {
             while( this.controls.length > 0 )
@@ -131,6 +196,11 @@ function( declare,
             }
             this.inherited( arguments );
         },
+        /**
+         * If there's an incomplete (=open) _StuntControl in controls, return true; else return false.
+         *
+         * @private boolean
+         */
         _hasOpenStunt : function()
         {
             for( var i = 0; i < this.controls.length; i++ )
@@ -142,7 +212,14 @@ function( declare,
             }
             return false;
         },
-        _setState : function( state )
+        /**
+         * Clear, then iterate through state, creating a _StuntControl for each, pushing them into .controls. Then
+         * maximize if any controls were added.
+         *
+         * @param state
+         * @private void
+         */
+        _setState : function( /* Object[] */ state )
         {
             this.clear();
             for( var i = 0; i < state.length; i++ )

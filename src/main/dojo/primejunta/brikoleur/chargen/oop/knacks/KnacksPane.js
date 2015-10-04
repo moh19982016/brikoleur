@@ -1,3 +1,8 @@
+/**
+ * Knack pane.
+ *
+ * @public Widget
+ */
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/topic",
@@ -56,12 +61,24 @@ function( declare,
          * @public string
          */
         selectedFeaturesTopic : "/SelectedKnacks/",
+        /**
+         * Inherited, then subscribe to /AddBonusKnack/ with ._addBonusKnack.
+         *
+         * @public void
+         */
         postCreate : function()
         {
             this.inherited( arguments );
             this.own( topic.subscribe( "/AddBonusKnack/", lang.hitch( this, this._addBonusKnack ) ) );
         },
-        _addBonusKnack : function( knack )
+        /**
+         * Increment .allowedControls since it is a bonus knack; then .addControl and set its state to display the
+         * knack, then .addChildControl() on it to lock it into place.
+         *
+         * @param knack
+         * @private void
+         */
+        _addBonusKnack : function( /* Object */ knack )
         {
             this.allowedControls++;
             if( knack )

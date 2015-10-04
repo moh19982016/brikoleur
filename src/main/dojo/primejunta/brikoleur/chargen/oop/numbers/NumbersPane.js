@@ -1,3 +1,8 @@
+/**
+ * Stats pane.
+ *
+ * @public Widget
+ */
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/dom-construct",
@@ -31,7 +36,18 @@ function( declare,
          * @public string
          */
         icon : "dashboard",
+        /**
+         * Threshold for flipping layout from wide to narrow (px).
+         *
+         * @public int
+         */
         threshold : 440,
+        /**
+         * Set up dynamic layout, which places Stamina to the right if there's room, everything top to bottom if not,
+         * and then addField on all our stats with the starting default values.
+         *
+         * @public void
+         */
         postCreate : function()
         {
             this.q1 = domConstruct.create( "div", { "class" : "br-formLayoutLeft" }, this.containerNode );
@@ -47,11 +63,22 @@ function( declare,
             this.addField( "os", _StatField, { title : i18n.OhunSlots, value : 2, cost : 4 }, this.q4 );
             setTimeout( lang.hitch( this, this.resize ), 1 );
         },
+        /**
+         * Inherited, then resize to update the layout if needed.
+         *
+         * @public void
+         */
         maximize : function()
         {
             this.inherited( arguments );
             this.resize();
         },
+        /**
+         * Add/remove formLayoutLeft and formLayoutRight classes to/from the layout nodes, if we're below/above
+         * .threshold in content box width.
+         *
+         * @public void
+         */
         resize : function()
         {
             if( domGeometry.getContentBox( this.containerNode ).w < this.threshold )
@@ -69,6 +96,11 @@ function( declare,
                 domClass.add( this.q4, "br-formLayoutRight" );
             }
         },
+        /**
+         * Sums body and mind to get stamina.
+         *
+         * @private void
+         */
         _recalcStamina : function()
         {
             this.set( "stamina", ( this.get( "body" ) || 0 ) + ( this.get( "mind" ) || 0 ) );

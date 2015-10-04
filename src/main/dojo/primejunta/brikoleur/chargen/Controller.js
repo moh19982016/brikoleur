@@ -16,7 +16,7 @@ define([ "dojo/_base/declare",
          "./oop/_base/util",
          "./oop/name/NamePane",
          "./oop/description/DescriptionPane",
-         "./oop/gear/GearPane",
+         "./oop/gear/InventoryPane",
          "./oop/knacks/KnacksPane",
          "./oop/numbers/NumbersPane",
          "./oop/traits/TraitsPane",
@@ -50,7 +50,7 @@ function( declare,
           util,
           NamePane,
           DescriptionPane,
-          GearPane,
+          InventoryPane,
           KnacksPane,
           NumbersPane,
           TraitsPane,
@@ -405,7 +405,7 @@ function( declare,
             this._addPane( "powers", new PowersPane({ minimized : true, dock : this.dockContainer }).placeAt( this.oopGrid ) );
             this._addPane( "ohun", new OhunPane({ dock : this.dockContainer }).placeAt( this.oopGrid ) );
             this._addPane( "stunts", new StuntsPane({ minimized : true, dock : this.dockContainer }).placeAt( this.oopGrid ) );
-            this._addPane( "gear", new GearPane({ dock : this.dockContainer }).placeAt( this.oopGrid ) );
+            this._addPane( "gear", new InventoryPane({ dock : this.dockContainer }).placeAt( this.oopGrid ) );
             this._addPane( "description", new DescriptionPane({ dock : this.dockContainer }).placeAt( this.oopGrid ) );
         },
         /**

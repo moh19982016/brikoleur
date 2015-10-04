@@ -1,13 +1,18 @@
+/**
+ * Character name pane. This also controls the UI for saving, deleting, and reloading the character.
+ *
+ * @public Widget
+ */
 define([ "dojo/_base/declare",
-        "dojo/_base/lang",
-        "dojo/topic",
-        "dijit/form/ValidationTextBox",
-        "dijit/form/Button",
-        "dijit/_WidgetBase",
-        "dijit/_TemplatedMixin",
-        "dijit/_WidgetsInTemplateMixin",
-        "dojo/text!./templates/NamePane.html",
-        "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
+         "dojo/_base/lang",
+         "dojo/topic",
+         "dijit/form/ValidationTextBox",
+         "dijit/form/Button",
+         "dijit/_WidgetBase",
+         "dijit/_TemplatedMixin",
+         "dijit/_WidgetsInTemplateMixin",
+         "dojo/text!./templates/NamePane.html",
+         "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
           topic,
@@ -34,6 +39,16 @@ function( declare,
          * @public string
          */
         templateString : template,
+        /**
+         * Connect validator functions and messages to .nameInput, set up buttons for saving, reverting, and deleting
+         * the character, and subscribe to topics indicating a character was saved or a property was changed, which will
+         * disable/enable the save button.
+         *
+         * Note that we leave it intentionally enabled even for invalid characters, since clicking it will bring up a
+         * helpful tip on what's missing.
+         *
+         * @public void
+         */
         postCreate : function()
         {
             this.nameInput.isValid = lang.hitch( this, this.isValidName );
@@ -44,6 +59,13 @@ function( declare,
             this.own( this.revertButton, this.saveButton, this.deleteButton );
             this.own( topic.subscribe( "/CharacterSaved/", lang.hitch( this, this.disableSave ) ), topic.subscribe( "/PropertyChanged/", lang.hitch( this, this.checkSave ) ) );
         },
+        /**
+         * If a name has been provided and Controller.isValidName is true, enable save button and return true. Else
+         * disable save button and return true if no name has been given (since it's not actually invalid, just
+         * missing.)
+         *
+         * @public boolean
+         */
         isValidName : function()
         {
             var name = this.nameInput.get( "value" );
@@ -58,6 +80,12 @@ function( declare,
                 return !name;
             }
         },
+        /**
+         * Names for new and existing characters are validated differently; the former are also checked against the list
+         * of saved characters to prevent duplicates.
+         *
+         * @public Object - valid : {boolean}, message : {string}
+         */
         validate : function()
         {
             if( this.nameInput.get( "value" ) && ( !Controller.is_new || this.isValidName() ) )
@@ -74,23 +102,43 @@ function( declare,
                 }
             }
         },
+        /**
+         * Tunnel to Controller.saveCharacter.
+         *
+         * @public void
+         */
         saveCharacter : function()
         {
             Controller.saveCharacter();
         },
+        /**
+         * Tunnel to Controller.deleteCharacter.
+         *
+         * @public void
+         */
         deleteCharacter : function()
         {
             Controller.deleteCharacter();
         },
+        /**
+         * Tunnel to Controller.revertCharacter.
+         *
+         * @public void
+         */
         revertCharacter : function()
         {
             Controller.revertCharacter();
         },
+        /**
+         * Set save button's disabled state depending on whether we're allowing saves for the current character, which
+         * in turn depends on name and whether it's a new or existing one.
+         *
+         * @public void
+         */
         checkSave : function()
         {
             if( Controller.loading )
             {
-                return;
             }
             else if( Controller.get( "is_new" ) )
             {
@@ -101,13 +149,24 @@ function( declare,
                 this.saveButton.set( "disabled", false );
             }
         },
+        /**
+         * Disable save button, enable delete and revert buttons.
+         *
+         * @public void
+         */
         disableSave : function()
         {
             this.saveButton.set( "disabled", true );
             this.revertButton.set( "disabled", false );
             this.deleteButton.set( "disabled", false );
         },
-        get : function( prop )
+        /**
+         * Intercept state to return an Object containing characterName.
+         *
+         * @param prop
+         * @public Object
+         */
+        get : function( /* string */ prop )
         {
             if( prop == "state" )
             {
@@ -120,7 +179,15 @@ function( declare,
                 return this.inherited( arguments );
             }
         },
-        set : function( prop, val )
+        /**
+         * Intercept "state" to set characterName from val. If it's not a template (=archetype, from splash screen),
+         * also disable it (we can't change names for existing characters), and .disableSave.
+         *
+         * @param prop
+         * @param val
+         * @public void
+         */
+        set : function( /* string */ prop, /* {*} */ val )
         {
             if( prop == "state" )
             {

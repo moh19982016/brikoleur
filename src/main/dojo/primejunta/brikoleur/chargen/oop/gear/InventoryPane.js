@@ -1,17 +1,20 @@
+/**
+ * Inventory pane.
+ *
+ * @public Widget
+ */
 define([ "dojo/_base/declare",
-        "dojo/_base/lang",
-        "dojo/topic",
-        "dojo/_base/array",
-        "dojo/dom-construct",
-        "dijit/form/Button",
-        "./_ItemControl",
-        "./_ItemHeader",
+         "dojo/_base/lang",
+         "dojo/topic",
+         "dojo/dom-construct",
+         "dijit/form/Button",
+         "./_ItemControl",
+         "./_ItemHeader",
          "./../../_base/_FeaturePaneBase",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
           topic,
-          array,
           domConstruct,
           Button,
           _ItemControl,
@@ -34,6 +37,12 @@ function( declare,
          * @public string
          */
         icon : "suitcase",
+        /**
+         * Create button spacer in domNode, then a Button to add new inventory items, then an ItemHeader for the
+         * inventory. Then ._addItem once so we have something to start with.
+         *
+         * @public void
+         */
         postCreate : function()
         {
             domConstruct.create( "div", { "class" : "br-buttonSpacer" }, this.domNode, "last" );
@@ -41,21 +50,43 @@ function( declare,
             this.own( this.addItemControl, new _ItemHeader().placeAt( this.addItemControl.domNode, "before" ) );
             this._addItem();
         },
+        /**
+         * Inherited, then ._checkRemove().
+         *
+         * @public void
+         */
         pleaseRemoveControl : function()
         {
             this.inherited( arguments );
             this._checkRemove();
         },
-        _addItem : function( props )
+        /**
+         * Calls .addField "item" with _ItemControl at .addItemControl node. The argumnet is passed to the constructor.
+         *
+         * @param props
+         * @private void
+         */
+        _addItem : function( /* Object */ props )
         {
             this.addField( "item", _ItemControl, lang.mixin( props || {}, { parent : this } ), this.addItemControl.domNode, "before" );
             this._checkRemove();
         },
+        /**
+         * Publishes topic to enable/disable remove button. It's disabled if there's only one item in the inventory.
+         *
+         * @private void
+         */
         _checkRemove : function()
         {
             topic.publish( "/SetGearRemoveLock/", this.controls.length <= 1 );
         },
-        _setState : function( state )
+        /**
+         * Clear, then iterate through state and ._addItem for each member.
+         *
+         * @param state
+         * @private void
+         */
+        _setState : function( /* Object[] */ state )
         {
             this.clear();
             for( var i = 0; i < state.length; i++ )
