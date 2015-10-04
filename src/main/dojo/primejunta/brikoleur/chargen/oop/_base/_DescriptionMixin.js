@@ -1,25 +1,41 @@
+/**
+ * Mixin which adds features for displaying an item description in a togglable node. Requires .descriptionButton,
+ * .descriptionWrapper, and .descriptionNode attachPoints.
+ *
+ * @public Mixin
+ */
 define([ "dojo/_base/declare",
-        "dojo/_base/lang",
-        "dojo/on",
-        "dojo/dom-construct",
-        "dojo/dom-geometry",
-        "dojo/dom-class",
-        "./util",
-        "dojo/i18n!./../../../nls/CharGen" ],
+         "dojo/_base/lang",
+         "dojo/on",
+         "dojo/dom-construct",
+         "dojo/dom-geometry",
+         "dojo/dom-class",
+         "dojo/i18n!./../../../nls/CharGen" ],
 function( declare,
           lang,
           on,
           domConstruct,
           domGeometry,
           domClass,
-          util,
           i18n )
 {
     return declare([], {
+        /**
+         * Toggles description node depending on ._open property.
+         *
+         * @public void
+         */
         toggleDescription : function()
         {
             this._open ? this.hideDescription() : this.showDescription();
         },
+        /**
+         * If we have a description to show, set ._open and show it in .descriptionNode. At the same time, make it so
+         * .descriptionWrapper slides into view and .descriptionButton icon changes. If there's no description,
+         * .hideDescription instead.
+         *
+         * @public void
+         */
         showDescription : function()
         {
             if( this.descriptionWrapper && this.description )
@@ -34,6 +50,11 @@ function( declare,
                 this.hideDescription();
             }
         },
+        /**
+         * Unset ._open, change descriptionButton icon, and slide .descriptionWrapper out of view.
+         *
+         * @public void
+         */
         hideDescription : function()
         {
             if( this.descriptionWrapper )
@@ -44,6 +65,12 @@ function( declare,
                 this.descriptionWrapper.style.height = "0px";
             }
         },
+        /**
+         * Constructs HTML from data containing a .description and (optionally) .link (to manual) and places it in
+         * .descriptionNode. If there is a description, activates the descriptionButton; else hides it.
+         *
+         * @param data
+         */
         setDescription : function( data )
         {
             this.description = data.description || "";
@@ -76,9 +103,16 @@ function( declare,
                 this.descriptionButton ? this.descriptionButton.style.visibility = "hidden" : false;
             }
         },
-        _processDescription : function( descr )
+        /**
+         * Substitutes pattern values into description. We have them so we can show actual level-dependent values when
+         * we know the level.
+         *
+         * @param descr
+         * @private string
+         */
+        _processDescription : function( /* string */ descr )
         {
-            var subs = this._collectSubstitutions( descr );// /\$\{([^}]+)\}/g.exec( descr );
+            var subs = this._collectSubstitutions( descr );
             var reslts = [];
             for( var i = 0; i < subs.length; i++ )
             {
@@ -118,7 +152,13 @@ function( declare,
             }
             return out;
         },
-        _collectSubstitutions : function( str )
+        /**
+         * Collects any substitutions we've listed in str and returns them as string[].
+         *
+         * @param str
+         * @private string[]
+         */
+        _collectSubstitutions : function( /* string */ str )
         {
             var out = [];
             var sub = /\$\{([^}]+)\}/g.exec( str );

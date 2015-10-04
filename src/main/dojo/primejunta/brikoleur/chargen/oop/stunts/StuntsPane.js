@@ -29,7 +29,7 @@ function( declare,
         postCreate : function()
         {
             this.own( topic.subscribe( "/TrainingAdded/", lang.hitch( this, this.checkStunt ) ) );
-            this.descendantaddFeature();
+            this.onAddDescendant();
         },
         checkStunt : function( control )
         {
@@ -50,7 +50,7 @@ function( declare,
                 this.publishInfo();
             }
             this.checkCreateControl();
-            this.descendantaddFeature();
+            this.onAddDescendant();
             if( this.minimized )
             {
                 this.maximize();
@@ -76,7 +76,7 @@ function( declare,
         {
             topic.publish( "/SelectedStunts/", util.getProperties( this.controls, { property : "value" }), synthetic );
         },
-        descendantaddFeature : function()
+        onAddDescendant : function()
         {
             this.updateAllowedControls();
             if( util.countItems( this.controls ) >= this.allowedControls )

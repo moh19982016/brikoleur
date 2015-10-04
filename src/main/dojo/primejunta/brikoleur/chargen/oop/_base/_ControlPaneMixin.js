@@ -36,13 +36,17 @@ function( declare,
                 this.maximize();
             }
         },
+        onAugmentChild : function()
+        {
+            this.addFeature();
+        },
         addControl : function( kwObj, pos )
         {
             var ctl = new this.featureControl( lang.mixin( kwObj || {}, { parent : this, filter : this.listFeatures() } )).placeAt( this.containerNode, pos || "last" );
             this.controls.push( ctl );
             return ctl;
         },
-        descendantaddFeature : function()
+        onAddDescendant : function()
         {
         },
         countItems : function()

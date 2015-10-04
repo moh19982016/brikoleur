@@ -91,6 +91,15 @@ function( declare,
             this.inherited( arguments, [ kwObj ] );
         },
         /**
+         * Fired when a child control has had a feature added. Calls .addFeature to create a slot for a new one.
+         *
+         * @public void
+         */
+        onAugmentChild : function()
+        {
+            this.addFeature();
+        },
+        /**
          * Remove control from .controls and .publishInfo().
          *
          * @param control
