@@ -24,11 +24,12 @@
             deps : [],
             callback : function()
             {
-                require([ "primejunta/brikoleur/chargen/Controller", "dojo/domReady!" ],
-                        function( Controller )
-                        {
-                            new Controller({ "class" : "br-controller" }).placeAt( document.body ).startup();
-                        });
+                require([ "primejunta/brikoleur/chargen/Controller",
+                          "dojo/domReady!" ],
+                function( Controller )
+                {
+                    new Controller({ "class" : "br-controller" }).placeAt( document.body ).startup();
+                });
             }
         }
     </script>
