@@ -36,7 +36,7 @@ function( declare,
             this.own( topic.subscribe( "/StatChanged/-aps", lang.hitch( this, this._checkActivePowers ) ) );
             this.own( topic.subscribe( "/AddBonusPower/", lang.hitch( this, function( kwObj )
             {
-                this.featureAdded({
+                this.addFeature({
                     key : kwObj.key,
                     value : kwObj.key,
                     data : kwObj.data

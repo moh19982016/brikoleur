@@ -55,7 +55,7 @@ function( declare,
                 this.valueInput = new TextBox({ onChange : lang.hitch( this, this.checkAdd ), style : "width:100%" } ).placeAt( this.valueInputNode );
             }
             this._count = 0;
-            this.own( this.valueInput, topic.subscribe( "/FreeFeatureAdded/", lang.hitch( this, this.checkCap ) ) );
+            this.own( this.valueInput, topic.subscribe( "/FreeaddFeature/", lang.hitch( this, this.checkCap ) ) );
         },
         checkMax : function()
         {
@@ -81,7 +81,7 @@ function( declare,
         {
             this.addButton.set( "disabled", !this.valueInput.get( "value" ) );
         },
-        addFeature : function()
+        pleaseAddFeature : function()
         {
             this.manager.addFreeFeature({
                 type : this.selector ? this.typeSelect.get( "value" ) : this.value,

@@ -1,6 +1,6 @@
 /**
  * Base class for recursively-created feature controls. Can be used as-is or may be extended to add more features to
- * the control
+ * the control.
  *
  * @public Base
  */
@@ -55,7 +55,7 @@ function( declare,
         LIST_PROPS : [ "list", "powers", "features", "ohun", "link" ],
         templateString : template,
         jujuChangedTopic : "/StatChanged/-juju",
-        featureAddedTopic : "",
+        addFeatureTopic : "",
         selectedFeaturesTopic : "",
         childProperties : {},
         postCreate : function()
@@ -78,7 +78,7 @@ function( declare,
                 this.own( this._store, topic.subscribe( this.selectedFeaturesTopic, lang.hitch( this, this._updateFilter ) ) );
             }
             this.own( topic.subscribe( this.jujuChangedTopic, lang.hitch( this, this.onJujuChange ) ) );
-            this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
+            this.own( topic.subscribe( "/PleasePublishInfo/", lang.hitch( this, this.publishInfo ) ) );
             this.onJujuChange( Controller.get( "juju" ) );
         },
         createSelector : function()
@@ -116,11 +116,11 @@ function( declare,
             this.addChildControl();
             if( this.parent )
             {
-                this.parent.featureAdded();
+                this.parent.addFeature();
             }
             Controller.set( "juju", Controller.get( "juju" ) - this.getCost() );
             this._publishChange();
-            topic.publish( this.featureAddedTopic, this );
+            topic.publish( this.addFeatureTopic, this );
         },
         mayAdd : function( value )
         {
@@ -167,7 +167,7 @@ function( declare,
                 key : this.key,
                 maxLevel : this.maxLevel,
                 childProperties : this.childProperties,
-                featureAddedTopic : this.featureAddedTopic,
+                addFeatureTopic : this.addFeatureTopic,
                 selectedFeaturesTopic : this.selectedFeaturesTopic + "-" + this.value,
                 propertyPresentWarning : this.propertyPresentWarning,
                 parent : this
@@ -175,23 +175,23 @@ function( declare,
             this.controls.push( ctl );
             return ctl;
         },
-        featureAdded : function()
+        addFeature : function()
         {
             this.addChildControl();
             if( !Controller.loading )
             {
-                this.publishStatus();
+                this.publishInfo();
             }
-            this.descendantFeatureAdded();
+            this.descendantaddFeature();
         },
-        descendantFeatureAdded : function()
+        descendantaddFeature : function()
         {
-            if( this.parent.descendantFeatureAdded )
+            if( this.parent.descendantaddFeature )
             {
-                this.parent.descendantFeatureAdded();
+                this.parent.descendantaddFeature();
             }
         },
-        publishStatus : function( synthetic )
+        publishInfo : function( synthetic )
         {
             topic.publish( this.selectedFeaturesTopic + "-" + this.value, this.listFeatures(), synthetic );
         },

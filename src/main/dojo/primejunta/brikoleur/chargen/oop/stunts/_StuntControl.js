@@ -14,7 +14,7 @@ function( declare,
     var Constr = declare([ _FeatureControlBase, _PoweredAbilityMixin ], {
         data : stunts,
         selectedFeaturesTopic : "/SelectedStunts/",
-        featureAddedTopic : "/StuntAdded/",
+        addFeatureTopic : "/StuntAdded/",
         propertyPresentWarning : i18n.StuntPresent,
         statName : "B",
         postCreate : function()

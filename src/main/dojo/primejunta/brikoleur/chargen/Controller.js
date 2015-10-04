@@ -423,7 +423,7 @@ function( declare,
                     this.controls[ o ].set( "state", val[ o ] );
                 }
                 this.publishJuju();
-                topic.publish( "/PleasePublishStatus/", true );
+                topic.publish( "/PleasePublishInfo/", true );
                 setTimeout( lang.hitch( this, function() { this.loading = false }), 1 );
             }
             else

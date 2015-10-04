@@ -29,7 +29,7 @@ function( declare,
         postCreate : function()
         {
             this.own( topic.subscribe( "/TrainingAdded/", lang.hitch( this, this.checkStunt ) ) );
-            this.descendantFeatureAdded();
+            this.descendantaddFeature();
         },
         checkStunt : function( control )
         {
@@ -41,16 +41,16 @@ function( declare,
         },
         enableAddStunt : function()
         {
-            this.featureAdded();
+            this.addFeature();
         },
-        featureAdded : function()
+        addFeature : function()
         {
             if( !Controller.loading )
             {
-                this.publishStatus();
+                this.publishInfo();
             }
             this.checkCreateControl();
-            this.descendantFeatureAdded();
+            this.descendantaddFeature();
             if( this.minimized )
             {
                 this.maximize();
@@ -72,11 +72,11 @@ function( declare,
                 }
             }
         },
-        publishStatus : function( synthetic )
+        publishInfo : function( synthetic )
         {
             topic.publish( "/SelectedStunts/", util.getProperties( this.controls, { property : "value" }), synthetic );
         },
-        descendantFeatureAdded : function()
+        descendantaddFeature : function()
         {
             this.updateAllowedControls();
             if( util.countItems( this.controls ) >= this.allowedControls )

@@ -20,7 +20,7 @@ function( declare,
     return declare([ _FeatureControlBase ], {
         data : traits,
         selectedFeaturesTopic : "/SelectedTraits/",
-        featureAddedTopic : "/TraitAdded/",
+        addFeatureTopic : "/TraitAdded/",
         propertyPresentWarning : i18n.TraitPresent,
         maxLevel : 0,
         closed : true,
@@ -41,7 +41,7 @@ function( declare,
                 this._checkGift( kwObj );
             }
             this._printFeature( kwObj, ctrl.domNode, "before" );
-            topic.publish( "/FreeFeatureAdded/", ctrl.key, this.state.free_features );
+            topic.publish( "/FreeaddFeature/", ctrl.key, this.state.free_features );
         },
         _checkGift : function( gift )
         {

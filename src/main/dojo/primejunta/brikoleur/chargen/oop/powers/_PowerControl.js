@@ -20,7 +20,7 @@ function( declare,
     var Constr = declare([ _FeatureControlBase, _PoweredAbilityMixin ], {
         data : {},
         selectedFeaturesTopic : "/SelectedPowers/",
-        featureAddedTopic : "/PowerAdded/",
+        addFeatureTopic : "/PowerAdded/",
         propertyPresentWarning : i18n.PowerPresent,
         templateString : template,
         maxLevel : 3,

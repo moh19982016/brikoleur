@@ -29,7 +29,7 @@ function( declare,
             this.own( this.addItemControl, new _ItemHeader().placeAt( this.addItemControl.domNode, "before" ) );
             this._addItem();
         },
-        pleaseRemove : function()
+        pleaseRemoveControl : function()
         {
             this.inherited( arguments );
             this._checkRemove();

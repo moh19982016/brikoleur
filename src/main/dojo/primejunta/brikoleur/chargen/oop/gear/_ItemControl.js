@@ -38,7 +38,7 @@ function( declare,
         },
         pleaseDestroy : function()
         {
-            this.parent.pleaseRemove( this );
+            this.parent.pleaseRemoveControl( this );
             this._publishChange();
             this.destroy();
         },

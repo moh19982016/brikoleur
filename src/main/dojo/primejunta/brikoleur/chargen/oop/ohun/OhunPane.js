@@ -32,7 +32,7 @@ function( declare,
             this.inherited( arguments );
             this.own( topic.subscribe( "/AddBonusOhun/", lang.hitch( this, function( kwObj )
             {
-                this.featureAdded({
+                this.addFeature({
                     key : kwObj.key,
                     value : kwObj.key,
                     data : kwObj.data

@@ -35,7 +35,7 @@ function( declare,
         /**
          * If synthetic, do nothing (as it was called by .setState, which will subsequently set up its own sub-panes).
          * Else iterate through features: check if we already have the matching feature pane, and if not, look up the
-         * data for it in ._store, and call .featureAdded on it + the looked-up data to create a sub-pane.
+         * data for it in ._store, and call .addFeature on it + the looked-up data to create a sub-pane.
          *
          * @param features
          * @param synthetic
@@ -57,7 +57,7 @@ function( declare,
                     {
                         for( var j = 0; j < items.length; j++ )
                         {
-                            this.featureAdded({
+                            this.addFeature({
                                 key : features[ i ],
                                 value : features[ i ],
                                 data : items[ j ]
@@ -69,7 +69,7 @@ function( declare,
         },
         /**
          * Looks up .featureProperty from _common (the data object containing common properties for all traits). Then
-         * calls .featureAdded on each of them.
+         * calls .addFeature on each of them.
          *
          * @private void
          */
@@ -77,7 +77,7 @@ function( declare,
         {
             for( var i = 0; i < ( _common[ this.featureProperty ] || [] ).length; i++ )
             {
-                this.featureAdded({
+                this.addFeature({
                     key : "_common",
                     value : "_common",
                     data : _common[ this.featureProperty ][ i ]

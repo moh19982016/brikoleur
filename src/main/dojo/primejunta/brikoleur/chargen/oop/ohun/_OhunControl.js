@@ -24,7 +24,7 @@ function( declare,
     return declare([ _FeatureControlBase ], {
         data : {},
         selectedFeaturesTopic : "/null/", // we don't actually want to filter ohun, since you can have more than one of each
-        featureAddedTopic : "/OhunAdded/",
+        addFeatureTopic : "/OhunAdded/",
         maxLevel : 0,
         propertyPresentWarning : i18n.PowerPresent,
         templateString : template,
@@ -32,7 +32,7 @@ function( declare,
         {
             this.inherited( arguments );
             this.own( topic.subscribe( "/StatChanged/-os", lang.hitch( this, this.createSelector )));
-            this.own( topic.subscribe( this.featureAddedTopic, lang.hitch( this, this._updateState )));
+            this.own( topic.subscribe( this.addFeatureTopic, lang.hitch( this, this._updateState )));
             this._updateState();
         },
         createSelector : function()
@@ -89,7 +89,7 @@ function( declare,
         },
         pleaseDestroy : function()
         {
-            this.parent.pleaseRemove( this );
+            this.parent.pleaseRemoveControl( this );
             this.destroy();
         },
         _readState : function()

@@ -10,7 +10,7 @@ function( declare,
     return declare([ _FeatureSubPane ], {
         selectedFeaturesTopic : "/SelectedOhun/",
         featureControl : _OhunControl,
-        pleaseRemove : function( item )
+        pleaseRemoveControl : function( control )
         {
             this.inherited( arguments );
             topic.publish( "/StatChanged/-os", Controller.get( "os" ) );

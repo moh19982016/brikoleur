@@ -19,9 +19,9 @@ function( declare,
         postCreate : function()
         {
             this.controls = [];
-            this.featureAdded();
+            this.addFeature();
         },
-        featureAdded : function( kwObj )
+        addFeature : function( kwObj )
         {
             if( this.allowedControls < 0 || this.controls.length < this.allowedControls )
             {
@@ -29,7 +29,7 @@ function( declare,
             }
             if( !Controller.loading )
             {
-                this.publishStatus();
+                this.publishInfo();
             }
             if( this.minimized && this.maximize )
             {
@@ -42,7 +42,7 @@ function( declare,
             this.controls.push( ctl );
             return ctl;
         },
-        descendantFeatureAdded : function()
+        descendantaddFeature : function()
         {
         },
         countItems : function()
@@ -65,7 +65,7 @@ function( declare,
                 }
             }
         },
-        publishStatus : function( synthetic )
+        publishInfo : function( synthetic )
         {
             topic.publish( this.selectedFeaturesTopic, util.getProperties( this.controls, { property : "value" }), synthetic );
         },

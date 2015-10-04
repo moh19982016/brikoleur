@@ -12,7 +12,7 @@ function( declare,
     var Constr = declare([ _FeatureControlBase ], {
         data : knacks,
         selectedFeaturesTopic : "/SelectedKnacks/",
-        featureAddedTopic : "/TrainingAdded/",
+        addFeatureTopic : "/TrainingAdded/",
         propertyPresentWarning : i18n.TrainingPresent,
         postCreate : function()
         {

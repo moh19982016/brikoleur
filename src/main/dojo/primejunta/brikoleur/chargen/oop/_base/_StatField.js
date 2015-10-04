@@ -43,9 +43,9 @@ function( declare,
          */
         cost : 0,
         /**
-         * Inherited, then subscribe to /PleasePublishStatus/. If there's a .cost associated with the stat, set readonly
+         * Inherited, then subscribe to /PleasePublishInfo/. If there's a .cost associated with the stat, set readonly
          * to true and create a Button at ._incrementButton to buy it. Then set a listener for changes to
-         * .publishStatus.
+         * .publishInfo.
          *
          * @public void
          */
@@ -61,12 +61,12 @@ function( declare,
                     this._incrementButton.domNode.style.display = juju < this.cost  ? "none" : "unset";
                 })));
             }
-            this.own( topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ),
+            this.own( topic.subscribe( "/PleasePublishInfo/", lang.hitch( this, this.publishInfo ) ),
                       on( this._input, "change", lang.hitch( this, function( val )
             {
                 if( !Controller.loading )
                 {
-                    this.publishStatus();
+                    this.publishInfo();
                 }
             })));
         },
@@ -75,7 +75,7 @@ function( declare,
          *
          * @public void
          */
-        publishStatus : function()
+        publishInfo : function()
         {
             topic.publish( "/StatChanged/-" + this.name, this.get( "value" ) );
         },

@@ -80,7 +80,7 @@ function( declare,
             this.controls = [];
             this._props = {};
             this._button = new _DockButton({ pane : this }).placeAt( this.dock );
-            this.own( this._button, topic.subscribe( "/PleasePublishStatus/", lang.hitch( this, this.publishStatus ) ) );
+            this.own( this._button, topic.subscribe( "/PleasePublishInfo/", lang.hitch( this, this.publishInfo ) ) );
             if( this.minimized )
             {
                 this.domNode.style.display = "none";
@@ -173,18 +173,18 @@ function( declare,
          * @stub
          * @public void
          */
-        publishStatus : function()
+        publishInfo : function()
         {
         },
         /**
-         * Remove item from .controls.
+         * Remove control from .controls.
          *
-         * @param item
+         * @param control
          * @public void
          */
-        pleaseRemove : function( /* Object */ item )
+        pleaseRemoveControl : function( /* Object */ control )
         {
-            this.controls.splice( array.indexOf( this.controls, item ), 1 );
+            this.controls.splice( array.indexOf( this.controls, control ), 1 );
         },
         /**
          * Intercept "properties", "state", by returning keys of this._props, ._getState(), or the value
