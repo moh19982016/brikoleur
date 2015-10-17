@@ -8,7 +8,6 @@ work is hosted at http://www.brikoleur.com/.
 This character generator is intended for use with it, and implements the
 rules and content defined in the manual http://www.brikoleur.com/manual/.
 
-
 Until an official release is announced, consider it a work in progress which
 will be updated without notice, also in ways which break back-compatibility.
 
