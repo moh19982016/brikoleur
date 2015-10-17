@@ -1,0 +1,25 @@
+LICENSE
+=======
+
+Brikoleur by Petteri Sulonen (“Creative Workers’ Collective ‘Alexander Bogdanov’”) is licensed under a Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License.
+
+The silhouette illustrations are © Andy Smetanka and are used with permission.
+
+Licensing information about other media is included with the media, where appropriate.
+
+Brikoleur uses a variety of fonts under the SIL Open Font License 1.1. More information is included with the fonts.
+
+The Character Generator is based on the Dojo Toolkit, used under the Academic Free License 2.1.
+
+When publishing copies, please include this page in its entirety with the copy.
+
+When publishing derivative works, please include the following notice in a visible location in your work:
+
+-----------------------------------------------------------------------------------------------------------------------
+{work name} by {your name} is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+License. It is based on a work by “Creative Workers’ Collective ‘Alexander Bogdanov’” at http://www.brikoleur.com/.
+-----------------------------------------------------------------------------------------------------------------------
+
+If you wish to use the materials for something not covered by the license, please contact the author at
+bogdanov@brikoleur.com.

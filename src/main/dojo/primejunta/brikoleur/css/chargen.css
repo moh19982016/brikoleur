@@ -233,6 +233,17 @@
     border-right: 4px solid #f00;
 }
 
+.br-footer-left {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 56px;
+    bottom: 0;
+    background-color: #444;
+    border-right: 4px solid #c00;
+}
+
+
 .br-header-bg {
     background-color: black;
     opacity: 0.5;
@@ -241,6 +252,15 @@
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+.br-footerContainer {
+}
+
+.br-copyright {
+    font-size: 12px;
+    padding: 4px;
+    text-align:right;
 }
 
 .br-compactLayout .br-headerContent .br-fieldLabel,
