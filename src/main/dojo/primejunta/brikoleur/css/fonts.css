@@ -1,32 +1,72 @@
 @font-face {
     font-family: 'Iceberg';
-    font-style: normal;
     font-weight: 400;
-    src: local('Iceberg'), local('Iceberg-regular'), url(fonts/Iceberg-regular.woff) format('woff');
+    font-style: normal;
+    src: url('fonts/Iceberg-regular/Iceberg-regular.eot');
+    src: url('fonts/Iceberg-regular/Iceberg-regular.eot?#iefix') format('embedded-opentype'),
+    local('Iceberg'),
+    local('Iceberg-regular'),
+    url('fonts/Iceberg-regular/Iceberg-regular.woff2') format('woff2'),
+    url('fonts/Iceberg-regular/Iceberg-regular.woff') format('woff'),
+    url('fonts/Iceberg-regular/Iceberg-regular.ttf') format('truetype'),
+    url('fonts/Iceberg-regular/Iceberg-regular.svg#Iceberg') format('svg');
 }
+
 @font-face {
     font-family: 'Old Standard TT';
-    font-style: normal;
     font-weight: 400;
-    src: local('Old Standard TT Regular'), local('OldStandardTT-regular'), url(fonts/OldStandardTT-regular.woff) format('woff');
+    font-style: normal;
+    src: url('fonts/Old-Standard-TT-regular/Old-Standard-TT-regular.eot');
+    src: url('fonts/Old-Standard-TT-regular/Old-Standard-TT-regular.eot?#iefix') format('embedded-opentype'),
+    local('Old Standard TT Regular'),
+    local('Old-Standard-TT-regular'),
+    url('fonts/Old-Standard-TT-regular/Old-Standard-TT-regular.woff2') format('woff2'),
+    url('fonts/Old-Standard-TT-regular/Old-Standard-TT-regular.woff') format('woff'),
+    url('fonts/Old-Standard-TT-regular/Old-Standard-TT-regular.ttf') format('truetype'),
+    url('fonts/Old-Standard-TT-regular/Old-Standard-TT-regular.svg#OldStandardTT') format('svg');
 }
+
 @font-face {
     font-family: 'Old Standard TT';
-    font-style: normal;
     font-weight: 700;
-    src: local('Old Standard TT Bold'), local('OldStandardTT-bold'), url(fonts/OldStandardTT-bold.woff) format('woff');
+    font-style: normal;
+    src: url('fonts/Old-Standard-TT-700/Old-Standard-TT-700.eot');
+    src: url('fonts/Old-Standard-TT-700/Old-Standard-TT-700.eot?#iefix') format('embedded-opentype'),
+    local('Old Standard TT Bold'),
+    local('Old-Standard-TT-700'),
+    url('fonts/Old-Standard-TT-700/Old-Standard-TT-700.woff2') format('woff2'),
+    url('fonts/Old-Standard-TT-700/Old-Standard-TT-700.woff') format('woff'),
+    url('fonts/Old-Standard-TT-700/Old-Standard-TT-700.ttf') format('truetype'),
+    url('fonts/Old-Standard-TT-700/Old-Standard-TT-700.svg#OldStandardTT') format('svg');
 }
+
 @font-face {
     font-family: 'Old Standard TT';
-    font-style: italic;
     font-weight: 400;
-    src: local('Old Standard TT Italic'), local('OldStandardTT-italic'), url(fonts/OldStandardTT-italic.woff) format('woff');
+    font-style: italic;
+    src: url('fonts/Old-Standard-TT-italic/Old-Standard-TT-italic.eot');
+    src: url('fonts/Old-Standard-TT-italic/Old-Standard-TT-italic.eot?#iefix') format('embedded-opentype'),
+    local('Old Standard TT Italic'),
+    local('Old-Standard-TT-italic'),
+    url('fonts/Old-Standard-TT-italic/Old-Standard-TT-italic.woff2') format('woff2'),
+    url('fonts/Old-Standard-TT-italic/Old-Standard-TT-italic.woff') format('woff'),
+    url('fonts/Old-Standard-TT-italic/Old-Standard-TT-italic.ttf') format('truetype'),
+    url('fonts/Old-Standard-TT-italic/Old-Standard-TT-italic.svg#OldStandardTT') format('svg');
 }
+
+
 @font-face {
     font-family: 'Stalinist One';
-    font-style: normal;
     font-weight: 400;
-    src: local('Stalinist One'), local('StalinistOne-regular'), url(fonts/StalinistOne-regular.woff) format('woff');
+    font-style: normal;
+    src: url('fonts/Stalinist-One-regular/Stalinist-One-regular.eot');
+    src: url('fonts/Stalinist-One-regular/Stalinist-One-regular.eot?#iefix') format('embedded-opentype'),
+    local('Stalinist One'),
+    local('Stalinist-One-regular'),
+    url('fonts/Stalinist-One-regular/Stalinist-One-regular.woff2') format('woff2'),
+    url('fonts/Stalinist-One-regular/Stalinist-One-regular.woff') format('woff'),
+    url('fonts/Stalinist-One-regular/Stalinist-One-regular.ttf') format('truetype'),
+    url('fonts/Stalinist-One-regular/Stalinist-One-regular.svg#StalinistOne') format('svg');
 }
 
 @font-face {
