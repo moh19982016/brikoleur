@@ -254,6 +254,11 @@
     bottom: 0;
 }
 
+.br-headerLinkDivider {
+    font-size: 28px;
+    vertical-align: -6px;
+}
+
 .br-footerContainer {
 }
 

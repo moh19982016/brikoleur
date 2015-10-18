@@ -94,7 +94,14 @@ function( declare,
          * @final
          * @public string
          */
-        manualUrl : "http://www.brikoleur.com/manual/index.html",
+        manualUrl : "http://manual.brikoleur.com/",
+        /**
+         * URL to Brikoleur blog.
+         *
+         * @final
+         * @public string
+         */
+        blogUrl : "http://blog.brikoleur.com/",
         /**
          * URL to licensing information.
          *
