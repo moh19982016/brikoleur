@@ -260,7 +260,6 @@ function( declare,
             {
                 this.publishInfo();
             }
-            this.onAddDescendant();
         },
         /**
          * If we're allowed to create a child control, .createChildControl on data retrieved from ._store (if any).
@@ -300,6 +299,7 @@ function( declare,
                 parent : this
             })).placeAt( this.childrenNode );
             this.controls.push( ctl );
+            this.onAddDescendant();
             return ctl;
         },
         /**
