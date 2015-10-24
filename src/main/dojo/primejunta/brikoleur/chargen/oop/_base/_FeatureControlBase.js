@@ -499,7 +499,7 @@ function( declare,
             {
                 this.set( "value", this.state.value );
                 var _data = this._getData( this.state.value );
-                this.state = lang.mixin( this.state, _data );
+                this.state = lang.mixin( _data, this.state );
                 this.setDescription( this.state );
                 for( var i = 0; i < ( state.controls || [] ).length; i++ )
                 {

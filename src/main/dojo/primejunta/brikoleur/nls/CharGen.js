@@ -21,6 +21,7 @@ define({
         "Stunts" : "Stunts",
         "Ohun" : "Ohun",
         "Stamina" : "Stamina",
+        "Add" : "Add",
         "Armour" : "Armour",
         "Weapon" : "Weapon",
         "Level" : "Level ",
@@ -31,6 +32,10 @@ define({
         "Revert" : "Revert",
         "Ekip" : "Ekip",
         "NameInUse" : "The name is already in use.",
+        // item fields
+        "gear" : "Gear",
+        "armour" : "Armour",
+        "weapon" : "Weapon",
         "ItemDescription" : "Description",
         "ActivePowerSlots" : "Active Powers",
         "OhunSlots" : "Ohun",
