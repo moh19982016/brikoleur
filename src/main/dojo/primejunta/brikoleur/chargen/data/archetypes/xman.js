@@ -6,13 +6,13 @@ define({
         },
         "traits": [
             {
-                "name": "Contra-Synchronicity",
-                "value": "Contra-Synchronicity",
+                "name": "Counter-Synchronicity",
+                "value": "Counter-Synchronicity",
                 "key": false,
                 "controls": [],
                 "description": "Guns pointed at you will misfire. You can manipulate probabilities. You can create and use Cards to produce persistent effects distorting probabilities. You can acquire special abilities that produce specific and powerful CS effects.",
                 "link": "#doc88",
-                "id": "Contra-Synchronicity"
+                "id": "Counter-Synchronicity"
             },
             {
                 "name": "Trait",
@@ -86,12 +86,12 @@ define({
         "powers": [
             {
                 "name": "Plays",
-                "key": "Contra-Synchronicity",
+                "key": "Counter-Synchronicity",
                 "controls": [
                     {
                         "name": "Plays",
                         "value": false,
-                        "key": "Contra-Synchronicity",
+                        "key": "Counter-Synchronicity",
                         "controls": [],
                         "active": false
                     }
@@ -113,12 +113,12 @@ define({
             },
             {
                 "name": "Cards",
-                "key": "Contra-Synchronicity",
+                "key": "Counter-Synchronicity",
                 "controls": [
                     {
                         "name": "Cards",
                         "value": false,
-                        "key": "Contra-Synchronicity",
+                        "key": "Counter-Synchronicity",
                         "controls": []
                     }
                 ]

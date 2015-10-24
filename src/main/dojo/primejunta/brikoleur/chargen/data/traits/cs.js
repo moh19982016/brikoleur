@@ -1,5 +1,5 @@
 define({
-    "name": "Contra-Synchronicity",
+    "name": "Counter-Synchronicity",
     "description": "Guns pointed at you will misfire. You can manipulate probabilities. You can create and use Cards to produce persistent effects distorting probabilities. You can acquire special abilities that produce specific and powerful CS effects.",
     "link": "#doc88",
     "features" : [{
@@ -19,9 +19,9 @@ define({
                     "description": "The card will cause guns fired at the individual or in a Small area to misfire on a roll of (card level) on a d6."
                 },
                 {
-                    "name": "Suppress Contra-Synchronicity",
+                    "name": "Suppress Counter-Synchronicity",
                     "type": "persistent",
-                    "description": "Suppresses any Contra-Synchronicity effects in the area up to (card level)."
+                    "description": "Suppresses any Counter-Synchronicity effects in the area up to (card level)."
                 },
                 {
                     "name": "Good or Bad luck",
