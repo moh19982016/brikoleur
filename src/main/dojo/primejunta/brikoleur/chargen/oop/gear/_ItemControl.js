@@ -5,7 +5,9 @@
  */
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
+         "dojo/on",
          "dojo/topic",
+         "dojo/dom-class",
          "dijit/form/CheckBox",
          "dijit/form/Select",
          "dijit/form/TextBox",
@@ -16,7 +18,9 @@ define([ "dojo/_base/declare",
          "dojo/i18n!../../../nls/CharGen" ],
 function( declare,
           lang,
+          on,
           topic,
+          domClass,
           CheckBox,
           Select,
           TextBox,
@@ -27,6 +31,7 @@ function( declare,
           i18n )
 {
     return declare([ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
+        type : "gear",
         /**
          * Parent.
          *
@@ -48,13 +53,18 @@ function( declare,
          */
         templateString : template,
         /**
-         * Subscribe to topic instructing to lock/unlock remove button.
+         * Sets listener for clicks, which will publish topic picked up by _ItemHeader, setting the header to match
+         * the item. Then set levelInput and .recalcValues().
          *
          * @public void
          */
         postCreate : function()
         {
-            this.own( topic.subscribe( "/SetGearRemoveLock/", lang.hitch( this, this._setGearRemoveLock ) ) )
+            this.own( on( this.domNode, "click", lang.hitch( this, function() {
+                topic.publish( "/InventoryItemClicked/", this.type );
+            })));
+            this.levelInput.set( "value", this.level || 0 );
+            this.recalcValues();
         },
         /**
          * Fires when gear type is chosen.
@@ -64,6 +74,46 @@ function( declare,
          */
         chooseType : function()
         {
+        },
+        /**
+         * If attachPoint has no value or has a calculated value, replaces it with nVal and marks it with CSS as
+         * calculated. Else unmarks CSS. Finally _publishChange so the save button is activated.
+         *
+         * @param attachPoint
+         * @param nVal
+         * @param cVal
+         * @public void
+         */
+        setField : function( /* string */ attachPoint, /* int */ nVal, /* int */ cVal )
+        {
+            if( isNaN( this[ attachPoint ].get( "value" ) ) || this[ attachPoint ].get( "value" ) == cVal )
+            {
+                this[ attachPoint ].set( "value", nVal );
+                this.markCalculated( this[ attachPoint ], true );
+            }
+            else
+            {
+                this.markCalculated( this[ attachPoint ], false );
+            }
+            this._publishChange();
+        },
+        /**
+         * Stub. Connect something here to recalculate values.
+         *
+         * @stub
+         * @public void
+         */
+        recalcValues : function()
+        {
+        },
+        /**
+         * Tags/untags field with suitable CSS class, if isCalculated or not.
+         *
+         * @public void
+         */
+        markCalculated : function( /* TextBox */ field, /* boolean */ isCalculated )
+        {
+            isCalculated ? domClass.add( field.domNode, "br-calculatedValue" ) : domClass.remove( field.domNode, "br-calculatedValue" );
         },
         /**
          * Requests parent to remove self, then ._publishChange, then destroy.
@@ -110,10 +160,25 @@ function( declare,
             {
                 this._setValue( val );
             }
+            else if( prop == "type" )
+            {
+                this.displayType( val );
+                this.type = val;
+            }
             else
             {
                 this.inherited( arguments );
             }
+        },
+        /**
+         * Displays localized type in .typeDisplayNode. Override or disconnect if doing this differently.
+         *
+         * @param type
+         * @public void
+         */
+        displayType : function( /* string */ type )
+        {
+            this.typeDisplayNode.innerHTML = i18n[ type ] || i18n.gear;
         },
         /**
          * Fires topic informing that inventory has changed.
@@ -123,16 +188,6 @@ function( declare,
         _publishChange : function()
         {
             topic.publish( "/PropertyChanged/", "inventory", this.get( "value" ) );
-        },
-        /**
-         * Sets disabled on .deleteButton to match to.
-         *
-         * @param to
-         * @private void
-         */
-        _setGearRemoveLock : function( /* boolean */ to )
-        {
-            this.deleteButton.set( "disabled", to );
         },
         /**
          * Returns object with value retrieved via ._getValue.
@@ -150,41 +205,28 @@ function( declare,
          */
         _getValue : function()
         {
-            return this.activeControl.get( "checked" ) + "|" + this.typeSelect.get( "value" ) + "|" + this.levelInput.get( "value" ) + "|" + this._esc( this.descriptionInput.get( "value" ) );
+            return {
+                carried : this.activeControl.get( "checked" ),
+                type : this.get( "type" ),
+                level : this.levelInput.get( "value" ),
+                description : this.descriptionInput.get( "value" )
+            };
         },
         /**
          * Sets UI state from bar-separated list string in val.
          *
-         * @param val
+         * @param props
          * @private void
          */
-        _setValue : function( /* string */ val )
+        _setValue : function( /* Object */ props )
         {
-            var values = val.split( "|" );
-            this.activeControl.set( "checked", values[ 0 ] == "true" );
-            this.typeSelect.set( "value", values[ 1 ] );
-            this.levelInput.set( "value", parseInt( values[ 2 ] ) );
-            this.descriptionInput.set( "value", this._unesc( values[ 3 ] ) );
-        },
-        /**
-         * Escapes bars in str.
-         *
-         * @param str
-         * @private string
-         */
-        _esc : function( str )
-        {
-            return str.replace( /\|/g, "&bar;" );
-        },
-        /**
-         * Unescapes bar patterns in str.
-         *
-         * @param str
-         * @private string
-         */
-        _unesc : function( str )
-        {
-            return str.replace( /\&bar;/g, "|" );
+            props = props || {};
+            this.activeControl.set( "checked", props.carried );
+            this.set( "type", props.type );
+            this.itemType = props.itemType || this.itemType;
+            this.level = props.level || this.level;
+            this.levelInput.set( "value", props.level );
+            this.descriptionInput.set( "value", props.description );
         }
     });
 });

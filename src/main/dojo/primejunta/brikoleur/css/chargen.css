@@ -745,6 +745,10 @@ a.br-manualLink:hover {
     width: 75px;
 }
 
+.br-calculatedValue {
+    font-style: italic;
+}
+
 /* Buttons */
 .br-smallButton .dijitButtonNode {
     background: none !important;

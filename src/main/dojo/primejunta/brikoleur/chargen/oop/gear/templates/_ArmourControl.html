@@ -1,0 +1,35 @@
+<div class="br-rowItem">
+    <div class="br-floatLeft br-inputContainer" style="width:25px;">
+        <input type="checkbox" data-dojo-type="dijit/form/CheckBox" data-dojo-attach-event="onChange:_publishChange" data-dojo-attach-point="activeControl"/>
+    </div>
+    <div class="br-floatLeft br-inputContainer" style="width:100px;">
+        <select data-dojo-type="dijit/form/Select" data-dojo-attach-point="itemTypeSelect" data-dojo-attach-event="onChange:onChangeType">
+            <option value="L">${dict.LightArmour}</option>
+            <option value="M">${dict.MediumArmour}</option>
+            <option value="H">${dict.HeavyArmour}</option>
+            <option value="P">${dict.PoweredArmour}</option>
+        </select>
+    </div>
+    <div class="br-floatLeft br-inputContainer" style="width:30px;">
+        <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="levelInput" data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
+    </div>
+    <div class="br-floatLeft br-inputContainer" style="width:30px;">
+    <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="directArmourInput" data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
+</div>
+    <div class="br-floatLeft br-inputContainer" style="width:30px;">
+        <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="environmentalArmourInput" data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
+    </div>
+    <div class="br-floatLeft br-inputContainer" style="width:30px;">
+        <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="staminaPenaltyInput" data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
+    </div>
+    <div class="br-floatLeft br-inputContainer" style="width:30px;">
+        <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="movementPenaltyInput" data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
+    </div>
+    <div class="br-floatRight" style="width:30px;">
+        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton" data-dojo-attach-event="onClick:pleaseDestroy" class="br-smallButton"><i class="fa fa-minus-square br-red"></i></button>
+    </div>
+    <div class="br-floatRight br-inputContainer" style="width:calc( 100% - 313px )">
+        <input data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="descriptionInput" data-dojo-attach-event="onChange:_publishChange" style="width:100%"/>
+    </div>
+    <div style="clear:both"></div>
+</div>
