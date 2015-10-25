@@ -151,14 +151,14 @@ function( declare,
                 this.mode = "play";
                 this.playButton.set( "iconClass", "fa fa-hourglass" );
                 this.playButton.set( "label", i18n.PrepMode );
-                this.mainTabs.selectChild( this.ipTab );
+                this.mainTabs.selectChild( this.inPlayPane );
             }
             else
             {
                 this.mode = "rest";
                 this.playButton.set( "iconClass", "fa fa-rocket" );
                 this.playButton.set( "label", i18n.PlayMode );
-                this.mainTabs.selectChild( this.oopTab );
+                this.mainTabs.selectChild( this.characterPane );
             }
         },
         /**
@@ -310,9 +310,9 @@ function( declare,
             {
                 return this._getState();
             }
-            else if( array.indexOf( this.oopTab.panes.numbers.get( "properties" ), prop ) != - 1 )
+            else if( array.indexOf( this.characterPane.panes.numbers.get( "properties" ), prop ) != - 1 )
             {
-                return this.oopTab.panes.numbers.get( prop );
+                return this.characterPane.panes.numbers.get( prop );
             }
             else
             {
@@ -428,11 +428,11 @@ function( declare,
          */
         _setupPanes : function()
         {
-            this.oopTab = new _OopPane({ manager : this } ).placeAt( this.mainTabs );
-            this.ipTab = new _IpPane({ manager : this } ).placeAt( this.mainTabs );
-            this.oopTab.startup();
-            this.ipTab.startup();
-            this.own( this.oopTab, this.ipTab );
+            this.characterPane = new _OopPane({ manager : this } ).placeAt( this.mainTabs );
+            this.inPlayPane = new _IpPane({ manager : this } ).placeAt( this.mainTabs );
+            this.characterPane.startup();
+            this.inPlayPane.startup();
+            this.own( this.characterPane, this.inPlayPane );
         },
         /**
          * Checks if we want to load straight into a character, and does so if necessary; else fades in splash screen.
@@ -459,7 +459,7 @@ function( declare,
          */
         _getState : function()
         {
-            return this.oopTab.get( "state" );
+            return this.characterPane.get( "state" );
         },
         /**
          * Iterates through state, and sets the state of each pane from the corresponding property in it. Then publishes
@@ -472,12 +472,12 @@ function( declare,
         _setState : function( state )
         {
             this.loading = true;
-            this.oopTab.set( "state", state );
+            this.characterPane.set( "state", state );
             this.publishJuju();
             setTimeout( lang.hitch( this, function()
             {
                 this.loading = false;
-                this.mainTabs.selectChild( this.oopTab );
+                this.mainTabs.selectChild( this.characterPane );
             } ), 1 ); // Do we need the timeout?
         },
         /**

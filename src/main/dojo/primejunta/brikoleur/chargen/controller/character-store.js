@@ -90,7 +90,7 @@ function( declare,
          */
         doSaveCharacter : function()
         {
-            var cName = this.panes.name.get( "state" ).characterName;
+            var cName = this.characterPane.panes.name.get( "state" ).characterName;
             var juju = this.get( "juju" );
             if( !this.is_new )
             {
@@ -113,9 +113,9 @@ function( declare,
         validateCharacter : function()
         {
             var reslts = [];
-            for( var o in this.panes )
+            for( var o in this.characterPane.panes )
             {
-                var reslt = this.panes[ o ].validate ? this.panes[ o ].validate() : { valid : true };
+                var reslt = this.characterPane.panes[ o ].validate ? this.characterPane.panes[ o ].validate() : { valid : true };
                 if( reslt.valid != true )
                 {
                     reslts.push( reslt.message );
@@ -153,7 +153,7 @@ function( declare,
          */
         deleteCharacter : function()
         {
-            var charName = this.panes.name.get( "state" ).characterName;
+            var charName = this.characterPane.panes.name.get( "state" ).characterName;
             var keys = CharacterStore.list();
             if( charName && array.indexOf( keys, charName ) != -1 )
             {
@@ -176,9 +176,9 @@ function( declare,
          */
         revertCharacter : function()
         {
-            if( this.panes.name.get( "state" ).characterName )
+            if( this.characterPane.panes.name.get( "state" ).characterName )
             {
-                this.loadCharacter( this.panes.name.get( "state" ).characterName, true );
+                this.loadCharacter( this.characterPane.panes.name.get( "state" ).characterName, true );
             }
         }
     });

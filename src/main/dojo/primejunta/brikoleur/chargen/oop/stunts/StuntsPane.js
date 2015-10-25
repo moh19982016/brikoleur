@@ -162,14 +162,14 @@ function( declare,
             }
         },
         /**
-         * Update .allowedControls with CharacterPane.getAllowedStunts(). Only Controller can know since it has access to
+         * Update .allowedControls with Controller.characterPane.getAllowedStunts(). Only Controller can know since it has access to
          * the Knacks pane which has the required info.
          *
          * @public void
          */
         updateAllowedControls : function()
         {
-            this.allowedControls = CharacterPane.getAllowedStunts();
+            this.allowedControls = Controller.characterPane.getAllowedStunts();
         },
         /**
          * If we don't have an open stunt, create a new _StuntControl at .containerNode, making this the parent.
@@ -232,6 +232,7 @@ function( declare,
             {
                 this.maximize();
             }
+            this.onAddDescendant();
         }
     });
 });

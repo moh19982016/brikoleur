@@ -23,6 +23,29 @@ function( declare,
         dict : i18n,
         panes : {},
         templateString : template,
+        /**
+         * Adds all the UI panes needed for the character creator.
+         *
+         * @public void
+         */
+        startup : function()
+        {
+            if( this._started )
+            {
+                return;
+            }
+            this.inherited( arguments );
+            this.setupPanes();
+        },
+        /**
+         * Stub. Add the panes you want here.
+         *
+         * @stub
+         * @public void
+         */
+        setupPanes : function()
+        {
+        },
         set : function( prop, val )
         {
             if( prop == "state" )

@@ -29,19 +29,8 @@ function( declare,
 {
     return declare( [ _MainPaneBase ], {
         title : i18n.OutOfPlay,
-        /**
-         * Adds all the UI panes needed for the character creator.
-         *
-         * @public void
-         */
-        startup : function()
+        setupPanes : function()
         {
-            if( this._started )
-            {
-                return;
-            }
-            this.inherited( arguments );
-            window.CharacterPane = this;
             this._addPane( "name", new NamePane().placeAt( this.nameContainer ) );
             this._addPane( "traits", new TraitsPane( { dock : this.dockContainer } ).placeAt( this.oopGrid ) );
             this._addPane( "knacks", new KnacksPane( { dock : this.dockContainer } ).placeAt( this.oopGrid ) );
@@ -69,6 +58,9 @@ function( declare,
                 level : 1,
                 filter : true
             } );
+
+            console.log( "WE HAVE:", stunts.length );
+
             return stunts.length;
         }
     } );
