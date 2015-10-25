@@ -7,7 +7,7 @@ define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/topic",
          "dijit/form/CheckBox",
-         "./../_base/_FeatureControlBase",
+         "./../_base/_FeatureControl",
          "./../_base/_PoweredAbilityMixin",
          "dojo/text!./templates/_PowerControl.html",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
@@ -15,12 +15,12 @@ function( declare,
           lang,
           topic,
           CheckBox,
-          _FeatureControlBase,
+          _FeatureControl,
           _PoweredAbilityMixin,
           template,
           i18n )
 {
-    var Constr = declare([ _FeatureControlBase, _PoweredAbilityMixin ], {
+    var Constr = declare([ _FeatureControl, _PoweredAbilityMixin ], {
         /**
          * Maximum depth allowed for descendants for controls of this type.
          *

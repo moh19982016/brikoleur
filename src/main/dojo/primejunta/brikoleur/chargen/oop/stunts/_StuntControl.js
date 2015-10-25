@@ -5,16 +5,16 @@
  */
 define([ "dojo/_base/declare",
          "../../data/stunts",
-         "./../_base/_FeatureControlBase",
+         "./../_base/_FeatureControl",
          "./../_base/_PoweredAbilityMixin",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           stunts,
-          _FeatureControlBase,
+          _FeatureControl,
           _PoweredAbilityMixin,
           i18n )
 {
-    var Constr = declare([ _FeatureControlBase, _PoweredAbilityMixin ], {
+    var Constr = declare([ _FeatureControl, _PoweredAbilityMixin ], {
         /**
          * Data for the feature.
          *

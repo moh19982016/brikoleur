@@ -11,7 +11,7 @@ define([ "dojo/_base/declare",
          "dojo/dom-class",
          "dijit/form/Select",
          "./../_base/util",
-         "./../_base/_FeatureControlBase",
+         "./../_base/_FeatureControl",
          "dojo/text!./templates/_OhunControl.html",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
@@ -22,11 +22,11 @@ function( declare,
           domClass,
           Select,
           util,
-          _FeatureControlBase,
+          _FeatureControl,
           template,
           i18n )
 {
-    return declare([ _FeatureControlBase ], {
+    return declare([ _FeatureControl ], {
         /**
          * Data for the feature.
          *

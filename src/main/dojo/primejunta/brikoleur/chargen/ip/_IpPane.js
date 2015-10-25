@@ -31,7 +31,7 @@ function( declare,
         setupPanes : function()
         {
             this._addPane( "name", new NamePane().placeAt( this.nameContainer ) );
-            this._addPane( "resolver", new ResolverPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
+            this._addPane( "knacks", new ResolverPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "numbers", new NumbersPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "powers", new PowersPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "ohun", new OhunPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
