@@ -100,6 +100,7 @@ function( declare,
             CharacterStore.save( cName, this.get( "state" ) );
             topic.publish( "/CharacterSaved/" );
             this._refreshEkip();
+            this.playButton.set( "disabled", false );
             return new Deferred().resolve();
         },
         /**

@@ -11,17 +11,20 @@
       <a href="${manualUrl}" class="br-headerLink">${dict.PlayersHandbook}</a> <a name="dev/null" class="br-headerLinkDivider">|</a> <a href="${blogUrl}" class="br-headerLink">${dict.Blog}</a>
     </div>
   </div>
-  <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left'" class="br-sidebar" data-dojo-attach-point="dockContainer">
-  </div>
   <div data-dojo-type="dijit/layout/StackContainer" data-dojo-props="region:'center'" data-dojo-attach-point="mainTabs">
     <div data-dojo-type="dijit/layout/LayoutContainer" data-dojo-attach-point="oopTab" title="${dict.OutOfPlay}">
+      <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left'" class="br-sidebar" data-dojo-attach-point="dockContainer">
+      </div>
       <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="nameContainer" data-dojo-props="region:'top'" class="br-nameContainer">
       </div>
       <div data-dojo-type="primejunta/brikoleur/chargen/_base/DynamicGrid" data-dojo-props="region:'center'" data-dojo-attach-point="oopGrid" style="padding:8px 8px 8px 0">
       </div>
     </div>
     <div data-dojo-type="dijit/layout/ContentPane" title="${dict.InPlay}" data-dojo-attach-point="ipTab">
-      ip
+      <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="ipNameContainer" data-dojo-props="region:'top'" class="br-nameContainer">
+      </div>
+      <div data-dojo-type="primejunta/brikoleur/chargen/_base/DynamicGrid" data-dojo-props="region:'center'" data-dojo-attach-point="ipGrid" style="padding:8px 8px 8px 0">
+      </div>
     </div>
   </div>
   <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'" class="br-footerContainer">

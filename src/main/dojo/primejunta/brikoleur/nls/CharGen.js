@@ -33,6 +33,8 @@ define({
         "Delete" : "Delete",
         "Revert" : "Revert",
         "Ekip" : "Ekip",
+        "PlayMode" : "Play",
+        "PrepMode" : "Rest",
         "NameInUse" : "The name is already in use.",
         // item fields
         "gear" : "Gear",
