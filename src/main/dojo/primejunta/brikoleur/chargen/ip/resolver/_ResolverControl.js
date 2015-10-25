@@ -1,6 +1,7 @@
 define( [ "dojo/_base/declare",
           "dojo/_base/lang",
           "dojo/topic",
+          "dojo/Deferred",
           "./../_base/NumberInput",
           "dijit/_WidgetBase",
           "dijit/_TemplatedMixin",
@@ -10,6 +11,7 @@ define( [ "dojo/_base/declare",
 function( declare,
           lang,
           topic,
+          Deferred,
           NumberInput,
           _WidgetBase,
           _TemplatedMixin,
@@ -42,9 +44,11 @@ function( declare,
         },
         rollDie : function()
         {
-            var n = Math.round( 0.5 + ( Math.random() * 6 ) );
-            this.rollDieNode.innerHTML = "<span class='br-dieRoll'>" + this.DICE[ "D" + n ] + "</span>";
-            this.taskResultNode.innerHTML = ( this.bonus + n ) - this.difficulty;
+            var n = Math.round( 0.5 + Math.random() * 6 );
+            this._rollFx( n, 7 ).then( lang.hitch( this, function()
+            {
+                this.taskResultNode.innerHTML = ( this.bonus + n ) - this.difficulty;
+            } ) );
         },
         set : function( prop, val )
         {
@@ -53,6 +57,26 @@ function( declare,
                 this.bonus = val;
                 this.totalBonusNode.innerHTML = val;
             }
+        },
+        _rollFx : function( final, iter, prom )
+        {
+            prom = prom || new Deferred();
+            var dice = [ 1, 5, 6, 2, 4, 3 ];
+            var n = final;
+            if( iter > 0 )
+            {
+                n = dice[ iter % dice.length ];
+            }
+            this.rollDieNode.innerHTML = "<span class='br-dieRoll'>" + this.DICE[ "D" + n ] + "</span>";
+            if( iter > 0 )
+            {
+                setTimeout( lang.hitch( this, this._rollFx, final, iter - 1, prom ), 100 );
+            }
+            else
+            {
+                prom.resolve();
+            }
+            return prom;
         },
         _resetDie : function()
         {

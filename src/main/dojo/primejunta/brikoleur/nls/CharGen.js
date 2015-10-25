@@ -87,7 +87,7 @@ define({
         "ResolveTask" : "Resolve Task",
         "ResourceBonus" : "Resource",
         "IntelBonus" : "Intel",
-        "OhunBonus" : "Ohun",
+        "OhunBonus" : "Ohun/Pwr",
         "TotalBonus" : "Bonus",
         "TaskDifficulty" : "Difficulty",
         "TaskResult" : "Result",
