@@ -24,7 +24,7 @@ function( declare,
     return declare( [ _MainPaneBase ], {
         title : i18n.InPlay,
         /**
-         * Adds all the UI panes needed for the character creator.
+         * Adds all the UI panes needed for in-play mode.
          *
          * @private void
          */
