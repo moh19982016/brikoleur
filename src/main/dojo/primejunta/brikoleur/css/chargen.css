@@ -833,6 +833,10 @@ a.br-manualLink:hover {
     color: white;
 }
 
+.br-tempBonus {
+    background-color: #f88;
+}
+
 .br-dieRoll {
     font-weight: normal;
     font-size: 30px;

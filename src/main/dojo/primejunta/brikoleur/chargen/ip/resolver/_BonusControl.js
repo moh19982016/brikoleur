@@ -66,14 +66,8 @@ function( declare,
         },
         setBonus : function( bonus )
         {
-
-            console.log( "BONUS!", bonus );
-
             for( var o in this.buttons )
             {
-
-                console.log( "VALUE!", bonus, this.buttons[ o ].value , this.buttons[ o ].value == bonus );
-
                 if( this.buttons[ o ].value == bonus )
                 {
                     domClass.add( this.buttons[ o ].domNode || this.buttons[ o ], "br-bonusSelected" );
@@ -89,11 +83,10 @@ function( declare,
         setMax : function( max )
         {
             max = parseInt( max );
-            console.log( "MAX", max );
             this.max = max;
             for( var o in this.buttons )
             {
-                console.log( "THU MUMBER", this.buttons[ o ].value );
+                domClass.remove( this.buttons[ o ], "br-tempBonus" );
                 if( this.buttons[ o ].value > max )
                 {
                     domClass.add( this.buttons[ o ], "br-disabledBonus" );
@@ -102,6 +95,10 @@ function( declare,
                 {
                     domClass.remove( this.buttons[ o ], "br-disabledBonus" );
                 }
+            }
+            if( this.bonus > this.max )
+            {
+                domClass.add( this.buttons[ "b" + this.max ], "br-tempBonus" );
             }
         },
         set : function( prop, val )

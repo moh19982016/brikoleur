@@ -39,15 +39,18 @@ function( declare,
             evt.stopPropagation();
             popup.open( { popup : this._numberDialog, around : this.domNode } );
             this.onChange( this.value );
-            on.once( document.body, "click", lang.hitch( this, function( evt )
+            this.own( on.once( this._numberDialog.domNode, "click", lang.hitch( this, function( evt )
             {
                 if( !isNaN( parseInt( evt.target.innerHTML ) ) )
                 {
                     this.set( "value", parseInt( evt.target.innerHTML ) );
                 }
+            } ) ) );
+            this.own( on.once( document.body, "click", lang.hitch( this, function( evt )
+            {
                 popup.close( this._numberDialog );
                 this.onChange( this.value );
-            } ) );
+            } ) ) );
         },
         onChange : function()
         {
