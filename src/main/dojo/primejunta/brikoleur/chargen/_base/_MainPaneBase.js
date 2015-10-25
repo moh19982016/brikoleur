@@ -21,7 +21,6 @@ function( declare,
 {
     return declare( [ LayoutContainer, _TemplatedMixin, _WidgetsInTemplateMixin ], {
         dict : i18n,
-        panes : {},
         templateString : template,
         /**
          * Adds all the UI panes needed for the character creator.
@@ -34,6 +33,7 @@ function( declare,
             {
                 return;
             }
+            this.panes = {};
             this.inherited( arguments );
             this.setupPanes();
         },

@@ -59,6 +59,7 @@ define({
         "StaminaPenalty" : "St",
         "MovementPenalty" : "Mv",
         "ItemDescription" : "Description",
+        // Stats
         "ActivePowerSlots" : "Active Powers",
         "OhunSlots" : "Ohun",
         "SelectOrType" : "Invent or select",
@@ -82,6 +83,9 @@ define({
         "NotReadyToSave" : "Decisions missing:",
         "PleaseSelectRequiredFeatures" : "Please select ${num} ${name}.",
         "NeedName" : "Please name your hero.",
+        // in-play
+        "ResolveTask" : "Resolve Task",
+        // misc
         "MoreInformation" : "More information ",
         "LastModified" : "Last updated:"
     }

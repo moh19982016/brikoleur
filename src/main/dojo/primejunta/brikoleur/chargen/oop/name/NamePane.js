@@ -6,39 +6,18 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/topic",
-         "dijit/form/ValidationTextBox",
          "dijit/form/Button",
-         "dijit/_WidgetBase",
-         "dijit/_TemplatedMixin",
-         "dijit/_WidgetsInTemplateMixin",
-         "dojo/text!./templates/NamePane.html",
+         "../../_base/_NamePaneBase",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
           topic,
-          ValidationTextBox,
           Button,
-          _WidgetBase,
-          _TemplatedMixin,
-          _WidgetsInTemplateMixin,
-          template,
+          _NamePaneBase,
           i18n )
 {
-    return declare( [ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
-        /**
-         * Localization.
-         *
-         * @final
-         * @public Object
-         */
-        dict : i18n,
-        /**
-         * Template.
-         *
-         * @final
-         * @public string
-         */
-        templateString : template,
+    return declare( [ _NamePaneBase ], {
+        pt: "OOP",
         /**
          * Connect validator functions and messages to .nameInput, set up buttons for saving, reverting, and deleting
          * the character, and subscribe to topics indicating a character was saved or a property was changed, which will
@@ -160,48 +139,10 @@ function( declare,
             this.revertButton.set( "disabled", false );
             this.deleteButton.set( "disabled", false );
         },
-        /**
-         * Intercept state to return an Object containing characterName.
-         *
-         * @param prop
-         * @public Object
-         */
-        get : function( /* string */ prop )
+        _setState : function( state )
         {
-            if( prop == "state" )
-            {
-                return {
-                    characterName : this.nameInput.get( "value" )
-                };
-            }
-            else
-            {
-                return this.inherited( arguments );
-            }
-        },
-        /**
-         * Intercept "state" to set characterName from val. If it's not a template (=archetype, from splash screen),
-         * also disable it (we can't change names for existing characters), and .disableSave.
-         *
-         * @param prop
-         * @param val
-         * @public void
-         */
-        set : function( /* string */ prop, /* {*} */ val )
-        {
-            if( prop == "state" )
-            {
-                this.nameInput.set( "value", val.characterName );
-                if( !val.is_template )
-                {
-                    this.nameInput.set( "disabled", true );
-                    this.disableSave();
-                }
-            }
-            else
-            {
-                this.inherited( arguments );
-            }
+            this.inherited( arguments );
+            this.disableSave();
         }
     });
 });

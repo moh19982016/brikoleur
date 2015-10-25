@@ -32,7 +32,14 @@ function( declare,
         buildRendering : function()
         {
             this.inherited( arguments );
-            domConstruct.create( "i", { "class" : "fa fa-" + this.pane.icon }, this.domNode );
+            if( this.pane.iconType == "literal" )
+            {
+                domConstruct.create( "span", { "class" : "br-literalDockIcon", innerHTML : this.pane.icon }, this.domNode );
+            }
+            else
+            {
+                domConstruct.create( "i", { "class" : "fa fa-" + this.pane.icon }, this.domNode );
+            }
             domClass.add( this.domNode, "br-dockIcon br-dockIconMaximized" );
             this.own( on( this.domNode, "click", lang.hitch( this, this.showPane ) ) );
             this.own( on( this.domNode, "mouseover", lang.hitch( this.pane, this.pane.highLight ) ) );

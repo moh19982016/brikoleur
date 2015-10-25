@@ -151,6 +151,7 @@ function( declare,
                 this.mode = "play";
                 this.playButton.set( "iconClass", "fa fa-hourglass" );
                 this.playButton.set( "label", i18n.PrepMode );
+                this.inPlayPane.set( "state", this.get( "state" ) );
                 this.mainTabs.selectChild( this.inPlayPane );
             }
             else
