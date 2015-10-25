@@ -26,7 +26,7 @@ function( declare,
          *
          * @public int
          */
-        columnMinWidth : 600,
+        columnMinWidth : 900,
         /**
          * Inherited, then initialize private properties and subscribe to /PaneToggled/ with _checkReLayout.
          *

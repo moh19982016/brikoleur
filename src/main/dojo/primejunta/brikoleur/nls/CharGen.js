@@ -85,6 +85,12 @@ define({
         "NeedName" : "Please name your hero.",
         // in-play
         "ResolveTask" : "Resolve Task",
+        "ResourceBonus" : "Resource",
+        "IntelBonus" : "Intel",
+        "OhunBonus" : "Ohun",
+        "TotalBonus" : "Bonus",
+        "TaskDifficulty" : "Difficulty",
+        "TaskResult" : "Result",
         // misc
         "MoreInformation" : "More information ",
         "LastModified" : "Last updated:"
