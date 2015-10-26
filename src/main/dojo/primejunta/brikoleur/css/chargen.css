@@ -889,8 +889,12 @@ a.br-manualLink:hover {
 }
 
 .br-numberDisplay {
-    cursor: auto;
+    cursor: default;
     border-color: gray;
+}
+
+.br-numberDisplay:hover {
+    background-color: transparent;
 }
 
 /* Dijits */

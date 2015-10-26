@@ -58,11 +58,11 @@ function( declare,
                 this.totalBonusNode.innerHTML = val;
             }
         },
-        _rollFx : function( final, iter, prom )
+        _rollFx : function( finalValue, iter, prom )
         {
             prom = prom || new Deferred();
             var dice = [ 1, 5, 6, 2, 4, 3 ];
-            var n = final;
+            var n = finalValue;
             if( iter > 0 )
             {
                 n = dice[ iter % dice.length ];
@@ -70,7 +70,7 @@ function( declare,
             this.rollDieNode.innerHTML = "<span class='br-dieRoll'>" + this.DICE[ "D" + n ] + "</span>";
             if( iter > 0 )
             {
-                setTimeout( lang.hitch( this, this._rollFx, final, iter - 1, prom ), 100 );
+                setTimeout( lang.hitch( this, this._rollFx, finalValue, iter - 1, prom ), 100 );
             }
             else
             {
