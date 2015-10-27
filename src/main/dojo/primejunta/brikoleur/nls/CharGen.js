@@ -91,6 +91,8 @@ define({
         "TotalBonus" : "Bonus",
         "TaskDifficulty" : "Task lvl",
         "TaskResult" : "Result",
+        "StartCombat" : "Enter Combat",
+        "ExitCombat" : "End Combat",
         // misc
         "MoreInformation" : "More information ",
         "LastModified" : "Last updated:"

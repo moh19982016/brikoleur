@@ -389,10 +389,10 @@ function( declare,
             {
                 this.own( new Button( {
                     label : "",
-                    "class" : "br-headerButton br-darkButton br-floatRight br-compactButton",
+                    "class" : "br-headerButton br-darkButton br-compactButton br-fullScreenButton",
                     iconClass : "fa fa-arrows",
                     onClick : lang.hitch( this, this.toggleFullScreen )
-                } ).placeAt( this.headerContentNodeRight, "first" ) );
+                } ).placeAt( this.leftHeaderNode, "first" ) );
             }
             this.newCharacterButton =
             new Button( {

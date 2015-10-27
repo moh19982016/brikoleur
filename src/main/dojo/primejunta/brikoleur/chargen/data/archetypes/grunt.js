@@ -34,6 +34,7 @@ define({
             {
                 "key": "Close Combat",
                 "value": "Close Combat",
+                "type" : "combat",
                 "controls": [
                     {
                         "name": "Unarmed Combat",

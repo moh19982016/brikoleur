@@ -42,6 +42,10 @@ function( declare,
         _setState : function( state )
         {
             this.inherited( arguments );
+            if( this.state.type == "combat" )
+            {
+                domClass.add( this.domNode, "br-combatFeature" );
+            }
         },
         _setChildState : function( state )
         {

@@ -229,8 +229,8 @@
     left: 0;
     width: 56px;
     bottom: 0;
-    background-color: #777;
-    border-right: 4px solid #f00;
+    background-color: #444;
+    border-right: 4px solid #c00;
 }
 
 .br-footer-left {
@@ -316,6 +316,12 @@
     color: silver;
     border-color: black;
     border-radius: 3px;
+    height: 25px;
+}
+
+.br-fullScreenButton {
+    margin-left:10px;
+    margin-top: 4px;
 }
 
 .tundra .dijitMenuItem {
@@ -735,18 +741,6 @@ a.br-manualLink:hover {
     height: 40px;
 }
 
-.br-wideAddButton {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.br-wideAddButton .dijitButtonNode {
-    width: calc( 100% - 0.4em );
-}
-
 .br-typeSelect {
     display: inline-block;
     width: 75px;
@@ -895,6 +889,25 @@ a.br-manualLink:hover {
 
 .br-numberDisplay:hover {
     background-color: transparent;
+}
+
+.br-outOfCombat .br-combatFeature {
+    display: none;
+}
+
+.br-inCombat .br-nonCombatFeature {
+    display: none;
+}
+
+/* Icons */
+.br-icon {
+    width: 20px;
+    font-size: 24px;
+    line-height: 20px;
+}
+
+.br-icon-combat::after {
+    content : "⚔";
 }
 
 /* Dijits */
