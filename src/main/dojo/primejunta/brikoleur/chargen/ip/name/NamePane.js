@@ -23,7 +23,7 @@ function( declare,
             this.combatToggle = new Button( {
                 label : i18n.StartCombat,
                 "class" : "br-headerButton",
-                iconClass : "br-icon br-icon-combat",
+                iconClass : "fa fa-pagelines",
                 onClick : lang.hitch( this, this.toggleCombat )
             } ).placeAt( this.buttonContainer );
             this.own( this.combatToggle );

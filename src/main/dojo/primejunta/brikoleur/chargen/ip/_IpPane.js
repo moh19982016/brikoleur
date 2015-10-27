@@ -48,13 +48,13 @@ function( declare,
             if( this._inCombat )
             {
                 button.set( "label", i18n.ExitCombat );
-                button.set( "iconClass", "fa fa-pagelines" );
+                button.set( "iconClass", "br-icon br-icon-combat" );
                 domClass.replace( this.domNode, "br-inCombat", "br-outOfCombat" );
             }
             else
             {
                 button.set( "label", i18n.StartCombat );
-                button.set( "iconClass", "br-icon br-icon-combat" );
+                button.set( "iconClass", "fa fa-pagelines" );
                 domClass.replace( this.domNode, "br-outOfCombat", "br-inCombat" );
             }
         }
