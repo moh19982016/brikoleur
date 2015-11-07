@@ -14,11 +14,6 @@
     display: none;
 }
 
-.br-rowItem {
-    border: 1px solid #e4e4e4;
-    border-top:none;
-}
-
 .br-emptyClosedList.br-controlNode {
     display: none;
 }

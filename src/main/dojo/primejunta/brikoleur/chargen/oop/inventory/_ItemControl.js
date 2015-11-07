@@ -3,24 +3,26 @@
  *
  * @private Widget
  */
-define([ "dojo/_base/declare",
-         "dojo/_base/lang",
-         "dojo/on",
-         "dojo/topic",
-         "dojo/dom-class",
-         "dijit/form/CheckBox",
-         "dijit/form/Select",
-         "dijit/form/TextBox",
-         "dijit/_WidgetBase",
-         "dijit/_TemplatedMixin",
-         "dijit/_WidgetsInTemplateMixin",
-         "dojo/text!./templates/_ItemControl.html",
-         "dojo/i18n!../../../nls/CharGen" ],
+define( [ "dojo/_base/declare",
+          "dojo/_base/lang",
+          "dojo/on",
+          "dojo/topic",
+          "dojo/dom-class",
+          "dijit/form/Button",
+          "dijit/form/CheckBox",
+          "dijit/form/Select",
+          "dijit/form/TextBox",
+          "dijit/_WidgetBase",
+          "dijit/_TemplatedMixin",
+          "dijit/_WidgetsInTemplateMixin",
+          "dojo/text!./templates/_ItemControl.html",
+          "dojo/i18n!../../../nls/CharGen" ],
 function( declare,
           lang,
           on,
           topic,
           domClass,
+          Button,
           CheckBox,
           Select,
           TextBox,
@@ -30,14 +32,26 @@ function( declare,
           template,
           i18n )
 {
-    return declare([ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
-        type : "gear",
+    return declare( [ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
         /**
          * Parent.
          *
          * @public Widget
          */
         parent : {},
+        /**
+         * Prefilled or not? Controls state of complete/delete control.
+         *
+         * @public boolean
+         */
+        prefilled : false,
+        /**
+         * Item type.
+         *
+         * @final
+         * @public string
+         */
+        type : "gear",
         /**
          * Localization.
          *
@@ -60,11 +74,29 @@ function( declare,
          */
         postCreate : function()
         {
-            this.own( on( this.domNode, "click", lang.hitch( this, function() {
+            this.own( on( this.domNode, "click", lang.hitch( this, function()
+            {
                 topic.publish( "/InventoryItemClicked/", this.type );
-            })));
+            } ) ) );
+            this.deleteButton = new Button( {
+                onClick : lang.hitch( this, this.pleaseDestroy ),
+                "class" : "br-smallButton",
+                label : '<i class="fa fa-minus-square br-red"></i>',
+                style : "display:none;"
+            } ).placeAt( this.statusControlNode );
+            this.completeButton = new Button( {
+                onClick : lang.hitch( this, this.pleaseComplete ),
+                "class" : "br-smallButton",
+                label : '<i class="fa fa-check-circle br-blue"></i>',
+                style : "display:inline-block;"
+            } ).placeAt( this.statusControlNode );
+            this.own( this.deleteButton, this.completeButton );
             this.levelInput.set( "value", this.level || 0 );
             this.recalcValues();
+            if( this.prefilled )
+            {
+                this.pleaseComplete();
+            }
         },
         /**
          * Fires when gear type is chosen.
@@ -113,7 +145,26 @@ function( declare,
          */
         markCalculated : function( /* TextBox */ field, /* boolean */ isCalculated )
         {
-            isCalculated ? domClass.add( field.domNode, "br-calculatedValue" ) : domClass.remove( field.domNode, "br-calculatedValue" );
+            isCalculated ?
+            domClass.add( field.domNode, "br-calculatedValue" ) :
+            domClass.remove( field.domNode, "br-calculatedValue" );
+        },
+        /**
+         * Completes the item: locks fields and shows delete button.
+         *
+         * @public void
+         */
+        pleaseComplete : function()
+        {
+            this.completeButton.domNode.style.display = "none";
+            this.deleteButton.domNode.style.display = "inline-block";
+            for( var i = 0; i < this._attachPoints.length; i++ )
+            {
+                if( this._attachPoints[ i ] != "activeControl" && this._attachPoints[ i ] != "deleteControl" && this[ this._attachPoints[ i ] ].set )
+                {
+                    this[ this._attachPoints[ i ] ].set( "disabled", true );
+                }
+            }
         },
         /**
          * Requests parent to remove self, then ._publishChange, then destroy.
@@ -228,5 +279,5 @@ function( declare,
             this.levelInput.set( "value", props.level );
             this.descriptionInput.set( "value", props.description );
         }
-    });
-});
+    } );
+} );

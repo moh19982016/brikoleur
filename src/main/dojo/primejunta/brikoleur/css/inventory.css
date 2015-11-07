@@ -1,6 +1,21 @@
 /* Inventory */
+.br-inventoryItem {
+    border: 1px solid #e4e4e4;
+    border-top:none;
+}
 
-/* Field */
+.tundra .br-inventoryItem .dijitDisabled .dijitButtonText,
+.tundra .br-inventoryItem .dijitDisabled,
+.tundra .br-inventoryItem .dijitButtonContents
+{
+    border: none;
+    color: black;
+}
+
+.tundra .br-inventoryItem .dijitDisabled .dijitArrowButton {
+    display: none;
+}
+
 .br-fieldTitle {
     width: 130px;
     float: left;

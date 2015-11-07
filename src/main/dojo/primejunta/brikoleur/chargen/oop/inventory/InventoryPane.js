@@ -80,7 +80,7 @@ function( declare,
             {
                 if( state[ i ] )
                 {
-                    this.addItem( { value : state[ i ].value } )
+                    this.addItem( { value : state[ i ].value, prefilled : true } )
                 }
             }
         }
