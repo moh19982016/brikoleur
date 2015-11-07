@@ -1,0 +1,22 @@
+/* Numbers pane */
+.br-formLayoutLeft, .br-formLayoutRight {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.br-formLayoutLeft {
+    float: left;
+}
+
+.br-formLayoutRight {
+    float: right;
+}
+
+.br-stamina .dijitTextBoxDisabled {
+    color: black !important;
+}
+
+.br-statField .dijitInputInner {
+    padding-top: 8px !important;
+    text-align: center;
+}

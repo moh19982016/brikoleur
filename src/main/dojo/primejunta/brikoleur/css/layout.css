@@ -1,0 +1,84 @@
+/* Layout */
+.br-controller {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fafafa;
+}
+
+.br-header {
+    font-family: Dosis, sans-serif;
+    font-size: 18px;
+    color: #333;
+    height: 40px;
+    padding-left: 66px !important;
+}
+
+.br-header-left {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 56px;
+    bottom: 0;
+    background-color: #444;
+    border-right: 4px solid #c00;
+}
+
+.br-footer-left {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 56px;
+    bottom: 0;
+    background-color: #444;
+    border-right: 4px solid #c00;
+}
+
+.br-header-bg {
+    background-color: black;
+    opacity: 0.5;
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.br-headerLinkDivider {
+    font-size: 28px;
+    vertical-align: -6px;
+}
+
+.br-sidebar {
+    background-color: #444;
+    color: #fafafa;
+    width: 56px;
+    border-right: 4px solid #c00;
+}
+
+.br-footer {
+    background-color: #666;
+    color: #fafafa;
+    font-family: Dosis, sans-serif;
+    font-size: 15px;
+    text-align:right;
+}
+
+.br-footerContainer {
+}
+
+.br-copyright {
+    font-size: 12px;
+    padding: 4px;
+    text-align:right;
+}
+
+.br-compactLayout .br-headerContent .br-fieldLabel,
+.br-compactLayout .br-headerContent a
+{
+    display: none;
+}
+
+

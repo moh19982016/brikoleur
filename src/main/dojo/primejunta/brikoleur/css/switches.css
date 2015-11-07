@@ -1,0 +1,15 @@
+.br-hasLoaded .br-hideWhenLoaded {
+    display: none;
+}
+
+.br-inPlay .br-hideInPlay {
+    display: none !important;
+}
+
+.br-outOfCombat .br-hideOutOfCombat {
+    display: none;
+}
+
+.br-inCombat .br-hideInCombat {
+    display: none;
+}

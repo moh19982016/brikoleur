@@ -15,7 +15,70 @@
     <link rel="apple-touch-icon" sizes="152x152" href="ikons/brikoleur-icon-152.png">
     <style type="text/css">
         @import "dojo/primejunta/brikoleur/css/chargen.css";
-        @import "font-awesome/css/font-awesome.min.css";
+        .em-partHeadingContainer {
+            position: relative;
+            width: 100%;
+        }
+
+        .em-partNumber {
+            bottom: -110px;
+            color: #c00;
+            font-family: Stalinist One, sans-serif;
+            font-size: 275px;
+            margin-left: 50px;
+            margin-top: 80px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .em-partHeading {
+            font-family: Stalinist One, sans-serif;
+            text-transform: uppercase;
+            font-size: 76px;
+            position: absolute;
+            bottom: -20px;
+            z-index: 99;
+        }
+
+        .em-partHeadingSpacer {
+            height: 400px;
+        }
+        .em-controlWrapper, .em-controlBackground {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            z-index:101;
+        }
+
+        .em-controlBackground {
+            opacity: 0.5;
+            background-color:  #c00; /* black; */
+            z-index: 99;
+        }
+
+        .em-documentContent {
+            font-family: Old Standard TT, serif;
+            position: fixed;
+            font-size: 18px;
+            top: 0;
+            left: 330px;
+            bottom: 0;
+            right: 0;
+            overflow: auto;
+            background-color: #c00; /* silver; */
+        }
+
+        .em-pageContent {
+            background-color: #c00; /* #fafafa; */
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 330px;
+            z-index: 1;
+        }
     </style>
     <script type="text/javascript">
         var dojoConfig = {

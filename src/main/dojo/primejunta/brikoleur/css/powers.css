@@ -1,0 +1,17 @@
+/* Powers */
+.br-maxPowers .br-controlNode {
+    display: none;
+}
+
+.br-subPaneTitle {
+    font-family: Dosis, sans-serif;
+    font-weight: bold;
+}
+
+.br-traitFeatureControl {
+    display: none;
+}
+
+.br-newCharacter .br-traitFeatureControl {
+    display: list-item;
+}

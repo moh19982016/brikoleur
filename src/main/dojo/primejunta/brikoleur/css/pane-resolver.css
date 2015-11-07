@@ -1,0 +1,121 @@
+/* ResolverPane */
+.br-trainingNode {
+    width: calc( 100% - 200px );
+}
+
+.br-bonusNode {
+    width: 50px;
+    min-height: 20px;
+    box-sizing:border-box;
+    padding-left: 8px;
+}
+.br-bonusHeader {
+    margin-bottom: 30px;
+    margin-left: -30px;
+    margin-top: 0;
+    text-align: right;
+    transform: rotate(55deg);
+    -webkit-transform: rotate(55deg);
+    -ms-transform: rotate(55deg);
+    -moz-transform: rotate(55deg);
+}
+
+.br-bonusButtons {
+    text-align: right;
+}
+
+.br-bonusButton {
+    border: 2px solid #c00;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin: 4px 0;
+    text-align: center;
+    font-weight: bold;
+    line-height:28px;
+    cursor: pointer;
+}
+
+.br-bonusSelected {
+    background-color: #c00;
+    color: white;
+}
+
+.br-bonusButton:hover {
+    background-color: #fcc;
+}
+
+.br-disabledBonus {
+    border-color: gray;
+    color: gray;
+}
+
+.br-bonusSelected.br-disabledBonus {
+    background-color: gray;
+    color: white;
+}
+
+.br-tempBonus {
+    background-color: #f88;
+}
+
+.br-dieRoll {
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 24px;
+}
+
+.br-textSelector {
+    display: inline-block;
+    padding: 4px;
+    border: 2px solid #c00;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.br-textSelector:hover {
+    background-color: #fcc;
+}
+
+.br-trainingSymbol {
+    color: #c00;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.br-bonusSelected .br-trainingSymbol {
+    color: white;
+}
+
+.br-bonusSelected:hover {
+    background-color: #900;
+}
+
+.br-numberInput {
+    border-color: black;
+}
+
+.br-numberSelector {
+    max-width : 190px;
+}
+
+.br-numberSelector .br-bonusButton {
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.br-untrainedSkill {
+    font-style: italic;
+    font-weight: normal;
+}
+
+.br-numberDisplay {
+    cursor: default;
+    border-color: gray;
+}
+
+.br-numberDisplay:hover {
+    background-color: transparent;
+}
+

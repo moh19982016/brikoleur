@@ -1,0 +1,52 @@
+/* Name pane and its features */
+.br-nameContainer {
+    height: 48px;
+    overflow: hidden;
+    background-color: #c00;
+}
+
+.br-namePane {
+    width:100%;
+}
+
+.br-namePaneButtons {
+    width: 178px;
+    padding: 6px 8px 0 0;
+    text-align: right;
+}
+
+.br-namePaneInput {
+    width: calc( 100% - 178px );
+}
+
+.br-compactLayout .br-namePaneButtons {
+    width: 140px;
+}
+
+.br-compactLayout .br-namePaneInput {
+    width: calc( 100% - 140px );
+}
+
+.br-characterName {
+    font-size: 24px;
+    font-family: Iceberg, sans-serif;
+    margin: 8px;
+    width: calc( 100% - 8px );
+    box-sizing: border-box;
+    font-style: italic;
+    border: 1px solid #a00 !important;
+    color: black;
+}
+
+.br-characterName .dijitPlaceHolder {
+    color: #900;
+}
+
+.tundra .br-characterName.dijitTextBoxFocused {
+    background-color: #e00 !important;
+}
+
+.br-characterName.dijitDisabled {
+    border: none !important;
+    color: black;
+}

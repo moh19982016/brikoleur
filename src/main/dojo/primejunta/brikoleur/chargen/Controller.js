@@ -174,7 +174,7 @@ function( declare,
                 ! document.webkitFullscreenElement &&
                 ! document.msFullscreenElement )
             {
-                domClass.add( document.body, "em-fullScreen" );
+                domClass.add( document.body, "br-fullScreen" );
                 // current working methods
                 if( document.documentElement.requestFullscreen )
                 {
@@ -195,7 +195,7 @@ function( declare,
             }
             else
             {
-                domClass.remove( document.body, "em-fullScreen" );
+                domClass.remove( document.body, "br-fullScreen" );
                 if( document.exitFullscreen )
                 {
                     document.exitFullscreen();

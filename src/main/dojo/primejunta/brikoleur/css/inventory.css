@@ -1,0 +1,48 @@
+/* Inventory */
+
+/* Field */
+.br-fieldTitle {
+    width: 130px;
+    float: left;
+    box-sizing: border-box;
+    padding: 4px;
+    text-align: right;
+    font-family: Dosis, sans-serif;
+    font-weight: bold;
+}
+
+.br-fieldControl {
+    box-sizing: border-box;
+    float: right;
+    padding: 4px;
+    width: calc(100% - 130px);
+}
+
+.br-layoutDown .br-fieldTitle,
+.br-layoutDown .br-fieldControl {
+    float : none;
+    width: 100%;
+    text-align: left;
+}
+
+.br-fullWidth {
+    width: 100%;
+}
+
+.br-rowHeader {
+    color: gray;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.br-buttonSpacer {
+    height: 40px;
+}
+
+.br-typeSelect {
+    display: inline-block;
+    width: 75px;
+}
+
+.br-calculatedValue {
+    font-style: italic;
+}

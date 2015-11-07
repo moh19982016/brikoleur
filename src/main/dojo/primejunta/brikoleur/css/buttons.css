@@ -1,0 +1,71 @@
+/* Buttons */
+
+.br-compactLayout .br-headerButton .dijitButtonText,
+.br-compactButton .dijitButtonText
+{
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.br-compactButton .dijitIcon, .br-compactLayout .br-headerButton .dijitIcon  {
+    padding: 0 0.3em;
+}
+
+.br-splitButtonLeft .dijitIcon, .br-splitButtonRight .dijitIcon{
+    padding: 0 0.6em !important;
+}
+
+.br-splitButtonLeft {
+    margin-right: 0;
+}
+
+.tundra .br-splitButtonLeft .dijitButtonNode {
+    border-radius: 3px 0 0 3px !important;
+}
+
+.br-splitButtonRight {
+    margin-left: 0;
+}
+
+.tundra .dijitButtonNode {
+    border-radius: 3px;
+}
+
+.tundra .br-splitButtonRight .dijitButtonNode {
+    border-radius: 0 3px 3px 0 !important;
+    border-left: none !important;
+}
+
+
+.tundra .br-darkButton .dijitButtonNode {
+    background: #444;
+    color: silver;
+    border-color: black;
+    border-radius: 3px;
+    height: 25px;
+}
+
+.br-fullScreenButton {
+    margin-left:10px;
+    margin-top: 4px;
+}
+
+.br-smallButton .dijitButtonNode {
+    background: none !important;
+    border: none;
+    border-radius: 4px;
+}
+
+.tundra .br-smallButton.dijitButtonHover .dijitButtonNode {
+    background: none;
+}
+
+.dijitButtonDisabled .fa, .dijitButtonDisabled .fa {
+    color: #ccc !important;
+}
+
+.br-dialogButtons {
+    padding : 4px 0;
+    text-align: right;
+}

@@ -1,0 +1,14 @@
+/* dynamic grid */
+.br-dynamicGridColumn {
+    float: left;
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+.br-statField {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-image: none !important;
+    background-color: white;
+}
