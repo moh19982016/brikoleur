@@ -6,23 +6,23 @@
 define( [ "dojo/_base/declare",
           "dojo/_base/lang",
           "dojo/on",
-          "./../../oop/powers/_PowerControl",
+          "./../../oop/stunts/_StuntControl",
           "./../_base/_PoweredAbilityInPlayMixin",
-          "dojo/text!./templates/_PowerControl.html",
+          "dojo/text!./templates/_StuntControl.html",
           "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
           on,
-          _PowerControl,
+          _StuntControl,
           _PoweredAbilityInPlayMixin,
           template,
           i18n )
 {
-    return declare( [ _PowerControl, _PoweredAbilityInPlayMixin ],
+    return declare( [ _StuntControl, _PoweredAbilityInPlayMixin ],
     {
-        stat : "mind",
-        popupMessage : i18n.SpendMindPoints,
-        statTooLowMessage : i18n.MindTooLow,
+        stat : "body",
+        popupMessage : i18n.SpendBodyPoints,
+        statTooLowMessage : i18n.BodyTooLow,
         templateString : template,
         postCreate : function()
         {

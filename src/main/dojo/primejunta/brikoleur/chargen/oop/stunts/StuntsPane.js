@@ -187,7 +187,7 @@ function( declare,
         {
             if( !this._hasOpenStunt() )
             {
-                this.controls.push( new _StuntControl({ parent : this, filter : this.listFeatures() } ).placeAt( this.containerNode ) );
+                this.controls.push( new this.childConstructor({ parent : this, filter : this.listFeatures() } ).placeAt( this.containerNode ) );
             }
         },
         /**
@@ -231,7 +231,7 @@ function( declare,
             this.clear();
             for( var i = 0; i < state.length; i++ )
             {
-                var ctl = new _StuntControl({ parent : this } ).placeAt( this.containerNode );
+                var ctl = new this.childConstructor({ parent : this } ).placeAt( this.containerNode );
                 ctl.set( "state", state[ i ] );
                 this.controls.push( ctl );
             }

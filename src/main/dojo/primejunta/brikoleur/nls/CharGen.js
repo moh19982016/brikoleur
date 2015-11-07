@@ -95,6 +95,8 @@ define({
         "ExitCombat" : "End Combat",
         "SpendMindPoints" : "Spend Mind points:",
         "MindTooLow" : "At least ${stat} Mind required.",
+        "SpendBodyPoints" : "Spend Body points:",
+        "BodyTooLow" : "At least ${stat} Body required.",
         // misc
         "MoreInformation" : "More information ",
         "LastModified" : "Last updated:"
