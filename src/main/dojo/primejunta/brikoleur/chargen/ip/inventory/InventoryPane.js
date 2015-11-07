@@ -16,19 +16,5 @@ function( declare,
 {
     return declare( [ InventoryPane ],
     {
-        /**
-         * Title.
-         *
-         * @final
-         * @public string
-         */
-        title : i18n.Gear,
-        /**
-         * Icon.
-         *
-         * @final
-         * @public string
-         */
-        icon : "suitcase"
     } );
 });

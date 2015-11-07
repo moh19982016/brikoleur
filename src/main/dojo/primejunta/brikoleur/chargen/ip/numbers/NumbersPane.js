@@ -16,19 +16,5 @@ function( declare,
 {
     return declare( [ NumbersPane ],
     {
-        /**
-         * Title.
-         *
-         * @final
-         * @public string
-         */
-        title : i18n.Numbers,
-        /**
-         * Icon.
-         *
-         * @final
-         * @public string
-         */
-        icon : "dashboard"
     } );
 } );

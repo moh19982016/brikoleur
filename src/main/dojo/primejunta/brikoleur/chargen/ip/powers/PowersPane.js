@@ -16,19 +16,8 @@ function( declare,
 {
     return declare( [ PowersPane ],
     {
-        /**
-         * Title.
-         *
-         * @final
-         * @public string
-         */
-        title : i18n.Powers,
-        /**
-         * Icon.
-         *
-         * @final
-         * @public string
-         */
-        icon : "bolt"
+        _checkActivePowers : function()
+        {
+        }
     } );
 });

@@ -16,19 +16,5 @@ function( declare,
 {
     return declare( [ OhunPane ],
     {
-        /**
-         * Title.
-         *
-         * @final
-         * @public string
-         */
-        title : i18n.Ohun,
-        /**
-         * Icon.
-         *
-         * @final
-         * @public string
-         */
-        icon : "star"
     } );
 });

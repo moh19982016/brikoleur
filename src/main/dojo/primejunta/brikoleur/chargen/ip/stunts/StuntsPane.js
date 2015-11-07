@@ -16,19 +16,5 @@ function( declare,
 {
     return declare( [ StuntsPane ],
     {
-        /**
-         * Title.
-         *
-         * @final
-         * @public string
-         */
-        title : i18n.Stunts,
-        /**
-         * Icon.
-         *
-         * @final
-         * @public string
-         */
-        icon : "crosshairs"
     } );
 });
