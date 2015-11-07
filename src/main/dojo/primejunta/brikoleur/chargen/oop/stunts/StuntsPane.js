@@ -235,11 +235,20 @@ function( declare,
                 ctl.set( "state", state[ i ] );
                 this.controls.push( ctl );
             }
+            this._checkMaximize();
+            this.onAddDescendant();
+        },
+        /**
+         * If we have controls, maximize.
+         *
+         * @private void
+         */
+        _checkMaximize : function()
+        {
             if( this.controls.length > 0 )
             {
                 this.maximize();
             }
-            this.onAddDescendant();
         }
     });
 });

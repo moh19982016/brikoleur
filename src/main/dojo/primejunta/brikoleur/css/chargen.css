@@ -26,3 +26,7 @@ html, body {
     padding: 0;
     font-family: Dosis, sans-serif;
 }
+
+*:focus {
+    outline: 0;
+}

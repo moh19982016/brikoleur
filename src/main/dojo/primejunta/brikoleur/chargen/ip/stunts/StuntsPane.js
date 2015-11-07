@@ -18,6 +18,9 @@ function( declare,
 {
     return declare( [ StuntsPane ],
     {
-        childConstructor : _StuntControl
+        childConstructor : _StuntControl,
+        _checkMaximize : function()
+        {
+        }
     } );
 });

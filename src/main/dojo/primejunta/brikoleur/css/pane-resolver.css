@@ -1,18 +1,22 @@
 /* ResolverPane */
 .br-trainingNode {
-    width: calc( 100% - 200px );
+    width : 40%;
 }
 
 .br-bonusNode {
-    width: 50px;
+    position: relative;
+    width : 15%;
+    min-width: 50px;
     min-height: 20px;
     box-sizing:border-box;
     padding-left: 8px;
 }
 .br-bonusHeader {
-    margin-bottom: 30px;
-    margin-left: -30px;
-    margin-top: 0;
+    position: relative;
+    top: 8px;
+    left: -20px;
+    width: 70px;
+    margin: 0 auto;
     text-align: right;
     transform: rotate(55deg);
     -webkit-transform: rotate(55deg);
@@ -22,6 +26,7 @@
 
 .br-bonusButtons {
     text-align: right;
+    margin-top: 35px;
 }
 
 .br-bonusButton {
@@ -29,7 +34,7 @@
     width: 30px;
     height: 30px;
     border-radius: 30px;
-    margin: 4px 0;
+    margin: 4px auto;
     text-align: center;
     font-weight: bold;
     line-height:28px;

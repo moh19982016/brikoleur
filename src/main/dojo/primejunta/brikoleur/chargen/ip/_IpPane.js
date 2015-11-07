@@ -38,7 +38,7 @@ function( declare,
             this._addPane( "knacks", new ResolverPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "numbers", new NumbersPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "powers", new PowersPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
-            this._addPane( "stunts", new StuntsPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
+            this._addPane( "stunts", new StuntsPane( { dock : this.dockContainer, minimized : true } ).placeAt( this.dynamicGrid ) );
             this._addPane( "ohun", new OhunPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "gear", new InventoryPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
         },
@@ -49,13 +49,17 @@ function( declare,
             {
                 button.set( "label", i18n.ExitCombat );
                 button.set( "iconClass", "br-icon br-icon-combat" );
+                domClass.add( button.domNode, "br-toggleSet" );
                 domClass.replace( this.domNode, "br-inCombat", "br-outOfCombat" );
+                this.panes.stunts.maximize();
             }
             else
             {
                 button.set( "label", i18n.StartCombat );
                 button.set( "iconClass", "fa fa-pagelines" );
+                domClass.remove( button.domNode, "br-toggleSet" );
                 domClass.replace( this.domNode, "br-outOfCombat", "br-inCombat" );
+                this.panes.stunts.minimize();
             }
             this.panes.numbers.fxSet( "stamina", this.panes.numbers.get( "mind" ) + this.panes.numbers.get( "body" ) );
         }
