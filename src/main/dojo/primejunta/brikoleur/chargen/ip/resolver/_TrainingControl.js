@@ -44,7 +44,7 @@ function( declare,
             this.inherited( arguments );
             if( this.state.type == "combat" )
             {
-                domClass.add( this.domNode, "br-combatFeature" );
+                domClass.add( this.domNode, "br-hideOutOfCombat" );
             }
         },
         _setChildState : function( state )

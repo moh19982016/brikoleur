@@ -1,5 +1,4 @@
 @import "brikoleur.css";
-@import "../../../dijit/themes/tundra/tundra.css";
 
 /* Splash */
 
@@ -770,6 +769,12 @@ a.br-manualLink:hover {
     text-align: right;
 }
 
+/* In Play switches */
+
+.br-inPlay .br-hideInPlay {
+    display: none !important;
+}
+
 /* ResolverPane */
 .br-trainingNode {
     width: calc( 100% - 200px );
@@ -891,11 +896,11 @@ a.br-manualLink:hover {
     background-color: transparent;
 }
 
-.br-outOfCombat .br-combatFeature {
+.br-outOfCombat .br-hideOutOfCombat {
     display: none;
 }
 
-.br-inCombat .br-nonCombatFeature {
+.br-inCombat .br-hideInCombat {
     display: none;
 }
 

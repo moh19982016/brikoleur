@@ -6,15 +6,15 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/topic",
-         "./../../_base/_FeaturePaneBase",
+         "./../../oop/powers/PowersPane",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
           topic,
-          _FeaturePaneBase,
+          PowersPane,
           i18n )
 {
-    return declare( [ _FeaturePaneBase ],
+    return declare( [ PowersPane ],
     {
         /**
          * Title.
