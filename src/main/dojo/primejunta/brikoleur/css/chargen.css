@@ -1,7 +1,5 @@
 @import "../../../dijit/themes/tundra/tundra.css";
-@import "../../../../font-awesome/css/font-awesome.min.css";
 @import "fonts.css";
-@import "dijit.css";
 @import "icons.css";
 @import "grid.css";
 @import "globals.css";
@@ -18,6 +16,7 @@
 @import "powers.css";
 @import "inventory.css";
 @import "switches.css";
+@import "dijit.css";
 
 html, body {
     width: 100%;
