@@ -6,21 +6,18 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/topic",
-         "./../../oop/powers/PowersPane",
-         "./_PowerSubPane",
+         "./../../oop/powers/_PowerSubPane",
+         "./_PowerControl",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
           topic,
-          PowersPane,
           _PowerSubPane,
+          _PowerControl,
           i18n )
 {
-    return declare( [ PowersPane ],
+    return declare( [ _PowerSubPane ],
     {
-        childConstructor : _PowerSubPane,
-        _checkActivePowers : function()
-        {
-        }
+        childConstructor : _PowerControl
     } );
 });

@@ -152,8 +152,8 @@ function( declare,
         _setState : function( state )
         {
             this.inherited( arguments );
-            this.active = state.active;
             this.activeBox.set( "checked", state.active );
+            this._setActive();
         }
     });
 });

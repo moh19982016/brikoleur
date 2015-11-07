@@ -20,3 +20,8 @@
     padding-top: 8px !important;
     text-align: center;
 }
+
+.br-valueLowered {
+    font-weight: bold;
+    color: #c00 !important;
+}

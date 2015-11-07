@@ -17,6 +17,7 @@
 @import "inventory.css";
 @import "switches.css";
 @import "dijit.css";
+@import "fx.css";
 
 html, body {
     width: 100%;

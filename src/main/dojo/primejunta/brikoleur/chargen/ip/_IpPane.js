@@ -25,7 +25,7 @@ function( declare,
 {
     return declare( [ _MainPaneBase ], {
         title : i18n.InPlay,
-        _inCombat : false,
+        inCombat : false,
         /**
          * Adds all the UI panes needed for in-play mode.
          *
@@ -44,8 +44,8 @@ function( declare,
         },
         toggleCombat : function( button )
         {
-            this._inCombat = !this._inCombat;
-            if( this._inCombat )
+            this.inCombat = !this.inCombat;
+            if( this.inCombat )
             {
                 button.set( "label", i18n.ExitCombat );
                 button.set( "iconClass", "br-icon br-icon-combat" );
@@ -57,6 +57,7 @@ function( declare,
                 button.set( "iconClass", "fa fa-pagelines" );
                 domClass.replace( this.domNode, "br-outOfCombat", "br-inCombat" );
             }
+            this.panes.numbers.fxSet( "stamina", this.panes.numbers.get( "mind" ) + this.panes.numbers.get( "body" ) );
         }
     } );
 } );

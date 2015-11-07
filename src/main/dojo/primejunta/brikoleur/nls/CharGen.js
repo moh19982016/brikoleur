@@ -93,6 +93,8 @@ define({
         "TaskResult" : "Result",
         "StartCombat" : "Enter Combat",
         "ExitCombat" : "End Combat",
+        "SpendMindPoints" : "Spend Mind points:",
+        "MindTooLow" : "At least ${stat} Mind required.",
         // misc
         "MoreInformation" : "More information ",
         "LastModified" : "Last updated:"

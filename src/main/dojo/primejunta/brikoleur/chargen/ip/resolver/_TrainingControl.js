@@ -59,7 +59,7 @@ function( declare,
             {
                 domClass.add( this.clickNode, "br-bonusSelected" );
             }
-            else if( widg instanceof Constr )
+            else if( widg instanceof this.parent.childConstructor )
             {
                 domClass.remove( this.clickNode, "br-bonusSelected" );
             }
