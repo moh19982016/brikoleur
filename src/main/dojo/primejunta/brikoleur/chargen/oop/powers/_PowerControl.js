@@ -6,6 +6,7 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/topic",
+         "dojo/dom-class",
          "dijit/form/CheckBox",
          "./../_base/_FeatureControl",
          "./../_base/_PoweredAbilityMixin",
@@ -14,6 +15,7 @@ define([ "dojo/_base/declare",
 function( declare,
           lang,
           topic,
+          domClass,
           CheckBox,
           _FeatureControl,
           _PoweredAbilityMixin,
@@ -127,6 +129,7 @@ function( declare,
         _setActive : function()
         {
             this.active = this.activeBox.get( "checked" );
+            this.active ? domClass.remove( this.domNode, "br-hideInPlay" ) : domClass.add( this.domNode, "br-hideInPlay" );
             topic.publish( "/ActivePowerSet/" );
             this._publishChange();
         },
