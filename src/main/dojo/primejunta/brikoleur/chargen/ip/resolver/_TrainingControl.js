@@ -11,7 +11,7 @@ function( declare,
           _FeatureControlBase,
           template )
 {
-    var Constr = declare( [ _FeatureControlBase ], {
+    return declare( [ _FeatureControlBase ], {
         symbol : "Ⓚ",
         trained : true,
         SYMBOLS : {
@@ -32,7 +32,6 @@ function( declare,
             {
                 domClass.add( this.clickNode, "br-untrainedSkill" );
             }
-            this.childConstructor = Constr;
             this.own( topic.subscribe( "/ResolveTask/", lang.hitch( this, this._setAppearance ) ) );
         },
         pleaseResolveTask : function()
@@ -66,5 +65,4 @@ function( declare,
             }
         }
     } );
-    return Constr;
 } );

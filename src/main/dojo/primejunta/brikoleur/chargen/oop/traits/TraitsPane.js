@@ -49,7 +49,7 @@ function( declare,
          * @final
          * @public constructor
          */
-        featureControl : _TraitControl,
+        childConstructor : _TraitControl,
         /**
          * Topic published when feature selection changes. The list of selected features will be included.
          *

@@ -63,7 +63,7 @@ function( declare,
             }
         },
         /**
-         * Create a new .featureControl in .containerNode at pos or "last", with properties from kwObj, with this as
+         * Create a new .childConstructor in .containerNode at pos or "last", with properties from kwObj, with this as
          * parent and filter as _ControlContainerMixin::listFeatures().
          *
          * @param kwObj
@@ -72,7 +72,7 @@ function( declare,
          */
         addControl : function( /* Object */ kwObj, /* string? */ pos )
         {
-            var ctl = new this.featureControl( lang.mixin( kwObj || {}, { parent : this, filter : this.listFeatures() } )).placeAt( this.containerNode, pos || "last" );
+            var ctl = new this.childConstructor( lang.mixin( kwObj || {}, { parent : this, filter : this.listFeatures() } )).placeAt( this.containerNode, pos || "last" );
             this.controls.push( ctl );
             return ctl;
         },

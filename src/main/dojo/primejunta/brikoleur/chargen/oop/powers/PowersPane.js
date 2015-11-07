@@ -58,7 +58,7 @@ function( declare,
          * @final
          * @public constructor
          */
-        featureControl : _PowerSubPane,
+        childConstructor : _PowerSubPane,
         /**
          * Topic published when feature selection changes. The list of selected features will be included.
          *

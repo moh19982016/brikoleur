@@ -24,6 +24,6 @@ function( declare,
          * @final
          * @public constructor
          */
-        featureControl : _PowerControl
+        childConstructor : _PowerControl
     });
 });

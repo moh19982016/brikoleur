@@ -26,7 +26,7 @@ function( declare,
          * @final
          * @public constructor
          */
-        featureControl : _OhunControl,
+        childConstructor : _OhunControl,
         /**
          * Inherited, then publish topic indicating ohun slots have changed (=been freed up).
          *

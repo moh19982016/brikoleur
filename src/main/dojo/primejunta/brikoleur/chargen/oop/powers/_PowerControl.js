@@ -22,7 +22,7 @@ function( declare,
           template,
           i18n )
 {
-    var Constr = declare([ _FeatureControl, _PoweredAbilityMixin ], {
+    return declare([ _FeatureControl, _PoweredAbilityMixin ], {
         /**
          * Maximum depth allowed for descendants for controls of this type.
          *
@@ -81,7 +81,6 @@ function( declare,
             this.inherited( arguments );
             this.own( topic.subscribe( "/SetActiveControlDisabled/", lang.hitch( this, this._setActiveControlDisabled ) ) );
             this.own( topic.subscribe( "/StatChanged/-aps", lang.hitch( this, this._checkMax ) ) );
-            this.childConstructor = Constr;
         },
         /**
          * Cost for powers is .level + 2.
@@ -157,5 +156,4 @@ function( declare,
             this.activeBox.set( "checked", state.active );
         }
     });
-    return Constr;
 });

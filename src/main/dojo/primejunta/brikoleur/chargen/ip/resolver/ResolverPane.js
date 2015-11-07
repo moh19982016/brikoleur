@@ -28,6 +28,7 @@ function( declare,
         icon : "☭",
         iconType : "literal",
         trainingBonus : 0,
+        childConstructor : _TrainingControl,
         buildRendering : function()
         {
             this.inherited( arguments );

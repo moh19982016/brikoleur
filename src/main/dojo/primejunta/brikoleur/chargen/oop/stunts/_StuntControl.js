@@ -14,7 +14,7 @@ function( declare,
           _PoweredAbilityMixin,
           i18n )
 {
-    var Constr = declare([ _FeatureControl, _PoweredAbilityMixin ], {
+    return declare([ _FeatureControl, _PoweredAbilityMixin ], {
         /**
          * Data for the feature.
          *
@@ -49,17 +49,6 @@ function( declare,
          * @final
          * @public string
          */
-        statName : "Ⓑ",
-        /**
-         * Inherited, then set .childConstructor to Constr so it'll recurse as intended.
-         *
-         * @public void
-         */
-        postCreate : function()
-        {
-            this.inherited( arguments );
-            this.childConstructor = Constr;
-        }
+        statName : "Ⓑ"
     });
-    return Constr;
 });

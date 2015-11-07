@@ -12,7 +12,7 @@ function( declare,
           _FeatureControl,
           i18n )
 {
-    var Constr = declare([ _FeatureControl ], {
+    return declare([ _FeatureControl ], {
         /**
          * Data for the feature.
          *
@@ -42,16 +42,6 @@ function( declare,
          */
         propertyPresentWarning : i18n.TrainingPresent,
         /**
-         * Inherited, then setup recursive child creation by making .childConstructor point to Constr.
-         *
-         * @public void
-         */
-        postCreate : function()
-        {
-            this.inherited( arguments );
-            this.childConstructor = Constr;
-        },
-        /**
          * Cost is 4 for everything over level 0 (which is the knack itself).
          *
          * @public int
@@ -61,5 +51,4 @@ function( declare,
             return this.level > 0 ? 4 : 0;
         }
     });
-    return Constr;
 });

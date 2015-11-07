@@ -29,7 +29,7 @@ function( declare,
           template,
           i18n )
 {
-    var Constr = declare( [ _WidgetBase,
+    return declare( [ _WidgetBase,
                             _TemplatedMixin,
                             _WidgetsInTemplateMixin,
                             _ControlContainerMixin,
@@ -148,7 +148,6 @@ function( declare,
          */
         postCreate : function()
         {
-            this.childConstructor = Constr;
             this.controls = [];
             this.state = {
                 name : this.data.name,
@@ -159,6 +158,7 @@ function( declare,
             {
                 this.type = this.data.type;
             }
+            this.childConstructor = this.parent.childConstructor;
         },
         /**
          * Call .addChildControl(), .publishInfo, and .onAddDescendant().
@@ -395,5 +395,4 @@ function( declare,
             return this._selector ? this._selector.get( "value" ) : this.value || "";
         }
     } );
-    return Constr;
 } );

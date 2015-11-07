@@ -53,7 +53,7 @@ function( declare,
          * @final
          * @public constructor
          */
-        featureControl : _KnackControl,
+        childConstructor : _KnackControl,
         /**
          * Topic published when feature selection changes. The list of selected features will be included.
          *

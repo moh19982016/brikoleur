@@ -60,6 +60,13 @@ function( declare,
          */
         controls : [],
         /**
+         * Constructor for child controls.
+         *
+         * @final
+         * @public Function
+         */
+        childConstructor : _StuntControl,
+        /**
          * Subscribe to /TrainingAdded/ topic with .checkStunt, and .onAddDescendant to setup initial state.
          *
          * @public void
