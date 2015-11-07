@@ -37,9 +37,9 @@ function( declare,
             this._addPane( "numbers", new NumbersPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "powers",
                            new PowersPane( { minimized : true, dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
-            this._addPane( "ohun", new OhunPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "stunts",
                            new StuntsPane( { minimized : true, dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
+            this._addPane( "ohun", new OhunPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "gear", new InventoryPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "description",
                            new DescriptionPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
