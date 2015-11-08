@@ -38,7 +38,7 @@ function( declare,
             }
             if( points > 0 )
             {
-                domClass.add( this._props[ stat ]._input.domNode, "br-valueLowered" );
+                domClass.add( this._props[ stat ]._input.domNode, "br-valueChanged" );
             }
             this.fxSet( stat, this.get( stat ) - points );
             if( ( stat == "mind" || stat == "body" ) && !Controller.inPlayPane.inCombat )

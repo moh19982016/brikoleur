@@ -2,6 +2,7 @@ define( [ "dojo/_base/declare",
           "dojo/_base/lang",
           "dojo/topic",
           "dojo/Deferred",
+          "dojo/dom-class",
           "./../_base/NumberInput",
           "dijit/_WidgetBase",
           "dijit/_TemplatedMixin",
@@ -12,6 +13,7 @@ function( declare,
           lang,
           topic,
           Deferred,
+          domClass,
           NumberInput,
           _WidgetBase,
           _TemplatedMixin,
@@ -47,7 +49,12 @@ function( declare,
             var n = Math.round( 0.5 + Math.random() * 6 );
             this._rollFx( n, 7 ).then( lang.hitch( this, function()
             {
-                this.taskResultNode.innerHTML = ( this.bonus + n ) - this.difficulty;
+                var result = ( this.bonus + n ) - this.difficulty;
+                this.taskResultNode.innerHTML = result;
+                if( this._baseDamage )
+                {
+                    this.set( "damage", this._calcDamage( result ) );
+                }
             } ) );
         },
         set : function( prop, val )
@@ -56,6 +63,28 @@ function( declare,
             {
                 this.bonus = val;
                 this.totalBonusNode.innerHTML = val;
+            }
+            else if( prop == "base-damage" )
+            {
+                this._baseDamage = val;
+                this.damageNode.innerHTML = val || "?";
+                domClass.remove( this.damageNode, "br-valueChanged" );
+            }
+            else if( prop == "damage" )
+            {
+                this.damageNode.innerHTML = "" + val || "?" ;
+                domClass.add( this.damageNode, "br-valueChanged" );
+            }
+        },
+        _calcDamage : function( reslt )
+        {
+            if( reslt < -1 )
+            {
+                return 0;
+            }
+            else
+            {
+                return this._baseDamage + Math.floor( Math.min( reslt, 6 ) * this._baseDamage / 2 );
             }
         },
         _rollFx : function( finalValue, iter, prom )
@@ -82,6 +111,7 @@ function( declare,
         {
             this.rollDieNode.innerHTML = '<i class="fa fa-cube"></i>';
             this.taskResultNode.innerHTML = "?";
+            this.set( "base-damage", this._baseDamage || null );
         }
     } );
 } );

@@ -75,3 +75,18 @@
     color: #f44;
     border-color: black;
 }
+
+.br-textButton {
+    display: inline-block;
+    padding: 4px;
+    border: 2px solid #c00;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 300ms;
+    -webkit-transition: background-color 300ms;
+}
+
+.br-textButton:hover {
+    background-color: #fcc;
+}

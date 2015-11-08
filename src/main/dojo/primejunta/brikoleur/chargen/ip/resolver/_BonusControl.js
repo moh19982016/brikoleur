@@ -78,7 +78,7 @@ function( declare,
                 }
             }
             this.bonus = bonus;
-            topic.publish( "/ResolveTask/", this );
+            topic.publish( "/ResolveTask/", this, true );
         },
         setMax : function( max )
         {

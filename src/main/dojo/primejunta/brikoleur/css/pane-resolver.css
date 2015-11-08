@@ -1,6 +1,6 @@
 /* ResolverPane */
 .br-trainingNode {
-    width : 40%;
+    width : 55%;
 }
 
 .br-bonusNode {
@@ -39,6 +39,8 @@
     font-weight: bold;
     line-height:28px;
     cursor: pointer;
+    transition: background-color 300ms;
+    -webkit-transition: background-color 300ms;
 }
 
 .br-bonusSelected {
@@ -64,23 +66,14 @@
     background-color: #f88;
 }
 
+.br-resolveContainer {
+    clear: both;
+}
+
 .br-dieRoll {
     font-weight: normal;
     font-size: 30px;
     line-height: 24px;
-}
-
-.br-textSelector {
-    display: inline-block;
-    padding: 4px;
-    border: 2px solid #c00;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.br-textSelector:hover {
-    background-color: #fcc;
 }
 
 .br-trainingSymbol {

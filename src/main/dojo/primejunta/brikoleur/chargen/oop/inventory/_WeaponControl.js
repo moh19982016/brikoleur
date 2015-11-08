@@ -11,7 +11,8 @@ define( [ "dojo/_base/declare",
           "./../../data/knacks",
           "./../_base/util",
           "./_ItemControl",
-          "dojo/text!./templates/_WeaponControl.html" ],
+          "dojo/text!./templates/_WeaponControl.html",
+          "dojo/i18n!./../../../nls/CharGen" ],
 function( declare,
           lang,
           on,
@@ -20,7 +21,8 @@ function( declare,
           knacks,
           util,
           _ItemControl,
-          template )
+          template,
+          i18n )
 {
     return declare( [ _ItemControl ], {
         /**
@@ -67,13 +69,6 @@ function( declare,
             HR : "X",
             T : "S",
             M : "N/A"
-        },
-        trainingMap : {
-            LR : "Light Ranged Weapons",
-            MR : "Medium Ranged Weapons",
-            HR : "Heavy Ranged Weapons",
-            T : "Thrown Weapons",
-            M : "Melee Weapons"
         },
         /**
          * Template.
@@ -133,8 +128,8 @@ function( declare,
         {
             var wt = this.itemTypeSelect.get( "value" );
             var cKnack = wt.charAt( 1 ) == 'R' ? "Ranged Combat" : "Close Combat";
-            var types = util.queryData( knacks, [ cKnack, this.trainingMap[ wt ] ], "name" );
-            types = types.concat( util.queryData( Controller.get( "state" ).knacks, [ cKnack, this.trainingMap[ wt ] ], "value" ) );
+            var types = util.queryData( knacks, [ cKnack, i18n[ wt ] ], "name" );
+            types = types.concat( util.queryData( Controller.get( "state" ).knacks, [ cKnack, i18n[ wt ] ], "value" ) );
             types.sort();
             types = util.removeDuplicates( types );
             var data = util.listToStoreData( types );

@@ -34,9 +34,9 @@ function( declare,
             }
             this.own( topic.subscribe( "/ResolveTask/", lang.hitch( this, this._setAppearance ) ) );
         },
-        pleaseResolveTask : function()
+        pleaseResolveTask : function( isAttack )
         {
-            topic.publish( "/ResolveTask/", this );
+            topic.publish( "/ResolveTask/", this, isAttack === true );
         },
         _setState : function( state )
         {

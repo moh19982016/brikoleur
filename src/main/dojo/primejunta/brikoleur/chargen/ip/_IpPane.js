@@ -36,11 +36,11 @@ function( declare,
             domClass.add( this.domNode, "br-outOfCombat br-inPlay" );
             this._addPane( "name", new NamePane( { manager : this } ).placeAt( this.nameContainer ) );
             this._addPane( "knacks", new ResolverPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
+            this._addPane( "gear", new InventoryPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "numbers", new NumbersPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "powers", new PowersPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "stunts", new StuntsPane( { dock : this.dockContainer, minimized : true } ).placeAt( this.dynamicGrid ) );
             this._addPane( "ohun", new OhunPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
-            this._addPane( "gear", new InventoryPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
         },
         toggleCombat : function( button )
         {
