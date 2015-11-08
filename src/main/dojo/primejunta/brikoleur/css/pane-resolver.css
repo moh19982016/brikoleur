@@ -70,6 +70,12 @@
     clear: both;
 }
 
+.br-operatorText {
+    padding-top: 23px;
+    font-size: 14px;
+    font-family: "Old Standard TT", serif;
+}
+
 .br-dieRoll {
     font-weight: normal;
     font-size: 30px;
