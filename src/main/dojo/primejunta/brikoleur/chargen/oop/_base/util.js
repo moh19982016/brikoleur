@@ -62,6 +62,47 @@ function( lang,
                 }));
             }), 1 );
         },
+        queryData : function( data, path, prop )
+        {
+            var out = [];
+            var list = data instanceof Array ? data : data[ "list" ] || data[ "controls" ];
+            var seg = path.shift();
+            for( var i = 0; i < list.length; i++ )
+            {
+                if( list[ i ].name == seg )
+                {
+                    if( path.length > 0 )
+                    {
+                        out = out.concat( this.queryData( list[ i ], path, prop ) );
+                    }
+                    else
+                    {
+                        var items = list[ i ][ "list" ] || list[ i ][ "controls" ];
+                        for( var j = 0; j < items.length; j++ )
+                        {
+                            if( items[ j ][ prop ] )
+                            {
+                                out.push( items[ j ][ prop ] );
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+            return out;
+        },
+        removeDuplicates : function( arr )
+        {
+            for( var i = 0; i < arr.length; i++ )
+            {
+                if( arr[ i + 1 ] && arr[ i ] == arr[ i + 1 ] )
+                {
+                    arr.splice( i, 1 );
+                    i--;
+                }
+            }
+            return arr;
+        },
         /**
          * Examines a set of controls and returns the value of an attribute as an array.
          *

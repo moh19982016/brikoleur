@@ -14,17 +14,17 @@ define({
                     "list": [
                         {
                             "name": "Improved Blast",
-                            "extra_cost": 4,
+                            "extra_cost": 1,
                             "description": "Area attack on a Small area, with extra Mind points spent added to zam’s damage. Difficulty of attack lowered by 1.",
                             "list": [
                                 {
                                     "name": "Expert Blast",
-                                    "extra_cost": 4,
+                                    "extra_cost": 1,
                                     "description": "Area attack on a Medium area which ignores friendly targets, with extra Mind cost added to zam’s damage. Difficulty of attack lowered by 2.",
                                     "list": [
                                         {
                                             "name": "Master Blast",
-                                            "extra_cost": 6,
+                                            "extra_cost": 1,
                                             "description": "Area attack on a Large area which ignores friendly targets, with extra Mind cost added to zam’s damage. Difficulty of attack lowered by 3."
                                         }
                                     ]
@@ -85,23 +85,23 @@ define({
                 },
                 {
                     "name": "Boost",
-                    "extra_cost": 6,
-                    "description": "Reduces the difficulty of the following action by 1 level per extra 6 Mind spent. Can be combined with any action, including zoutis and fwés.",
+                    "extra_cost": 4,
+                    "description": "Reduces the difficulty of the following action by 1 level per extra 4 Mind spent. Can be combined with any action, including zoutis and fwés.",
                     "list": [
                         {
                             "name": "Improved Boost",
-                            "extra_cost": 4,
-                            "description": "As Boost, but reduces the difficulty by 1 level per 4 Mind spent, up to 2 levels.",
+                            "extra_cost": 3,
+                            "description": "As Boost, but reduces the difficulty by 1 level per 3 Mind spent, up to 2 levels.",
                             "list": [
                                 {
                                     "name": "Expert Boost",
-                                    "extra_cost": 3,
-                                    "description": "As Improved Boost, but reduces the difficulty by 1 level per 3 Mind spent, up to 3 levels.",
+                                    "extra_cost": 2,
+                                    "description": "As Improved Boost, but reduces the difficulty by 1 level per 2 Mind spent, up to 3 levels.",
                                     "list": [
                                         {
                                             "name": "Master Boost",
-                                            "extra_cost": 2,
-                                            "description": "As Improved Boost, but reduces the difficulty by 1 level per 2 Mind spent, up to 4 levels."
+                                            "extra_cost": 1,
+                                            "description": "As Improved Boost, but reduces the difficulty by 1 level per 1 Mind spent, up to 4 levels."
                                         }
                                     ]
                                 }
@@ -149,6 +149,7 @@ define({
                                     "list": [
                                         {
                                             "name": "Group Hide",
+                                            "extra_cost": 1,
                                             "description": "As Expert Hide, but conceals the entire group of the brikoleur."
                                         }
                                     ]

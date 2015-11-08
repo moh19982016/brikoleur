@@ -4,9 +4,21 @@
  * @private Widget
  */
 define( [ "dojo/_base/declare",
+          "dojo/_base/lang",
+          "dojo/on",
+          "dojo/topic",
+          "dojo/store/Memory",
+          "./../../data/knacks",
+          "./../_base/util",
           "./_ItemControl",
           "dojo/text!./templates/_WeaponControl.html" ],
 function( declare,
+          lang,
+          on,
+          topic,
+          Memory,
+          knacks,
+          util,
           _ItemControl,
           template )
 {
@@ -56,6 +68,13 @@ function( declare,
             T : "S",
             M : "N/A"
         },
+        trainingMap : {
+            LR : "Light Ranged Weapons",
+            MR : "Medium Ranged Weapons",
+            HR : "Heavy Ranged Weapons",
+            T : "Thrown Weapons",
+            M : "Melee Weapons"
+        },
         /**
          * Template.
          *
@@ -80,8 +99,12 @@ function( declare,
          */
         recalcValues : function()
         {
-            this.setField( "damageInput", this._calcDamage( this.itemTypeSelect.get( "value" ), this.levelInput.get( "value" ) ), this._calcDamage( this.itemType, this.level ) );
-            this.setField( "rangeSelect", this.rangeMap[ this.itemTypeSelect.get( "value" ) ], this.rangeMap[ this.itemType ] );
+            this.setField( "damageInput",
+            this._calcDamage( this.itemTypeSelect.get( "value" ), this.levelInput.get( "value" ) ),
+            this._calcDamage( this.itemType, this.level ) );
+            this.setField( "rangeSelect",
+            this.rangeMap[ this.itemTypeSelect.get( "value" ) ],
+            this.rangeMap[ this.itemType ] );
             this.level = this.levelInput.get( "value" );
             this.itemType = this.itemTypeSelect.get( "value" );
         },
@@ -95,6 +118,29 @@ function( declare,
         {
         },
         /**
+         * If we're in combat, publish a topic with data which will be picked up by the task resolver.
+         *
+         * @public void
+         */
+        pleaseAttack : function()
+        {
+            if( Controller.inPlayPane.inCombat )
+            {
+                topic.publish( "/PleaseAttack/", this.get( "state" ) );
+            }
+        },
+        updateWeaponTypes : function()
+        {
+            var wt = this.itemTypeSelect.get( "value" );
+            var cKnack = wt.charAt( 1 ) == 'R' ? "Ranged Combat" : "Close Combat";
+            var types = util.queryData( knacks, [ cKnack, this.trainingMap[ wt ] ], "name" );
+            types = types.concat( util.queryData( Controller.get( "state" ).knacks, [ cKnack, this.trainingMap[ wt ] ], "value" ) );
+            types.sort();
+            types = util.removeDuplicates( types );
+            var data = util.listToStoreData( types );
+            this.specialisationInput.set( "store", new Memory({ data : data }));
+        },
+        /**
          * Add .itemType, .damage, and .range to inherited value and return it.
          *
          * @private Object
@@ -105,6 +151,7 @@ function( declare,
             value.itemType = this.itemTypeSelect.get( "value" );
             value.damage = this.damageInput.get( "value" );
             value.range = this.rangeSelect.get( "value" );
+            value.specialisation = this.specialisationInput.get( "value" );
             return value;
         },
         /**
@@ -119,6 +166,8 @@ function( declare,
             this.itemTypeSelect.set( "value", value.itemType );
             this.damageInput.set( "value", value.damage );
             this.rangeSelect.set( "value", value.range );
+            this.specialisationInput.set( "value", value.specialisation );
+            this.descriptionNode.innerHTML = value.specialisation + "/" + value.description;
         },
         /**
          * Adds level to damage from .damageMap and returns it.

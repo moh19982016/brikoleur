@@ -55,6 +55,7 @@ function( declare,
         postCreate : function()
         {
             this.own( topic.subscribe( "/ResolveTask/", lang.hitch( this, this.pleaseResolveTask ) ) );
+            this.own( topic.subscribe( "/PleaseAttack/", lang.hitch( this, this.pleaseResolveAttack ) ) );
         },
         pleaseResolveTask : function( widg )
         {
@@ -63,6 +64,10 @@ function( declare,
                 this.trainingBonus = widg.trained ? widg.level + 1 : 0;
             }
             this.resolveTask();
+        },
+        pleaseResolveAttack : function( data )
+        {
+            console.log( "ATTACK", data );
         },
         resolveTask : function()
         {

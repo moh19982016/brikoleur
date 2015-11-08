@@ -25,7 +25,7 @@ define({
         "Armour" : "Armour",
         "Weapon" : "Weapon",
         "Level" : "Level ",
-        "Type": "Type",
+        "Type": "Category",
         "Lvl" : "Lvl",
         "Dmg" : "Dm",
         "Range" : "Range",
@@ -58,7 +58,7 @@ define({
         "Environmental" : "Env",
         "StaminaPenalty" : "St",
         "MovementPenalty" : "Mv",
-        "ItemDescription" : "Description",
+        "ItemDescription" : "Type/Name",
         // Stats
         "ActivePowerSlots" : "Active Powers",
         "OhunSlots" : "Ohun",
