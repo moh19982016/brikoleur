@@ -49,7 +49,7 @@ function( declare,
                 manager : this,
                 title : i18n.OhunBonus,
                 max : 99,
-                numbers : [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+                numbers : [ 0, 1, 2, 3, 4, 5, 6, 7, -1 ]
             } ).placeAt( this.ohunNode );
             this.resolverControl = new _ResolverControl( { manager : this } ).placeAt( this.resolveNode );
             domConstruct.create( "div", { "style" : "clear:both" }, this.domNode );

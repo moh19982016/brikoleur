@@ -22,24 +22,15 @@ function( declare,
         {
             domClass.add( this.domNode, "br-bonusButton br-numberInput" );
             this.inherited( arguments );
-            var content = "<div class='br-numberSelector'>";
-            for( var i = 0; i < this.numbers.length; i++ )
-            {
-                content += '<div class="br-bonusButton">' + this.numbers[ i ] + '</div>';
-            }
-            content += "</div>";
-            this._numberDialog = new TooltipDialog( {
-                content : content
-            } );
-            this.own( this._numberDialog );
             this.own( on( this.domNode, "click", lang.hitch( this, this.onClick ) ) );
         },
         onClick : function( evt )
         {
             evt.stopPropagation();
-            popup.open( { popup : this._numberDialog, around : this.domNode } );
+            var dlog = this._createPopup();
+            popup.open( { popup : dlog, around : this.domNode } );
             this.onChange( this.value );
-            this.own( on.once( this._numberDialog.domNode, "click", lang.hitch( this, function( evt )
+            this.own( on.once( dlog.domNode, "click", lang.hitch( this, function( evt )
             {
                 if( !isNaN( parseInt( evt.target.innerHTML ) ) )
                 {
@@ -48,7 +39,8 @@ function( declare,
             } ) ) );
             this.own( on.once( document.body, "click", lang.hitch( this, function( evt )
             {
-                popup.close( this._numberDialog );
+                popup.close( dlog );
+                dlog.destroy();
                 this.onChange( this.value );
             } ) ) );
         },
@@ -62,6 +54,18 @@ function( declare,
                 this.domNode.innerHTML = val;
             }
             this.inherited( arguments );
+        },
+        _createPopup : function()
+        {
+            var content = "<div class='br-numberSelector'>";
+            for( var i = 0; i < this.numbers.length; i++ )
+            {
+                content += '<div class="br-bonusButton' + ( this.value == this.numbers[ i ] ? " br-bonusSelected" : "" ) + '">' + this.numbers[ i ] + '</div>';
+            }
+            content += "</div>";
+            return new TooltipDialog( {
+                content : content
+            } );
         }
     } );
 } );

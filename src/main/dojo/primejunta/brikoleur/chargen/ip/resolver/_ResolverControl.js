@@ -51,6 +51,7 @@ function( declare,
             {
                 var result = ( this.bonus + n ) - this.difficulty;
                 this.taskResultNode.innerHTML = result;
+                domClass.replace( this.taskResultNode, result < 0 ? "br-taskFailed" : "br-taskSucceeded", "br-taskFailed br-taskSucceeded" );
                 if( this._baseDamage )
                 {
                     this.set( "damage", this._calcDamage( result ) );
@@ -111,6 +112,7 @@ function( declare,
         {
             this.rollDieNode.innerHTML = '<i class="fa fa-cube"></i>';
             this.taskResultNode.innerHTML = "?";
+            domClass.remove( this.taskResultNode, "br-taskFailed br-taskSucceeded" );
             this.set( "base-damage", this._baseDamage || null );
         }
     } );

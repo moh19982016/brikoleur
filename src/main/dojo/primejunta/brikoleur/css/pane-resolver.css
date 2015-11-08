@@ -123,3 +123,12 @@
     background-color: transparent;
 }
 
+.br-taskFailed {
+    background-color : gray;
+    color: white;
+}
+
+.br-taskSucceeded {
+    background-color: #080;
+    color: white;
+}
