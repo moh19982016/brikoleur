@@ -22,6 +22,12 @@ function( declare,
 {
     return declare( [ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
         /**
+         * Type of header (weapon, armour, item).
+         *
+         * @public string
+         */
+        type : "item",
+        /**
          * Localization.
          *
          * @final
@@ -35,14 +41,13 @@ function( declare,
          * @public string
          */
         templateString : template,
-        /**
-         * Set listener for /InventoryItemClicked/ topic, to display heading matching it.
-         *
-         * @public void
-         */
-        postCreate : function()
+        set : function( prop, val )
         {
-            this.own( topic.subscribe( "/InventoryItemClicked/", lang.hitch( this, this._setHeader ) ) );
+            if( prop == "type" )
+            {
+                this._setHeader( val );
+            }
+            this.inherited( arguments );
         },
         /**
          * Display heading for weapon, armour, or anything else, depending on type.

@@ -12,6 +12,8 @@ define( [ "dojo/_base/declare",
           "./_ItemHeader",
           "./_AddItemControl",
           "./../../_base/_FeaturePaneBase",
+          "dijit/_WidgetsInTemplateMixin",
+          "dojo/text!./templates/InventoryPane.html",
           "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
@@ -21,9 +23,12 @@ function( declare,
           _ArmourControl,
           _ItemHeader,
           _AddItemControl,
-          _FeaturePaneBase, i18n )
+          _FeaturePaneBase,
+          _WidgetsInTemplateMixin,
+          template,
+          i18n )
 {
-    return declare( [ _FeaturePaneBase ],
+    return declare( [ _FeaturePaneBase, _WidgetsInTemplateMixin ],
     {
         /**
          * Title.
@@ -40,6 +45,13 @@ function( declare,
          */
         icon : "suitcase",
         /**
+         * Template.
+         *
+         * @final
+         * @public string
+         */
+        templateString : template,
+        /**
          * Create button spacer in domNode, then a Button to add new inventory items, then an ItemHeader for the
          * inventory. Then ._addItem once so we have something to start with.
          *
@@ -50,7 +62,7 @@ function( declare,
             domConstruct.create( "div", { "class" : "br-buttonSpacer" }, this.domNode, "last" );
             this.addItemControl =
             new _AddItemControl( { manager : this } ).placeAt( this.containerNode );
-            this.own( this.addItemControl, new _ItemHeader().placeAt( this.addItemControl.domNode, "before" ) );
+            this.own( this.addItemControl );
         },
         /**
          * Calls .addField "item" with _ItemControl at .addItemControl node. The argumnet is passed to the constructor.
@@ -61,11 +73,18 @@ function( declare,
         addItem : function( /* Object */ props )
         {
             props.value = props.value || {};
-            this.addField( "item",
-                           props.value.type == "weapon" ? _WeaponControl : props.value.type == "armour" ? _ArmourControl : _ItemControl,
-                           lang.mixin( props || {}, { parent : this } ),
-                           this.addItemControl.domNode,
-                           "before" );
+            props.parent = this;
+            switch( props.value.type )
+            {
+                case "weapon" :
+                    this.addField( "item", _WeaponControl,  props, this.weaponsNode );
+                    break;
+                case "armour" :
+                    this.addField( "item", _ArmourControl,  props, this.armoursNode );
+                    break;
+                default :
+                    this.addField( "item", _ItemControl,  props, this.itemsNode );
+            }
         },
         /**
          * Clear, then iterate through state and ._addItem for each member.

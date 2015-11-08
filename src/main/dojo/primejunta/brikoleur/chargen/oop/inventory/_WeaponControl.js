@@ -170,8 +170,8 @@ function( declare,
         },
         _writeDescription : function( value )
         {
-            this.combatControlNode.innerHTML = value.specialisation + "/" + value.description;
-            this.descriptionNode.innerHTML = value.specialisation + "/" + value.description;
+            this.combatControlNode.innerHTML = value.specialisation + ": " + value.description;
+            this.descriptionNode.innerHTML = value.specialisation + ": " + value.description;
         },
         /**
          * Adds level to damage from .damageMap and returns it.

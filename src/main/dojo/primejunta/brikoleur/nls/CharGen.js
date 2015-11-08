@@ -37,6 +37,9 @@ define({
         "PrepMode" : "Rest",
         "NameInUse" : "The name is already in use.",
         // item fields
+        "Items" : "Other",
+        "Armours" : "Armours",
+        "Weapons" : "Weapons",
         "LR" : "Light Ranged Weapons",
         "MR" : "Medium Ranged Weapons",
         "HR" : "Heavy Ranged Weapons",
@@ -67,7 +70,8 @@ define({
         "Environmental" : "Env",
         "StaminaPenalty" : "St",
         "MovementPenalty" : "Mv",
-        "ItemDescription" : "Type/Name",
+        "ItemDescription" : "Description",
+        "TypeAndName" : "Type/Name",
         // Stats
         "ActivePowerSlots" : "Active Powers",
         "OhunSlots" : "Ohun",
