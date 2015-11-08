@@ -42,6 +42,8 @@ define({
         "HR" : "Heavy Ranged Weapons",
         "T" : "Thrown Weapons",
         "M" : "Melee Weapons",
+        "ItemName" : "Name",
+        "Specialisation" : "Specialisation",
         "RangedCombat" : "Ranged Combat",
         "CloseCombat" : "Close Combat",
         "gear" : "Gear",

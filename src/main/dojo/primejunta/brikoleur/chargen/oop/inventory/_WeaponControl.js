@@ -87,6 +87,10 @@ function( declare,
             this.recalcValues();
             this.itemType = this.itemTypeSelect.get( "value" );
         },
+        onComplete : function()
+        {
+            this._writeDescription( this._getValue() );
+        },
         /**
          * Set damage and range based on defaults, using _ItemControl::setField, and update level and itemType.
          *
@@ -162,6 +166,11 @@ function( declare,
             this.damageInput.set( "value", value.damage );
             this.rangeSelect.set( "value", value.range );
             this.specialisationInput.set( "value", value.specialisation );
+            this._writeDescription( value );
+        },
+        _writeDescription : function( value )
+        {
+            this.combatControlNode.innerHTML = value.specialisation + "/" + value.description;
             this.descriptionNode.innerHTML = value.specialisation + "/" + value.description;
         },
         /**

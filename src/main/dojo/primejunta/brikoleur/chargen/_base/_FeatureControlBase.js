@@ -30,10 +30,10 @@ function( declare,
           i18n )
 {
     return declare( [ _WidgetBase,
-                            _TemplatedMixin,
-                            _WidgetsInTemplateMixin,
-                            _ControlContainerMixin,
-                            _DescriptionMixin ],
+                      _TemplatedMixin,
+                      _WidgetsInTemplateMixin,
+                      _ControlContainerMixin,
+                      _DescriptionMixin ],
     {
         /**
          * Type of feature being controlled.
@@ -276,7 +276,7 @@ function( declare,
             {
                 for( var o in data )
                 {
-                    if( array.indexOf( this.OMIT_FROM_STATE, o ) == - 1 )
+                    if( array.indexOf( this.OMIT_FROM_STATE, o ) == -1 )
                     {
                         out[ o ] = data[ o ];
                     }
@@ -292,7 +292,7 @@ function( declare,
         _getState : function()
         {
             var chld = [];
-            for( var i = 0; i < this.controls.length; i ++ )
+            for( var i = 0; i < this.controls.length; i++ )
             {
                 chld.push( this.controls[ i ].get( "state" ) );
             }
@@ -319,7 +319,7 @@ function( declare,
                 var _data = this._getData( this.state.value );
                 this.state = lang.mixin( _data, this.state );
                 this.setDescription( this.state );
-                for( var i = 0; i < ( state.controls || [] ).length; i ++ )
+                for( var i = 0; i < ( state.controls || [] ).length; i++ )
                 {
                     this._setChildState( state.controls[ i ] );
                 }
@@ -339,7 +339,7 @@ function( declare,
         },
         _setChildState : function( state )
         {
-            this.createChildControl({}).set( "state", state );
+            this.createChildControl( {} ).set( "state", state );
         },
         /**
          * Displays val in .valueNode, and sets ._selector value to it (if present).

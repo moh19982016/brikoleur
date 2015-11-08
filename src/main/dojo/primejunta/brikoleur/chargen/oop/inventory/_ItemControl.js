@@ -158,6 +158,8 @@ function( declare,
         {
             this.completeButton.domNode.style.display = "none";
             this.deleteButton.domNode.style.display = "inline-block";
+            domClass.add( this.domNode, "br-itemComplete" );
+            this.onComplete();
             for( var i = 0; i < this._attachPoints.length; i++ )
             {
                 if( this._attachPoints[ i ] != "activeControl" && this._attachPoints[ i ] != "deleteControl" && this[ this._attachPoints[ i ] ].set )
@@ -165,6 +167,15 @@ function( declare,
                     this[ this._attachPoints[ i ] ].set( "disabled", true );
                 }
             }
+        },
+        /**
+         * Connect logic needed to compelete the item, if any.
+         *
+         * @stub
+         * @public void
+         */
+        onComplete : function()
+        {
         },
         /**
          * Requests parent to remove self, then ._publishChange, then destroy.

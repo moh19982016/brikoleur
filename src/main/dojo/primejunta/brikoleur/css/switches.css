@@ -17,3 +17,15 @@
 .br-inCombat .br-hideInCombat {
     display: none;
 }
+
+.br-hideWhenIncomplete {
+    display: none;
+}
+
+.br-itemComplete .br-hideWhenComplete {
+    display: none;
+}
+
+.br-itemComplete .br-hideWhenIncomplete {
+    display: inline-block;
+}
