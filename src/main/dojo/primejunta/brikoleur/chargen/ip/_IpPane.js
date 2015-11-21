@@ -61,7 +61,20 @@ function( declare,
                 domClass.replace( this.domNode, "br-outOfCombat", "br-inCombat" );
                 this.panes.stunts.minimize();
             }
-            this.panes.numbers.fxSet( "stamina", this.panes.numbers.get( "mind" ) + this.panes.numbers.get( "body" ) );
+            this.panes.numbers.fxSet( "stamina", this.panes.numbers.get( "mind" ) + this.panes.numbers.get( "body" ) - this.getArmour().staminaPenalty );
+        },
+        getArmour : function()
+        {
+            var ctrls = Controller.inPlayPane.panes.gear.controls;
+            for( var i = 0; i < ctrls.length; i++ )
+            {
+                var val = ctrls[ i ].get( "state" ).value || {};
+                if( val.type == "armour" && val.carried )
+                {
+                    return val;
+                }
+            }
+            return { direct : 0, environmental : 0, staminaPenalty : 0, movementPenalty : 0 };
         }
     } );
 } );

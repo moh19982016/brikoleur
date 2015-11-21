@@ -56,7 +56,7 @@ function( declare,
                 }
                 this.taskResultNode.innerHTML = result;
                 domClass.replace( this.taskResultNode, result < 0 ? "br-taskFailed" : "br-taskSucceeded", "br-taskFailed br-taskSucceeded" );
-                if( this.baseDamageControl.get( "value" ) )
+                if( this.baseDamageControl.get( "value" ) && Controller.inPlayPane.inCombat )
                 {
                     if( Controller.lastClicked && Controller.lastClicked.state.defence )
                     {
@@ -124,20 +124,6 @@ function( declare,
             }
             return prom;
         },
-        _setArmourFromWorn : function()
-        {
-            var ctrls = Controller.inPlayPane.panes.gear.controls;
-            for( var i = 0; i < ctrls.length; i++ )
-            {
-                var val = ctrls[ i ].get( "state" ).value || {};
-                if( val.type == "armour" && val.carried )
-                {
-                    this.armourControl.set( "value", val.direct );
-                    break;
-                }
-                this.armourControl.set( "value", 0 );
-            }
-        },
         _resetDie : function( widg )
         {
             this.rollDieNode.innerHTML = '<i class="fa fa-cube"></i>';
@@ -145,7 +131,7 @@ function( declare,
             domClass.remove( this.taskResultNode, "br-taskFailed br-taskSucceeded" );
             if( widg && widg.get( "state" ).defence )
             {
-                this._setArmourFromWorn();
+                this.armourControl.set( "value", Controller.inPlayPane.getArmour().direct );
             }
         }
     } );

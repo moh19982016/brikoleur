@@ -5,9 +5,11 @@
  */
 define( [ "dojo/_base/declare",
           "./_ItemControl",
+          "dijit/form/RadioButton",
           "dojo/text!./templates/_ArmourControl.html" ],
 function( declare,
           _ItemControl,
+          RadioButton,
           template )
 {
     return declare( [ _ItemControl ], {
