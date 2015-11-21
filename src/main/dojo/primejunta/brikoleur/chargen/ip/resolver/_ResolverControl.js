@@ -124,11 +124,29 @@ function( declare,
             }
             return prom;
         },
-        _resetDie : function()
+        _setArmourFromWorn : function()
+        {
+            var ctrls = Controller.inPlayPane.panes.gear.controls;
+            for( var i = 0; i < ctrls.length; i++ )
+            {
+                var val = ctrls[ i ].get( "state" ).value || {};
+                if( val.type == "armour" && val.carried )
+                {
+                    this.armourControl.set( "value", val.direct );
+                    break;
+                }
+                this.armourControl.set( "value", 0 );
+            }
+        },
+        _resetDie : function( widg )
         {
             this.rollDieNode.innerHTML = '<i class="fa fa-cube"></i>';
             this.taskResultNode.innerHTML = "?";
             domClass.remove( this.taskResultNode, "br-taskFailed br-taskSucceeded" );
+            if( widg && widg.get( "state" ).defence )
+            {
+                this._setArmourFromWorn();
+            }
         }
     } );
 } );
