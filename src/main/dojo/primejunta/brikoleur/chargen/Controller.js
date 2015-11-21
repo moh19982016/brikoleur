@@ -160,6 +160,7 @@ function( declare,
                 this.playButton.set( "iconClass", "fa fa-rocket" );
                 this.playButton.set( "label", i18n.PlayMode );
                 this.mainTabs.selectChild( this.characterPane );
+                domClass.remove( Controller.inPlayPane.domNode, "br-status-wounded br-status-incapacitated br-status-dead" );
             }
         },
         /**

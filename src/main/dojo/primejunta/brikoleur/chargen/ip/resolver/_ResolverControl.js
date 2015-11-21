@@ -50,11 +50,23 @@ function( declare,
             this._rollFx( n, 7 ).then( lang.hitch( this, function()
             {
                 var result = ( this.bonus + n ) - this.difficulty;
+                if( domClass.contains( Controller.inPlayPane.domNode, "br-status-wounded" ) )
+                {
+                    result -= 1;
+                }
                 this.taskResultNode.innerHTML = result;
                 domClass.replace( this.taskResultNode, result < 0 ? "br-taskFailed" : "br-taskSucceeded", "br-taskFailed br-taskSucceeded" );
-                if( this._baseDamage )
+                if( this.baseDamageControl.get( "value" ) )
                 {
-                    this.set( "damage", this._calcDamage( result ) );
+                    if( Controller.lastClicked && Controller.lastClicked.state.defence )
+                    {
+                        this.set( "damage", this._calcDefenceDamage( result ) );
+                        topic.publish( "/DamageTaken/", this._calcDefenceDamage( result ) );
+                    }
+                    else
+                    {
+                        this.set( "damage", this._calcDamage( result ) );
+                    }
                 }
             } ) );
         },
@@ -67,7 +79,7 @@ function( declare,
             }
             else if( prop == "base-damage" )
             {
-                this._baseDamage = val;
+                this.baseDamageControl.set( "value", val || 4 );
                 this.damageNode.innerHTML = val || "?";
                 domClass.remove( this.damageNode, "br-valueChanged" );
             }
@@ -79,14 +91,18 @@ function( declare,
         },
         _calcDamage : function( reslt )
         {
-            if( reslt < -1 )
+            if( reslt < 0 )
             {
                 return 0;
             }
             else
             {
-                return this._baseDamage + Math.floor( Math.min( reslt, 6 ) * this._baseDamage / 2 );
+                return Math.max( 0, Math.floor( this.baseDamageControl.get( "value" ) / 2 + Math.floor( Math.min( reslt, 6 ) * this.baseDamageControl.get( "value" ) / 2 ) ) - this.armourControl.get( "value" ) );
             }
+        },
+        _calcDefenceDamage : function( reslt )
+        {
+            return this._calcDamage( -reslt - 1 );
         },
         _rollFx : function( finalValue, iter, prom )
         {
@@ -113,7 +129,6 @@ function( declare,
             this.rollDieNode.innerHTML = '<i class="fa fa-cube"></i>';
             this.taskResultNode.innerHTML = "?";
             domClass.remove( this.taskResultNode, "br-taskFailed br-taskSucceeded" );
-            this.set( "base-damage", this._baseDamage || null );
         }
     } );
 } );

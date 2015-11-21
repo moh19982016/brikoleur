@@ -66,18 +66,7 @@ function( declare,
         },
         setBonus : function( bonus )
         {
-            for( var o in this.buttons )
-            {
-                if( this.buttons[ o ].value == bonus )
-                {
-                    domClass.add( this.buttons[ o ].domNode || this.buttons[ o ], "br-bonusSelected" );
-                }
-                else
-                {
-                    domClass.remove( this.buttons[ o ].domNode || this.buttons[ o ], "br-bonusSelected" );
-                }
-            }
-            this.bonus = bonus;
+            this._showBonus( bonus );
             topic.publish( "/ResolveTask/", this, true );
         },
         setMax : function( max )
@@ -107,9 +96,28 @@ function( declare,
             {
                 this.setMax( val );
             }
+            else if( prop == "bonus" )
+            {
+                this._showBonus( val );
+            }
             else
             {
                 this.inherited( arguments );
+            }
+        },
+        _showBonus : function( bonus )
+        {
+            this.bonus = bonus;
+            for( var o in this.buttons )
+            {
+                if( this.buttons[ o ].value == bonus )
+                {
+                    domClass.add( this.buttons[ o ].domNode || this.buttons[ o ], "br-bonusSelected" );
+                }
+                else
+                {
+                    domClass.remove( this.buttons[ o ].domNode || this.buttons[ o ], "br-bonusSelected" );
+                }
             }
         }
     } );

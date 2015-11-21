@@ -30,12 +30,13 @@ function( declare,
             this.inherited( arguments );
             if( !this.trained )
             {
-                domClass.add( this.clickNode, "br-untrainedSkill" );
+                domClass.add( this.domNode, "br-untrainedSkill" );
             }
             this.own( topic.subscribe( "/ResolveTask/", lang.hitch( this, this._setAppearance ) ) );
         },
         pleaseResolveTask : function( isAttack )
         {
+            Controller.lastClicked = this;
             topic.publish( "/ResolveTask/", this, isAttack === true );
         },
         _setState : function( state )
@@ -45,11 +46,20 @@ function( declare,
             {
                 domClass.add( this.domNode, "br-hideOutOfCombat" );
             }
+            if( this.state.value.indexOf( "Ranged Defence" ) != -1  )
+            {
+                domClass.add( this.domNode, "br-defenceTraining" );
+            }
+            if( /(Light|Medium|Heavy) Ranged/.test( this.state.value ) )
+            {
+                domClass.add( this.domNode, "br-rangedAttackTraining" );
+            }
         },
         _setChildState : function( state )
         {
             if( state.value )
             {
+                state.defence = this.state.defence;
                 this.createChildControl( {} ).set( "state", state );
             }
         },

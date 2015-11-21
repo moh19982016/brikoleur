@@ -12,6 +12,7 @@ define( [ "dojo/_base/declare",
           "./_ResolverControl",
           "./../../oop/_base/util",
           "./../../_base/_FeaturePaneBase",
+          "dojo/text!./templates/ResolverPane.html",
           "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
@@ -22,6 +23,7 @@ function( declare,
           _ResolverControl,
           util,
           _FeaturePaneBase,
+          template,
           i18n )
 {
     return declare( [ _FeaturePaneBase ],
@@ -31,19 +33,24 @@ function( declare,
         iconType : "literal",
         trainingBonus : 0,
         childConstructor : _TrainingControl,
+        dict : i18n,
+        templateString : template,
         buildRendering : function()
         {
             this.inherited( arguments );
-            this.resourcesNode = domConstruct.create( "div", { "class" : "br-floatLeft br-bonusNode" }, this.domNode );
-            this.intelNode = domConstruct.create( "div", { "class" : "br-floatLeft br-bonusNode" }, this.domNode );
-            this.ohunNode = domConstruct.create( "div", { "class" : "br-floatLeft br-bonusNode" }, this.domNode );
-            this.trainingNode =
-            domConstruct.create( "div", { "class" : "br-floatLeft br-trainingNode" }, this.domNode );
-            this.resolveNode = domConstruct.create( "div", { "class" : "br-resolveContainer" }, this.domNode );
+            this.attackControls = [];
             this.resourcesBonusControl =
             new _BonusControl( { manager : this, title : i18n.ResourceBonus } ).placeAt( this.resourcesNode );
             this.intelBonusControl =
-            new _BonusControl( { manager : this, title : i18n.IntelBonus } ).placeAt( this.intelNode );
+            new _BonusControl( { manager : this, title : i18n.IntelBonus, className : "br-hideInCombat" } ).placeAt(
+            this.intelNode );
+            this.coverBonusControl =
+            new _BonusControl( {
+                manager : this,
+                title : i18n.CoverBonus,
+                max : 99,
+                className : "br-hideOutOfCombat"
+            } ).placeAt( this.intelNode );
             this.ohunBonusControl =
             new _BonusControl( {
                 manager : this,
@@ -52,7 +59,6 @@ function( declare,
                 numbers : [ 0, 1, 2, 3, 4, 5, 6, 7, -1 ]
             } ).placeAt( this.ohunNode );
             this.resolverControl = new _ResolverControl( { manager : this } ).placeAt( this.resolveNode );
-            domConstruct.create( "div", { "style" : "clear:both" }, this.domNode );
         },
         postCreate : function()
         {
@@ -65,7 +71,14 @@ function( declare,
             {
                 this.trainingBonus = widg.trained ? widg.level + 1 : 0;
             }
-            this.resolveTask( isAttack );
+            if( Controller.lastClicked && Controller.lastClicked.state.defence )
+            {
+                this.resolveDefenceAction( widg.state );
+            }
+            else
+            {
+                this.resolveTask( isAttack );
+            }
         },
         pleaseResolveAttack : function( data )
         {
@@ -74,7 +87,7 @@ function( declare,
             var knack = data.value.itemType.charAt( 1 ) == 'R' ? i18n.RangedCombat : i18n.CloseCombat;
             var training = i18n[ data.value.itemType ];
             var specialisation = data.value.specialisation;
-            this._findTraining( this.controls, [ knack, training, specialisation ] );
+            this._findTraining( this.attackControls, [ knack, training, specialisation ] );
         },
         resolveTask : function( isAttack )
         {
@@ -90,6 +103,23 @@ function( declare,
             {
                 this.resolverControl.set( "base-damage", false );
             }
+        },
+        resolveDefenceAction : function( data )
+        {
+            if( data.value.indexOf( "Ranged" ) == -1 )
+            {
+                this.intelBonusControl.set( "bonus", 0 );
+                this.resolveTask();
+                return;
+            }
+            var maxBonus = this.trainingBonus;
+            var bonus = ( Math.min( maxBonus, this.coverBonusControl.bonus )
+                          + this.coverBonusControl.bonus
+                          + this.ohunBonusControl.bonus
+                          + maxBonus );
+            this.resolverControl.set( "bonus", bonus );
+            this.resourcesBonusControl.set( "max", maxBonus );
+            this.resourcesBonusControl.set( "bonus", this.coverBonusControl.bonus );
         },
         _findTraining : function( controls, path )
         {
@@ -109,14 +139,30 @@ function( declare,
         _setState : function( state )
         {
             this.clear();
-            var ctrl = new _TrainingControl( { parent : this, trained : false } ).placeAt( this.trainingNode );
-            ctrl.set( "state", { value : "Untrained" } );
-            this.controls.push( ctrl );
-            for( var i = 0; i < state.length; i ++ )
+            this._addTraining( { parent : this, trained : false }, { value : "Untrained" }, this.attackTrainingNode );
+            this._addTraining( { parent : this, trained : false }, { value : "Untrained", defence : true }, this.defenceTrainingNode );
+            this._addTraining( { parent : this, trained : false }, { value : "Untrained" }, this.otherTrainingNode );
+            for( var i = 0; i < state.length; i++ )
             {
-                ctrl = new _TrainingControl( { parent : this } ).placeAt( this.trainingNode );
-                ctrl.set( "state", state[ i ] );
-                this.controls.push( ctrl );
+                if( state[ i ].type != "combat" )
+                {
+                    this._addTraining({ parent : this }, state[ i ], this.otherTrainingNode );
+                }
+                else
+                {
+                    this._addTraining({ parent : this }, state[ i ], this.attackTrainingNode, this.attackControls );
+                    this._addTraining({ parent : this }, lang.mixin( lang.clone( state[ i ] ), { defence : true }), this.defenceTrainingNode );
+                }
+            }
+        },
+        _addTraining : function( props, state, node, arr )
+        {
+            var ctrl = new _TrainingControl( props ).placeAt( node );
+            ctrl.set( "state", state );
+            this.controls.push( ctrl );
+            if( arr )
+            {
+                arr.push( ctrl );
             }
         }
     } );

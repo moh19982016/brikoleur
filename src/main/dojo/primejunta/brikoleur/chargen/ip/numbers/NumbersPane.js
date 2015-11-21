@@ -24,11 +24,33 @@ function( declare,
         {
             this.inherited( arguments );
             this.own( topic.subscribe( "/PointsSpent/", lang.hitch( this, this._spendPoints ) ) );
+            this.own( topic.subscribe( "/DamageTaken/", lang.hitch( this, this._takeDamage ) ) );
         },
         fxSet : function( stat, val )
         {
             this.set( stat, val );
             fx.flash( this._props[ stat ]._input.domNode, "br-valueChanged" );
+        },
+        _takeDamage : function( points )
+        {
+            var rem = points - this.get( "stamina" );
+            this.set( "stamina", Math.max( 0, this.get( "stamina" ) - points ) );
+            if( rem > 0 )
+            {
+                this.set( "body", this.get( "body" ) - rem );
+            }
+            if( this.get( "stamina" ) <= 0 )
+            {
+                this._setStatus( "wounded" );
+            }
+            if( this.get( "body") <= 0 )
+            {
+                this._setStatus( "incapacitated" );
+            }
+            if( this.get( "body" ) <= -Controller.characterPane.panes.numbers.get( "body" ) )
+            {
+                this._setStatus( "dead" );
+            }
         },
         _spendPoints : function( stat, points )
         {
@@ -52,6 +74,10 @@ function( declare,
             {
                 this.inherited( arguments );
             }
+        },
+        _setStatus : function( status )
+        {
+            domClass.replace( Controller.inPlayPane.domNode, "br-status-" + status, "br-status-wounded br-status-incapacitated br-status-dead" );
         }
     } );
 } );

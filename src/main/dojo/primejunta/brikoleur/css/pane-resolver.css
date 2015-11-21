@@ -82,6 +82,18 @@
     line-height: 24px;
 }
 
+.br-trainingButtons {
+    padding-left: 20px;
+}
+
+.br-trainingButton {
+    margin-left: 0;
+}
+
+.br-trainingButton.br-untrainedSkill {
+    margin-left: -20px;
+}
+
 .br-trainingSymbol {
     color: #c00;
     font-style: normal;
@@ -124,8 +136,7 @@
 }
 
 .br-taskFailed {
-    background-color : gray;
-    color: white;
+    color: gray;
 }
 
 .br-taskSucceeded {
