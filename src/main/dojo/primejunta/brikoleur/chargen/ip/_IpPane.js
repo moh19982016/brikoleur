@@ -61,7 +61,7 @@ function( declare,
                 domClass.replace( this.domNode, "br-outOfCombat", "br-inCombat" );
                 this.panes.stunts.minimize();
             }
-            this.panes.numbers.fxSet( "stamina", this.panes.numbers.get( "mind" ) + this.panes.numbers.get( "body" ) - this.getArmour().staminaPenalty );
+            this.panes.numbers.fxSet( "stamina", this.panes.numbers.get( "mind" ) + this.panes.numbers.get( "body" ) );
         },
         getArmour : function()
         {
@@ -74,7 +74,7 @@ function( declare,
                     return val;
                 }
             }
-            return { direct : 0, environmental : 0, staminaPenalty : 0, movementPenalty : 0 };
+            return { direct : 0, environmental : 0, movementPenalty : 0 };
         }
     } );
 } );
