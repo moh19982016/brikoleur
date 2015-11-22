@@ -167,7 +167,7 @@ function( declare,
             this.clear();
             for( var i = 0; i < state.length; i++ )
             {
-                this.addControl().set( "state", state[ i ] );
+                this.addControl({}, false, state[ i ] ).set( "state", state[ i ] );
             }
         }
     });

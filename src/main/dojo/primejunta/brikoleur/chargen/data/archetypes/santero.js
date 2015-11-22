@@ -26,6 +26,13 @@ define({
         ],
         "knacks": [
             {
+                "name" : "&lt;Oga&gt;",
+                "value" : "&lt;Oga&gt;",
+                "oga" : true,
+                "key" : false,
+                "controls" : []
+            },
+            {
                 "name": "Knack",
                 "value": false,
                 "key": false,

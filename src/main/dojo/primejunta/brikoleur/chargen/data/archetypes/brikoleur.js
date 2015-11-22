@@ -1,6 +1,7 @@
 define({
-    name : "Brikoleur",
-    data : {
+    "name" : "Brikoleur",
+    "data" : {
+        "type" : "template",
         "name": {
             "characterName": ""
         },
@@ -21,6 +22,13 @@ define({
             }
         ],
         "knacks": [
+            {
+                "name" : "&lt;Oga&gt;",
+                "value" : "&lt;Oga&gt;",
+                "oga" : true,
+                "key" : false,
+                "controls" : []
+            },
             {
                 "name": "Q-Space",
                 "value": "Q-Space",

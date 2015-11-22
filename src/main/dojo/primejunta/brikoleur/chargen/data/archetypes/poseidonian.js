@@ -1,6 +1,7 @@
 define({
     name : "Poseidonian",
     data : {
+        "type" : "template",
         "name": {
             "characterName": ""
         },

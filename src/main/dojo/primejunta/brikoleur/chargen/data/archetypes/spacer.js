@@ -1,6 +1,7 @@
 define({
     name : "Spacer",
     data : {
+        "type" : "template",
         "name": {
             "characterName": ""
         },

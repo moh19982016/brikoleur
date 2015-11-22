@@ -1,6 +1,7 @@
 define({
     name : "Ronin",
     data : {
+        "type" : "template",
         "name": {
             "characterName": ""
         },

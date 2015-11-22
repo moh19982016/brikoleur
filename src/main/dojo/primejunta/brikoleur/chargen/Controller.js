@@ -479,11 +479,16 @@ function( declare,
         _setState : function( state )
         {
             this.loading = true;
+            if( state.type == "template" )
+            {
+                this.loadingTemplate = true;
+            }
             this.characterPane.set( "state", state );
             this.publishJuju();
             setTimeout( lang.hitch( this, function()
             {
                 this.loading = false;
+                this.loadingTemplate = false;
                 this.mainTabs.selectChild( this.characterPane );
             } ), 1 ); // Do we need the timeout?
         },

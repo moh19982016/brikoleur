@@ -96,11 +96,11 @@ function( declare,
             {
                 domClass.add( this.domNode, "br-hideOutOfCombat" );
             }
-            if( this.state.value.indexOf( "Ranged Defence" ) != -1  )
+            if( this.state.value && this.state.value.indexOf( "Ranged Defence" ) != -1  )
             {
                 domClass.add( this.domNode, "br-defenceTraining" );
             }
-            if( /(Light|Medium|Heavy) Ranged/.test( this.state.value ) )
+            if( this.state.value && /(Light|Medium|Heavy) Ranged/.test( this.state.value ) )
             {
                 domClass.add( this.domNode, "br-rangedAttackTraining" );
             }

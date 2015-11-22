@@ -36,6 +36,8 @@ define({
         "PlayMode" : "Play",
         "PrepMode" : "Rest",
         "NameInUse" : "The name is already in use.",
+        "Oga" : "<Oga>",
+        "EnterSocketedOga" : "Currently socketed",
         // item fields
         "Items" : "Other",
         "Armours" : "Armours",

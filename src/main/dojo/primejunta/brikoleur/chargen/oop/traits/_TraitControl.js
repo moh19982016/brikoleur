@@ -202,9 +202,15 @@ function( declare,
                 switch( features[ i ].type )
                 {
                     case "knack" :
-                        if( !Controller.loading )
+                        if( !Controller.loading || Controller.loadingTemplate )
                         {
                             topic.publish( "/AddBonusKnack/", features[ i ].value );
+                        }
+                        break;
+                    case "oga" :
+                        if( !Controller.loading || Controller.loadingTemplate )
+                        {
+                            topic.publish( "/AddBonusKnack/", features[ i ].value, "oga" );
                         }
                         break;
                     case "free" :

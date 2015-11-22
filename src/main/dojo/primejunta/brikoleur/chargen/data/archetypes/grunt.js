@@ -1,6 +1,7 @@
 define({
     name: "Grunt",
     data: {
+        "type" : "template",
         "name": {
             "characterName": ""
         },

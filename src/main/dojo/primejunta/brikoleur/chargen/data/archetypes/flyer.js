@@ -1,6 +1,7 @@
 define({
     name : "Flyer",
     data : {
+        "type" : "template",
         "name": {
             "characterName": ""
         },

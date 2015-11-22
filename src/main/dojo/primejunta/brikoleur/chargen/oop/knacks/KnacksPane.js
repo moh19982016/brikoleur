@@ -9,6 +9,7 @@ define([ "dojo/_base/declare",
          "./../../_base/_FeaturePaneBase",
          "./../_base/_ControlPaneMixin",
          "./_KnackControl",
+         "./_OgaControl",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
@@ -16,6 +17,7 @@ function( declare,
           _FeaturePaneBase,
           _ControlPaneMixin,
           _KnackControl,
+          _OgaControl,
           i18n )
 {
     return declare([ _FeaturePaneBase, _ControlPaneMixin ],
@@ -72,18 +74,41 @@ function( declare,
             this.own( topic.subscribe( "/AddBonusKnack/", lang.hitch( this, this._addBonusKnack ) ) );
         },
         /**
+         * Checks state.oga and creates an _OgaControl instead of the usual, if it has .oga set.
+         *
+         * @param kwObj
+         * @param pos
+         * @param state
+         * @public _OgaControl|_KnackControl
+         */
+        addControl : function( kwObj, pos, state )
+        {
+            if( state && state.oga )
+            {
+                var ctl = new _OgaControl( lang.mixin( kwObj || {}, { parent : this } )).placeAt( this.containerNode, "first" );
+                this.controls.push( ctl );
+                return ctl;
+            }
+            else
+            {
+                return this.inherited( arguments );
+            }
+        },
+        /**
          * Increment .allowedControls since it is a bonus knack; then .addControl and set its state to display the
-         * knack, then .addChildControl() on it to lock it into place.
+         * knack, then .addChildControl() on it to lock it into place. If it's an oga, creates an oga pseudo-knack
+         * instead.
          *
          * @param knack
+         * @param type
          * @private void
          */
-        _addBonusKnack : function( /* Object */ knack )
+        _addBonusKnack : function( /* Object */ knack, /* string? */ type )
         {
             this.allowedControls++;
             if( knack )
             {
-                var ctl = this.addControl( {}, "first" );
+                var ctl = this.addControl({}, false, { oga : type == "oga" }, "first" );
                 ctl.set( "state", {
                     key : knack,
                     value : knack

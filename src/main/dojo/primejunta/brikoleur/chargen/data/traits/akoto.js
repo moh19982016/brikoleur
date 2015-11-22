@@ -247,6 +247,11 @@ define({
             "name": "Oga",
             "value": "Oga are skill packages that give the equivalent of Knack + Training in a single skill. You may not jack in while one is slotted. It takes 24 hours for an oga to integrate.",
             "type": "passive"
+        },
+        {
+            "name" : "Bonus knack",
+            "value" : "&lt;Oga&gt;",
+            "type" : "oga"
         }
     ]
 });
