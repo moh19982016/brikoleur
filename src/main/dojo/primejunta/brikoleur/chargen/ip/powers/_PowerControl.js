@@ -1,5 +1,5 @@
 /**
- * Task resolver pane.
+ * Power control. Extends inherited one with _PoweredAbilityInPlayMixin.
  *
  * @public Widget
  */
@@ -20,10 +20,40 @@ function( declare,
 {
     return declare( [ _PowerControl, _PoweredAbilityInPlayMixin ],
     {
+        /**
+         * We spend mind to use Powers.
+         *
+         * @final
+         * @public string
+         */
         stat : "mind",
+        /**
+         * Message in cost popup.
+         *
+         * @final
+         * @public string
+         */
         popupMessage : i18n.SpendMindPoints,
+        /**
+         * Message if stat is too low.
+         *
+         * @final
+         * @public string
+         */
         statTooLowMessage : i18n.MindTooLow,
+        /**
+         * Template.
+         *
+         * @final
+         * @public string
+         */
         templateString : template,
+        /**
+         * Inherited, then set onClick listener for valueNode to ::pleaseUsePower (from _PoweredAbilityInPlayMixin).
+         *
+         * @final
+         * @public string
+         */
         postCreate : function()
         {
             this.inherited( arguments );

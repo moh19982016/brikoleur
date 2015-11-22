@@ -1,6 +1,5 @@
 /**
- * Base class for recursively-created feature controls. Can be used as-is or may be extended to add more features to
- * the control.
+ * Base class for recursively-created item controls. Can be used as-is or may be extended to add more features.
  *
  * @public Base
  */
@@ -14,7 +13,7 @@ define( [ "dojo/_base/declare",
           "dijit/_WidgetBase",
           "dijit/_TemplatedMixin",
           "dijit/_WidgetsInTemplateMixin",
-          "dojo/text!./templates/_FeatureControlBase.html",
+          "dojo/text!./templates/_ItemControlBase.html",
           "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
@@ -189,7 +188,7 @@ function( declare,
          * is placed in .childrenNode and returned.
          *
          * @param childData
-         * @public _FeatureControlBase
+         * @public _ItemControlBase
          */
         createChildControl : function( /* Object? */ childData )
         {

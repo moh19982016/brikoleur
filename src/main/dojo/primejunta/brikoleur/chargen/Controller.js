@@ -144,6 +144,11 @@ function( declare,
                 console.log( this.get( "state" ) );
             }
         },
+        /**
+         * Toggles between play and rest modes (inPlayPane and characterPane).
+         *
+         * @public void
+         */
         togglePlay : function()
         {
             if( this.mode == "rest" )

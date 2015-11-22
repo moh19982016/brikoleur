@@ -5,14 +5,14 @@
  */
 define([ "dojo/_base/declare",
          "../../data/knacks",
-         "./../_base/_FeatureControl",
+         "./../_base/_FeatureControlBase",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           knacks,
-          _FeatureControl,
+          _FeatureControlBase,
           i18n )
 {
-    return declare([ _FeatureControl ], {
+    return declare([ _FeatureControlBase ], {
         /**
          * Data for the feature.
          *

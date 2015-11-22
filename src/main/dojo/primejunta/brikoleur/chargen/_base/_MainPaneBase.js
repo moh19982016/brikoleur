@@ -1,3 +1,8 @@
+/**
+ * Base for main character utility pane (out of play, in-play...)
+ *
+ * @public Base
+ */
 define( [ "dojo/_base/declare",
           "dojo/_base/lang",
           "dojo/topic",
@@ -20,7 +25,19 @@ function( declare,
           i18n )
 {
     return declare( [ LayoutContainer, _TemplatedMixin, _WidgetsInTemplateMixin ], {
+        /**
+         * Localization.
+         *
+         * @final
+         * @public Object
+         */
         dict : i18n,
+        /**
+         * Template.
+         *
+         * @final
+         * @public string
+         */
         templateString : template,
         /**
          * Adds all the UI panes needed for the character creator.
@@ -46,7 +63,14 @@ function( declare,
         setupPanes : function()
         {
         },
-        set : function( prop, val )
+        /**
+         * Intercept "state" to _setState.
+         *
+         * @param prop
+         * @param val
+         * @public void
+         */
+        set : function( /* string */ prop, /* {*} */ val )
         {
             if( prop == "state" )
             {
@@ -57,6 +81,12 @@ function( declare,
                 this.inherited( arguments );
             }
         },
+        /**
+         * Intercept "state" to _getState.
+         *
+         * @param prop
+         * @public {*}
+         */
         get : function( prop )
         {
             if( prop == "state" )

@@ -9,7 +9,7 @@ define([ "dojo/_base/declare",
          "dojo/dom-construct",
          "./_TraitFeatureControl",
          "./../../data/traits",
-         "./../_base/_FeatureControl",
+         "./../_base/_FeatureControlBase",
          "dojo/text!./templates/_TraitControl.html",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
@@ -18,11 +18,11 @@ function( declare,
           domConstruct,
           _TraitFeatureControl,
           traits,
-          _FeatureControl,
+          _FeatureControlBase,
           template,
           i18n )
 {
-    return declare([ _FeatureControl ], {
+    return declare([ _FeatureControlBase ], {
         /**
          * Maximum depth allowed for descendants for controls of this type.
          *

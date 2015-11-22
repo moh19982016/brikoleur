@@ -4,12 +4,12 @@
  *
  * @public Mixin
  */
-define([ "dojo/_base/declare",
-         "./util" ],
+define( [ "dojo/_base/declare",
+          "./util" ],
 function( declare,
           util )
 {
-    return declare([], {
+    return declare( [], {
         /**
          * Call _printValue to display the item with its cost, and parent.onCompleteChild if available (which will
          * update the info on it.)
@@ -75,7 +75,13 @@ function( declare,
          */
         _printValue : function()
         {
-            this.valueNode.innerHTML = this.statName + "/" + this._getUseCost() + ( this.state.extra_cost ? "+" + this.state.extra_cost : "" ) + "/" + this.state.value;
+            this.valueNode.innerHTML =
+            this.statName +
+            "/" +
+            this._getUseCost() +
+            ( this.state.extra_cost ? "+" + this.state.extra_cost : "" ) +
+            "/" +
+            this.state.value;
         }
-    });
-});
+    } );
+} );

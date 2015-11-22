@@ -4,16 +4,12 @@
  * @private Widget
  */
 define( [ "dojo/_base/declare",
-          "dojo/_base/lang",
-          "dojo/topic",
           "dijit/_WidgetBase",
           "dijit/_TemplatedMixin",
           "dijit/_WidgetsInTemplateMixin",
           "dojo/text!./templates/_ItemHeader.html",
           "dojo/i18n!../../../nls/CharGen" ],
 function( declare,
-          lang,
-          topic,
           _WidgetBase,
           _TemplatedMixin,
           _WidgetsInTemplateMixin,
@@ -41,6 +37,13 @@ function( declare,
          * @public string
          */
         templateString : template,
+        /**
+         * Intercepts "type" to ._setHeader.
+         *
+         * @param prop
+         * @param val
+         * @public void
+         */
         set : function( prop, val )
         {
             if( prop == "type" )

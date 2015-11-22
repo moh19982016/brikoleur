@@ -1,5 +1,9 @@
+/**
+ * The in-play pane.
+ *
+ * @private Widget
+ */
 define( [ "dojo/_base/declare",
-          "dojo/_base/lang",
           "dojo/dom-class",
           "../_base/_MainPaneBase",
           "./name/NamePane",
@@ -11,7 +15,6 @@ define( [ "dojo/_base/declare",
           "./ohun/OhunPane",
           "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
-          lang,
           domClass,
           _MainPaneBase,
           NamePane,
@@ -24,7 +27,18 @@ function( declare,
           i18n )
 {
     return declare( [ _MainPaneBase ], {
+        /**
+         * Title.
+         *
+         * @final
+         * @public string
+         */
         title : i18n.InPlay,
+        /**
+         * Are we in combat or not?
+         *
+         * @public boolean
+         */
         inCombat : false,
         /**
          * Adds all the UI panes needed for in-play mode.
@@ -42,7 +56,13 @@ function( declare,
             this._addPane( "stunts", new StuntsPane( { dock : this.dockContainer, minimized : true } ).placeAt( this.dynamicGrid ) );
             this._addPane( "ohun", new OhunPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
         },
-        toggleCombat : function( button )
+        /**
+         * Toggles between in and out of combat modes. Recalculates stamina and sets up panes and styles.
+         *
+         * @param button
+         * @public void
+         */
+        toggleCombat : function( /* Button */ button )
         {
             this.inCombat = !this.inCombat;
             if( this.inCombat )
@@ -61,8 +81,13 @@ function( declare,
                 domClass.replace( this.domNode, "br-outOfCombat", "br-inCombat" );
                 this.panes.stunts.minimize();
             }
-            this.panes.numbers.fxSet( "stamina", this.panes.numbers.get( "mind" ) + this.panes.numbers.get( "body" ) );
+            this.panes.numbers._recalcStamina();
         },
+        /**
+         * Finds the armour the player is wearing, and returns its values as object.
+         *
+         * @public Object
+         */
         getArmour : function()
         {
             var ctrls = Controller.inPlayPane.panes.gear.controls;

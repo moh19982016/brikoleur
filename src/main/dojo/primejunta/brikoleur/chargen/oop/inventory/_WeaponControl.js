@@ -5,7 +5,6 @@
  */
 define( [ "dojo/_base/declare",
           "dojo/_base/lang",
-          "dojo/on",
           "dojo/topic",
           "dojo/store/Memory",
           "./../../data/knacks",
@@ -15,7 +14,6 @@ define( [ "dojo/_base/declare",
           "dojo/i18n!./../../../nls/CharGen" ],
 function( declare,
           lang,
-          on,
           topic,
           Memory,
           knacks,
@@ -87,6 +85,11 @@ function( declare,
             this.recalcValues();
             this.itemType = this.itemTypeSelect.get( "value" );
         },
+        /**
+         * Fires when the user clicks on the "complete" button. Writes the item description into the display field.
+         *
+         * @public void
+         */
         onComplete : function()
         {
             this._writeDescription( this._getValue() );
@@ -125,9 +128,14 @@ function( declare,
         {
             if( Controller.inPlayPane.inCombat )
             {
-                topic.publish( "/PleaseAttack/", this.get( "state" ) );
+                topic.publish( "/PrepareAttack/", this.get( "state" ) );
             }
         },
+        /**
+         * Reads list of weapon types from training list and updates specialisationInput's dropdown from it.
+         *
+         * @public void
+         */
         updateWeaponTypes : function()
         {
             var wt = this.itemTypeSelect.get( "value" );
@@ -168,7 +176,13 @@ function( declare,
             this.specialisationInput.set( "value", value.specialisation );
             this._writeDescription( value );
         },
-        _writeDescription : function( value )
+        /**
+         * Updates content of description nodes with value.specialisation and value.description.
+         *
+         * @param value
+         * @private void
+         */
+        _writeDescription : function( /* Object */ value )
         {
             this.combatControlNode.innerHTML = value.specialisation + ": " + value.description;
             this.descriptionNode.innerHTML = value.specialisation + ": " + value.description;

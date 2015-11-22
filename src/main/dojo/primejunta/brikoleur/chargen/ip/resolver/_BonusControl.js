@@ -1,3 +1,9 @@
+/**
+ * Control representing a particular bonus. Provides clickable nodes to set it, and handles maxValues for it by graying
+ * out values that are past it without changing the setting.
+ *
+ * @private Control
+ */
 define( [ "dojo/_base/declare",
           "dojo/_base/lang",
           "dojo/on",
@@ -7,8 +13,7 @@ define( [ "dojo/_base/declare",
           "./../_base/NumberInput",
           "dijit/_WidgetBase",
           "dijit/_TemplatedMixin",
-          "dojo/text!./templates/_BonusControl.html",
-          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
+          "dojo/text!./templates/_BonusControl.html" ],
 function( declare,
           lang,
           on,
@@ -18,21 +23,61 @@ function( declare,
           NumberInput,
           _WidgetBase,
           _TemplatedMixin,
-          template,
-          i18n )
+          template )
 {
     return declare( [ _WidgetBase, _TemplatedMixin ], {
+        /**
+         * Title. Set by whoever is using this.
+         *
+         * @public string
+         */
         title : "--bonus--",
-        templateString : template,
+        /**
+         * Array of numbers to provide as buttons.
+         *
+         * @public int[]
+         */
         numbers : [ 0, 1, 2, 3 ],
+        /**
+         * Current value.
+         *
+         * @public int
+         */
         bonus : 0,
+        /**
+         * Current maximum value.
+         *
+         * @public int
+         */
         max : 0,
+        /**
+         * Maximum number of buttons to display.  If there are more, the rest are in a popup.
+         *
+         * @public int
+         */
         maxButtons : 4,
+        /**
+         * Template.
+         *
+         * @final
+         * @public string
+         */
+        templateString : template,
+        /**
+         * Inherited, then .createButtons.
+         *
+         * @public void
+         */
         buildRendering : function()
         {
             this.inherited( arguments );
             this.createButtons();
         },
+        /**
+         * Create buttons from numbers, either in .buttonsNode or as a NumberInput with the remainder.
+         *
+         * @public void
+         */
         createButtons : function()
         {
             this.buttons = {};
@@ -41,10 +86,10 @@ function( declare,
                 if( i < this.maxButtons )
                 {
                     var btn = domConstruct.create( "div",
-                    {
-                        "class" : "br-bonusButton",
-                        innerHTML : this.numbers[ i ]
-                    },
+                                                   {
+                                                       "class" : "br-bonusButton",
+                                                       innerHTML : this.numbers[ i ]
+                                                   },
                                                    this.buttonsNode );
                     btn.value = this.numbers[ i ];
                     this.own( on( btn, "click", lang.hitch( this, this.setBonus, i ) ) );
@@ -64,12 +109,24 @@ function( declare,
             this.setBonus( this.bonus );
             this.setMax( this.max );
         },
+        /**
+         * Call _setBonus on bonus, and publish /PrepareTask/ as attack action (if it's not really an attack, this will
+         * be handled later down the chain).
+         *
+         * @param bonus
+         */
         setBonus : function( bonus )
         {
-            this._showBonus( bonus );
-            topic.publish( "/ResolveTask/", this, true );
+            this._setBonus( bonus );
+            topic.publish( "/PrepareTask/", this, true );
         },
-        setMax : function( max )
+        /**
+         * Sets max to max, and grays out any buttons past it.
+         *
+         * @param max
+         * @public void
+         */
+        setMax : function( /* int */ max )
         {
             max = parseInt( max );
             this.max = max;
@@ -90,7 +147,14 @@ function( declare,
                 domClass.add( this.buttons[ "b" + this.max ], "br-tempBonus" );
             }
         },
-        set : function( prop, val )
+        /**
+         * Intercept "max" and "bonus" with .setMax and _setBonus.
+         *
+         * @param prop
+         * @param val
+         * @public void
+         */
+        set : function( /* string */ prop, /* {*} */ val )
         {
             if( prop == "max" )
             {
@@ -98,14 +162,20 @@ function( declare,
             }
             else if( prop == "bonus" )
             {
-                this._showBonus( val );
+                this._setBonus( val );
             }
             else
             {
                 this.inherited( arguments );
             }
         },
-        _showBonus : function( bonus )
+        /**
+         * Sets .bonus to bonus, and marks matching button as selected.
+         *
+         * @param bonus
+         * @private void
+         */
+        _setBonus : function( /* int */ bonus )
         {
             this.bonus = bonus;
             for( var o in this.buttons )

@@ -1,26 +1,31 @@
 /**
- * Task resolver pane.
+ * Powers pane. Disables _checkActivePowers since we don't want that in-play, and uses own _PowerSubPane as child
+ * constructor.
  *
  * @public Widget
  */
-define([ "dojo/_base/declare",
-         "dojo/_base/lang",
-         "dojo/topic",
-         "./../../oop/powers/PowersPane",
-         "./_PowerSubPane",
-         "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
+define( [ "dojo/_base/declare",
+          "./../../oop/powers/PowersPane",
+          "./_PowerSubPane" ],
 function( declare,
-          lang,
-          topic,
           PowersPane,
-          _PowerSubPane,
-          i18n )
+          _PowerSubPane )
 {
     return declare( [ PowersPane ],
     {
+        /**
+         * It's our own _PowerSubPane, not the one we inherited.
+         *
+         * @public Function
+         */
         childConstructor : _PowerSubPane,
+        /**
+         * Do nothing. If we don't disable this, the cost calculations in the OOP pane go haywire.
+         *
+         * @private void
+         */
         _checkActivePowers : function()
         {
         }
     } );
-});
+} );

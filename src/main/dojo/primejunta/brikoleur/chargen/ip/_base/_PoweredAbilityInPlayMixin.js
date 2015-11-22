@@ -1,3 +1,8 @@
+/**
+ * Mixin which lets you spend points from a stat when doing something.
+ *
+ * @public Mixin
+ */
 define( [ "dojo/_base/declare",
           "dojo/_base/lang",
           "dojo/on",
@@ -14,7 +19,19 @@ function( declare,
           TooltipDialog )
 {
     return declare( [], {
-        pleaseUsePower : function( evt )
+        /**
+         * Stat powering the ability. Must be defined when used.
+         *
+         * @public string
+         */
+        stat : "",
+        /**
+         * Fire when using a power. Stop evt, open popup with numbers for cost, set listeners for it.
+         *
+         * @param evt
+         * @public void
+         */
+        pleaseUsePower : function( /* Event */ evt )
         {
             evt.stopPropagation();
             var dlog = this._createTooltipDialog();
@@ -31,6 +48,12 @@ function( declare,
                 popup.close( dlog );
             } ) ) );
         },
+        /**
+         * Create a numbers dialog for power cost. We need to figure this out from the stat in use and the power being
+         * used.
+         *
+         * @private TooltipDialog
+         */
         _createTooltipDialog : function()
         {
             var bc = this._getUseCost();

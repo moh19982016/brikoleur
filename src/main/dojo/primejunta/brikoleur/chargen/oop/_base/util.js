@@ -62,7 +62,19 @@ function( lang,
                 }));
             }), 1 );
         },
-        queryData : function( data, path, prop )
+        /**
+         * Looks for item matching path in data, and returns item prop in it if found. Example:
+         *
+         * <code>
+         * util.queryData( knacks, [ "Ranged Combat", "Pistol" ], "name" );
+         * </code>
+         *
+         * @param data
+         * @param path
+         * @param prop
+         * @public string[]
+         */
+        queryData : function( /* Object */ data, /* string[] */ path, /* string */ prop )
         {
             var out = [];
             var list = data instanceof Array ? data : data[ "list" ] || data[ "controls" ];
@@ -91,7 +103,13 @@ function( lang,
             }
             return out;
         },
-        removeDuplicates : function( arr )
+        /**
+         * Removes duplicate items from arr.
+         *
+         * @param arr
+         * @public string[]
+         */
+        removeDuplicates : function( /* string[] */ arr )
         {
             for( var i = 0; i < arr.length; i++ )
             {
@@ -112,9 +130,9 @@ function( lang,
          *              - recurse - if true, will recurse into children
          *              - level - if true, will ignore anything of lower level
          *              - filter - if true, will remove falsies from the array
-         * @returns {Array}
+         * @public string[]
          */
-        getProperties : function( controls, kwObj )
+        getProperties : function( /* FeatureControl[] */ controls, /* Object */ kwObj )
         {
             var out = [];
             for( var i = 0; i < controls.length; i++ )

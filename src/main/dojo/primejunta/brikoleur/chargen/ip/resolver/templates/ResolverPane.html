@@ -1,33 +1,34 @@
 <div class="br-featurePane">
-    <div class="br-featureTitle" data-dojo-attach-event="onClick:minimize">
-        <i class="br-minimizeButton fa fa-minus-circle"></i>
-        <div>
-            <i class="fa-fa-${icon}"></i>&nbsp;&nbsp;<span>${title}</span>
-        </div>
+  <div class="br-featureTitle" data-dojo-attach-event="onClick:minimize">
+    <i class="br-minimizeButton fa fa-minus-circle"></i>
+
+    <div>
+      <i class="fa-fa-${icon}"></i>&nbsp;&nbsp;<span>${title}</span>
     </div>
-    <div data-dojo-attach-point="resourcesNode" class="br-floatLeft br-bonusNode"></div>
-    <div data-dojo-attach-point="intelNode" class="br-floatLeft br-bonusNode"></div>
-    <div data-dojo-attach-point="ohunNode" class="br-floatLeft br-bonusNode"></div>
-    <div class="br-floatLeft br-trainingNode">
-      <div class="br-hideOutOfCombat br-trainingButtons br-attackNode">
-        <div class="br-subPaneTitle">${dict.Attack}</div>
-        <div data-dojo-attach-point="attackTrainingNode">
+  </div>
+  <div data-dojo-attach-point="resourcesNode" class="br-floatLeft br-bonusNode"></div>
+  <div data-dojo-attach-point="intelNode" class="br-floatLeft br-bonusNode"></div>
+  <div data-dojo-attach-point="ohunNode" class="br-floatLeft br-bonusNode"></div>
+  <div class="br-floatLeft br-trainingNode">
+    <div class="br-hideOutOfCombat br-trainingButtons br-attackNode">
+      <div class="br-subPaneTitle">${dict.Attack}</div>
+      <div data-dojo-attach-point="attackTrainingNode">
 
-        </div>
-      </div>
-      <div class="br-hideOutOfCombat br-trainingButtons br-defenceNode">
-        <div class="br-subPaneTitle">${dict.Defend}</div>
-        <div data-dojo-attach-point="defenceTrainingNode">
-
-        </div>
-      </div>
-      <div class="br-trainingButtons">
-        <div class="br-subPaneTitle">${dict.OtherAction}</div>
-        <div data-dojo-attach-point="otherTrainingNode">
-
-        </div>
       </div>
     </div>
-    <div data-dojo-attach-point="resolveNode" class="br-resolveContainer"></div>
-    <div style="clear:both"></div>
+    <div class="br-hideOutOfCombat br-trainingButtons br-defenceNode">
+      <div class="br-subPaneTitle">${dict.Defend}</div>
+      <div data-dojo-attach-point="defenceTrainingNode">
+
+      </div>
+    </div>
+    <div class="br-trainingButtons">
+      <div class="br-subPaneTitle">${dict.OtherAction}</div>
+      <div data-dojo-attach-point="otherTrainingNode">
+
+      </div>
+    </div>
+  </div>
+  <div data-dojo-attach-point="resolveNode" class="br-resolveContainer"></div>
+  <div style="clear:both"></div>
 </div>

@@ -1,5 +1,9 @@
+/**
+ * Out of play pane. This contains the main character creation functionality.
+ *
+ * @public Widget
+ */
 define( [ "dojo/_base/declare",
-          "dojo/_base/lang",
           "../_base/_MainPaneBase",
           "./name/NamePane",
           "./description/DescriptionPane",
@@ -13,7 +17,6 @@ define( [ "dojo/_base/declare",
           "./_base/util",
           "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
-          lang,
           _MainPaneBase,
           NamePane,
           DescriptionPane,
@@ -28,7 +31,18 @@ function( declare,
           i18n )
 {
     return declare( [ _MainPaneBase ], {
+        /**
+         * Title.
+         *
+         * @final
+         * @public string
+         */
         title : i18n.OutOfPlay,
+        /**
+         * Bootstrap the character creation panes.
+         *
+         * @public void
+         */
         setupPanes : function()
         {
             this._addPane( "name", new NamePane().placeAt( this.nameContainer ) );

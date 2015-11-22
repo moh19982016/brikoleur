@@ -73,7 +73,13 @@ function( declare,
                 this.inherited( arguments );
             }
         },
-        _setState : function( state )
+        /**
+         * Sets name from state.characterName, and disables the input unless it was read from a template.
+         *
+         * @param state
+         * @private void
+         */
+        _setState : function( /* Object */ state )
         {
             this.nameInput.set( "value", state.characterName );
             if( !state.is_template )

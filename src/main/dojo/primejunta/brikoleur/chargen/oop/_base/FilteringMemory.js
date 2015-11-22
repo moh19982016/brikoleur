@@ -3,14 +3,14 @@
  *
  * @public Class
  */
-define([ "dojo/_base/declare",
-         "dojo/_base/array",
-         "dojo/store/Memory" ],
+define( [ "dojo/_base/declare",
+          "dojo/_base/array",
+          "dojo/store/Memory" ],
 function( declare,
           array,
           Memory )
 {
-    return declare([ Memory ], {
+    return declare( [ Memory ], {
         /**
          * Array of ID's to be excluded from resultsets. Set directly to update.
          *
@@ -45,5 +45,5 @@ function( declare,
         {
             return item.name;
         }
-    });
-});
+    } );
+} );

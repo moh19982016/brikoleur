@@ -3,13 +3,13 @@
  *
  * @public Mixin
  */
-define([ "dojo/_base/declare",
-         "dojo/_base/lang",
-         "dojo/_base/array",
-         "dojo/topic",
-         "./../../data/traits/_common",
-         "./FilteringMemory",
-         "./util" ],
+define( [ "dojo/_base/declare",
+          "dojo/_base/lang",
+          "dojo/_base/array",
+          "dojo/topic",
+          "./../../data/traits/_common",
+          "./FilteringMemory",
+          "./util" ],
 function( declare,
           lang,
           array,
@@ -18,7 +18,7 @@ function( declare,
           FilteringMemory,
           util )
 {
-    return declare([], {
+    return declare( [], {
         /**
          * Initialize .controls and ._store, then ._setupCommonFeatures (see), and subscribe to .selectedMasterItemTopic
          * to .setupSubPanes.
@@ -28,9 +28,10 @@ function( declare,
         postCreate : function()
         {
             this.controls = [];
-            this._store = new FilteringMemory({ data : util.listToStoreData( this.data.list ) });
+            this._store = new FilteringMemory( { data : util.listToStoreData( this.data.list ) } );
             this._setupCommonFeatures();
-            this.own( this._store, topic.subscribe( this.selectedMasterItemTopic, lang.hitch( this, this.setupSubPanes ) ) );
+            this.own( this._store,
+            topic.subscribe( this.selectedMasterItemTopic, lang.hitch( this, this.setupSubPanes ) ) );
         },
         /**
          * If synthetic, do nothing (as it was called by .setState, which will subsequently set up its own sub-panes).
@@ -47,7 +48,7 @@ function( declare,
             {
                 return;
             }
-            var values = util.getProperties( this.controls, { property : "key" });
+            var values = util.getProperties( this.controls, { property : "key" } );
             for( var i = 0; i < features.length; i++ )
             {
                 if( features[ i ] && array.indexOf( values, features[ i ] ) == -1 )
@@ -57,11 +58,11 @@ function( declare,
                     {
                         for( var j = 0; j < items.length; j++ )
                         {
-                            this.addFeature({
+                            this.addFeature( {
                                 key : features[ i ],
                                 value : features[ i ],
                                 data : items[ j ]
-                            });
+                            } );
                         }
                     }
                 }
@@ -77,11 +78,11 @@ function( declare,
         {
             for( var i = 0; i < ( _common[ this.featureProperty ] || [] ).length; i++ )
             {
-                this.addFeature({
+                this.addFeature( {
                     key : "_common",
                     value : "_common",
                     data : _common[ this.featureProperty ][ i ]
-                });
+                } );
             }
         },
         /**
@@ -95,7 +96,11 @@ function( declare,
             this.clear();
             for( var i = 0; i < state.length; i++ )
             {
-                this.addControl({ data : this._lookup( state[ i ].key, state[ i ].name ), key : state[ i ].key, value : state[ i ].value }).set( "state", state[ i ] );
+                this.addControl( {
+                    data : this._lookup( state[ i ].key, state[ i ].name ),
+                    key : state[ i ].key,
+                    value : state[ i ].value
+                } ).set( "state", state[ i ] );
             }
             if( this.controls.length > 0 )
             {
@@ -114,7 +119,7 @@ function( declare,
         {
             var itm = this._store.get( key );
             var reslt;
-            if( itm && itm[ this.featureProperty ])
+            if( itm && itm[ this.featureProperty ] )
             {
                 reslt = this._rLookup( itm, name );
             }
@@ -149,5 +154,5 @@ function( declare,
                 }
             }
         }
-    });
-});
+    } );
+} );

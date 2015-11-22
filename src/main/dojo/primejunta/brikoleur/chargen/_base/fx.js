@@ -1,11 +1,31 @@
+/**
+ * Utility class for visual effects.
+ *
+ * @static
+ * @public Class
+ */
 define( [ "dojo/_base/lang",
           "dojo/dom-class" ],
 function( lang,
           domClass )
 {
     return {
+        /**
+         * Class name to apply while an FX is in progress.
+         *
+         * @final
+         * @public string
+         */
         fxClassName : "br-fxInProgress",
-        flash : function( node, className, duration )
+        /**
+         * Flash effect. Flashes className on node for duration.
+         *
+         * @param node
+         * @param className
+         * @param duration
+         * @public void
+         */
+        flash : function( /* Element */ node, /* string */ className, /* int */ duration )
         {
             duration = duration || 300;
             domClass.add( node, this.fxClassName + " " + className );

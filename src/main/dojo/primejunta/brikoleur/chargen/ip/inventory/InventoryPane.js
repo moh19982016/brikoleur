@@ -1,18 +1,12 @@
 /**
- * Task resolver pane.
+ * Inventory pane. Identical to the one in the character pane, but here to keep the topology clean.
  *
  * @public Widget
  */
 define([ "dojo/_base/declare",
-         "dojo/_base/lang",
-         "dojo/topic",
-         "./../../oop/inventory/InventoryPane",
-         "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
+         "./../../oop/inventory/InventoryPane" ],
 function( declare,
-          lang,
-          topic,
-          InventoryPane,
-          i18n )
+          InventoryPane )
 {
     return declare( [ InventoryPane ],
     {

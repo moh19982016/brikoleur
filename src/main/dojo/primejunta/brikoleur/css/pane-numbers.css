@@ -21,7 +21,7 @@
     text-align: center;
 }
 
-.br-valueChanged {
+.tundra .br-valueHasChanged {
     font-weight: bold;
     color: #c00 !important;
 }

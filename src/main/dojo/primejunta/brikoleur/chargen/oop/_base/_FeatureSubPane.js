@@ -3,15 +3,15 @@
  *
  * @private Widget
  */
-define([ "dojo/_base/declare",
-         "dojo/_base/lang",
-         "dojo/_base/array",
-         "dojo/topic",
-         "./_ControlPaneMixin",
-         "./../../_base/_DescriptionMixin",
-         "dijit/_WidgetBase",
-         "dijit/_TemplatedMixin",
-         "dojo/text!./templates/_FeatureSubPane.html" ],
+define( [ "dojo/_base/declare",
+          "dojo/_base/lang",
+          "dojo/_base/array",
+          "dojo/topic",
+          "./_ControlPaneMixin",
+          "./../../_base/_DescriptionMixin",
+          "dijit/_WidgetBase",
+          "dijit/_TemplatedMixin",
+          "dojo/text!./templates/_FeatureSubPane.html" ],
 function( declare,
           lang,
           array,
@@ -22,7 +22,7 @@ function( declare,
           _TemplatedMixin,
           template )
 {
-    return declare([ _WidgetBase, _TemplatedMixin, _ControlPaneMixin, _DescriptionMixin ], {
+    return declare( [ _WidgetBase, _TemplatedMixin, _ControlPaneMixin, _DescriptionMixin ], {
         /**
          * How many controls are we allowed? We can have two traits for example. If -1, not enforced.
          *
@@ -174,8 +174,8 @@ function( declare,
             this.key = state.key;
             for( var i = 0; i < state.controls.length; i++ )
             {
-                this.addControl({ data : this.data }).set( "state", state.controls[ i ] );
+                this.addControl( { data : this.data } ).set( "state", state.controls[ i ] );
             }
         }
-    });
-});
+    } );
+} );

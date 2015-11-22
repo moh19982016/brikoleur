@@ -95,13 +95,18 @@
 }
 
 .br-trainingSymbol {
-    color: #c00;
+    color: white;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 26px;
+    background-color: black;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
+    text-align: center;
 }
 
 .br-bonusSelected .br-trainingSymbol {
-    color: white;
 }
 
 .br-bonusSelected:hover {

@@ -1,3 +1,8 @@
+/**
+ * Base class for character features, such as knacks, training, powers, ohun etc. Extends _ItemControlBase.
+ *
+ * @public Base
+ */
 define( [ "dojo/_base/declare",
           "dojo/_base/lang",
           "dojo/_base/array",
@@ -8,8 +13,8 @@ define( [ "dojo/_base/declare",
           "./FilteringMemory",
           "dijit/form/Select",
           "dijit/form/ComboBox",
-          "./../../_base/_FeatureControlBase",
-          "dojo/text!./templates/_FeatureControl.html",
+          "./../../_base/_ItemControlBase",
+          "dojo/text!./templates/_FeatureControlBase.html",
           "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
@@ -21,12 +26,24 @@ function( declare,
           FilteringMemory,
           Select,
           ComboBox,
-          _FeatureControlBase,
+          _ItemControlBase,
           template,
           i18n )
 {
-    return declare( [ _FeatureControlBase ], {
+    return declare( [ _ItemControlBase ], {
+        /**
+         * Template.
+         *
+         * @final
+         * @public string
+         */
         templateString : template,
+        /**
+         * Inherited, then create a FilteringMemory and matching selector if needed, subscribe to relevant topics,
+         * and fire .onJujuChange to set initial state.
+         *
+         * @public void
+         */
         postCreate : function()
         {
             this.inherited( arguments );
@@ -198,6 +215,12 @@ function( declare,
         {
             this.set( "disabled", juju < this.getCost() );
         },
+        /**
+         * Intercept "cost" to .getCost.
+         *
+         * @param prop
+         * @public {*}
+         */
         get : function( prop )
         {
             if( prop == "cost" )
@@ -209,6 +232,12 @@ function( declare,
                 return this.inherited( arguments );
             }
         },
+        /**
+         * Inherited, then .markComplete if the state had a value.
+         *
+         * @param state
+         * @private void
+         */
         _setState : function( state )
         {
             this.inherited( arguments );
@@ -217,6 +246,12 @@ function( declare,
                 this.markComplete();
             }
         },
+        /**
+         * Call ::createChildControl with value from store, and set its state to state.
+         *
+         * @param state
+         * @private
+         */
         _setChildState : function( state )
         {
             this.createChildControl( this._store.get( this.value ) ).set( "state", state );

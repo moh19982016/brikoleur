@@ -1,5 +1,5 @@
 /**
- * Task resolver pane.
+ * Stunt control. Extends inherited one with _PoweredAbilityInPlayMixin.
  *
  * @public Widget
  */
@@ -20,10 +20,37 @@ function( declare,
 {
     return declare( [ _StuntControl, _PoweredAbilityInPlayMixin ],
     {
+        /**
+         * Spend body to use stunts.
+         *
+         * @final
+         * @public string
+         */
         stat : "body",
+        /**
+         * Message for cost popup.
+         *
+         * @final
+         * @public string
+         */
         popupMessage : i18n.SpendBodyPoints,
+        /**
+         * Message if body is too low to use the stunt.
+         *
+         * @final
+         * @public string
+         */
         statTooLowMessage : i18n.BodyTooLow,
+        /**
+         * Template.
+         *
+         * @final
+         * @public string
+         */
         templateString : template,
+        /**
+         * Inherited, then set onClick listener to ::pleaseUsePower (from _PoweredAbilityInPlayMixin).
+         */
         postCreate : function()
         {
             this.inherited( arguments );

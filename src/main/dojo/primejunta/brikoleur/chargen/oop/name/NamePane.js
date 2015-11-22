@@ -3,12 +3,12 @@
  *
  * @public Widget
  */
-define([ "dojo/_base/declare",
-         "dojo/_base/lang",
-         "dojo/topic",
-         "dijit/form/Button",
-         "../../_base/_NamePaneBase",
-         "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
+define( [ "dojo/_base/declare",
+          "dojo/_base/lang",
+          "dojo/topic",
+          "dijit/form/Button",
+          "../../_base/_NamePaneBase",
+          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
           topic,
@@ -17,7 +17,13 @@ function( declare,
           i18n )
 {
     return declare( [ _NamePaneBase ], {
-        pt: "OOP",
+        /**
+         * Pane type (OOP or IP).
+         *
+         * @final
+         * @public string
+         */
+        pt : "OOP",
         /**
          * Connect validator functions and messages to .nameInput, set up buttons for saving, reverting, and deleting
          * the character, and subscribe to topics indicating a character was saved or a property was changed, which will
@@ -32,11 +38,33 @@ function( declare,
         {
             this.nameInput.isValid = lang.hitch( this, this.isValidName );
             this.nameInput.invalidMessage = i18n.NameInUse;
-            this.saveButton = new Button({ disabled : true, label : i18n.Accept, "class" : "br-headerButton", iconClass : "fa fa-check-circle br-blue", onClick : lang.hitch( Controller, Controller.saveCharacter ) } ).placeAt( this.buttonContainer );
-            this.revertButton = new Button({ disabled : true, label : i18n.Revert, "class" : "br-headerButton br-compactButton br-splitButtonLeft", iconClass : "fa fa-undo", onClick : lang.hitch( Controller, Controller.revertCharacter ) } ).placeAt( this.buttonContainer );
-            this.deleteButton = new Button({ disabled : false, label : i18n.Delete, "class" : "br-headerButton br-compactButton br-splitButtonRight", iconClass : "fa fa-trash br-red", onClick : lang.hitch( Controller, Controller.deleteCharacter ) } ).placeAt( this.buttonContainer );
+            this.saveButton =
+            new Button( {
+                disabled : true,
+                label : i18n.Accept,
+                "class" : "br-headerButton",
+                iconClass : "fa fa-check-circle br-blue",
+                onClick : lang.hitch( Controller, Controller.saveCharacter )
+            } ).placeAt( this.buttonContainer );
+            this.revertButton =
+            new Button( {
+                disabled : true,
+                label : i18n.Revert,
+                "class" : "br-headerButton br-compactButton br-splitButtonLeft",
+                iconClass : "fa fa-undo",
+                onClick : lang.hitch( Controller, Controller.revertCharacter )
+            } ).placeAt( this.buttonContainer );
+            this.deleteButton =
+            new Button( {
+                disabled : false,
+                label : i18n.Delete,
+                "class" : "br-headerButton br-compactButton br-splitButtonRight",
+                iconClass : "fa fa-trash br-red",
+                onClick : lang.hitch( Controller, Controller.deleteCharacter )
+            } ).placeAt( this.buttonContainer );
             this.own( this.revertButton, this.saveButton, this.deleteButton );
-            this.own( topic.subscribe( "/CharacterSaved/", lang.hitch( this, this.disableSave ) ), topic.subscribe( "/PropertyChanged/", lang.hitch( this, this.checkSave ) ) );
+            this.own( topic.subscribe( "/CharacterSaved/", lang.hitch( this, this.disableSave ) ),
+            topic.subscribe( "/PropertyChanged/", lang.hitch( this, this.checkSave ) ) );
         },
         /**
          * If a name has been provided and Controller.isValidName is true, enable save button and return true. Else
@@ -139,10 +167,16 @@ function( declare,
             this.revertButton.set( "disabled", false );
             this.deleteButton.set( "disabled", false );
         },
+        /**
+         * Inherited, then .disableSave.
+         *
+         * @param state
+         * @private void
+         */
         _setState : function( state )
         {
             this.inherited( arguments );
             this.disableSave();
         }
-    });
-});
+    } );
+} );
