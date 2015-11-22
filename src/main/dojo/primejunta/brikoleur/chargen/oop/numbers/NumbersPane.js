@@ -59,6 +59,7 @@ function( declare,
             this.addField( "body", _StatField, { title : i18n.Body, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1 }, this.q1 );
             this.addField( "mind", _StatField, { title : " + " + i18n.Mind, value : 6, onChange : lang.hitch( this, this._recalcStamina ), cost : 1  }, this.q2 );
             this.addField( "stamina", _StatField, { title : " = " + i18n.Stamina, value : 12, disabled : true, "class" : "br-stamina" }, this.q2 );
+            this.addField( "armour", _StatField, { title : "" + i18n.Armour, value : 0, disabled : true }, this.q1 );
             this.addField( "aps", _StatField, { title : i18n.ActivePowerSlots, value : 2, cost : 4 }, this.q3 );
             this.addField( "os", _StatField, { title : i18n.OhunSlots, value : 2, cost : 4 }, this.q4 );
             setTimeout( lang.hitch( this, this.resize ), 1 );
@@ -94,6 +95,26 @@ function( declare,
                 domClass.add( this.q2, "br-formLayoutRight" );
                 domClass.add( this.q3, "br-formLayoutLeft" );
                 domClass.add( this.q4, "br-formLayoutRight" );
+            }
+        },
+        /**
+         * Sets states of controls from Object[].
+         *
+         * @param state
+         * @private void
+         */
+        _setState : function( /* Object[] */ state )
+        {
+            for( var prop in this._props )
+            {
+                for( var i = 0; i < state.length; i++ )
+                {
+                    if( state[ i ].name == prop )
+                    {
+                        this._props[ prop ].set( "state", state[ i ] );
+                        break;
+                    }
+                }
             }
         },
         /**

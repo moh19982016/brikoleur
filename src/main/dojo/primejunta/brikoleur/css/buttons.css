@@ -90,3 +90,15 @@
 .br-textButton:hover {
     background-color: #fcc;
 }
+
+.br-statField {
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    background-image: none !important;
+    background-color: white;
+}
+
+.tundra .br-statField {
+    border: 2px solid gray;
+}

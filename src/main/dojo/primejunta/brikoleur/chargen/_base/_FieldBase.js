@@ -188,7 +188,10 @@ function( declare,
          */
         _setState : function( /* Object */ state )
         {
-            this._input.set( "value", state.value );
+            if( state )
+            {
+                this._input.set( "value", state.value );
+            }
         }
     });
 });

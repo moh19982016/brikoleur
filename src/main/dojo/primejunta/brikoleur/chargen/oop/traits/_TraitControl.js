@@ -166,7 +166,7 @@ function( declare,
         },
         /**
          * Lookup data from store, matching current state. If there is any and it contains .features, ._displayFeatures
-         * on the result.
+         * on the result. If any numbers are defined, apply those.
          *
          * @private void
          */
@@ -177,6 +177,13 @@ function( declare,
             if( data )
             {
                 features = data.features || [];
+                if( data.numbers )
+                {
+                    for( var i = 0; i < data.numbers.length; i++ )
+                    {
+                        Controller.characterPane.panes.numbers.set( data.numbers[ i ].name, data.numbers[ i ].value );
+                    }
+                }
             }
             this._displayFeatures( features );
         },

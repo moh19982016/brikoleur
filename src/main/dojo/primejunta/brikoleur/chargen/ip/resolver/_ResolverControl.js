@@ -220,7 +220,7 @@ function( declare,
             domClass.remove( this.taskResultNode, "br-taskFailed br-taskSucceeded" );
             if( widg && widg.get && ( widg.get( "state" ) || {} ).defence )
             {
-                this.armourControl.set( "value", Controller.inPlayPane.getArmour().direct );
+                this.armourControl.set( "value", Controller.inPlayPane.getArmour().direct + Controller.inPlayPane.panes.numbers.get( "armour" ) );
             }
         }
     } );

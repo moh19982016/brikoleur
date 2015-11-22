@@ -16,8 +16,14 @@ define({
         },
         {
             "name" : "Resistance",
-            "value" : "4/Kinetic",
+            "value" : "4/Direct Damage",
             "type" : "resistance"
+        }
+    ],
+    "numbers" : [
+        {
+            "name" : "armour",
+            "value" : 4
         }
     ]
 });

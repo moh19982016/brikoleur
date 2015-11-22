@@ -73,6 +73,10 @@ define({
                 "value": 12
             },
             {
+                "name": "armour",
+                "value": 4
+            },
+            {
                 "name": "aps",
                 "value": 2
             },
