@@ -5,6 +5,7 @@
  */
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
+         "dojo/topic",
          "dojo/dom-construct",
          "dojo/dom-geometry",
          "dojo/dom-class",
@@ -13,6 +14,7 @@ define([ "dojo/_base/declare",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
+          topic,
           domConstruct,
           domGeometry,
           domClass,
@@ -62,7 +64,7 @@ function( declare,
             this.addField( "armour", _StatField, { title : "" + i18n.Armour, value : 0, disabled : true }, this.q1 );
             this.addField( "aps", _StatField, { title : i18n.ActivePowerSlots, value : 2, cost : 4 }, this.q3 );
             this.addField( "os", _StatField, { title : i18n.OhunSlots, value : 2, cost : 4 }, this.q4 );
-            setTimeout( lang.hitch( this, this.resize ), 1 );
+            this.own( topic.subscribe( "Controller.mainContainer-selectChild", lang.hitch( this, this.resize ) ) );
         },
         /**
          * Inherited, then resize to update the layout if needed.
