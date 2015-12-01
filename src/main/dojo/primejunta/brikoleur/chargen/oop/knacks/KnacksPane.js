@@ -108,7 +108,7 @@ function( declare,
             this.allowedControls++;
             if( knack )
             {
-                var ctl = this.addControl({}, false, { oga : type == "oga" }, "first" );
+                var ctl = this.addControl({}, "first", { oga : type == "oga" } );
                 ctl.set( "state", {
                     key : knack,
                     value : knack

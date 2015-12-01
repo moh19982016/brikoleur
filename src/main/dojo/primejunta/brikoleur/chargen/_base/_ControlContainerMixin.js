@@ -4,7 +4,7 @@
  * @public Mixin
  */
 define([ "dojo/_base/declare",
-         "./../oop/_base/util" ],
+         "./util" ],
 function( declare,
           util )
 {

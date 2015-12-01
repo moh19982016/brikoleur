@@ -297,7 +297,7 @@ function( declare,
             }
             this.state.controls = chld;
             this.state.key = this.key;
-            return this._getPropsForState( this.state );
+            return this._getPropsForState( lang.mixin( lang.clone( this._getData( this.state.value ) || {} ), this.state ) );
         },
         /**
          * Starts with .clear(), then sets state and key from state. If there's a value in state, sets .value from that.
@@ -336,6 +336,12 @@ function( declare,
         {
             return {};
         },
+        /**
+         * Create a child control and set its state to state.
+         *
+         * @param state
+         * @private void
+         */
         _setChildState : function( state )
         {
             this.createChildControl( {} ).set( "state", state );

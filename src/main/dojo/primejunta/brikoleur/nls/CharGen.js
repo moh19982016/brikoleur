@@ -99,6 +99,7 @@ define({
         "PleaseSelectRequiredFeatures" : "Please select ${num} ${name}.",
         "NeedName" : "Please name your hero.",
         // in-play
+        "ReturnToBase" : "End the session and return to base?",
         "ResolveTask" : "Resolve Task",
         "ResourceBonus" : "Resource",
         "IntelBonus" : "Intel",

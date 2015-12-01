@@ -17,6 +17,7 @@ define( [ "dojo/_base/declare",
           "./ip/_IpPane",
           "./controller/character-store",
           "./controller/CharacterStore",
+          "./_base/util",
           "dijit/layout/LayoutContainer",
           "dijit/layout/TabContainer",
           "./_base/DynamicGrid",
@@ -43,6 +44,7 @@ function( declare,
           _IpPane,
           characterStore,
           CharacterStore,
+          util,
           LayoutContainer,
           TabContainer,
           DynamicGrid,
@@ -161,11 +163,15 @@ function( declare,
             }
             else
             {
-                this.mode = "rest";
-                this.playButton.set( "iconClass", "fa fa-rocket" );
-                this.playButton.set( "label", i18n.PlayMode );
-                this.mainTabs.selectChild( this.characterPane );
-                domClass.remove( Controller.inPlayPane.domNode, "br-status-wounded br-status-incapacitated br-status-dead" );
+                util.confirm( i18n.ReturnToBase ).then( lang.hitch( this, function()
+                {
+                    this.mode = "rest";
+                    this.playButton.set( "iconClass", "fa fa-rocket" );
+                    this.playButton.set( "label", i18n.PlayMode );
+                    this.mainTabs.selectChild( this.characterPane );
+                    domClass.remove( Controller.inPlayPane.domNode,
+                    "br-status-wounded br-status-incapacitated br-status-dead" );
+                } ) );
             }
         },
         /**
@@ -175,10 +181,10 @@ function( declare,
          */
         toggleFullScreen : function()
         {
-            if( ! document.fullscreenElement &&
-                ! document.mozFullScreenElement &&
-                ! document.webkitFullscreenElement &&
-                ! document.msFullscreenElement )
+            if( !document.fullscreenElement &&
+                !document.mozFullScreenElement &&
+                !document.webkitFullscreenElement &&
+                !document.msFullscreenElement )
             {
                 domClass.add( document.body, "br-fullScreen" );
                 // current working methods
@@ -278,7 +284,7 @@ function( declare,
          */
         onJujuBlur : function()
         {
-            if( this.jujuInput.isValid() && ! this.is_new )
+            if( this.jujuInput.isValid() && !this.is_new )
             {
                 CharacterStore.set( "juju", this.jujuInput.get( "value" ) );
             }
@@ -317,7 +323,7 @@ function( declare,
             {
                 return this._getState();
             }
-            else if( array.indexOf( this.characterPane.panes.numbers.get( "properties" ), prop ) != - 1 )
+            else if( array.indexOf( this.characterPane.panes.numbers.get( "properties" ), prop ) != -1 )
             {
                 return this.characterPane.panes.numbers.get( prop );
             }
@@ -435,8 +441,8 @@ function( declare,
          */
         _setupPanes : function()
         {
-            this.characterPane = new _OopPane({ manager : this } ).placeAt( this.mainTabs );
-            this.inPlayPane = new _IpPane({ manager : this } ).placeAt( this.mainTabs );
+            this.characterPane = new _OopPane( { manager : this } ).placeAt( this.mainTabs );
+            this.inPlayPane = new _IpPane( { manager : this } ).placeAt( this.mainTabs );
             this.characterPane.startup();
             this.inPlayPane.startup();
             this.own( this.characterPane, this.inPlayPane );
@@ -449,7 +455,7 @@ function( declare,
         _loadSettings : function()
         {
             var charName = CharacterStore.get( "character" );
-            if( charName && array.indexOf( CharacterStore.list(), charName ) != - 1 )
+            if( charName && array.indexOf( CharacterStore.list(), charName ) != -1 )
             {
                 this.loadCharacter( charName, true );
                 this.splash.close();
@@ -519,7 +525,7 @@ function( declare,
         {
             this._ekipMenu.destroyDescendants();
             var keys = CharacterStore.list();
-            for( var i = 0; i < keys.length; i ++ )
+            for( var i = 0; i < keys.length; i++ )
             {
                 this._ekipMenu.addChild( new MenuItem( {
                     label : keys[ i ],
@@ -535,10 +541,10 @@ function( declare,
          */
         _hasFullScreen : function()
         {
-            return ! ! ( document.exitFullscreen ||
-                         document.msExitFullscreen ||
-                         document.mozCancelFullScreen ||
-                         document.webkitExitFullscreen );
+            return !!( document.exitFullscreen ||
+                       document.msExitFullscreen ||
+                       document.mozCancelFullScreen ||
+                       document.webkitExitFullscreen );
         }
     } );
     return Constr;

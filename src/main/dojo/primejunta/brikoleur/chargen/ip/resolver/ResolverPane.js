@@ -243,10 +243,14 @@ function( declare,
                 }
                 else
                 {
-                    this._addTraining( { parent : this }, state[ i ], this.attackTrainingNode, this.attackControls );
                     this._addTraining( { parent : this },
-                    lang.mixin( lang.clone( state[ i ] ), { defence : true } ),
-                    this.defenceTrainingNode );
+                                       state[ i ],
+                                       this.attackTrainingNode,
+                                       this.attackControls );
+                    this._addTraining( { parent : this },
+                                       lang.mixin( lang.clone( state[ i ] ),
+                                       { defence : true } ),
+                                       this.defenceTrainingNode );
                 }
             }
         },
