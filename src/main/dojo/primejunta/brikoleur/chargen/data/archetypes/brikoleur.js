@@ -10,7 +10,7 @@ define({
                 "name": "Akoto Interface",
                 "value": "Akoto Interface",
                 "key": false,
-                "link": "#doc86",
+                "link": "#AkotoInterface",
                 "id": "Akoto Interface",
                 "controls": []
             },
@@ -34,7 +34,7 @@ define({
                 "value": "Q-Space",
                 "key": false,
                 "description": "You have an unusual affinity for Q-Space, and all that happens within it.",
-                "link": "#doc75",
+                "link": "#ChapterFifteenQSpace",
                 "id": "Q-Space",
                 "controls": [
                     {

@@ -100,7 +100,7 @@ function( declare,
          * @final
          * @public string
          */
-        licenseUrl : "http://www.brikoleur.com/license/",
+        licenseUrl : "http://shared.brikoleur.com/license.html",
         /**
          * Localization.
          *

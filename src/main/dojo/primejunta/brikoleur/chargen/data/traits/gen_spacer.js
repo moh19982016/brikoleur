@@ -1,7 +1,7 @@
 define({
     "name" : "Genetically Engineered - Spacer",
     "description" : "Spacers are humans who have undergone modification to cope better with low-gravity, high-radiation outer space habitats.",
-    "link" : "#doc130",
+    "link" : "#Spacer",
     "ohun" : [],
     "features" : [
         {

@@ -1,0 +1,27 @@
+<div class="br-controller" style="opacity:0;transition:opacity 300ms;">
+  <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" class="br-header">
+    <div class="br-header-bg"></div>
+    <div class="br-header-left" data-dojo-attach-point="leftHeaderNode"></div>
+    <div data-dojo-attach-point="headerContentNode" class="br-headerContent">
+      <div data-dojo-attach-point="headerContentNodeRight" class="br-floatRight" style="padding-right:8px;">
+        <div class="br-floatRight br-jujuField">
+          <label><span class="br-fieldLabel">${dict.Juju}</span> <input data-dojo-attach-point="jujuInput" data-dojo-type="dijit/form/NumberTextBox" value="12" data-dojo-attach-event="onChange:onJujuChange,onBlur:onJujuBlur,onFocus:onJujuFocus"/></label>
+        </div>
+      </div>
+      <a class="br-headerLink" href="http://www.brikoleur.com"><i class="fa fa-home"></i></a>
+      <a name="dev/null" class="br-headerLinkDivider"> • </a>
+      <a href="${manualUrl}" class="br-headerLink">${dict.PlayersHandbook}</a>
+      <a name="dev/null" class="br-headerLinkDivider"> • </a>
+      <a href="${blogUrl}" class="br-headerLink">${dict.Blog}</a>
+    </div>
+  </div>
+  <!-- we need the ID because we want to subscribe to its topics -->
+  <div data-dojo-type="dijit/layout/StackContainer" data-dojo-props="region:'center'" data-dojo-attach-point="mainTabs" id="Controller.mainContainer">
+  </div>
+  <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'" class="br-footerContainer">
+    <div class="br-footer-left"> </div>
+    <div class="br-copyright">
+    © “Creative Workers’ Collective ‘Alexander Bogdanov’,” some rights reserved. • <a href="${licenseUrl}">Licensing Information</a>
+    </div>
+  </div>
+</div>

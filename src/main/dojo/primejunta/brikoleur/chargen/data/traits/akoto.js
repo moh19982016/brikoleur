@@ -1,12 +1,12 @@
 define({
     "name": "Akoto Interface",
     "description" : "The Akoto Interface allows you to jack into Q-Space.",
-    "link" : "#doc86",
+    "link" : "#AkotoInterface",
     "powers": [
         {
             "name": "Zoutis",
             "description": "Zoutis are Powers used in Q-Space.",
-            "link" : "#doc280",
+            "link" : "#PowersZoutis",
             "list": [
                 {
                     "name": "Blast",
@@ -216,7 +216,7 @@ define({
         {
             "name": "Fwés",
             "description": "Fwés are single-use artefacts used in Q-Space.",
-            "link" : "#doc281",
+            "link" : "#OhunFws",
             "list": [
                 {
                     "name": "Armour",

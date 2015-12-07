@@ -1,25 +1,29 @@
 <div>
-    <div data-dojo-attach-point="titleNode" class="br-propertyTitle">${title}</div>
-    <div data-dojo-attach-point="displayNode" class="br-displayContainer br-inputContainer" style="display: none">
-        <div class="br-floatRight" style="width:25px;">
-            <i class="br-active br-gray fa fa-chevron-circle-right" data-dojo-attach-point="descriptionButton" data-dojo-attach-event="onClick:toggleDescription"></i>
-        </div>
-        <div data-dojo-attach-point="valueNode" class="br-subPaneTitle"></div>
+  <div data-dojo-attach-point="titleNode" class="br-propertyTitle">${title}</div>
+  <div data-dojo-attach-point="displayNode" class="br-displayContainer br-inputContainer" style="display: none">
+    <div class="br-floatRight" style="width:25px;">
+      <i class="br-active br-gray fa fa-chevron-circle-right" data-dojo-attach-point="descriptionButton"
+         data-dojo-attach-event="onClick:toggleDescription"></i>
     </div>
-    <div data-dojo-attach-point="controlNode" class="br-controlNode br-addControl">
-        <div class="br-floatRight" style="width:30px;">
-            <button data-dojo-attach-point="addButton" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick:pleaseAddItem" class="br-smallButton"><i class="fa fa-plus-square br-blue"></i></button>
-        </div>
-        <div class="br-floatRight br-inputContainer" style="width:calc(100% - 30px);">
-            <span data-dojo-attach-point="selectorNode"></span>
-        </div>
-        <div style="clear:both"></div>
+    <div data-dojo-attach-point="valueNode" class="br-subPaneTitle"></div>
+  </div>
+  <div data-dojo-attach-point="controlNode" class="br-controlNode br-addControl">
+    <div class="br-floatRight" style="width:30px;">
+      <button data-dojo-attach-point="addButton" data-dojo-type="dijit/form/Button"
+              data-dojo-attach-event="onClick:pleaseAddItem" class="br-smallButton"><i
+              class="fa fa-plus-square br-blue"></i></button>
     </div>
-    <div data-dojo-attach-point="descriptionWrapper" class="br-featureDescription">
-        <div data-dojo-attach-point="descriptionNode" class="br-featureDescriptionContent"></div>
+    <div class="br-floatRight br-inputContainer" style="width:calc(100% - 30px);">
+      <span data-dojo-attach-point="selectorNode"></span>
     </div>
-    <ul data-dojo-attach-point="featuresNode" class="br-featureList"></ul>
-    <div data-dojo-attach-point="childrenNode" class="br-indented">
+    <div style="clear:both"></div>
+  </div>
+  <div data-dojo-attach-point="descriptionWrapper" class="br-featureDescription">
+    <div data-dojo-attach-point="descriptionNode" class="br-featureDescriptionContent">
+      <ul data-dojo-attach-point="featuresNode" class="br-featureList"></ul>
+    </div>
+  </div>
+  <div data-dojo-attach-point="childrenNode" class="br-indented">
 
-    </div>
+  </div>
 </div>

@@ -1,7 +1,7 @@
 define({
     "name": "Counter-Stochastics",
     "description": "Guns pointed at you will misfire. You can manipulate probabilities. You can create and use Cards to produce persistent effects distorting probabilities. You can acquire special abilities that produce specific and powerful CS effects.",
-    "link": "#doc88",
+    "link": "#CounterStochastics",
     "features" : [{
         "name" : "Deck",
         "type" : "passive",
@@ -11,7 +11,7 @@ define({
         {
             "name": "Cards",
             "description" : "Cards manipulate probabilities.",
-            "link": "#doc272",
+            "link": "#OhunCards",
             "list": [
                 {
                     "name": "Protect against firearms",
@@ -60,7 +60,7 @@ define({
         {
             "name": "Plays",
             "description": "Plays are Powers which bend probabilities.",
-            "link": "#doc271",
+            "link": "#PowersPlays",
             "list": [
                 {
                     "name": "Load the Dice",

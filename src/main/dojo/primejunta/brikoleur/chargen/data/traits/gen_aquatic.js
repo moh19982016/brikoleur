@@ -1,7 +1,7 @@
 define({
     "name" : "Genetically Engineered - Aquatic",
     "description" : "Aquatics are humans engineered for life in ocean habitats. Most are associated with the Poseidonian movement.",
-    "link" : "#doc131",
+    "link" : "#Aquatic",
     "ohun" : [],
     "features" : [
         {

@@ -12,7 +12,7 @@ define({
                 "key": false,
                 "controls": [],
                 "description": "You have been implanted with a NATO or Almaz-Norinco standard military neural interface by a former employer. You retain the interface and the possibility to implant further military-grade wetware.",
-                "link": "#doc89",
+                "link": "#MilitaryNeuralInterface",
                 "id": "Military Neural Interface"
             },
             {
@@ -20,7 +20,7 @@ define({
                 "value": "Genetically Engineered - Jagun",
                 "key": false,
                 "description": "Jagun are genetically enhanced super-warriors. They are faster, stronger, and tougher than baseline humans.",
-                "link": "#doc132",
+                "link": "#Jagun",
                 "id": "Genetically Engineered - Jagun",
                 "controls": []
             }

@@ -77,7 +77,7 @@ function( declare,
             if( data.description )
             {
                 var val = this._processDescription( data.description );
-                this.descriptionNode ? this.descriptionNode.innerHTML = val : false;
+                domConstruct.place( "<div>" + val + "</div>", this.descriptionNode, "first" );
                 if( data.link )
                 {
                     var lnk = domConstruct.create( "a", { className : "br-manualLink", href : Controller.manualUrl + data.link, target : "manualWindow", innerHTML : i18n.MoreInformation + '<i class="fa fa-external-link-square"></i></a>' }, this.descriptionNode );

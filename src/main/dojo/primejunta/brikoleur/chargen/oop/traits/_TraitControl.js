@@ -231,6 +231,7 @@ function( declare,
 
                 }
             }
+            this.showDescription();
         },
         /**
          * Prints out feature description as list item in refNode at pos.

@@ -1,7 +1,7 @@
 define({
     "name" : "Genetically Engineered",
     "description" : "Genetically engineered humans have various adaptations, resistances, and special abilities baseline humans lack, and a bonus knack related to their engineering.",
-    "link" : "#doc90",
+    "link" : "#GeneticallyEngineered",
     "ohun" : [],
     "features" : [
         {

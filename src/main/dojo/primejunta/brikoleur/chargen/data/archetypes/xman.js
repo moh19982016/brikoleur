@@ -12,7 +12,7 @@ define({
                 "key": false,
                 "controls": [],
                 "description": "Guns pointed at you will misfire. You can manipulate probabilities. You can create and use Cards to produce persistent effects distorting probabilities. You can acquire special abilities that produce specific and powerful CS effects.",
-                "link": "#doc88",
+                "link": "#CounterStochastics",
                 "id": "Counter-Stochastics"
             },
             {

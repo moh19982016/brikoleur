@@ -1,7 +1,7 @@
 define({
     "name": "Chems",
     "description": "Any character may use chems. They can enhance performance in a variety of ways. Many ekips are drugged to the gills a lot of the time.",
-    "link" : "#doc45",
+    "link" : "#Chems",
     "list": [
         {
             "name": "Stabilise",

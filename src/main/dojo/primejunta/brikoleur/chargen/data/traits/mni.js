@@ -1,7 +1,7 @@
 define({
     "name": "Military Neural Interface",
     "description": "You have been implanted with a NATO or Almaz-Norinco standard military neural interface by a former employer. You retain the interface and the possibility to implant further military-grade wetware.",
-    "link": "#doc89",
+    "link": "#MilitaryNeuralInterface",
     "features": [
         {
             "name": "Smart Weapons",
@@ -13,7 +13,7 @@ define({
         {
             "name": "Drones",
             "description": "Drones are remote-controlled devices driven through the MNI.",
-            "link" : "#doc288",
+            "link" : "#OhunDrones",
             "list": [
                 {
                     "name": "Microdrone"
@@ -43,7 +43,7 @@ define({
         {
             "name": "Military Grade Wetware",
             "description": "Mil-grade wetware can enhance the user's capabilities. Many do not require Mind points to use.",
-            "link" : "#doc290",
+            "link" : "#PowersMilGradeWetware",
             "list": [
                 {
                     "name": "Low-light Vision",

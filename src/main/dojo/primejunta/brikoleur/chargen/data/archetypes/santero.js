@@ -10,7 +10,7 @@ define({
                 "value": "Akoto Interface",
                 "key": false,
                 "description": "The Akoto Interface allows you to jack into Q-Space.",
-                "link": "#doc86",
+                "link": "#AkotoInterface",
                 "id": "Akoto Interface",
                 "controls": []
             },
@@ -19,7 +19,7 @@ define({
                 "value": "Lwa's Horse",
                 "key": false,
                 "description": "A Lwa's Horse is crowned with a lwa. He serves it, and in turn may petition it for favours. Lwa's Horses are respected by their friends and feared by their enemies.",
-                "link": "#doc87",
+                "link": "#LwasHorse",
                 "id": "Lwa's Horse",
                 "controls": []
             }
