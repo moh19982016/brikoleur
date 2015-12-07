@@ -1,31 +1,38 @@
 <div class="br-inventoryItem">
-    <div class="br-floatLeft br-inputContainer" style="width:25px;">
-        <input type="radio" data-dojo-type="dijit/form/RadioButton" name="armourWorn" data-dojo-attach-event="onChange:_publishChange" data-dojo-attach-point="activeControl"/>
-    </div>
-    <div class="br-floatLeft br-inputContainer" style="width:100px;">
-        <select data-dojo-type="dijit/form/Select" data-dojo-attach-point="itemTypeSelect" data-dojo-attach-event="onChange:onChangeType">
-            <option value="L">${dict.LightArmour}</option>
-            <option value="M">${dict.MediumArmour}</option>
-            <option value="H">${dict.HeavyArmour}</option>
-            <option value="P">${dict.PoweredArmour}</option>
-        </select>
-    </div>
-    <div class="br-floatLeft br-inputContainer" style="width:30px;">
-        <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="levelInput" data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
-    </div>
-    <div class="br-floatLeft br-inputContainer" style="width:30px;">
-    <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="directArmourInput" data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
-</div>
-    <div class="br-floatLeft br-inputContainer" style="width:30px;">
-        <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="environmentalArmourInput" data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
-    </div>
-    <div class="br-floatLeft br-inputContainer" style="width:30px;">
-        <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="movementPenaltyInput" data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
-    </div>
-    <div class="br-floatRight" style="width:30px;" data-dojo-attach-point="statusControlNode">
-    </div>
-    <div class="br-floatRight br-inputContainer" style="width:calc( 100% - 313px )">
-        <input data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="descriptionInput" data-dojo-attach-event="onChange:_publishChange" style="width:100%"/>
-    </div>
-    <div style="clear:both"></div>
+  <div class="br-floatLeft br-inputContainer" style="width:25px;">
+    <input type="radio" data-dojo-type="dijit/form/RadioButton" name="armourWorn"
+           data-dojo-attach-event="onChange:_publishChange" data-dojo-attach-point="activeControl"/>
+  </div>
+  <div class="br-floatLeft br-inputContainer" style="width:100px;">
+    <select data-dojo-type="dijit/form/Select" data-dojo-attach-point="itemTypeSelect"
+            data-dojo-attach-event="onChange:onChangeType">
+      <option value="L">${dict.LightArmour}</option>
+      <option value="M">${dict.MediumArmour}</option>
+      <option value="H">${dict.HeavyArmour}</option>
+      <option value="P">${dict.PoweredArmour}</option>
+    </select>
+  </div>
+  <div class="br-floatLeft br-inputContainer" style="width:30px;">
+    <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="levelInput"
+           data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
+  </div>
+  <div class="br-floatLeft br-inputContainer" style="width:30px;">
+    <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="directArmourInput"
+           data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
+  </div>
+  <div class="br-floatLeft br-inputContainer" style="width:30px;">
+    <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="environmentalArmourInput"
+           data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
+  </div>
+  <div class="br-floatLeft br-inputContainer" style="width:30px;">
+    <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="movementPenaltyInput"
+           data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
+  </div>
+  <div class="br-floatRight" style="width:30px;" data-dojo-attach-point="statusControlNode">
+  </div>
+  <div class="br-floatRight br-inputContainer" style="width:calc( 100% - 313px )">
+    <input data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="descriptionInput"
+           data-dojo-attach-event="onChange:_publishChange" style="width:100%"/>
+  </div>
+  <div style="clear:both"></div>
 </div>

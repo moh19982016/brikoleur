@@ -6,6 +6,7 @@
          data-dojo-attach-event="onClick:toggleDescription"></i>
     </div>
     <span data-dojo-attach-point="valueNode">${dict.Oga}</span>
+
     <div style="clear:both"></div>
   </div>
   <div data-dojo-attach-point="controlNode" style="display:none">
@@ -20,9 +21,13 @@
     <div style="clear:both"></div>
   </div>
   <div data-dojo-attach-point="descriptionWrapper" class="br-featureDescription">
-    <div data-dojo-attach-point="descriptionNode" class="br-featureDescriptionContent"></div>
+    <div data-dojo-attach-point="descriptionNode" class="br-featureDescriptionContent">
+      <div data-dojo-attach-point="descriptionContent"></div>
+      <div data-dojo-attach-point="descriptionLink"></div>
+    </div>
   </div>
   <div data-dojo-attach-point="childrenNode" class="br-indented">
-    <input data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="socketedTrainingInput" placeholder="${dict.EnterSocketedOga}" style="width:100%">
+    <input data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="socketedTrainingInput"
+           placeholder="${dict.EnterSocketedOga}" style="width:100%">
   </div>
 </div>

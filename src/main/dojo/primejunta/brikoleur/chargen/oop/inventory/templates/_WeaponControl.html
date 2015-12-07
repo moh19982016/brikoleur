@@ -35,12 +35,16 @@
   </div>
   <div class="br-floatRight br-inputContainer" style="width:calc( 100% - 278px )">
     <span class="br-hideWhenIncomplete">
-      <span data-dojo-attach-point="combatControlNode" class="br-textButton br-hideOutOfCombat" data-dojo-attach-event="onClick:pleaseAttack"></span>
-      <span data-dojo-attach-point="descriptionNode" class="br-hideInCombat"></span>
+      <span data-dojo-attach-point="combatControlNode" class="br-textButton br-hideOutOfCombat"
+            data-dojo-attach-event="onClick:pleaseAttack"></span>
+      <span data-dojo-attach-point="descriptionNode" class="br-hideInCombat">
+        <span data-dojo-attach-point="descriptionContent"></span>
+      </span>
     </span>
     <span class="br-hideWhenComplete">
-     <select data-dojo-type="dijit/form/ComboBox" data-dojo-attach-point="specialisationInput" placeholder="${dict.Specialisation}"
-            data-dojo-attach-event="onFocus:updateWeaponTypes,onChange:_publishChange" style="width:100%;">
+     <select data-dojo-type="dijit/form/ComboBox" data-dojo-attach-point="specialisationInput"
+             placeholder="${dict.Specialisation}"
+             data-dojo-attach-event="onFocus:updateWeaponTypes,onChange:_publishChange" style="width:100%;">
      </select>
      <input data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="descriptionInput" placeholder="${dict.ItemName}"
             data-dojo-attach-event="onChange:_publishChange" style="width:100%;"/>

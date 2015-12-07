@@ -77,10 +77,12 @@ function( declare,
             if( data.description )
             {
                 var val = this._processDescription( data.description );
-                domConstruct.place( "<div>" + val + "</div>", this.descriptionNode, "first" );
+                domConstruct.empty( this.descriptionContent );
+                domConstruct.place( "<div>" + val + "</div>", this.descriptionContent, "first" );
                 if( data.link )
                 {
-                    var lnk = domConstruct.create( "a", { className : "br-manualLink", href : Controller.manualUrl + data.link, target : "manualWindow", innerHTML : i18n.MoreInformation + '<i class="fa fa-external-link-square"></i></a>' }, this.descriptionNode );
+                    domConstruct.empty( this.descriptionLink );
+                    var lnk = domConstruct.create( "a", { className : "br-manualLink", href : Controller.manualUrl + data.link, target : "manualWindow", innerHTML : i18n.MoreInformation + '<i class="fa fa-external-link-square"></i></a>' }, this.descriptionLink );
                     on( lnk, "click", lang.hitch( this, function( evt )
                     {
                         evt.preventDefault();
@@ -99,7 +101,7 @@ function( declare,
             }
             else
             {
-                this.descriptionNode ? this.descriptionNode.innerHTML = "" : false;
+                this.descriptionContent ? this.descriptionContent.innerHTML = "" : false;
                 this.descriptionButton ? this.descriptionButton.style.visibility = "hidden" : false;
             }
         },
