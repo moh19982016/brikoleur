@@ -295,6 +295,10 @@ function( declare,
             {
                 chld.push( this.controls[ i ].get( "state" ) );
             }
+            if( this.descriptionWidget && this.descriptionWidget.get( "value" ) && this.descriptionWidget.get( "value" ) != this._getData().description )
+            {
+                this.state.description = this.descriptionWidget.get( "value" );
+            }
             this.state.controls = chld;
             this.state.key = this.key;
             return this._getPropsForState( lang.mixin( lang.clone( this._getData( this.state.value ) || {} ), this.state ) );

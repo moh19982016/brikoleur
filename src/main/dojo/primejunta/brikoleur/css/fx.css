@@ -9,3 +9,7 @@
     background-color: #c00 !important;
     color: white !important;
 }
+
+.br-dontAnimate {
+    transition: none !important;
+}

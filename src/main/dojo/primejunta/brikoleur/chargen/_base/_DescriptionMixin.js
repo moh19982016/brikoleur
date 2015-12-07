@@ -7,6 +7,7 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/on",
+         "dojo/topic",
          "dojo/dom-construct",
          "dojo/dom-geometry",
          "dojo/dom-class",
@@ -14,6 +15,7 @@ define([ "dojo/_base/declare",
 function( declare,
           lang,
           on,
+          topic,
           domConstruct,
           domGeometry,
           domClass,
@@ -38,12 +40,15 @@ function( declare,
          */
         showDescription : function()
         {
-            if( this.descriptionWrapper && this.description )
+            if( this.descriptionWrapper )
             {
                 this._open = true;
                 this.descriptionWrapper.style.height = domGeometry.getMarginBox( this.descriptionNode ).h + "px";
                 domClass.replace( this.descriptionButton, "fa-chevron-circle-down", "fa-chevron-circle-right" );
                 domClass.add( this.domNode, "br-descriptionOpen" );
+                setTimeout( lang.hitch( this, function() {
+                    this.descriptionWrapper.style.height = "auto";
+                }), 300 );
             }
             else if( !this.description )
             {
@@ -59,10 +64,15 @@ function( declare,
         {
             if( this.descriptionWrapper )
             {
-                this._open = false;
-                domClass.replace( this.descriptionButton, "fa-chevron-circle-right", "fa-chevron-circle-down" );
-                domClass.remove( this.domNode, "br-descriptionOpen" );
-                this.descriptionWrapper.style.height = "0px";
+                domClass.add( this.descriptionWrapper, "br-dontAnimate" );
+                this.descriptionWrapper.style.height = domGeometry.getMarginBox( this.descriptionNode ).h + "px";
+                domClass.remove( this.descriptionWrapper, "br-dontAnimate" );
+                setTimeout( lang.hitch( this, function() {
+                    this._open = false;
+                    domClass.replace( this.descriptionButton, "fa-chevron-circle-right", "fa-chevron-circle-down" );
+                    domClass.remove( this.domNode, "br-descriptionOpen" );
+                    this.descriptionWrapper.style.height = "0px";
+                }), 100 );
             }
         },
         /**
@@ -74,11 +84,25 @@ function( declare,
         setDescription : function( data )
         {
             this.description = data.description || "";
+            if( this.descriptionWidget )
+            {
+                this.own( on( this.descriptionWidget, "keyup", lang.hitch( this, function()
+                {
+                    topic.publish( "/PleaseAutoSave/" );
+                })));
+            }
             if( data.description )
             {
                 var val = this._processDescription( data.description );
-                domConstruct.empty( this.descriptionContent );
-                domConstruct.place( "<div>" + val + "</div>", this.descriptionContent, "first" );
+                if( this.descriptionWidget )
+                {
+                    this.descriptionWidget.set( "value", val );
+                }
+                else
+                {
+                    domConstruct.empty( this.descriptionContent );
+                    domConstruct.place( "<div>" + val + "</div>", this.descriptionContent, "first" );
+                }
                 if( data.link )
                 {
                     domConstruct.empty( this.descriptionLink );
@@ -99,11 +123,13 @@ function( declare,
                 }
                 this.descriptionButton ? this.descriptionButton.style.visibility = "visible" : false;
             }
+            /*
             else
             {
                 this.descriptionContent ? this.descriptionContent.innerHTML = "" : false;
                 this.descriptionButton ? this.descriptionButton.style.visibility = "hidden" : false;
             }
+            */
         },
         /**
          * Substitutes pattern values into description. We have them so we can show actual level-dependent values when

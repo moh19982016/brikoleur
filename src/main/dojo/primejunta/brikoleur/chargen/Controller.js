@@ -128,6 +128,7 @@ function( declare,
             this._setupButtons();
             this._setupPanes();
             this._loadSettings();
+            this.own( topic.subscribe( "/PleaseAutoSave/", lang.hitch( this, this.saveCharacter, true ) ) );
         },
         /**
          * Method used for development and debug purposes: logs state of UI as Object or JSON string.

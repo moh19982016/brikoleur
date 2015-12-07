@@ -74,13 +74,14 @@ function( declare,
             return !CharacterStore.nameInUse( name );
         },
         /**
-         * Call .validateCharacter, then .doSaveCharacter.
+         * Call .validateCharacter, then .doSaveCharacter. If silent, no alerts will be raised.
          *
+         * @param silent
          * @public Deferred
          */
-        saveCharacter : function()
+        saveCharacter : function( /* boolean */ silent )
         {
-            return this.validateCharacter().then( lang.hitch( this, this.doSaveCharacter ) );
+            return this.validateCharacter( silent ).then( lang.hitch( this, this.doSaveCharacter ) );
         },
         /**
          * Get character name from name pane, then update juju to match the amount spent, then save it CharacterStore.
@@ -110,7 +111,7 @@ function( declare,
          *
          * @public Deferred
          */
-        validateCharacter : function()
+        validateCharacter : function( silent )
         {
             var reslts = [];
             for( var o in this.characterPane.panes )
@@ -123,7 +124,10 @@ function( declare,
             }
             if( reslts.length > 0 )
             {
-                util.alert( i18n.NotReadyToSave + "<ul><li>" + reslts.join( "</li><li>" ) + "</li></ul>" );
+                if( !silent )
+                {
+                    util.alert( i18n.NotReadyToSave + "<ul><li>" + reslts.join( "</li><li>" ) + "</li></ul>" );
+                }
                 return new Deferred().reject();
             }
             else
@@ -132,7 +136,10 @@ function( declare,
                 var diff = ( CharacterStore.get( "juju" ) || 0 ) - juju;
                 if( this.is_new && juju > 0 )
                 {
-                    util.alert( i18n.YouHaveUnusedJuju );
+                    if( !silent )
+                    {
+                        util.alert( i18n.YouHaveUnusedJuju );
+                    }
                     return new Deferred().reject();
                 }
                 else if( diff == 0 || this.is_new )
@@ -141,7 +148,14 @@ function( declare,
                 }
                 else
                 {
-                    return util.confirm( string.substitute( i18n.ConfirmSpendJuju, { juju : diff } ) );
+                    if( !silent )
+                    {
+                        return util.confirm( string.substitute( i18n.ConfirmSpendJuju, { juju : diff } ) );
+                    }
+                    else
+                    {
+                        return new Deferred().reject();
+                    }
                 }
             }
         },
