@@ -164,9 +164,9 @@ function( declare,
          *
          * @public void
          */
-        resize : function()
+        resize : function( force )
         {
-            if( this.domNode.style.opacity == 1 )
+            if( force || this.domNode.style.opacity == 1 )
             {
                 var box = domGeometry.getContentBox( document.body );
                 var tf = "scale(" + ( ( box.w + box.h ) / ( 2 * this.refWidth ) ) + ")";

@@ -389,6 +389,7 @@ function( declare,
         {
             var pn = this.domNode.parentNode;
             CharacterStore.set( "character", false );
+            this.splash.resize( true );
             this.splash.fadeIn();
             this.fadeOut();
             setTimeout( lang.hitch( this, function()
