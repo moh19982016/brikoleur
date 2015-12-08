@@ -1,3 +1,5 @@
+@import "../../../dojox/mobile/themes/custom/Switch.css";
+
 .br-hasLoaded .br-hideWhenLoaded {
     display: none;
 }
@@ -44,4 +46,32 @@
 
 .br-status-wounded .br-showWhenWounded, .br-status-incapacitated .br-showWhenWounded, .br-status-dead .br-showWhenWounded {
     display: block;
+}
+
+.mblSwitch {
+    border-radius: 3px;
+    margin: 5px;
+}
+
+.mblSwitchBg {
+    font-family: Dosis, sans-serif;
+    font-weight: normal;
+    color: black;
+    border: 1px solid #800;
+}
+
+.mblSwDefaultShape .mblSwitchKnob {
+    border-radius: 3px;
+}
+
+.tundra .mblSwitchBgLeft {
+    background: #d4d4d4 !important;
+}
+
+.tundra .mblSwitchBgRight {
+    background: #f00 !important;
+}
+
+.mblSwitchText {
+    line-height: 24px;
 }

@@ -5,12 +5,12 @@
  */
 define( [ "dojo/_base/declare",
           "dojo/_base/lang",
-          "dijit/form/Button",
+          "dojox/mobile/Switch",
           "../../_base/_NamePaneBase",
           "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
           lang,
-          Button,
+          Switch,
           _NamePaneBase,
           i18n )
 {
@@ -28,12 +28,14 @@ function( declare,
          */
         postCreate : function()
         {
-            this.combatToggle = new Button( {
-                label : i18n.StartCombat,
-                "class" : "br-headerButton",
-                iconClass : "fa fa-pagelines",
+            this.combatToggle = new Switch( {
+                value : "on",
+                style : "width:150px;",
+                leftLabel : i18n.StartCombat,
+                rightLabel : i18n.ExitCombat,
                 onClick : lang.hitch( this, this.toggleCombat )
             } ).placeAt( this.buttonContainer );
+            this.combatToggle.startup();
             this.own( this.combatToggle );
         },
         /**

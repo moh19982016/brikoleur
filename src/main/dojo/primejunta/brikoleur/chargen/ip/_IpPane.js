@@ -67,17 +67,17 @@ function( declare,
             this.inCombat = !this.inCombat;
             if( this.inCombat )
             {
-                button.set( "label", i18n.ExitCombat );
-                button.set( "iconClass", "br-icon br-icon-combat" );
-                domClass.add( button.domNode, "br-toggleSet" );
+                //button.set( "label", i18n.ExitCombat );
+                //button.set( "iconClass", "br-icon br-icon-combat" );
+                //domClass.add( button.domNode, "br-toggleSet" );
                 domClass.replace( this.domNode, "br-inCombat", "br-outOfCombat" );
                 this.panes.stunts.maximize();
             }
             else
             {
-                button.set( "label", i18n.StartCombat );
-                button.set( "iconClass", "fa fa-pagelines" );
-                domClass.remove( button.domNode, "br-toggleSet" );
+                //button.set( "label", i18n.StartCombat );
+                //button.set( "iconClass", "fa fa-pagelines" );
+                //domClass.remove( button.domNode, "br-toggleSet" );
                 domClass.replace( this.domNode, "br-outOfCombat", "br-inCombat" );
                 this.panes.stunts.minimize();
             }

@@ -151,11 +151,14 @@ function( declare,
         {
             if( this.mode == "rest" )
             {
-                this.mode = "play";
-                this.playButton.set( "iconClass", "fa fa-hourglass" );
-                this.playButton.set( "label", i18n.PrepMode );
-                this.inPlayPane.set( "state", this.get( "state" ) );
-                this.mainTabs.selectChild( this.inPlayPane );
+                this.validateCharacter().then( lang.hitch( this, function()
+                {
+                    this.mode = "play";
+                    this.playButton.set( "iconClass", "fa fa-beer" );
+                    this.playButton.set( "label", i18n.PrepMode );
+                    this.inPlayPane.set( "state", this.get( "state" ) );
+                    this.mainTabs.selectChild( this.inPlayPane );
+                } ) );
             }
             else
             {
@@ -361,7 +364,7 @@ function( declare,
         refreshEkip : function()
         {
             this._ekipMenu.destroyDescendants();
-            this._ekipMenu.addChild( new MenuItem( {
+            this._ekipMenu.addChild( new MenuItem( {
                 iconClass : "fa fa-sun-o br-gold",
                 label : i18n.NewCharacter,
                 onClick : lang.hitch( this, this.newCharacter )
@@ -428,10 +431,19 @@ function( declare,
             } ).placeAt( this.headerContentNode, "first" );
             this.playButton.startup();
             this._toolsMenu = new DropDownMenu();
-            this._toolsMenu.addChild( new MenuItem({ label : i18n.Download, onClick : lang.hitch( this, this.downloadCharacters ) } ) );
-            this._toolsMenu.addChild( new MenuItem({ label : i18n.Upload, onClick : lang.hitch( this, this.uploadCharacters ) } ) );
+            this._toolsMenu.addChild( new MenuItem( {
+                label : i18n.Download,
+                onClick : lang.hitch( this, this.downloadCharacters )
+            } ) );
+            this._toolsMenu.addChild( new MenuItem( {
+                label : i18n.Upload,
+                onClick : lang.hitch( this, this.uploadCharacters )
+            } ) );
             //this._toolsMenu.addChild( new MenuItem({ label : i18n.SetUpSync, onClick : lang.hitch( this, this.setUpSync ) } ) );
-            this._toolsMenu.addChild( new MenuItem({ label : i18n.Print, onClick : lang.hitch( this, this.printCharacter ) } ) );
+            this._toolsMenu.addChild( new MenuItem( {
+                label : i18n.Print,
+                onClick : lang.hitch( this, this.printCharacter )
+            } ) );
             this._toolsMenu.startup();
             this.toolsButton = new DropDownButton( {
                 dropDown : this._toolsMenu,
