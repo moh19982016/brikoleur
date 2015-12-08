@@ -2,8 +2,7 @@ define({
     root : {
         "headerText" : "BRIKOLEUR",
         "footerText" : "by Creative Workers’ Collective “Alexander Bogdanov”",
-        "PlayersHandbook" : "Sourcebook",
-        "Blog" : "Blog",
+        "Sourcebook" : "Sourcebook",
         "OutOfPlay" : "Out of Play",
         "InPlay" : "In Play",
         "CreateCharacter" : "Create",

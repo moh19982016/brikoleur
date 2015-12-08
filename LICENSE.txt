@@ -14,7 +14,7 @@ Licensing information about other media is included with the media, where approp
 Brikoleur uses a variety of fonts under the SIL Open Font License 1.1. More information is included with
 the fonts.
 
-The Character Generator is based on the Dojo Toolkit, used under the Academic Free License 2.1.
+The Character Maker is based on the Dojo Toolkit, used under the Academic Free License 2.1.
 
 When publishing copies, please include this page in its entirety with the copy.
 

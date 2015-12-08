@@ -15,8 +15,9 @@
     margin-bottom: 0;
     color: #fafafa;
     text-decoration: none;
-    font-size: 24px;
-    vertical-align: -3px;
+    font-size: 22px;
+    vertical-align: -4px;
+    line-height: 24px;
 }
 
 .br-headerLink:hover {
