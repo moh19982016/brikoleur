@@ -3,19 +3,16 @@ define( [ "dojo/_base/declare",
           "dojo/dom-construct",
           "dijit/_WidgetBase",
           "dijit/_TemplatedMixin",
-          "dojo/text!./templates/_CharacterPrint.html",
-          "dojo/i18n!./../../nls/CharGenPrint" ],
+          "dojo/text!./templates/_CharacterPrint.html" ],
 function( declare,
           util,
           domConstruct,
           _WidgetBase,
           _TemplatedMixin,
-          template,
-          i18n )
+          template )
 {
     return declare( [ _WidgetBase, _TemplatedMixin ], {
         manager : {},
-        dict : i18n,
         templateString : template,
         postCreate : function()
         {

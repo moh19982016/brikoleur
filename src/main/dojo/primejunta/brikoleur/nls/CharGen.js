@@ -39,7 +39,7 @@ define({
         "Oga" : "<Oga>",
         "EnterSocketedOga" : "Currently socketed",
         // utilities
-        "Files" : "",
+        "Tools" : "Tools",
         "Done" : "Done",
         "Download" : "Download",
         "Upload" : "Upload",
@@ -99,7 +99,7 @@ define({
         "Gender" : "Gender",
         "Handle" : "Handle",
         "Background" : "Background",
-        "NewCharacter" : "New",
+        "NewCharacter" : "Create Character",
         "DialogTitle" : "Brikoleur",
         "Continue" : "Continue",
         "Cancel" : "Cancel",

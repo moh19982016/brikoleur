@@ -27,6 +27,7 @@ define( [ "dojo/_base/declare",
           "dijit/form/DropDownButton",
           "dijit/DropDownMenu",
           "dijit/MenuItem",
+          "dijit/MenuSeparator",
           "dijit/form/Button",
           "dijit/_TemplatedMixin",
           "dijit/_WidgetsInTemplateMixin",
@@ -54,6 +55,7 @@ function( declare,
           DropDownButton,
           DropDownMenu,
           MenuItem,
+          MenuSeparator,
           Button,
           _TemplatedMixin,
           _WidgetsInTemplateMixin,
@@ -352,6 +354,30 @@ function( declare,
             }
         },
         /**
+         * Clears ._ekipMenu and recreates it from CharacterStore.list().
+         *
+         * @public void
+         */
+        refreshEkip : function()
+        {
+            this._ekipMenu.destroyDescendants();
+            this._ekipMenu.addChild( new MenuItem( {
+                iconClass : "fa fa-sun-o br-gold",
+                label : i18n.NewCharacter,
+                onClick : lang.hitch( this, this.newCharacter )
+            } ) );
+            this._ekipMenu.addChild( new MenuSeparator() );
+            var keys = CharacterStore.list();
+            for( var i = 0; i < keys.length; i++ )
+            {
+                this._ekipMenu.addChild( new MenuItem( {
+                    label : keys[ i ],
+                    onClick : lang.hitch( this, this.loadCharacter, keys[ i ] )
+                } ) );
+            }
+            this.ekipButton.set( "disabled", keys.length == 0 );
+        },
+        /**
          * Removes domNode from its parent, fades in splash screen, and sets a timeout to destroy self and create a new
          * instance at its original spot after animation has completed.
          *
@@ -391,45 +417,35 @@ function( declare,
          */
         _setupButtons : function()
         {
-            this.newCharacterButton =
-            new Button( {
-                label : i18n.NewCharacter,
-                "class" : "br-headerButton br-darkButton",
-                iconClass : "fa fa-sun-o br-gold",
-                onClick : lang.hitch( this, this.newCharacter )
-            } ).placeAt( this.headerContentNode, "first" );
-            this._ekipMenu = new DropDownMenu();
-            this._ekipMenu.startup();
-            this.ekipButton =
-            new DropDownButton( {
-                dropDown : this._ekipMenu,
-                label : i18n.Ekip,
-                "class" : "br-headerButton br-darkButton",
-                iconClass : "fa fa-users"
-            } ).placeAt( this.headerContentNode, "first" );
-            this.ekipButton.startup();
-            this.playButton =
-            new Button( {
+            this.playButton = new Button( {
                 label : i18n.PlayMode,
                 "class" : "br-headerButton br-darkButton",
                 iconClass : "fa fa-rocket",
                 onClick : lang.hitch( this, this.togglePlay )
             } ).placeAt( this.headerContentNode, "first" );
             this.playButton.startup();
-            this._fileMenu = new DropDownMenu();
-            this._fileMenu.addChild( new MenuItem({ label : i18n.Download, onClick : lang.hitch( this, this.downloadCharacters ) } ) );
-            this._fileMenu.addChild( new MenuItem({ label : i18n.Upload, onClick : lang.hitch( this, this.uploadCharacters ) } ) );
-            this._fileMenu.addChild( new MenuItem({ label : i18n.SetUpSync, onClick : lang.hitch( this, this.setUpSync ) } ) );
-            this._fileMenu.addChild( new MenuItem({ label : i18n.Print, onClick : lang.hitch( this, this.printCharacter ) } ) );
-            this._fileMenu.startup();
-            this.menuButton =
-            new DropDownButton( {
-                dropDown : this._fileMenu,
-                label : i18n.Files,
+            this._toolsMenu = new DropDownMenu();
+            this._toolsMenu.addChild( new MenuItem({ label : i18n.Download, onClick : lang.hitch( this, this.downloadCharacters ) } ) );
+            this._toolsMenu.addChild( new MenuItem({ label : i18n.Upload, onClick : lang.hitch( this, this.uploadCharacters ) } ) );
+            //this._toolsMenu.addChild( new MenuItem({ label : i18n.SetUpSync, onClick : lang.hitch( this, this.setUpSync ) } ) );
+            this._toolsMenu.addChild( new MenuItem({ label : i18n.Print, onClick : lang.hitch( this, this.printCharacter ) } ) );
+            this._toolsMenu.startup();
+            this.toolsButton = new DropDownButton( {
+                dropDown : this._toolsMenu,
+                label : i18n.Tools,
                 "class" : "br-headerButton br-darkButton",
-                iconClass : "fa fa-cog"
+                iconClass : "fa fa-wrench"
             } ).placeAt( this.headerContentNode, "first" );
-            this.menuButton.startup();
+            this.toolsButton.startup();
+            this._ekipMenu = new DropDownMenu();
+            this._ekipMenu.startup();
+            this.ekipButton = new DropDownButton( {
+                dropDown : this._ekipMenu,
+                label : i18n.Ekip,
+                "class" : "br-headerButton br-darkButton",
+                iconClass : "fa fa-users"
+            } ).placeAt( this.headerContentNode, "first" );
+            this.ekipButton.startup();
             if( this._hasFullScreen() )
             {
                 this.own( new Button( {
@@ -440,7 +456,7 @@ function( declare,
                 } ).placeAt( this.leftHeaderNode, "first" ) );
             }
             this.refreshEkip();
-            this.own( this.playButton, this._ekipMenu, this.ekipButton, this.newCharacterButton, this._fileMenu, this.menuButton );
+            this.own( this.playButton, this._ekipMenu, this.ekipButton, this._toolsMenu, this.toolsButton );
         },
         /**
          * Adds all the UI panes needed for the character creator.
@@ -523,24 +539,6 @@ function( declare,
             {
                 domClass.remove( this.domNode, "br-newCharacter" );
             }
-        },
-        /**
-         * Clears ._ekipMenu and recreates it from CharacterStore.list().
-         *
-         * @private void
-         */
-        refreshEkip : function()
-        {
-            this._ekipMenu.destroyDescendants();
-            var keys = CharacterStore.list();
-            for( var i = 0; i < keys.length; i++ )
-            {
-                this._ekipMenu.addChild( new MenuItem( {
-                    label : keys[ i ],
-                    onClick : lang.hitch( this, this.loadCharacter, keys[ i ] )
-                } ) );
-            }
-            this.ekipButton.set( "disabled", keys.length == 0 );
         },
         /**
          * Sniffs for fullscreen support, returns result as boolean.

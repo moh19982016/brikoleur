@@ -215,7 +215,7 @@ function( declare,
         downloadCharacters : function()
         {
             var keys = CharacterStore.list();
-            var div = domConstruct.create( "div", {} );
+            var div = domConstruct.create( "div", { style: "min-width:300px;" } );
             var link = domConstruct.create( "a",
             {
                 "class" : "br-downloadCharactersLink",
