@@ -3,26 +3,38 @@
  *
  * @private Mixin
  */
-define([ "dojo/_base/declare",
-         "dojo/_base/lang",
-         "dojo/_base/array",
-         "dojo/topic",
-         "dojo/string",
-         "dojo/Deferred",
-         "./../_base/util",
-         "./CharacterStore",
-         "dojo/i18n!./../../nls/CharGen" ],
+define( [ "dojo/_base/declare",
+          "dojo/_base/lang",
+          "dojo/_base/array",
+          "dojo/on",
+          "dojo/topic",
+          "dojo/string",
+          "dojo/dom-construct",
+          "dojo/Deferred",
+          "dojo/json",
+          "dijit/registry",
+          "dijit/form/CheckBox",
+          "./../_base/util",
+          "./_CharacterUploader",
+          "./CharacterStore",
+          "dojo/i18n!./../../nls/CharGen" ],
 function( declare,
           lang,
           array,
+          on,
           topic,
           string,
+          domConstruct,
           Deferred,
+          json,
+          registry,
+          CheckBox,
           util,
+          _CharacterUploader,
           CharacterStore,
           i18n )
 {
-    return declare([], {
+    return declare( [], {
         /**
          * Calls .saveCharacter, then .clear().
          *
@@ -30,7 +42,7 @@ function( declare,
          */
         newCharacter : function()
         {
-            this.saveCharacter().then( lang.hitch( this, this.clear ));
+            this.saveCharacter().then( lang.hitch( this, this.clear ) );
         },
         /**
          * If dontSave is set, goes directly to doLoadCharacter, else goes via .saveCharacter.
@@ -43,7 +55,7 @@ function( declare,
         {
             if( !dontSave )
             {
-                this.saveCharacter().then( lang.hitch( this, this.doLoadCharacter, name ));
+                this.saveCharacter().then( lang.hitch( this, this.doLoadCharacter, name ) );
             }
             else
             {
@@ -85,7 +97,7 @@ function( declare,
         },
         /**
          * Get character name from name pane, then update juju to match the amount spent, then save it CharacterStore.
-         * Publish a topic announcing the even, ._refreshEkip, and return and resolve a Deferred.
+         * Publish a topic announcing the even, .refreshEkip, and return and resolve a Deferred.
          *
          * @public Deferred
          */
@@ -100,7 +112,7 @@ function( declare,
             this.set( "is_new", false );
             CharacterStore.save( cName, this.get( "state" ) );
             topic.publish( "/CharacterSaved/" );
-            this._refreshEkip();
+            this.refreshEkip();
             this.playButton.set( "disabled", false );
             return new Deferred().resolve();
         },
@@ -116,7 +128,9 @@ function( declare,
             var reslts = [];
             for( var o in this.characterPane.panes )
             {
-                var reslt = this.characterPane.panes[ o ].validate ? this.characterPane.panes[ o ].validate() : { valid : true };
+                var reslt = this.characterPane.panes[ o ].validate ?
+                this.characterPane.panes[ o ].validate() :
+                { valid : true };
                 if( reslt.valid != true )
                 {
                     reslts.push( reslt.message );
@@ -161,7 +175,7 @@ function( declare,
         },
         /**
          * Delete character matching the currently loaded one from CharacterStore if the user confirms the action,
-         * then ._refreshEkip and clear().
+         * then .refreshEkip and clear().
          *
          * @public void
          */
@@ -171,12 +185,13 @@ function( declare,
             var keys = CharacterStore.list();
             if( charName && array.indexOf( keys, charName ) != -1 )
             {
-                util.confirm( string.substitute( i18n.ConfirmDeleteCharacter, { charName : charName } ) ).then( lang.hitch( this, function()
+                util.confirm( string.substitute( i18n.ConfirmDeleteCharacter,
+                { charName : charName } ) ).then( lang.hitch( this, function()
                 {
                     CharacterStore.remove( charName );
-                    this._refreshEkip();
+                    this.refreshEkip();
                     this.clear();
-                }));
+                } ) );
             }
             else
             {
@@ -194,6 +209,65 @@ function( declare,
             {
                 this.loadCharacter( this.characterPane.panes.name.get( "state" ).characterName, true );
             }
+        },
+        downloadCharacters : function()
+        {
+            var keys = CharacterStore.list();
+            var div = domConstruct.create( "div", {} );
+            var link = domConstruct.create( "a",
+            {
+                "class" : "br-downloadCharactersLink",
+                download : "characterStore.json",
+                "innerHTML" : '<i class="fa fa-download"></i> ' + i18n.Download,
+                "style" : "display:none;"
+            },
+            domConstruct.create( "div", {} ) );
+            for( var i = 0; i < keys.length; i++ )
+            {
+                var name = CharacterStore.load( keys[ i ] ).name.characterName;
+                var row = domConstruct.create( "label", { "class" : "br-characterListItem" }, div );
+                var cb = new CheckBox( { value : keys[ i ] } ).placeAt( row );
+                on( cb, "change", lang.hitch( this, this._updateDownloadLink, div, link ) );
+                domConstruct.create( "span", { innerHTML : name }, row );
+            }
+            domConstruct.place( link, div );
+            util.confirm( div, [ { label : i18n.Done, value : false } ], i18n.Download );
+        },
+        uploadCharacters : function()
+        {
+            if( !this._uploader )
+            {
+                this._uploader = new _CharacterUploader({ manager : this });
+                this.own( this._uploader );
+            }
+            this._uploader.start();
+        },
+        printCharacter : function()
+        {
+        },
+        setUpSync : function()
+        {
+        },
+        _updateDownloadLink : function( div, link )
+        {
+            var boxes = registry.findWidgets( div );
+            var data = [];
+            for( var i = 0; i < boxes.length; i++ )
+            {
+                if( boxes[ i ].get( "checked" ) )
+                {
+                    data.push( CharacterStore.load( boxes[ i ].value ) );
+                }
+            }
+            if( data.length > 0 )
+            {
+                link.href = "data:application/json;charset=utf-8," + encodeURIComponent( json.stringify( data ) );
+                link.style.display = "block";
+            }
+            else
+            {
+                link.style.display = "none";
+            }
         }
-    });
-});
+    } );
+} );

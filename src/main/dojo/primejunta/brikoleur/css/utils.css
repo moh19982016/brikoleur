@@ -1,0 +1,41 @@
+.br-characterListItem {
+    display: block;
+}
+
+.br-downloadCharactersLink {
+    display: block;
+    padding: 4px;
+    color: black;
+    float: left;
+    text-decoration: none;
+}
+
+.br-downloadCharactersLink:hover {
+    text-decoration: underline;
+}
+
+.br-informBubble {
+    z-index: 999;
+    position : absolute;
+    top: 10px;
+    right: 10px;
+    width: 300px;
+    text-align: center;
+    border: 1px solid gray;
+    background-color: rgba( 220, 220, 220, 0.95 );
+    box-shadow : 5px 5px 10px #333;
+    border-radius: 3px;
+    color: black;
+    transition: opacity 300ms;
+}
+
+.br-informBubbleClose {
+    padding: 20px;
+    float: right;
+    border-left: 1px solid gray;
+    cursor: pointer;
+}
+
+.br-informBubbleContent {
+    padding: 20px;
+}

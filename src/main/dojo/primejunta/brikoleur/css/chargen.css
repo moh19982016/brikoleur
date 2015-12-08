@@ -19,6 +19,7 @@
 @import "states.css";
 @import "dijit.css";
 @import "fx.css";
+@import "utils.css";
 
 html, body {
     width: 100%;

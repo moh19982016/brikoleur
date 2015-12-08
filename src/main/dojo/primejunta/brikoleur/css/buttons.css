@@ -102,3 +102,20 @@
 .tundra .br-statField {
     border: 2px solid gray;
 }
+
+.br-fileControlButton {
+    border : 1px dashed #c00;
+    color: #c00;
+    text-align: center;
+    border-radius: 3px;
+    padding: 8px;
+    font-family: Dosis, sans-serif;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.br-fileSelected .br-fileControlButton {
+    color: black;
+    border: 1px solid black;
+}

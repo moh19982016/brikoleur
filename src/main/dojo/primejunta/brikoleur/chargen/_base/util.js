@@ -4,14 +4,14 @@
  * @static
  * @public Object
  */
-define([ "dojo/_base/lang",
-         "dojo/on",
-         "dojo/dom-construct",
-         "dojo/Deferred",
-         "dijit/Tooltip",
-         "dijit/Dialog",
-         "dijit/form/Button",
-         "dojo/i18n!./../../nls/CharGen" ],
+define( [ "dojo/_base/lang",
+          "dojo/on",
+          "dojo/dom-construct",
+          "dojo/Deferred",
+          "dijit/Tooltip",
+          "dijit/Dialog",
+          "dijit/form/Button",
+          "dojo/i18n!./../../nls/CharGen" ],
 function( lang,
           on,
           domConstruct,
@@ -59,8 +59,8 @@ function( lang,
                 on.once( document.body, "click", lang.hitch( this, function()
                 {
                     Tooltip.hide( aroundNode );
-                }));
-            }), 1 );
+                } ) );
+            } ), 1 );
         },
         /**
          * Looks for item matching path in data, and returns item prop in it if found. Example:
@@ -145,7 +145,6 @@ function( lang,
                     }
                     if( kwObj.recurse && controls[ i ].controls )
                     {
-                        
                         out = out.concat( this.getProperties( controls[ i ].controls, kwObj ) );
                     }
                 }
@@ -197,7 +196,7 @@ function( lang,
         alert : function( /* string */ message, /* string? */ title )
         {
             title = title || i18n.DialogTitle;
-            return this._showDialog( message, [{ value : true, label : i18n.Continue }], title );
+            return this._showDialog( message, [ { value : true, label : i18n.Continue } ], title );
         },
         /**
          * Shows confirm-like dialog with message, options, and title, returning a promise which is resolved or rejected
@@ -212,13 +211,48 @@ function( lang,
         confirm : function( /* string */ message, /* Object[]? */ options, /* string? */ title )
         {
             title = title || i18n.DialogTitle;
-            options = options || [{ value : true, label : i18n.Accept, className : "br-blueButton" }, { value : false, label : i18n.Cancel, className : "br-redButton" }];
+            options =
+            options ||
+            [ {
+                value : true,
+                label : i18n.Accept,
+                className : "br-blueButton"
+            },
+                {
+                    value : false,
+                    label : i18n.Cancel,
+                    className : "br-redButton"
+                } ];
             return this._showDialog( message, options, title );
+        },
+        /**
+         * Displays message in a bubble which disappears when document.body is first clicked.
+         *
+         * @param message
+         * @public void
+         */
+        inform : function( /* string */ message )
+        {
+            var bubble = domConstruct.create( "div", { className : "br-informBubble" }, document.body );
+            domConstruct.create( "div", { className : "br-informBubbleClose", innerHTML : '<i class="fa fa-close br-gray"></i>' }, bubble );
+            domConstruct.create( "div", { className : "br-informBubbleContent", innerHTML : message }, bubble );
+            bubble.style.opacity = "1";
+            setTimeout( lang.hitch( this, function()
+            {
+                on.once( document.body, "click", lang.hitch( this, function()
+                {
+                    bubble.style.opacity = "0";
+                    setTimeout( lang.hitch( this, function()
+                    {
+                        domConstruct.destroy( bubble );
+                    } ), 300 );
+                } ) );
+            } ), 1 );
         },
         /**
          * Displays a dialog with title and message, and buttons created from options. Returns a Deferred, which will be
          * resolved or rejected (depending on option.value) when the user clicks on it.
-         * 
+         *
          * @param message
          * @param options
          * @param title
@@ -231,7 +265,15 @@ function( lang,
                 this._dialog = new Dialog().placeAt( document.body );
             }
             this._dialog.set( "title", title );
-            var content = domConstruct.create( "div", { innerHTML : message } );
+            var content;
+            if( typeof message == "string" )
+            {
+                content = domConstruct.create( "div", { innerHTML : message } );
+            }
+            else
+            {
+                content = message;
+            }
             var btnNode = domConstruct.create( "div", { "class" : "br-dialogButtons" }, content );
             this._buttons = this._createButtons( options, btnNode );
             this._dialog.set( "content", content );
@@ -259,7 +301,7 @@ function( lang,
             }
             for( var i = 0; i < options.length; i++ )
             {
-                out.push( new Button({
+                out.push( new Button( {
                     label : options[ i ].label,
                     onClick : lang.hitch( this, this._resolveDialog, options[ i ].value ),
                     className : options[ i ].className
@@ -279,7 +321,7 @@ function( lang,
             setTimeout( lang.hitch( this, function()
             {
                 this._dialog.destroyDescendants();
-            }), 500 );
+            } ), 500 );
             if( reslt )
             {
                 this._dialogPromise.resolve( reslt );
@@ -290,4 +332,4 @@ function( lang,
             }
         }
     }
-});
+} );

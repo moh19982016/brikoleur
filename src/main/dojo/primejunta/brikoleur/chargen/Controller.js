@@ -88,13 +88,6 @@ function( declare,
          */
         manualUrl : "http://manual.brikoleur.com/",
         /**
-         * URL to Brikoleur blog.
-         *
-         * @final
-         * @public string
-         */
-        blogUrl : "http://blog.brikoleur.com/",
-        /**
          * URL to licensing information.
          *
          * @final
@@ -398,15 +391,6 @@ function( declare,
          */
         _setupButtons : function()
         {
-            if( this._hasFullScreen() )
-            {
-                this.own( new Button( {
-                    label : "",
-                    "class" : "br-headerButton br-darkButton br-compactButton br-fullScreenButton",
-                    iconClass : "fa fa-arrows",
-                    onClick : lang.hitch( this, this.toggleFullScreen )
-                } ).placeAt( this.leftHeaderNode, "first" ) );
-            }
             this.newCharacterButton =
             new Button( {
                 label : i18n.NewCharacter,
@@ -432,8 +416,31 @@ function( declare,
                 onClick : lang.hitch( this, this.togglePlay )
             } ).placeAt( this.headerContentNode, "first" );
             this.playButton.startup();
-            this._refreshEkip();
-            this.own( this.playButton, this._ekipMenu, this.ekipButton, this.newCharacterButton );
+            this._fileMenu = new DropDownMenu();
+            this._fileMenu.addChild( new MenuItem({ label : i18n.Download, onClick : lang.hitch( this, this.downloadCharacters ) } ) );
+            this._fileMenu.addChild( new MenuItem({ label : i18n.Upload, onClick : lang.hitch( this, this.uploadCharacters ) } ) );
+            this._fileMenu.addChild( new MenuItem({ label : i18n.SetUpSync, onClick : lang.hitch( this, this.setUpSync ) } ) );
+            this._fileMenu.addChild( new MenuItem({ label : i18n.Print, onClick : lang.hitch( this, this.printCharacter ) } ) );
+            this._fileMenu.startup();
+            this.menuButton =
+            new DropDownButton( {
+                dropDown : this._fileMenu,
+                label : i18n.Files,
+                "class" : "br-headerButton br-darkButton",
+                iconClass : "fa fa-cog"
+            } ).placeAt( this.headerContentNode, "first" );
+            this.menuButton.startup();
+            if( this._hasFullScreen() )
+            {
+                this.own( new Button( {
+                    label : "",
+                    "class" : "br-headerButton br-darkButton br-compactButton br-fullScreenButton",
+                    iconClass : "fa fa-arrows",
+                    onClick : lang.hitch( this, this.toggleFullScreen )
+                } ).placeAt( this.leftHeaderNode, "first" ) );
+            }
+            this.refreshEkip();
+            this.own( this.playButton, this._ekipMenu, this.ekipButton, this.newCharacterButton, this._fileMenu, this.menuButton );
         },
         /**
          * Adds all the UI panes needed for the character creator.
@@ -522,7 +529,7 @@ function( declare,
          *
          * @private void
          */
-        _refreshEkip : function()
+        refreshEkip : function()
         {
             this._ekipMenu.destroyDescendants();
             var keys = CharacterStore.list();
