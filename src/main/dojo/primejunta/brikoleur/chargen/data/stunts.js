@@ -47,7 +47,7 @@ define( {
         },
         {
             "name": "Overwatch",
-            "description": "The player does not have to use his Attack action to Overwatch. The player gets a bonus of 1 level on any Overwatch attacks.",
+            "description": "The player does not have to use his Attack action to Overwatch. She gets a bonus of 1 level on any Overwatch attacks.",
             "list": [
                 {
                     "name": "Improved Overwatch",
