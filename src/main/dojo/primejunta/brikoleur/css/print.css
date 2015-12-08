@@ -1,0 +1,121 @@
+.pr-printSheet {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    background-color: #c00;
+}
+
+.pr-printWrapper {
+    transform: scale( 1 );
+}
+
+.pr-printPage {
+    padding: 10px;
+    margin: 10px auto;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 0 0 10px black;
+    width: 1600px;
+    height: 1120px;
+    box-sizing: border-box;
+}
+
+.pr-nameColumn {
+    box-sizing: border-box;
+    width: 4%;
+    height: 100%;
+    float: left;
+}
+
+.pr-printColumn {
+    box-sizing: border-box;
+    background-color: white;
+    margin: 10px;
+    width: calc(32% - 20px);
+    height: calc(100% - 20px);
+    float: left;
+    border: 1px solid black;
+}
+
+.pr-nameArea {
+    transform : rotate( -270deg );
+}
+
+.pr-contentArea {
+}
+
+/* specifics */
+.pr-printSheet .br-controlNode {
+    display: none;
+}
+
+.pr-printSheet .fa, .pr-printSheet .br-manualLink, .pr-printSheet .br-namePaneButtons, .pr-printSheet .br-addControl {
+    display: none;
+}
+
+.pr-printSheet .dijitCheckBoxChecked, .pr-printSheet .dijitCheckBoxDisabled {
+    background-position: -16px center !important;
+}
+
+.pr-printSheet .dijitRadioChecked {
+    background-position: -112px center !important;
+
+}
+
+.pr-printSheet .br-featurePane {
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+}
+
+.pr-printSheet .dijitTextBox {
+    border-color: white;
+}
+
+.pr-printSheet .br-statField.dijitTextBox {
+    border: 1px solid black;
+}
+
+.pr-printSheet .br-namePaneInput {
+    float: none;
+}
+
+.pr-charName {
+    font-family: Iceberg, sans-serif;
+    font-size: 36px;
+    font-style: italic;
+    padding-left: 40px;
+}
+
+.pr-printSheet .br-featureTitle {
+    font-size: 24px;
+}
+
+@media print
+{
+    @page
+    {
+        size: 297mm 210mm;
+        margin : 0.5cm;
+    }
+    /* Needed to make page breaks work as intended on Firefox */
+    html, body, .pr-printSheet
+    {
+        overflow : visible !important;
+    }
+    .pr-printPage
+    {
+        margin: 0;
+        border: none;
+        box-shadow: none;
+    }
+
+    .pr-breakBefore {
+        page-break-before: always;
+    }
+}

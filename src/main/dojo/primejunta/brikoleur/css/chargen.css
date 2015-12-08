@@ -20,6 +20,7 @@
 @import "dijit.css";
 @import "fx.css";
 @import "utils.css";
+@import "print.css";
 
 html, body {
     width: 100%;

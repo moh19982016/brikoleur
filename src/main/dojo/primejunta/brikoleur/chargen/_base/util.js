@@ -23,6 +23,17 @@ function( lang,
 {
     return {
         /**
+         * Escapes string to XML string.
+         *
+         * @param str
+         * @public string
+         */
+        escape : function( str )
+        {
+            return ( "" + str ).replace( /&/g, "&amp;" ).replace( /</g, "&lt;" ).replace( />/g, "&gt;" ).replace( /"/g,
+            "&quot;" ).replace( /'/g, "&apos;" );
+        },
+        /**
          * Converts list of strings or objects to format suitable for use with Memory data stores.
          *
          * @param list
@@ -234,7 +245,9 @@ function( lang,
         inform : function( /* string */ message )
         {
             var bubble = domConstruct.create( "div", { className : "br-informBubble" }, document.body );
-            domConstruct.create( "div", { className : "br-informBubbleClose", innerHTML : '<i class="fa fa-close br-gray"></i>' }, bubble );
+            domConstruct.create( "div",
+            { className : "br-informBubbleClose", innerHTML : '<i class="fa fa-close br-gray"></i>' },
+            bubble );
             domConstruct.create( "div", { className : "br-informBubbleContent", innerHTML : message }, bubble );
             bubble.style.opacity = "1";
             setTimeout( lang.hitch( this, function()
