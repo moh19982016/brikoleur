@@ -46,20 +46,20 @@ define( {
             ]
         },
         {
-            "name": "Watch",
-            "description": "Instead of attacking, the player watches an enemy combatant who is behind cover. When the enemy emerges to move or fire, the player gets an attack with a bonus of 1 level.",
+            "name": "Overwatch",
+            "description": "The player does not have to use his Attack action to Overwatch. The player gets a bonus of 1 level on any Overwatch attacks.",
             "list": [
                 {
-                    "name": "Improved Watch",
-                    "description": "As Watch, but a critical hit also prevents the enemy from moving or firing.",
+                    "name": "Improved Overwatch",
+                    "description": "As Overwatch, but a critical hit also prevents the enemy from moving or firing.",
                     "list": [
                         {
-                            "name": "Expert Watch",
-                            "description": "As Improved Watch, but a normal hit prevents the enemy from moving or firing.",
+                            "name": "Expert Overwatch",
+                            "description": "As Improved Overwatch, but a normal hit prevents the enemy from moving or firing.",
                             "list": [
                                 {
-                                    "name": "Master Watch",
-                                    "description": ": As Expert Watch, but a bonus of two levels to the riposte attack."
+                                    "name": "Master Overwatch",
+                                    "description": ": As Expert Overwatch, but a bonus of two levels to the riposte attack."
                                 }
                             ]
                         }
