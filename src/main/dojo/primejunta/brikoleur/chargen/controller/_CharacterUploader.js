@@ -18,7 +18,7 @@ function( declare,
             this.selected = {};
             this.characterData = [];
             util.confirm( new _CharacterFileSelector( {
-                manager : this,
+                manager : this
             } ).domNode, false, i18n.Upload ).then( lang.hitch( this,
             this._uploadCharacters ) );
         },
