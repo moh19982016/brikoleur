@@ -1,0 +1,30 @@
+<div>
+  <div data-dojo-attach-point="controlNode">
+    <div data-dojo-attach-point="fileControlWrapper">
+      <div class="br-fieldTitle">${title}</div>
+      <div data-dojo-attach-point="fileControlNode">
+      </div>
+    </div>
+    <div data-dojo-attach-point="canvasWrapper" style="display: none;">
+      <div data-dojo-attach-point="titleWrapper">
+        <div class="br-floatRight" style="padding:4px;">
+          <i class="fa fa-check br-blue br-active" data-dojo-attach-event="onClick:acceptImage"></i>
+          <i class="fa fa-close br-gray br-active" data-dojo-attach-event="onClick:changeImage"></i>
+        </div>
+        <div class="br-fieldTitle">${title}</div>
+      </div>
+      <canvas data-dojo-attach-point="canvasNode" style="float:left;cursor:pointer;"></canvas>
+      <div data-dojo-attach-point="canvasControls">
+      </div>
+    </div>
+  </div>
+  <div data-dojo-attach-point="imageWrapper" style="display: none;">
+    <div data-dojo-attach-point="imageTitleWrapper">
+      <div class="br-floatRight" style="padding:4px;">
+        <i class="fa fa-close br-gray br-active" data-dojo-attach-event="onClick:pleaseChangeImage"></i>
+      </div>
+      <div class="br-fieldTitle">${title}</div>
+    </div>
+    <img data-dojo-attach-point="imageNode" src=""/>
+  </div>
+</div>

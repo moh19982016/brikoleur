@@ -57,6 +57,16 @@ function( declare,
         {
         },
         /**
+         * Restores control to factory state.
+         *
+         * @public void
+         */
+        clear : function()
+        {
+            domClass.remove( this.domNode, "br-fileSelected" );
+            this.fileMessageNode.innerHTML = i18n.PleaseSelectFile;
+        },
+        /**
          * If we already have a file input, remove its onchange listener and destroy it. Then create one at .domNode,
          * add a listener for its change event, and set its properties.
          *
