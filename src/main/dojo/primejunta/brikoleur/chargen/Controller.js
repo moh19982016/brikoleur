@@ -366,8 +366,11 @@ function( declare,
                 label : i18n.NewCharacter,
                 onClick : lang.hitch( this, this.newCharacter )
             } ) );
-            this._ekipMenu.addChild( new MenuSeparator() );
             var keys = CharacterStore.list();
+            if( keys.length > 0 )
+            {
+                this._ekipMenu.addChild( new MenuSeparator() );
+            }
             for( var i = 0; i < keys.length; i++ )
             {
                 this._ekipMenu.addChild( new MenuItem( {
@@ -375,7 +378,6 @@ function( declare,
                     onClick : lang.hitch( this, this.loadCharacter, keys[ i ] )
                 } ) );
             }
-            this.ekipButton.set( "disabled", keys.length == 0 );
         },
         /**
          * Removes domNode from its parent, fades in splash screen, and sets a timeout to destroy self and create a new
