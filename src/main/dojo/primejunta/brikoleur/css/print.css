@@ -21,7 +21,7 @@
     border: 1px solid black;
     box-shadow: 0 0 10px black;
     width: 1600px;
-    height: 1120px;
+    height: 1110px;
     box-sizing: border-box;
 }
 
@@ -47,6 +47,7 @@
 }
 
 .pr-contentArea {
+    padding: 10px;
 }
 
 /* specifics */

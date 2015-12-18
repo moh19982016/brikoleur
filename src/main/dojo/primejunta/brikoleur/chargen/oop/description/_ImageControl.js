@@ -74,10 +74,18 @@ function( declare,
         },
         set : function( prop, val )
         {
-            if( prop == "value" && val )
+            if( prop == "value" )
             {
-                this.imageNode.src = val;
-                this._displayImage();
+                if( val )
+                {
+                    this.imageNode.src = val;
+                    this._displayImage();
+                }
+                else
+                {
+                    this.value = "";
+                    this.changeImage();
+                }
             }
             else
             {
@@ -160,7 +168,6 @@ function( declare,
             {
                 this._offset.y = -1 * ( cBox.h - this.canvasNode.height );
             }
-            this._context.clearRect( 0, 0, this.canvasNode.width, this.canvasNode.height );
             this._context.drawImage( this.imageNode, this._offset.x, this._offset.y, cBox.w, cBox.h );
         },
         _startDrag : function( evt )
