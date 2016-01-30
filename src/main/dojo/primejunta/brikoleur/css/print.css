@@ -8,6 +8,7 @@
     padding: 0;
     overflow-y: auto;
     background-color: #c00;
+    display: none;
 }
 
 .pr-printWrapper {
@@ -108,6 +109,13 @@
     html, body, .pr-printSheet
     {
         overflow : visible !important;
+    }
+    .br-controller {
+        display: none;
+    }
+    .pr-printSheet
+    {
+        display: block;
     }
     .pr-printPage
     {

@@ -49,6 +49,26 @@ function( declare,
         getCost : function()
         {
             return this.level > 0 ? 4 : 0;
+        },
+        /**
+         * Adds (K), (T), or (S) prefix to val, by level.
+         *
+         * @param val
+         * @private string
+         */
+        _formatValue : function( /* string */ val )
+        {
+            switch( this.level )
+            {
+                case 0 :
+                    return 'Ⓚ ' + val;
+                case 1 :
+                    return 'Ⓣ ' + val;
+                case 2 :
+                    return 'Ⓢ ' + val;
+                default :
+                    return val;
+            }
         }
     });
 });

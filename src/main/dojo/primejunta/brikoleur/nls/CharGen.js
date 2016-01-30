@@ -125,6 +125,7 @@ define({
         "Defend" : "Defend",
         "OtherAction" : "Action",
         "TaskDifficulty" : "Task lvl",
+        "DieTarget" : "Target",
         "RollDie" : "Roll",
         "TaskResult" : "Result",
         "BaseDamage" : "Base Dmg",

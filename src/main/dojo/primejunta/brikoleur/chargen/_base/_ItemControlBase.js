@@ -358,11 +358,21 @@ function( declare,
          */
         _setValue : function( /* string */ val )
         {
-            this.valueNode.innerHTML = val;
+            this.valueNode.innerHTML = this._formatValue( val );
             if( this._selector )
             {
                 this._selector.set( "value", val );
             }
+        },
+        /**
+         * Stub. Extend to add formatting to value.
+         *
+         * @param val
+         * @private string
+         */
+        _formatValue : function( /* string */ val )
+        {
+            return val;
         },
         /**
          * Swaps out CSS styles marking self as disabled or not.

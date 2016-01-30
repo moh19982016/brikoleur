@@ -1,4 +1,17 @@
 <div>
+  <div class="br-floatLeft" style="width:16%">
+    <div class="br-bonusHeader">${dict.TaskDifficulty}</div>
+    <div class="br-bonusButtons">
+      <div data-dojo-attach-point="difficultyControl"
+           data-dojo-type="primejunta/brikoleur/chargen/ip/_base/NumberInput"
+           data-dojo-props="numbers:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,20,22,24],value:${difficulty}"
+           data-dojo-attach-event="onChange:setDifficulty"></div>
+    </div>
+  </div>
+  <div class="br-floatLeft" style="width:3%">
+    <div class="br-bonusHeader"></div>
+    <div class="br-bonusButtons br-operatorText">&ndash;</div>
+  </div>
   <div class="br-floatLeft" style="width:20%">
     <div class="br-bonusHeader">${dict.TotalBonus}</div>
     <div class="br-bonusButtons">
@@ -13,22 +26,9 @@
     <div class="br-bonusButtons br-operatorText">+</div>
   </div>
   <div class="br-floatLeft" style="width:16%">
-    <div class="br-bonusHeader">${dict.RollDie}</div>
+    <div class="br-bonusHeader" data-dojo-attach-point="dieLabelNode">${dict.DieTarget}</div>
     <div class="br-bonusButtons">
-      <div data-dojo-attach-point="rollDieNode" class="br-bonusButton" data-dojo-attach-event="onClick:rollDie"></div>
-    </div>
-  </div>
-  <div class="br-floatLeft" style="width:3%">
-    <div class="br-bonusHeader"></div>
-    <div class="br-bonusButtons br-operatorText">—</div>
-  </div>
-  <div class="br-floatLeft" style="width:16%">
-    <div class="br-bonusHeader">${dict.TaskDifficulty}</div>
-    <div class="br-bonusButtons">
-      <div data-dojo-attach-point="difficultyControl"
-           data-dojo-type="primejunta/brikoleur/chargen/ip/_base/NumberInput"
-           data-dojo-props="numbers:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,20,22,24],value:${difficulty}"
-           data-dojo-attach-event="onChange:setDifficulty"></div>
+      <div data-dojo-attach-point="rollDieNode" class="br-bonusButton" data-dojo-attach-event="onClick:onDieClick"></div>
     </div>
   </div>
   <div class="br-floatLeft" style="width:3%">

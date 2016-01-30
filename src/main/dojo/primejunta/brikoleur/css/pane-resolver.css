@@ -148,3 +148,8 @@
     background-color: #080;
     color: white;
 }
+
+.br-automaticSuccess {
+    color: #080;
+    border-color: #080;
+}

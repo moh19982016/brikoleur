@@ -246,16 +246,13 @@ function( declare,
         },
         printCharacter : function()
         {
-            this.domNode.style.display = "none";
             var print = new _CharacterPrint({ manager : this.characterPane }).placeAt( document.body );
             on.once( document.body, "click", lang.hitch( this, function()
             {
                 print.destroy();
-                this.domNode.style.visibility = "block";
             }));
             window.print();
             print.destroy();
-            this.domNode.style.display = "block";
         },
         setUpSync : function()
         {

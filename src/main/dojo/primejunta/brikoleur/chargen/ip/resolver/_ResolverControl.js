@@ -89,6 +89,22 @@ function( declare,
             this._resetDie();
         },
         /**
+         * Fires when user clicks on the target bubble. If a die result is displayed, resets die. Else rolls die.
+         *
+         * @public void
+         */
+        onDieClick : function()
+        {
+            if( this._resultShown )
+            {
+                this._resetDie();
+            }
+            else
+            {
+                this.rollDie();
+            }
+        },
+        /**
          * Roll a die with ._rollFx, then compute the results depending on what type of task we're resolving (attack,
          * defence, or other). Will display computed damage and fire off /DamageTaken/ if needed.
          *
@@ -96,6 +112,9 @@ function( declare,
          */
         rollDie : function()
         {
+            this._resultShown = true;
+            domClass.remove( this.rollDieNode, "br-automaticSuccess br-taskFailed" );
+            this.dieLabelNode.innerHTML = i18n.RollDie;
             var n = Math.round( 0.5 + Math.random() * 6 );
             this._rollFx( n, 7 ).then( lang.hitch( this, function()
             {
@@ -133,6 +152,7 @@ function( declare,
             {
                 this.bonus = val;
                 this.totalBonusNode.innerHTML = val;
+                this._resetDie();
             }
             else if( prop == "base-damage" )
             {
@@ -215,9 +235,25 @@ function( declare,
          */
         _resetDie : function( /* Control? */ widg )
         {
-            this.rollDieNode.innerHTML = '<i class="fa fa-cube"></i>';
-            this.taskResultNode.innerHTML = "?";
-            domClass.remove( this.taskResultNode, "br-taskFailed br-taskSucceeded" );
+            this._resultShown = false;
+            this.dieLabelNode.innerHTML = i18n.DieTarget;
+            var target = this.difficulty - this.bonus;
+            domClass.remove( this.rollDieNode, "br-automaticSuccess br-taskFailed" );
+            domClass.remove( this.taskResultNode, "br-taskSucceeded br-taskFailed" );
+            if( target <= 1 )
+            {
+                domClass.add( this.rollDieNode, "br-automaticSuccess" );
+                domClass.add( this.taskResultNode, "br-taskSucceeded" );
+                target = 1;
+            }
+            else if( target > 6 )
+            {
+                domClass.add( this.rollDieNode, "br-taskFailed" );
+                domClass.add( this.taskResultNode, "br-taskFailed" );
+                target = 6;
+            }
+            this.rollDieNode.innerHTML = target;
+            this.taskResultNode.innerHTML = -1 * ( this.difficulty - this.bonus - target );
             if( widg && widg.get && ( widg.get( "state" ) || {} ).defence )
             {
                 this.armourControl.set( "value", Controller.inPlayPane.getArmour().direct + Controller.inPlayPane.panes.numbers.get( "armour" ) );
