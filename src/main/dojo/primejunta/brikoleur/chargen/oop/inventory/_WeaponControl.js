@@ -49,11 +49,11 @@ function( declare,
          * @public Object
          */
         damageMap : {
-            LR : 1,
-            MR : 2,
-            HR : 5,
-            T : 1,
-            M : 1
+            LR : 2,
+            MR : 3,
+            HR : 6,
+            T : 2,
+            M : 2
         },
         /**
          * Base range values for weapons of different types.

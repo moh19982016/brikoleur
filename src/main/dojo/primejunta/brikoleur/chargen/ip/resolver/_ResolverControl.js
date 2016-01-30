@@ -9,6 +9,7 @@ define( [ "dojo/_base/declare",
           "dojo/Deferred",
           "dojo/dom-class",
           "./../_base/NumberInput",
+          "./../../_base/fx",
           "dijit/_WidgetBase",
           "dijit/_TemplatedMixin",
           "dijit/_WidgetsInTemplateMixin",
@@ -20,6 +21,7 @@ function( declare,
           Deferred,
           domClass,
           NumberInput,
+          fx,
           _WidgetBase,
           _TemplatedMixin,
           _WidgetsInTemplateMixin,
@@ -131,8 +133,11 @@ function( declare,
                 {
                     if( Controller.lastClicked && Controller.lastClicked.state.defence )
                     {
-                        this.set( "damage", this._calcDefenceDamage( result ) );
-                        topic.publish( "/DamageTaken/", this._calcDefenceDamage( result ) );
+                        var dmg = this._calcDefenceDamage( result );
+                        var fDmg = dmg - this.defenceArmourControl.get( "value" );
+                        this.set( "defence-calculated-damage", dmg );
+                        this.set( "defence-damage", fDmg );
+                        topic.publish( "/DamageTaken/", fDmg );
                     }
                     else
                     {
@@ -166,14 +171,22 @@ function( declare,
                     break;
                 case "damage" :
                     this.damageNode.innerHTML = "" + val || "?";
-                    domClass.add( this.damageNode, "br-valueChanged" );
+                    fx.flash( this.damageNode, "br-valueChanged" );
                     break;
                 case "calculated-damage" :
                     this.calculatedDamageNode.innerHTML = "" + val || "?";
-                    domClass.add( this.calculatedDamageNode, "br-valueChanged" );
+                    fx.flash( this.calculatedDamageNode, "br-valueChanged" );
                     break;
                 case "weapon-level" :
                     this.weaponLevelControl.set( "value", val || 0 );
+                    break;
+                case "defence-calculated-damage" :
+                    this.defenceCalculatedDamageNode.innerHTML = "" + val ||"?";
+                    fx.flash( this.defenceCalculatedDamageNode, "br-valueChanged" );
+                    break;
+                case "defence-damage" :
+                    this.defenceDamageNode.innerHTML = "" + val ||"?";
+                    fx.flash( this.defenceDamageNode, "br-valueChanged" );
                     break;
                 default :
                     this.inherited( arguments );
@@ -208,7 +221,7 @@ function( declare,
          */
         _calcDefenceDamage : function( /* int */ reslt )
         {
-            return this._calcDamage( -reslt - 1 );
+            return this._calcDamage( -reslt );
         },
         /**
          * Visual FX for a die roll. We already know the finalValue. Returns a Deferred which is resolved when the FX
@@ -250,7 +263,12 @@ function( declare,
         {
             this._resultShown = false;
             this.dieLabelNode.innerHTML = i18n.DieTarget;
-            var target = this.difficulty - this.bonus;
+            var bonus = this.bonus;
+            if( domClass.contains( Controller.inPlayPane.domNode, "br-status-wounded" ) )
+            {
+                bonus -= 1;
+            }
+            var target = this.difficulty - bonus;
             this.set( "calculated-damage", 0 );
             this.set( "damage", 0 );
             domClass.remove( this.rollDieNode, "br-automaticSuccess br-taskFailed" );
@@ -268,7 +286,7 @@ function( declare,
                 target = 6;
             }
             this.rollDieNode.innerHTML = target;
-            this.taskResultNode.innerHTML = -1 * ( this.difficulty - this.bonus - target );
+            this.taskResultNode.innerHTML = -1 * ( this.difficulty - bonus - target );
             if( widg && widg.get && ( widg.get( "state" ) || {} ).defence )
             {
                 this.armourControl.set( "value",

@@ -170,6 +170,7 @@ function( declare,
                     this.mainTabs.selectChild( this.characterPane );
                     domClass.remove( Controller.inPlayPane.domNode,
                     "br-status-wounded br-status-incapacitated br-status-dead" );
+                    delete Controller.inPlayPane.characterStatus;
                 } ) );
             }
         },

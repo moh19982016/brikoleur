@@ -117,6 +117,7 @@ function( declare,
          */
         _setCharacterStatus : function( status )
         {
+            Controller.inPlayPane.characterStatus = status;
             domClass.replace( Controller.inPlayPane.domNode, "br-status-" + status, "br-status-wounded br-status-incapacitated br-status-dead" );
         }
     } );
