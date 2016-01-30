@@ -145,6 +145,7 @@ function( declare,
         {
             this.resourcesBonusControl.setBonus( Math.min( 3, data.value.level ) );
             this.resolverControl.set( "base-damage", data.value.damage );
+            this.resolverControl.set( "weapon-level", data.value.level );
             var knack = data.value.itemType.charAt( 1 ) == 'R' ? i18n.RangedCombat : i18n.CloseCombat;
             var training = i18n[ data.value.itemType ];
             var specialisation = data.value.specialisation;
@@ -195,6 +196,16 @@ function( declare,
             this.resolverControl.set( "bonus", bonus );
             this.resourcesBonusControl.set( "max", maxBonus );
             this.resourcesBonusControl.set( "bonus", this.coverBonusControl.bonus );
+        },
+        /**
+         * Inherited, then also clear .attackControls array.
+         *
+         * @public void
+         */
+        clear : function()
+        {
+            this.inherited( arguments );
+            this.attackControls = [];
         },
         /**
          * Recursively looks up the training matching path in controls and calls ::pleasePrepareTask on any hits.

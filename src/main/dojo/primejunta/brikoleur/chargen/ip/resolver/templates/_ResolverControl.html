@@ -41,28 +41,80 @@
       <div data-dojo-attach-point="taskResultNode" class="br-bonusButton br-numberDisplay">?</div>
     </div>
   </div>
-  <div class="br-floatLeft br-hideOutOfCombat" style="width:7%">
-    <div class="br-bonusHeader">${dict.BaseDamage}</div>
-    <div class="br-bonusButtons">
-      <div data-dojo-attach-point="baseDamageControl"
-           data-dojo-type="primejunta/brikoleur/chargen/ip/_base/NumberInput"
-           data-dojo-props="numbers:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,20,22,24],value:4"
-           data-dojo-attach-event="onChange:setDifficulty"></div>
+  <div style="clear:both" class="br-hideOutOfCombat">
+
+    <div class="br-floatLeft" style="width:3%">
+      <div class="br-bonusHeader"></div>
+      <div class="br-bonusButtons br-operatorText"> </div>
     </div>
-  </div>
-  <div class="br-floatLeft br-hideOutOfCombat" style="width:7%">
-    <div class="br-bonusHeader">${dict.Armour}</div>
-    <div class="br-bonusButtons">
-      <div data-dojo-attach-point="armourControl"
-           data-dojo-type="primejunta/brikoleur/chargen/ip/_base/NumberInput"
-           data-dojo-props="numbers:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,20,22,24],value:0"
-           data-dojo-attach-event="onChange:setDifficulty"></div>
+
+    <div class="br-floatLeft" style="width:3%">
+      <div class="br-bonusHeader"></div>
+      <div class="br-bonusButtons br-operatorText"> × </div>
     </div>
-  </div>
-  <div class="br-floatLeft br-hideOutOfCombat" style="width:8%">
-    <div class="br-bonusHeader">${dict.CalculatedDamage}</div>
-    <div class="br-bonusButtons">
-      <div data-dojo-attach-point="damageNode" class="br-bonusButton br-numberDisplay">?</div>
+
+    <div class="br-floatLeft" style="width:16%">
+      <div class="br-bonusHeader">${dict.BaseDamage}</div>
+      <div class="br-bonusButtons">
+        <div data-dojo-attach-point="baseDamageControl"
+             data-dojo-type="primejunta/brikoleur/chargen/ip/_base/NumberInput"
+             data-dojo-props="numbers:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,20,22,24],value:4"
+             data-dojo-attach-event="onChange:setDifficulty"></div>
+      </div>
+    </div>
+
+    <div class="br-floatLeft" style="width:3%">
+      <div class="br-bonusHeader"></div>
+      <div class="br-bonusButtons br-operatorText"> + </div>
+    </div>
+
+    <div class="br-floatLeft" style="width:15%">
+      <div class="br-bonusHeader">${dict.WeaponLevel}</div>
+      <div class="br-bonusButtons">
+        <div data-dojo-attach-point="weaponLevelControl"
+             data-dojo-type="primejunta/brikoleur/chargen/ip/_base/NumberInput"
+             data-dojo-props="numbers:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,20,22,24],value:1"
+             data-dojo-attach-event="onChange:setDifficulty"></div>
+      </div>
+    </div>
+
+    <div class="br-floatLeft" style="width:3%">
+      <div class="br-bonusHeader"></div>
+      <div class="br-bonusButtons br-operatorText"> = </div>
+    </div>
+
+    <div class="br-floatLeft" style="width:15%">
+      <div class="br-bonusHeader">${dict.CalculatedDamage}</div>
+      <div class="br-bonusButtons">
+        <div data-dojo-attach-point="calculatedDamageNode" class="br-bonusButton br-numberDisplay">?</div>
+      </div>
+    </div>
+
+    <div class="br-floatLeft" style="width:3%">
+      <div class="br-bonusHeader"></div>
+      <div class="br-bonusButtons br-operatorText"> &ndash; </div>
+    </div>
+
+    <div class="br-floatLeft" style="width:16%">
+      <div class="br-bonusHeader">${dict.Armour}</div>
+      <div class="br-bonusButtons">
+        <div data-dojo-attach-point="armourControl"
+             data-dojo-type="primejunta/brikoleur/chargen/ip/_base/NumberInput"
+             data-dojo-props="numbers:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18,20,22,24],value:0"
+             data-dojo-attach-event="onChange:setDifficulty"></div>
+      </div>
+    </div>
+
+    <div class="br-floatLeft" style="width:3%">
+      <div class="br-bonusHeader"></div>
+      <div class="br-bonusButtons br-operatorText"> = </div>
+    </div>
+
+    <div class="br-floatLeft" style="width:16%">
+      <div class="br-bonusHeader">${dict.ResultingDamage}</div>
+      <div class="br-bonusButtons">
+        <div data-dojo-attach-point="damageNode" class="br-bonusButton br-numberDisplay">?</div>
+      </div>
     </div>
   </div>
 </div>

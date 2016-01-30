@@ -49,11 +49,11 @@ function( declare,
          * @public Object
          */
         damageMap : {
-            LR : 3,
-            MR : 4,
-            HR : 10,
-            T : 2,
-            M : 2
+            LR : 1,
+            MR : 2,
+            HR : 5,
+            T : 1,
+            M : 1
         },
         /**
          * Base range values for weapons of different types.
@@ -101,12 +101,8 @@ function( declare,
          */
         recalcValues : function()
         {
-            this.setField( "damageInput",
-            this._calcDamage( this.itemTypeSelect.get( "value" ), this.levelInput.get( "value" ) ),
-            this._calcDamage( this.itemType, this.level ) );
-            this.setField( "rangeSelect",
-            this.rangeMap[ this.itemTypeSelect.get( "value" ) ],
-            this.rangeMap[ this.itemType ] );
+            this.setField( "damageInput", this.damageMap[ this.itemTypeSelect.get( "value" ) ], this.damageMap[ this.itemType ] );
+            this.setField( "rangeSelect", this.rangeMap[ this.itemTypeSelect.get( "value" ) ], this.rangeMap[ this.itemType ] );
             this.level = this.levelInput.get( "value" );
             this.itemType = this.itemTypeSelect.get( "value" );
         },
@@ -196,7 +192,7 @@ function( declare,
          */
         _calcDamage : function( /* string */ type, /* int */ level )
         {
-            return ( level || 0 ) + this.damageMap[ type ];
+            return this.damageMap[ type ];
         }
     } );
 } );

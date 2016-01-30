@@ -124,7 +124,9 @@ function( declare,
                     result -= 1;
                 }
                 this.taskResultNode.innerHTML = result;
-                domClass.replace( this.taskResultNode, result < 0 ? "br-taskFailed" : "br-taskSucceeded", "br-taskFailed br-taskSucceeded" );
+                domClass.replace( this.taskResultNode,
+                result < 0 ? "br-taskFailed" : "br-taskSucceeded",
+                "br-taskFailed br-taskSucceeded" );
                 if( this.baseDamageControl.get( "value" ) && Controller.inPlayPane.inCombat )
                 {
                     if( Controller.lastClicked && Controller.lastClicked.state.defence )
@@ -134,7 +136,9 @@ function( declare,
                     }
                     else
                     {
-                        this.set( "damage", this._calcDamage( result ) );
+                        this.set( "calculated-damage", this._calcDamage( result ) );
+                        this.set( "damage",
+                        Math.max( 0, this._calcDamage( result ) - this.armourControl.get( "value" ) ) );
                     }
                 }
             } ) );
@@ -148,26 +152,32 @@ function( declare,
          */
         set : function( /* string */ prop, /* {*} */ val )
         {
-            if( prop == "bonus" )
+            switch( prop )
             {
-                this.bonus = val;
-                this.totalBonusNode.innerHTML = val;
-                this._resetDie();
-            }
-            else if( prop == "base-damage" )
-            {
-                this.baseDamageControl.set( "value", val || 4 );
-                this.damageNode.innerHTML = val || "?";
-                domClass.remove( this.damageNode, "br-valueChanged" );
-            }
-            else if( prop == "damage" )
-            {
-                this.damageNode.innerHTML = "" + val || "?" ;
-                domClass.add( this.damageNode, "br-valueChanged" );
-            }
-            else
-            {
-                this.inherited( arguments );
+                case "bonus" :
+                    this.bonus = val;
+                    this.totalBonusNode.innerHTML = val;
+                    this._resetDie();
+                    break;
+                case "base-damage" :
+                    this.baseDamageControl.set( "value", val || 4 );
+                    this.damageNode.innerHTML = val || "?";
+                    domClass.remove( this.damageNode, "br-valueChanged" );
+                    break;
+                case "damage" :
+                    this.damageNode.innerHTML = "" + val || "?";
+                    domClass.add( this.damageNode, "br-valueChanged" );
+                    break;
+                case "calculated-damage" :
+                    this.calculatedDamageNode.innerHTML = "" + val || "?";
+                    domClass.add( this.calculatedDamageNode, "br-valueChanged" );
+                    break;
+                case "weapon-level" :
+                    this.weaponLevelControl.set( "value", val || 0 );
+                    break;
+                default :
+                    this.inherited( arguments );
+
             }
         },
         /**
@@ -184,7 +194,10 @@ function( declare,
             }
             else
             {
-                return Math.max( 0, Math.floor( this.baseDamageControl.get( "value" ) / 2 + Math.floor( Math.min( reslt, 6 ) * this.baseDamageControl.get( "value" ) / 2 ) ) - this.armourControl.get( "value" ) );
+                return Math.max( 0,
+                this.baseDamageControl.get( "value" ) +
+                Math.max( 0, ( reslt - 1 ) * this.baseDamageControl.get( "value" ) ) +
+                this.weaponLevelControl.get( "value" ) );
             }
         },
         /**
@@ -238,6 +251,8 @@ function( declare,
             this._resultShown = false;
             this.dieLabelNode.innerHTML = i18n.DieTarget;
             var target = this.difficulty - this.bonus;
+            this.set( "calculated-damage", 0 );
+            this.set( "damage", 0 );
             domClass.remove( this.rollDieNode, "br-automaticSuccess br-taskFailed" );
             domClass.remove( this.taskResultNode, "br-taskSucceeded br-taskFailed" );
             if( target <= 1 )
@@ -256,7 +271,8 @@ function( declare,
             this.taskResultNode.innerHTML = -1 * ( this.difficulty - this.bonus - target );
             if( widg && widg.get && ( widg.get( "state" ) || {} ).defence )
             {
-                this.armourControl.set( "value", Controller.inPlayPane.getArmour().direct + Controller.inPlayPane.panes.numbers.get( "armour" ) );
+                this.armourControl.set( "value",
+                Controller.inPlayPane.getArmour().direct + Controller.inPlayPane.panes.numbers.get( "armour" ) );
             }
         }
     } );

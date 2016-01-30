@@ -129,7 +129,9 @@ define({
         "RollDie" : "Roll",
         "TaskResult" : "Result",
         "BaseDamage" : "Base Dmg",
+        "WeaponLevel" : "Wpn Lvl",
         "CalculatedDamage" : "Damage",
+        "ResultingDamage" : "Final",
         // combat
         "StartCombat" : "Enter Combat",
         "ExitCombat" : "End Combat",
