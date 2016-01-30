@@ -128,7 +128,7 @@ function( declare,
             }
             if( Controller.lastClicked && Controller.lastClicked.state.defence )
             {
-                this.prepareDefenceAction( widg.state );
+                this.prepareDefenceAction( Controller.lastClicked.state );
             }
             else
             {
@@ -189,10 +189,7 @@ function( declare,
                 return;
             }
             var maxBonus = this.trainingBonus;
-            var bonus = ( Math.min( maxBonus, this.coverBonusControl.bonus )
-                          + this.coverBonusControl.bonus
-                          + this.ohunBonusControl.bonus
-                          + maxBonus );
+            var bonus = this.coverBonusControl.bonus + this.ohunBonusControl.bonus + ( Math.min( maxBonus, Math.max( this.coverBonusControl.bonus, this.resourcesBonusControl.bonus ) ) );
             this.resolverControl.set( "bonus", bonus );
             this.resourcesBonusControl.set( "max", maxBonus );
             this.resourcesBonusControl.set( "bonus", this.coverBonusControl.bonus );
