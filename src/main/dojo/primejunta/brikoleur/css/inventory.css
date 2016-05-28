@@ -4,15 +4,15 @@
     border-top:none;
 }
 
-.tundra .br-inventoryItem .dijitDisabled .dijitButtonText,
-.tundra .br-inventoryItem .dijitDisabled,
-.tundra .br-inventoryItem .dijitButtonContents
+.flat .br-inventoryItem .dijitDisabled .dijitButtonText,
+.flat .br-inventoryItem .dijitDisabled,
+.flat .br-inventoryItem .dijitButtonContents
 {
     border: none;
     color: black;
 }
 
-.tundra .br-inventoryItem .dijitDisabled .dijitArrowButton {
+.flat .br-inventoryItem .dijitDisabled .dijitArrowButton {
     display: none;
 }
 

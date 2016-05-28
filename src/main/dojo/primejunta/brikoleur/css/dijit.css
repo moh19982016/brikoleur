@@ -1,20 +1,20 @@
 /* Dijits */
 
-.tundra .dijitNumberTextBox {
+.flat .dijitNumberTextBox {
     text-align: center;
 }
 
 
-.tundra .dijitSelect .dijitButtonContents, .tundra .dijitSelect, .tundra .dijitTextBox {
+.flat .dijitSelect .dijitButtonContents, .flat .dijitSelect, .flat .dijitTextBox {
     border-color: #e4e4e4;
     background: none !important;
 }
 
-.tundra .dijitSelect .dijitButtonContents, .tundra .dijitTextBox .dijitButtonNode {
+.flat .dijitSelect .dijitButtonContents, .flat .dijitTextBox .dijitButtonNode {
     border-color: #e4e4e4;
 }
 
-.tundra .dijitTextBoxFocused {
+.flat .dijitTextBoxFocused {
     border-color: #3a5cac;
     background-color: white !important;
 }
@@ -27,6 +27,6 @@
     font-family: Dosis, sans-serif;
 }
 
-.tundra .dijitMenuItem {
+.flat .dijitMenuItem {
     font-family: Dosis, sans-serif;
 }

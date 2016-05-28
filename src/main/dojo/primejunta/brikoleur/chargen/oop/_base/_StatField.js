@@ -57,7 +57,12 @@ function( declare,
                 this._input.set( "readonly", true );
                 this._incrementButton =
                 new Button( {
-                    label : "<i class='fa fa-plus-square br-blue'></i>",
+                    label : '<span class="br-stackedButtonLabel">'
+                            + '<span class="fa-stack">'
+                            + '<i class="fa fa-square fa-stack-2x br-blue"></i>'
+                            + '<i class="fa-stack-1x fa-inverse br-stackedButtonLabelText">1</i>'
+                            + '</span>'
+                            + '</span>',
                     onClick : lang.hitch( this, this.buyPoint ),
                     "class" : "br-smallButton br-hideInPlay"
                 } ).placeAt( this.controlNode );

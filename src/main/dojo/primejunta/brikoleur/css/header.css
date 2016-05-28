@@ -2,11 +2,12 @@
 .br-headerContent {
     position: absolute;
     top: 0;
-    left: 60px;
+    left: 78px;
     right: 0;
     bottom: 0;
     z-index : 999;
     overflow: hidden;
+    padding-top: 6px;
 }
 
 .br-headerLink {
@@ -33,7 +34,7 @@
     width: 150px;
 }
 
-.tundra .br-newCharacter .br-jujuField {
+.flat .br-newCharacter .br-jujuField {
     color: #0c0;
 }
 
@@ -41,12 +42,12 @@
     width: 60px;
 }
 
-.tundra .br-jujuField .dijitTextBox {
+.flat .br-jujuField .dijitTextBox {
     width: 40px;
     border: 1px solid #c00;
 }
 
-.tundra .br-newCharacter .br-jujuField .dijitTextBox {
+.flat .br-newCharacter .br-jujuField .dijitTextBox {
     border: 1px solid #0c0;
 }
 

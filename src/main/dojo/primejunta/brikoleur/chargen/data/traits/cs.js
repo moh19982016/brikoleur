@@ -136,22 +136,22 @@ define({
                 },
                 {
                     "name": "Instantaneous Card Effect ",
-                    "description": "The Player produces an Instantaneous <a href=\"#doc272\">Level 1 Card effect</a>, as if she had played an Ohun to the same effect. Requires <a href=\"#doc273\">Deck</a>.",
+                    "description": "Minimum Mind cost is 4. The Player produces an Instantaneous <a href=\"#doc272\">Level 1 Card effect</a>, as if she had played an Ohun to the same effect. Requires <a href=\"#doc273\">Deck</a>.",
                     "list": [
                         {
                             "name": "Temporary Card Effect ",
                             "extra_cost" : 4,
-                            "description": "The Player produces a Temporary <a href=\"#doc272\">Level 1 Card effect</a>, as if she had played an Ohun to the same effect. The duration is 1 round + 1 round per extra 4 Mind spent. Requires <a href=\"#doc273\">Deck</a>.",
+                            "description": "Minimum Mind cost is 4. The Player produces a Temporary <a href=\"#doc272\">Level 1 Card effect</a>, as if she had played an Ohun to the same effect. The duration is 1 round + 1 round per extra 4 Mind spent. Requires <a href=\"#doc273\">Deck</a>.",
                             "list": [
                                 {
                                     "name": "Empowered Instantaneous Card Effect ",
                                     "extra_cost" : 4,
-                                    "description": "The Player produces an <a href=\"#doc272\">Instantaneous Card Effect</a> at 1 level / 4 Mind spent. Requires <a href=\"#doc273\">Deck</a>.",
+                                    "description": "Minimum Mind cost is 4. The Player produces an <a href=\"#doc272\">Instantaneous Card Effect</a> at 1 level / 4 Mind spent. Requires <a href=\"#doc273\">Deck</a>.",
                                     "list": [
                                         {
                                             "name": "Empowered Temporary Card Effect ",
                                             "extra_cost" : 4,
-                                            "description": "The Player produces a <a href=\"#doc272\">Temporary Card Effect</a> as above. Every 4 points above 8 extend the duration by one round or raise the power by one level. Requires <a href=\"#doc273\">Deck</a>."
+                                            "description": "Minimum Mind cost is 4. The Player produces a <a href=\"#doc272\">Temporary Card Effect</a> as above. Every 4 points above 8 extend the duration by one round or raise the power by one level. Requires <a href=\"#doc273\">Deck</a>."
                                         }
                                     ]
                                 }

@@ -2,7 +2,7 @@
 .br-nameContainer {
     height: 48px;
     overflow: hidden;
-    background-color: #c00;
+    background-color: #c00 !important;
 }
 
 .br-namePane {
@@ -10,13 +10,13 @@
 }
 
 .br-namePaneButtons {
-    width: 178px;
+    width: 198px;
     padding: 6px 8px 0 0;
     text-align: right;
 }
 
 .br-namePaneInput {
-    width: calc( 100% - 178px );
+    width: calc( 100% - 198px );
 }
 
 .br-compactLayout .br-namePaneButtons {
@@ -42,7 +42,7 @@
     color: #900;
 }
 
-.tundra .br-characterName.dijitTextBoxFocused {
+.flat .br-characterName.dijitTextBoxFocused {
     background-color: #e00 !important;
 }
 

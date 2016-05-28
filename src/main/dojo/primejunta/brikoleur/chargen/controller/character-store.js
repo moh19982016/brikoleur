@@ -95,6 +95,7 @@ function( declare,
          */
         saveCharacter : function( /* boolean */ silent )
         {
+            silent = silent === true;
             return this.validateCharacter( silent ).then( lang.hitch( this, this.doSaveCharacter ) );
         },
         /**

@@ -100,13 +100,13 @@
     width: 1200px;
 }
 
-.tundra .br-splash .br-splashCharacterInput .dijitTextBox {
+.flat .br-splash .br-splashCharacterInput .dijitTextBox {
     padding: 15px;
     background-color: #c00 !important;
     color: #fafafa !important;
 }
 
-.tundra .br-splash .br-splashCharacterInput {
+.flat .br-splash .br-splashCharacterInput {
     border: none !important;
     background-color: #c00 !important;
     color: #fafafa !important;
@@ -115,6 +115,7 @@
 .br-splashArchetypeSelect {
     font-family: Iceberg, sans-serif;
     font-size: 60px;
+    height: 75px;
 }
 
 .br-splashCreateButton {

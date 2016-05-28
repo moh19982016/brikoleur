@@ -20,7 +20,8 @@
     position:absolute;
     top: 0;
     left: 0;
-    width: 56px;
+    width: 72px;
+    padding-top: 6px;
     bottom: 0;
     background-color: #444;
     border-right: 4px solid #c00;
@@ -30,7 +31,7 @@
     position:absolute;
     top: 0;
     left: 0;
-    width: 56px;
+    width: 72px;;
     bottom: 0;
     background-color: #444;
     border-right: 4px solid #c00;
@@ -50,10 +51,10 @@
     vertical-align: -6px;
 }
 
-.br-sidebar {
+.flat .br-sidebar {
     background-color: #444;
     color: #fafafa;
-    width: 56px;
+    width: 56px;;
     border-right: 4px solid #c00;
 }
 

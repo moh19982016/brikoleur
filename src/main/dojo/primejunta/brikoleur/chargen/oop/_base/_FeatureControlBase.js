@@ -9,6 +9,7 @@ define( [ "dojo/_base/declare",
           "dojo/on",
           "dojo/topic",
           "dojo/dom-class",
+          "dojo/string",
           "./../../_base/util",
           "./FilteringMemory",
           "dijit/form/Select",
@@ -23,6 +24,7 @@ function( declare,
           on,
           topic,
           domClass,
+          string,
           util,
           FilteringMemory,
           Select,
@@ -59,6 +61,7 @@ function( declare,
             }
             this.own( topic.subscribe( this.jujuChangedTopic, lang.hitch( this, this.onJujuChange ) ) );
             this.own( topic.subscribe( "/PleasePublishInfo/", lang.hitch( this, this.publishInfo ) ) );
+            this.updateAddButtonLabel();
             this.onJujuChange( Controller.get( "juju" ) );
         },
         /**
@@ -102,6 +105,19 @@ function( declare,
                 } ).placeAt( this.selectorNode );
                 this._selector.own( on( this._selector, "change", lang.hitch( this, this._onSelectorChange ) ) );
                 this.own( this._selector );
+            }
+        },
+        updateAddButtonLabel : function()
+        {
+            var labelTemplate = '<span class="br-stackedButtonLabel">'
+                                + '<span class="fa-stack">'
+                                + '<i class="fa fa-square fa-stack-2x br-blue"></i>'
+                                + '<i class="fa-stack-1x fa-inverse br-stackedButtonLabelText">${cost}</i>'
+                                + '</span>'
+                                + '</span>';
+            if( this.getCost() != 0 )
+            {
+                this.addButton.set( "label", string.substitute( labelTemplate, { cost : this.getCost() } ) );
             }
         },
         /**

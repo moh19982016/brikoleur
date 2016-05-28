@@ -5,7 +5,7 @@
     -moz-transition : color 300ms, background-color 300ms, border 300ms, width 300ms, height 300ms;
 }
 
-.tundra .br-valueChanged {
+.flat .br-valueChanged {
     background-color: #c00 !important;
     color: white !important;
 }

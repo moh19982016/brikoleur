@@ -154,7 +154,7 @@ function( declare,
          */
         getCost : function()
         {
-            return this.level;
+            return this._levelSelector.get( "value" ) || this.level;
         },
         /**
          * As parent to remove self from controls, and .destroy().
@@ -237,6 +237,7 @@ function( declare,
         _checkAddButton : function()
         {
             this.addButton.set( "disabled", parseInt( this._levelSelector.get( "value" ) ) > Controller.get( "juju" ) );
+            this.updateAddButtonLabel();
         },
         /**
          * Display level and val in .valueNode, and set selector's value to val if applicable.

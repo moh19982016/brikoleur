@@ -18,10 +18,10 @@
 
 .br-statField .dijitInputInner {
     padding-top: 8px !important;
-    text-align: center;
+    text-align: center !important;
 }
 
-.tundra .br-valueHasChanged {
+.flat .br-valueHasChanged {
     font-weight: bold;
     color: #c00 !important;
 }

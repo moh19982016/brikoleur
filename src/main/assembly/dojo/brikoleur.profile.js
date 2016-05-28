@@ -3,6 +3,7 @@ var profile = {
         "dojo",
         "dijit",
         "dojox",
+        "themes",
         "primejunta"
     ],
     resourceTags : {
