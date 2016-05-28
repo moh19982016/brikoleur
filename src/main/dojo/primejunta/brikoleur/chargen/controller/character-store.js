@@ -96,7 +96,7 @@ function( declare,
         saveCharacter : function( /* boolean */ silent )
         {
             silent = silent === true;
-            return this.validateCharacter( silent ).then( lang.hitch( this, this.doSaveCharacter ) );
+            return this.validateCharacter( silent ).then( lang.hitch( this, this.doSaveCharacter ), function() {} );
         },
         /**
          * Get character name from name pane, then update juju to match the amount spent, then save it CharacterStore.
