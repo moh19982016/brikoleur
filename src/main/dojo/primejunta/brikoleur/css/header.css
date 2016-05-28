@@ -26,16 +26,12 @@
 }
 
 .br-jujuField {
-    color: #c00;
+    color: #538aff;
     font-family: Iceberg, sans-serif;
     padding: 8px;
     font-size: 20px;
     text-align: right;
     width: 150px;
-}
-
-.flat .br-newCharacter .br-jujuField {
-    color: #0c0;
 }
 
 .br-compactLayout .br-jujuField {
@@ -44,11 +40,7 @@
 
 .flat .br-jujuField .dijitTextBox {
     width: 40px;
-    border: 1px solid #c00;
-}
-
-.flat .br-newCharacter .br-jujuField .dijitTextBox {
-    border: 1px solid #0c0;
+    border: 1px solid #538aff;
 }
 
 a.br-manualLink {

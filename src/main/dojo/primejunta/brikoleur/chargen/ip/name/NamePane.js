@@ -5,7 +5,7 @@
  */
 define( [ "dojo/_base/declare",
           "dojo/_base/lang",
-          "dojox/mobile/Switch",
+          "../../widget/Switch",
           "../../_base/_NamePaneBase",
           "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
@@ -30,7 +30,7 @@ function( declare,
         {
             this.combatToggle = new Switch( {
                 value : "on",
-                style : "width:150px;",
+                style : "width:140px;",
                 leftLabel : i18n.StartCombat,
                 rightLabel : i18n.ExitCombat,
                 onClick : lang.hitch( this, this.toggleCombat )

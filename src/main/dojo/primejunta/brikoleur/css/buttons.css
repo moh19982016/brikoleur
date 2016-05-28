@@ -1,18 +1,17 @@
 /* Buttons */
 
 .br-compactLayout .br-headerButton .dijitButtonText,
-.br-compactButton .dijitButtonText
-{
+.br-compactButton .dijitButtonText {
     width: 0;
     padding: 0;
     overflow: hidden;
 }
 
-.br-compactButton .dijitIcon, .br-compactLayout .br-headerButton .dijitIcon  {
+.br-compactButton .dijitIcon, .br-compactLayout .br-headerButton .dijitIcon {
     padding: 0 0.3em;
 }
 
-.br-splitButtonLeft .dijitIcon, .br-splitButtonRight .dijitIcon{
+.br-splitButtonLeft .dijitIcon, .br-splitButtonRight .dijitIcon {
     padding: 0 0.6em !important;
 }
 
@@ -37,7 +36,6 @@
     border-left: none !important;
 }
 
-
 .flat .br-darkButton .dijitButtonNode {
     background: #444;
     color: silver;
@@ -47,7 +45,7 @@
 }
 
 .br-fullScreenButton {
-    margin-left:10px;
+    margin-left: 10px;
     margin-top: 4px;
 }
 
@@ -67,7 +65,7 @@
 }
 
 .br-dialogButtons {
-    padding : 4px 0;
+    padding: 4px 0;
     text-align: right;
 }
 
@@ -105,7 +103,7 @@
 }
 
 .br-fileControlButton {
-    border : 1px dashed #c00;
+    border: 1px dashed #c00;
     color: #c00;
     text-align: center;
     border-radius: 3px;
@@ -129,4 +127,38 @@
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
+}
+
+.br-switch {
+    background-color: #f4f4f4;
+    border: 1px solid silver;
+    border-radius: 3px;
+    height: 32px;
+    display: inline-block;
+}
+
+.br-switchButton {
+    cursor: pointer;
+    position: absolute;
+    transition: width 300ms;
+    white-space: nowrap;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align:left;
+    height: 33px;
+}
+
+.br-switchLabel {
+    padding: 1px 4px 1px 4px;
+    line-height: 29px;
+}
+
+.br-switchDivider {
+    background-color: silver;
+    width: 24px;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    box-sizing:border-box;
 }
