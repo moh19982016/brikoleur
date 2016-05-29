@@ -63,6 +63,10 @@ function( declare,
             if( this._remainingItems == 0 )
             {
                 Controller.characterPane.panes.knacks.maximize();
+                Controller.characterPane.panes.numbers.maximize();
+                Controller.characterPane.panes.ohun.maximize();
+                Controller.characterPane.panes.gear.maximize();
+                Controller.characterPane.panes.description.maximize();
             }
         }
     });
