@@ -29,7 +29,7 @@ function( declare,
          * @final
          * @public int
          */
-        allowedControls : -1,
+        _allowedControls : -1,
         /**
          * Displayed name of the feature.
          *

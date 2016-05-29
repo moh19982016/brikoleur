@@ -42,7 +42,7 @@ function( declare,
          *
          * @public int
          */
-        allowedControls : 2,
+        _allowedControls : 2,
         /**
          * Control used to assign and display the feature we're dealing with.
          *

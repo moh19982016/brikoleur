@@ -43,7 +43,7 @@ function( declare,
          *
          * @public int
          */
-        allowedControls : -1,
+        _allowedControls : -1,
         /**
          * Data for the feature.
          *

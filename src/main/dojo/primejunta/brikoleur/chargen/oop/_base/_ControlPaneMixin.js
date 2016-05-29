@@ -24,7 +24,7 @@ function( declare,
          *
          * @public int
          */
-        allowedControls : 0,
+        _allowedControls : 0,
         /**
          * Feature name. Used in validation failure message.
          *

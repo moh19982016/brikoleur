@@ -52,7 +52,7 @@ function( declare,
          *
          * @public int
          */
-        allowedControls : 0,
+        _allowedControls : 0,
         /**
          * Array for sub-controls.
          *

@@ -48,7 +48,7 @@ function( declare,
          *
          * @public int
          */
-        allowedControls : 3,
+        _allowedControls : 3,
         /**
          * Control used to assign and display the feature we're dealing with.
          *
@@ -115,6 +115,7 @@ function( declare,
                 });
                 ctl.addChildControl();
             }
+            this.displayCount();
         }
     });
 });

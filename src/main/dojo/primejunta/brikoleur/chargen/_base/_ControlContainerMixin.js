@@ -12,7 +12,7 @@ function( declare,
         postCreate : function()
         {
             this.inherited( arguments );
-            this.set( "allowedControls", this.allowedControls );
+            this.set( "allowedControls", this._allowedControls );
         },
         /**
          * Returns values of .controls as string[].
@@ -79,6 +79,10 @@ function( declare,
             if( !this.countNode )
             {
                 return;
+            }
+            if( !this.allowedControls )
+            {
+                this.allowedControls = this._allowedControls;
             }
             var items = this.countAllowedItems();
             this._remainingItems = this.allowedControls - items;
