@@ -81,7 +81,12 @@ function( declare,
             this.deleteButton = new Button( {
                 onClick : lang.hitch( this, this.pleaseDestroy ),
                 "class" : "br-smallButton",
-                label : '<i class="fa fa-minus-square br-red"></i>',
+                label : '<span class="br-stackedButtonLabel">'
+                        + '<span class="fa-stack">'
+                        + '<i class="fa fa-square fa-stack-2x br-red"></i>'
+                        + '<i class="fa fa-stack-1x fa-inverse fa-minus"></i>'
+                        + '</span>'
+                        + '</span>',
                 style : "display:none;"
             } ).placeAt( this.statusControlNode );
             this.completeButton = new Button( {

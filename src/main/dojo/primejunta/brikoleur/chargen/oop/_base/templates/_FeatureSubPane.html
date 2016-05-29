@@ -1,10 +1,9 @@
 <div>
-  <div class="br-inputContainer br-floatRight">
+  <div data-dojo-attach-point="titleNode" class="br-subPaneTitle br-inputContainer">
+    <span>${data.name}</span>
     <i class="br-active br-gray fa fa-chevron-circle-right" style="visibility:hidden;padding-right:4px;"
        data-dojo-attach-point="descriptionButton" data-dojo-attach-event="onClick:toggleDescription"></i>
   </div>
-  <div data-dojo-attach-point="titleNode" class="br-subPaneTitle br-inputContainer">${data.name}</div>
-  <div style="clear:both"></div>
   <div data-dojo-attach-point="descriptionWrapper" class="br-featureDescription">
     <div data-dojo-attach-point="descriptionNode" class="br-featureDescriptionContent">
       <div data-dojo-attach-point="descriptionContent"></div>

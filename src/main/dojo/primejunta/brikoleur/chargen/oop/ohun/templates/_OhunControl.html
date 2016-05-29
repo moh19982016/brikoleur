@@ -3,8 +3,9 @@
   <div data-dojo-attach-point="displayNode" class="br-displayContainer br-ohunItem" style="display: none">
     <div class="br-floatLeft" style="width:40px;">
       <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton"
-              data-dojo-attach-event="onClick:pleaseDestroy" class="br-smallButton"><i
-              class="fa fa-minus-square br-red"></i></button>
+              data-dojo-attach-event="onClick:pleaseDestroy" class="br-smallButton"><span
+        class="br-stackedButtonLabel"><span class="fa-stack"><i class="fa fa-square fa-stack-2x br-red"></i><i
+                class="fa fa-stack-1x fa-inverse fa-minus"></i></span></span></button>
     </div>
     <div class="br-floatRight br-inputContainer" style="width:25px;">
       <i class="br-active br-gray fa fa-chevron-circle-right" data-dojo-attach-point="descriptionButton"
@@ -21,8 +22,9 @@
     </div>
     <div class="br-floatRight" style="width:40px;">
       <button data-dojo-attach-point="addButton" data-dojo-type="dijit/form/Button"
-              data-dojo-attach-event="onClick:pleaseAddItem" class="br-smallButton"><i
-              class="fa fa-plus-square br-green"></i></button>
+              data-dojo-attach-event="onClick:pleaseAddItem" class="br-smallButton"><span
+              class="br-stackedButtonLabel"><span class="fa-stack"><i class="fa fa-square fa-stack-2x br-green"></i><i
+              class="fa fa-stack-1x fa-inverse fa-plus"></i></span></span></button>
     </div>
     <div class="br-floatRight br-inputContainer" style="width:calc(100% - 95px);">
       <span data-dojo-attach-point="selectorNode"></span>

@@ -68,7 +68,12 @@ function( declare,
                 } ).placeAt( this.controlNode );
                 this._decrementButton =
                 new Button( {
-                    label : '<i class="br-red fa fa-minus-square"></i>',
+                    label : '<span class="br-stackedButtonLabel">'
+                            + '<span class="fa-stack">'
+                            + '<i class="fa fa-square fa-stack-2x br-red"></i>'
+                            + '<i class="fa fa-stack-1x fa-inverse fa-minus"></i>'
+                            + '</span>'
+                            + '</span>',
                     onClick : lang.hitch( this, this.sellPoint ),
                     "class" : "br-smallButton br-hideInPlay"
                 } ).placeAt( this.controlNode, "first" );

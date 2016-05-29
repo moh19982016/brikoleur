@@ -49,6 +49,10 @@
     margin-top: 4px;
 }
 
+.flat .br-smallButton {
+    margin: 0;
+}
+
 .flat .br-smallButton .dijitButtonNode {
     background: none !important;
     border: none;
