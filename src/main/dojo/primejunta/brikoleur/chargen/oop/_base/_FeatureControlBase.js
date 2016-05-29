@@ -149,6 +149,22 @@ function( declare,
             this._publishChange();
             topic.publish( this.featureAddedTopic, this );
         },
+        pleaseRemoveItem : function()
+        {
+            for( var i = 0; i < this.controls.length; i++ )
+            {
+                this.controls[ i ].pleaseRemoveItem();
+            }
+            if( this.parent && this.parent.onRemoveChild )
+            {
+                this.parent.onRemoveChild( this );
+            }
+            if( this.complete )
+            {
+                topic.publish( "/JujuReleased/", this.getCost() );
+            }
+            this.destroy();
+        },
         /**
          * If parent doesn't already have a matching value, return true; else warn about it and return false.
          *

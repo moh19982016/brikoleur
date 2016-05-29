@@ -6,11 +6,14 @@
              data-dojo-type="dijit/form/CheckBox"/>
     </div>
     <div class="br-floatRight br-inputContainer" style="width:25px;">
-      <i class="br-active br-gray fa fa-chevron-circle-right" data-dojo-attach-point="descriptionButton"
-         data-dojo-attach-event="onClick:toggleDescription"></i>
+      <button data-dojo-attach-point="removeButton" data-dojo-type="dijit/form/Button"
+              data-dojo-attach-event="onClick:pleaseRemoveItem" class="br-smallButton"><i
+              class="fa fa-minus-square br-red"></i></button>
     </div>
     <div class="br-floatRight br-inputContainer" style="width:calc( 100% - 50px )">
       <span data-dojo-attach-point="valueNode"></span>
+      <i class="br-active br-gray fa fa-chevron-circle-right" data-dojo-attach-point="descriptionButton"
+         data-dojo-attach-event="onClick:toggleDescription"></i>
     </div>
     <div style="clear:both"></div>
   </div>

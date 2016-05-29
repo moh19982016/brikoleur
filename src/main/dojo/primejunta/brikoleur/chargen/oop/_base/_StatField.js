@@ -66,7 +66,13 @@ function( declare,
                     onClick : lang.hitch( this, this.buyPoint ),
                     "class" : "br-smallButton br-hideInPlay"
                 } ).placeAt( this.controlNode );
-                this.own( this._incrementButton,
+                this._decrementButton =
+                new Button( {
+                    label : '<i class="br-red fa fa-minus-square"></i>',
+                    onClick : lang.hitch( this, this.sellPoint ),
+                    "class" : "br-smallButton br-hideInPlay"
+                } ).placeAt( this.controlNode, "first" );
+                this.own( this._incrementButton, this._decrementButton,
                 topic.subscribe( "/StatChanged/-juju", lang.hitch( this, function( juju )
                 {
                     this._incrementButton.domNode.style.display = juju < this.cost ? "none" : "unset";
@@ -107,8 +113,19 @@ function( declare,
             else
             {
                 this.set( "value", this.get( "value" ) + 1 );
+                this._decrementButton.domNode.style.visibility = "visible";
                 Controller.set( "juju", Controller.get( "juju" ) - this.cost );
             }
+        },
+        sellPoint : function( /* Event */ evt )
+        {
+            evt.stopPropagation();
+            this.set( "value", this.get( "value" ) -1 );
+            if( this.get( "value" ) == 0 )
+            {
+                this._decrementButton.domNode.style.visibility = "hidden";
+            }
+            topic.publish( "/JujuReleased/", this.cost );
         }
     } );
 } );

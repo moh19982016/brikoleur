@@ -154,7 +154,7 @@ function( declare,
          */
         getCost : function()
         {
-            return this._levelSelector.get( "value" ) || this.level;
+            return parseInt( this._levelSelector.get( "value" ) || this.level );
         },
         /**
          * As parent to remove self from controls, and .destroy().
@@ -164,6 +164,7 @@ function( declare,
         pleaseDestroy : function()
         {
             this.parent.pleaseRemoveControl( this );
+            topic.publish( "/JujuReleased/", this.getCost() );
             this.destroy();
         },
         /**

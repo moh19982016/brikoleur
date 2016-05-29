@@ -123,7 +123,10 @@ function( declare,
             this._setupButtons();
             this._setupPanes();
             this._loadSettings();
-            this.own( topic.subscribe( "/PleaseAutoSave/", lang.hitch( this, this.saveCharacter, true ) ) );
+            this.own(
+                topic.subscribe( "/PleaseAutoSave/", lang.hitch( this, this.saveCharacter, true ) ),
+                topic.subscribe( "/JujuReleased/", lang.hitch( this, this.onReleaseJuju ) )
+            );
         },
         /**
          * Method used for development and debug purposes: logs state of UI as Object or JSON string.
@@ -307,6 +310,13 @@ function( declare,
         {
             topic.publish( "/StatChanged/-juju", this.jujuInput.get( "value" ) );
         },
+        onReleaseJuju : function( juju )
+        {
+            if( this.mode == "rest" )
+            {
+                this.set( "juju", this.get( "juju" ) + juju );
+            }
+        },
         /**
          * Intercept "juju", "state", and any prop matching something in the numbers pane. Else inherited.
          *
@@ -317,7 +327,7 @@ function( declare,
         {
             if( prop == "juju" )
             {
-                return this.jujuInput.get( "value" );
+                return parseInt( this.jujuInput.get( "value" ) );
             }
             else if( prop == "state" )
             {

@@ -23,6 +23,18 @@ function( declare,
             }
             return out;
         },
+        onRemoveChild : function( child )
+        {
+            for( var i = 0; i < this.controls.length; i++ )
+            {
+                if( this.controls[ i ] == child )
+                {
+                    this.controls.splice( i, 1 );
+                    break;
+                }
+            }
+            this.addFeature();
+        },
         /**
          * Returns count of descendant controls as int.
          *
