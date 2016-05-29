@@ -395,13 +395,11 @@ function( declare,
                 label : i18n.NewCharacter,
                 onClick : lang.hitch( this, this.newCharacter )
             } ) );
-            this._deleteItem = new MenuItem( {
+            this._ekipMenu.addChild( new MenuItem( {
                 iconClass : "fa fa-trash-o br-red",
                 label : i18n.DeleteCharacter,
-                disabled : true,
                 onClick : lang.hitch( this, this.deleteCharacter )
-            } );
-            this._ekipMenu.addChild( this._deleteItem );
+            } ) );
             this._ekipMenu.addChild( new MenuSeparator() );
             this._ekipMenu.addChild( new MenuItem( {
                 iconClass : "fa fa-download",
@@ -581,10 +579,6 @@ function( declare,
             else
             {
                 domClass.remove( this.domNode, "br-newCharacter" );
-            }
-            if( this._deleteItem )
-            {
-                this._deleteItem.set( "disabled", val );
             }
         },
         /**

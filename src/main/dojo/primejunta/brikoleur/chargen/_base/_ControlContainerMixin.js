@@ -9,6 +9,11 @@ function( declare,
           util )
 {
     return declare([], {
+        postCreate : function()
+        {
+            this.inherited( arguments );
+            this.set( "allowedControls", this.allowedControls );
+        },
         /**
          * Returns values of .controls as string[].
          *
@@ -33,7 +38,12 @@ function( declare,
                     break;
                 }
             }
+            this.displayCount();
             this.addFeature();
+        },
+        onCompleteChild : function( child )
+        {
+            this.displayCount();
         },
         /**
          * Returns count of descendant controls as int.
@@ -43,6 +53,43 @@ function( declare,
         countItems : function()
         {
             return util.countItems( this.controls ) + ( this.value ? 1 : 0 );
+        },
+        countAllowedItems : function()
+        {
+            var items = 0;
+            for( var i = 0; i < this.controls.length; i++ )
+            {
+                if( this.controls[ i ].complete )
+                {
+                    items++;
+                }
+            }
+            return items;
+        },
+        set : function( prop, val )
+        {
+            if( prop == "allowedControls" )
+            {
+                this.displayCount();
+            }
+            this.inherited( arguments );
+        },
+        displayCount : function()
+        {
+            if( !this.countNode )
+            {
+                return;
+            }
+            var items = this.countAllowedItems();
+            if( this.allowedControls - items == 0 )
+            {
+                this.countNode.innerHTML = "";
+            }
+            else
+            {
+                this.countNode.innerHTML = " (" + ( this.allowedControls - items ) + ")";
+            }
+
         },
         /**
          * Pops to destroy all controls.

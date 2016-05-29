@@ -87,7 +87,7 @@ function( declare,
         {
             if( control.type == "combat" )
             {
-                this.allowedControls++;
+                this.set( "allowedControls", this.allowedControls + 1 );
                 this.enableAddStunt();
             }
         },
@@ -192,7 +192,7 @@ function( declare,
          */
         updateAllowedControls : function()
         {
-            this.allowedControls = Controller.characterPane.getAllowedStunts();
+            this.set( "allowedControls", Controller.characterPane.getAllowedStunts() );
         },
         /**
          * If we don't have an open stunt, create a new _StuntControl at .containerNode, making this the parent.
@@ -205,6 +205,10 @@ function( declare,
             {
                 this.controls.push( new this.childConstructor({ parent : this, filter : this.listFeatures() } ).placeAt( this.containerNode ) );
             }
+        },
+        countAllowedItems : function()
+        {
+            return util.getProperties( this.controls, { property : "complete", recurse : true, filter : true } ).length;
         },
         /**
          * Destroy all .controls, then inherited.

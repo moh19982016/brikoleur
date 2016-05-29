@@ -38,6 +38,7 @@ function( declare,
          */
         postCreate : function()
         {
+            this.inherited( arguments );
             this.controls = [];
             this.addFeature();
         },

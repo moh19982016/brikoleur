@@ -105,7 +105,7 @@ function( declare,
          */
         _addBonusKnack : function( /* Object */ knack, /* string? */ type )
         {
-            this.allowedControls++;
+            this.set( "allowedControls", this.allowedControls + 1 );
             if( knack )
             {
                 var ctl = this.addControl({}, "first", { oga : type == "oga" } );
