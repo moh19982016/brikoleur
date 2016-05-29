@@ -74,7 +74,7 @@ function( declare,
         maximize : function()
         {
             this.inherited( arguments );
-            this.resize();
+            setTimeout( lang.hitch( this, this.resize ), 1 );
         },
         /**
          * Add/remove formLayoutLeft and formLayoutRight classes to/from the layout nodes, if we're below/above
