@@ -12,6 +12,7 @@ define( [ "dojo/_base/declare",
           "dojo/json",
           "dojo/dom-class",
           "dojo/dom-geometry",
+          "dojo/string",
           "./controller/_Splash",
           "./oop/_OopPane",
           "./ip/_IpPane",
@@ -40,6 +41,7 @@ function( declare,
           json,
           domClass,
           domGeometry,
+          string,
           _Splash,
           _OopPane,
           _IpPane,
@@ -337,6 +339,10 @@ function( declare,
             {
                 return this.characterPane.panes.numbers.get( prop );
             }
+            else if( prop == "charName" )
+            {
+                return this.characterPane.panes.name.get( "state" ).characterName;
+            }
             else
             {
                 return this.inherited( arguments );
@@ -379,6 +385,30 @@ function( declare,
                 iconClass : "fa fa-sun-o br-gold",
                 label : i18n.NewCharacter,
                 onClick : lang.hitch( this, this.newCharacter )
+            } ) );
+            this._deleteItem = new MenuItem( {
+                iconClass : "fa fa-trash-o br-red",
+                label : i18n.DeleteCharacter,
+                disabled : true,
+                onClick : lang.hitch( this, this.deleteCharacter )
+            } );
+            this._ekipMenu.addChild( this._deleteItem );
+            this._ekipMenu.addChild( new MenuSeparator() );
+            this._ekipMenu.addChild( new MenuItem( {
+                iconClass : "fa fa-download",
+                label : i18n.Download,
+                onClick : lang.hitch( this, this.downloadCharacters )
+            } ) );
+            this._ekipMenu.addChild( new MenuItem( {
+                iconClass : "fa fa-upload",
+                label : i18n.Upload,
+                onClick : lang.hitch( this, this.uploadCharacters )
+            } ) );
+            //this._toolsMenu.addChild( new MenuItem({ label : i18n.SetUpSync, onClick : lang.hitch( this, this.setUpSync ) } ) );
+            this._ekipMenu.addChild( new MenuItem( {
+                iconClass : "fa fa-print",
+                label : i18n.Print,
+                onClick : lang.hitch( this, this.printCharacter )
             } ) );
             var keys = CharacterStore.list();
             if( keys.length > 0 )
@@ -441,28 +471,6 @@ function( declare,
                 onClick : lang.hitch( this, this.togglePlay )
             } ).placeAt( this.headerContentNode, "first" );
             this.playButton.startup();
-            this._toolsMenu = new DropDownMenu();
-            this._toolsMenu.addChild( new MenuItem( {
-                label : i18n.Download,
-                onClick : lang.hitch( this, this.downloadCharacters )
-            } ) );
-            this._toolsMenu.addChild( new MenuItem( {
-                label : i18n.Upload,
-                onClick : lang.hitch( this, this.uploadCharacters )
-            } ) );
-            //this._toolsMenu.addChild( new MenuItem({ label : i18n.SetUpSync, onClick : lang.hitch( this, this.setUpSync ) } ) );
-            this._toolsMenu.addChild( new MenuItem( {
-                label : i18n.Print,
-                onClick : lang.hitch( this, this.printCharacter )
-            } ) );
-            this._toolsMenu.startup();
-            this.toolsButton = new DropDownButton( {
-                dropDown : this._toolsMenu,
-                label : i18n.Tools,
-                "class" : "br-headerButton br-darkButton",
-                iconClass : "fa fa-wrench"
-            } ).placeAt( this.headerContentNode, "first" );
-            this.toolsButton.startup();
             this._ekipMenu = new DropDownMenu();
             this._ekipMenu.startup();
             this.ekipButton = new DropDownButton( {
@@ -482,7 +490,7 @@ function( declare,
                 } ).placeAt( this.leftHeaderNode, "first" ) );
             }
             this.refreshEkip();
-            this.own( this.playButton, this._ekipMenu, this.ekipButton, this._toolsMenu, this.toolsButton );
+            this.own( this.playButton, this._ekipMenu, this.ekipButton );
         },
         /**
          * Adds all the UI panes needed for the character creator.
@@ -564,6 +572,10 @@ function( declare,
             else
             {
                 domClass.remove( this.domNode, "br-newCharacter" );
+            }
+            if( this._deleteItem )
+            {
+                this._deleteItem.set( "disabled", val );
             }
         },
         /**

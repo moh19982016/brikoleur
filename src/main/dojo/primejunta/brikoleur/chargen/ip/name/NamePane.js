@@ -28,6 +28,8 @@ function( declare,
          */
         postCreate : function()
         {
+            this.nameContainer.style.width = "calc( 100% - 198px )";
+            this.buttonContainer.style.width = "198px";
             this.combatToggle = new Switch( {
                 value : "on",
                 style : "width:140px;",

@@ -154,7 +154,14 @@ function( declare,
          */
         getCost : function()
         {
-            return parseInt( this._levelSelector.get( "value" ) || this.level );
+            if( this._levelSelector )
+            {
+                return parseInt( this._levelSelector.get( "value" ) );
+            }
+            else
+            {
+                return this.level;
+            }
         },
         /**
          * As parent to remove self from controls, and .destroy().

@@ -103,6 +103,7 @@ define({
         "Handle" : "Handle",
         "Background" : "Background",
         "NewCharacter" : "Create Character",
+        "DeleteCharacter" : "Delete Character",
         "DialogTitle" : "Brikoleur",
         "Continue" : "Continue",
         "Cancel" : "Cancel",
