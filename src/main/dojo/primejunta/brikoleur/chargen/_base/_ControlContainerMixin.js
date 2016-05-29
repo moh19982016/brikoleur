@@ -81,13 +81,14 @@ function( declare,
                 return;
             }
             var items = this.countAllowedItems();
-            if( this.allowedControls - items == 0 )
+            this._remainingItems = this.allowedControls - items;
+            if( this._remainingItems == 0 )
             {
                 this.countNode.innerHTML = "";
             }
             else
             {
-                this.countNode.innerHTML = " (" + ( this.allowedControls - items ) + ")";
+                this.countNode.innerHTML = " (" + this._remainingItems + ")";
             }
 
         },

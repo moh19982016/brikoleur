@@ -58,7 +58,7 @@ function( declare,
             {
                 this.publishInfo();
             }
-            if( this.minimized && this.maximize )
+            if( this.minimized && this.maximize && !this.manualMaximizeOnly )
             {
                 this.maximize();
             }

@@ -56,6 +56,14 @@ function( declare,
          * @final
          * @public string
          */
-        selectedFeaturesTopic : "/SelectedTraits/"
+        selectedFeaturesTopic : "/SelectedTraits/",
+        displayCount : function()
+        {
+            this.inherited( arguments );
+            if( this._remainingItems == 0 )
+            {
+                Controller.characterPane.panes.knacks.maximize();
+            }
+        }
     });
 });

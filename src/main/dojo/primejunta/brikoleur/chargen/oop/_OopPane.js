@@ -47,7 +47,7 @@ function( declare,
         {
             this._addPane( "name", new NamePane().placeAt( this.nameContainer ) );
             this._addPane( "traits", new TraitsPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
-            this._addPane( "knacks", new KnacksPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
+            this._addPane( "knacks", new KnacksPane( { minimized : true, manualMaximizeOnly : true, dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "numbers", new NumbersPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "powers",
                            new PowersPane( { minimized : true, dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
