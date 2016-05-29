@@ -49,7 +49,7 @@ function( declare,
          */
         getCost : function()
         {
-            return this.level > 0 ? 4 : 0;
+            return Math.max( 0, ( this.level > 0 ? 4 : 0 ) - ( Controller.discounts.training || 0 ) );
         },
         /**
          * Adds (K), (T), or (S) prefix to val, by level.

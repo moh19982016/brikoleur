@@ -72,18 +72,24 @@ function( declare,
          */
         mode : "rest",
         /**
-         * Threshold width at which domNode will be tagged with class modifying layout to small-screen.
+         * Juju discounts. May be acquired from traits.
          *
-         * @final
-         * @public int
+         * @public Object
          */
-        SMALL_THRESHOLD : 650,
+        discounts : {},
         /**
          * Map of panes created by the Controller.
          *
          * @public Object
          */
         panes : {},
+        /**
+         * Threshold width at which domNode will be tagged with class modifying layout to small-screen.
+         *
+         * @final
+         * @public int
+         */
+        SMALL_THRESHOLD : 650,
         /**
          * URL for links to user manual.
          *
@@ -120,6 +126,9 @@ function( declare,
          */
         postCreate : function()
         {
+            this.mode = "rest";
+            this.discounts = {};
+            this.panes = {};
             window.Controller = this;
             this._setupInitialState();
             this._setupButtons();

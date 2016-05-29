@@ -1,6 +1,7 @@
 define({
     "name": "Lwa's Horse",
-    "description": "A Lwa's Horse is crowned with a lwa. He serves it, and in turn may petition it for favours. Lwa's Horses are respected by their friends and feared by their enemies.",
+    "description": "A Lwa's Horse is crowned with a lwa. He serves it, and in turn may petition it for favours." +
+                   " Lwa's Horses are respected by their friends and feared by their enemies.",
     "link" : "#LwasHorse",
     "features" : [{
         "name" : "Respect",

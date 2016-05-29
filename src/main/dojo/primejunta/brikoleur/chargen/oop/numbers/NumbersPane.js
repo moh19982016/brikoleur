@@ -43,7 +43,7 @@ function( declare,
          *
          * @public int
          */
-        threshold : 440,
+        threshold : 550,
         /**
          * Set up dynamic layout, which places Stamina to the right if there's room, everything top to bottom if not,
          * and then addField on all our stats with the starting default values.

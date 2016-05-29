@@ -226,6 +226,9 @@ function( declare,
                             }, features[ i ] ) ).placeAt( this.featuresNode ) );
                         }
                         break;
+                    case "discount" :
+                        Controller.discounts[ features[ i ].target ] = features[ i ].discount;
+                        break;
                     default :
                         this._printFeature( features[ i ] );
 
