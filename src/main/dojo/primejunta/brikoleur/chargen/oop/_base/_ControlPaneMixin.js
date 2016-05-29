@@ -50,7 +50,7 @@ function( declare,
          */
         addFeature : function( /* Object */ kwObj )
         {
-            if( this.allowedControls < 0 || this.controls.length < this.allowedControls )
+            if( this._allowedControls < 0 || this.controls.length < this.allowedControls )
             {
                 this.addControl( kwObj );
             }

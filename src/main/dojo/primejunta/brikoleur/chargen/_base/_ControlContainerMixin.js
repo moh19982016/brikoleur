@@ -94,7 +94,6 @@ function( declare,
             {
                 this.countNode.innerHTML = " (" + this._remainingItems + ")";
             }
-
         },
         /**
          * Pops to destroy all controls.
