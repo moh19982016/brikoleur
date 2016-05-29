@@ -44,7 +44,7 @@ function( declare,
          */
         newCharacter : function()
         {
-            this.saveCharacter().then( lang.hitch( this, this.clear ) );
+            this.saveCharacter().then( lang.hitch( this, this.clear ), function() {} );
         },
         /**
          * If dontSave is set, goes directly to doLoadCharacter, else goes via .saveCharacter.
@@ -96,7 +96,7 @@ function( declare,
         saveCharacter : function( /* boolean */ silent )
         {
             silent = silent === true;
-            return this.validateCharacter( silent ).then( lang.hitch( this, this.doSaveCharacter ), function() {} );
+            return this.validateCharacter( silent ).then( lang.hitch( this, this.doSaveCharacter ), function() { return new Deferred().reject() } );
         },
         /**
          * Get character name from name pane, then update juju to match the amount spent, then save it CharacterStore.

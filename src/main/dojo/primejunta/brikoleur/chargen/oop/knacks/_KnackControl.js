@@ -4,10 +4,12 @@
  * @private Widget
  */
 define([ "dojo/_base/declare",
+         "dojo/dom-class",
          "../../data/knacks",
          "./../_base/_FeatureControlBase",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
 function( declare,
+          domClass,
           knacks,
           _FeatureControlBase,
           i18n )
@@ -42,6 +44,14 @@ function( declare,
          * @public string
          */
         propertyPresentWarning : i18n.TrainingPresent,
+        postCreate : function()
+        {
+            this.inherited( arguments );
+            if( this.level == 0 )
+            {
+                domClass.add( this.removeButton.domNode, "br-hideForOld" );
+            }
+        },
         /**
          * Cost is 4 for everything over level 0 (which is the knack itself).
          *

@@ -76,3 +76,11 @@
 .mblSwitchText {
     line-height: 24px;
 }
+
+.br-hideForOld {
+    visibility: hidden;
+}
+
+.br-newCharacter .br-hideForOld {
+    visibility: visible;
+}
