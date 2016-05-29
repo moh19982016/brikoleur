@@ -162,8 +162,37 @@ function( declare,
             if( this.complete )
             {
                 topic.publish( "/JujuReleased/", this.getCost() );
+                topic.publish( this.featureRemovedTopic, this );
             }
             this.destroy();
+        },
+        onRemoveChild : function( child )
+        {
+            var childName = child.state.name;
+            for( var i = 0; i < this.controls.length; i++ )
+            {
+                if( this.controls[ i ] == child )
+                {
+                    this.controls.splice( i, 1 );
+                    break;
+                }
+            }
+            for( var i = 0; i < this.controls.length; i++ )
+            {
+                if( !this.controls[ i ].complete )
+                {
+                    var filter = lang.clone( this.controls[ i ]._store.filter );
+                    for( var f = 0; f < filter.length; f++ )
+                    {
+                        if( filter[ f ] == childName )
+                        {
+                            filter.splice( f, 1 );
+                            break;
+                        }
+                    }
+                    this.controls[ i ]._updateFilter( filter );
+                }
+            }
         },
         /**
          * If parent doesn't already have a matching value, return true; else warn about it and return false.

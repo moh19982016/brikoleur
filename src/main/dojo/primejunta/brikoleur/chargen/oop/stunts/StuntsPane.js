@@ -74,6 +74,7 @@ function( declare,
         postCreate : function()
         {
             this.own( topic.subscribe( "/TrainingAdded/", lang.hitch( this, this.checkStunt ) ) );
+            this.own( topic.subscribe( "/TrainingRemoved/", lang.hitch( this, this.removeStunt ) ) );
             this.onAddDescendant();
         },
         /**
@@ -88,6 +89,13 @@ function( declare,
             {
                 this.allowedControls++;
                 this.enableAddStunt();
+            }
+        },
+        removeStunt : function( control )
+        {
+            if( control.type == "combat" )
+            {
+                this.onAddDescendant();
             }
         },
         /**
@@ -125,7 +133,15 @@ function( declare,
          */
         validate : function()
         {
-            if( util.getProperties( this.controls, { property : "complete", recurse : true, filter : true }).length < this.allowedControls )
+            var nStunts = util.getProperties( this.controls, { property : "complete", recurse : true, filter : true }).length;
+            if( nStunts > this.allowedControls )
+            {
+                return {
+                    valid : false,
+                    message : i18n.TooManyStunts
+                }
+            }
+            else if( nStunts < this.allowedControls )
             {
                 return {
                     valid : false,

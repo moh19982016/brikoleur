@@ -34,6 +34,7 @@ function( declare,
          * @public string
          */
         featureAddedTopic : "/TrainingAdded/",
+        featureRemovedTopic : "/TrainingRemoved/",
         /**
          * Warning to display if trying add another item with the same name and type.
          *
