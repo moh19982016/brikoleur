@@ -12,6 +12,7 @@ define( [ "dojo/_base/declare",
           "dojo/json",
           "dojo/dom-class",
           "dojo/dom-geometry",
+          "dojo/Deferred",
           "dojo/string",
           "./controller/_Splash",
           "./oop/_OopPane",
@@ -41,6 +42,7 @@ function( declare,
           json,
           domClass,
           domGeometry,
+          Deferred,
           string,
           _Splash,
           _OopPane,
@@ -171,6 +173,7 @@ function( declare,
                     this.playButton.set( "iconClass", "fa fa-beer" );
                     this.playButton.set( "label", i18n.PrepMode );
                     this.inPlayPane.set( "state", this.get( "state" ) );
+                    this.ekipButton.set( "disabled", true );
                     this.mainTabs.selectChild( this.inPlayPane );
                 } ) );
             }
@@ -181,6 +184,7 @@ function( declare,
                     this.mode = "rest";
                     this.playButton.set( "iconClass", "fa fa-rocket" );
                     this.playButton.set( "label", i18n.PlayMode );
+                    this.ekipButton.set( "disabled", false );
                     this.mainTabs.selectChild( this.characterPane );
                     domClass.remove( Controller.inPlayPane.domNode,
                     "br-status-wounded br-status-incapacitated br-status-dead" );

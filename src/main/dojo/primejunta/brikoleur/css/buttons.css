@@ -44,6 +44,12 @@
     height: 25px;
 }
 
+.flat .br-darkButton.dijitDropDownButtonDisabled .dijitButtonNode {
+    background: #585858;
+    color: gray;
+    border-color: #222;
+}
+
 .br-fullScreenButton {
     margin-left: 10px;
     margin-top: 4px;
