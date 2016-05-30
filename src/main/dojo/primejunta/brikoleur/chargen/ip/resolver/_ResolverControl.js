@@ -77,7 +77,7 @@ function( declare,
         postCreate : function()
         {
             this._resetDie();
-            this.own( topic.subscribe( "/PrepareTask/", lang.hitch( this, this._resetDie ) ) );
+            this.own( topic.subscribe( "/PrepareTask/", lang.hitch( this, this._resetDie ) ), topic.subscribe( "/SetArmour/", lang.hitch( this, this._setArmour ) ) );
         },
         /**
          * Set .difficulty to value and ._resetDie.
@@ -256,6 +256,11 @@ function( declare,
                 prom.resolve();
             }
             return prom;
+        },
+        _setArmour : function( armour )
+        {
+            this.defenceArmourControl.set( "value", armour );
+            fx.flash( this.defenceArmourControl.domNode, "br-valueChanged" );
         },
         /**
          * Resets die node and task result node, removes any classes added for them, and sets armour value from worn

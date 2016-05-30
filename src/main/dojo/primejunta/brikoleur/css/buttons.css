@@ -91,7 +91,17 @@
 }
 
 .br-textButton:hover {
-    background-color: #fcc;
+    background-color: rgba( 255, 0, 0, 0.2 );
+}
+
+.br-overlayButton {
+    box-sizing: border-box;
+    margin: 2px 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0
 }
 
 .flat .br-statField {
@@ -149,7 +159,7 @@
     box-sizing: border-box;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-align:left;
+    text-align: left;
     height: 33px;
 }
 
@@ -164,5 +174,5 @@
     height: 32px;
     border-radius: 3px;
     border: 1px solid gray;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }

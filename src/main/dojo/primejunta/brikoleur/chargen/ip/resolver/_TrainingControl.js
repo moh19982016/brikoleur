@@ -104,6 +104,11 @@ function( declare,
             {
                 domClass.add( this.domNode, "br-rangedAttackTraining" );
             }
+            if( this.descriptionContent.innerHTML == "" )
+            {
+                this.chevronContainer.style.display = "none";
+            }
+
         },
         /**
          * Passes own .defence flag to created child with state.

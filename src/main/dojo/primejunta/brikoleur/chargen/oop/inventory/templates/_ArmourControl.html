@@ -16,13 +16,15 @@
     <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="levelInput"
            data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
   </div>
-  <div class="br-floatLeft br-inputContainer" style="width:40px;">
+  <div class="br-floatLeft br-inputContainer" style="width:40px;position:relative;">
     <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="directArmourInput"
            data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
+    <div data-dojo-attach-event="onClick:setDirectArmour" class="br-hideOutOfCombat br-textButton br-overlayButton"></div>
   </div>
-  <div class="br-floatLeft br-inputContainer" style="width:40px;">
+  <div class="br-floatLeft br-inputContainer" style="width:40px;position:relative;">
     <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="environmentalArmourInput"
            data-dojo-attach-event="onChange:recalcValues" style="width:100%"/>
+    <div data-dojo-attach-event="onClick:setEnvironmentalArmour" class="br-hideOutOfCombat br-textButton br-overlayButton"></div>
   </div>
   <div class="br-floatLeft br-inputContainer" style="width:40px;">
     <input data-dojo-type="dijit/form/NumberTextBox" data-dojo-attach-point="movementPenaltyInput"

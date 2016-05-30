@@ -4,10 +4,12 @@
  * @private Widget
  */
 define( [ "dojo/_base/declare",
+          "dojo/topic",
           "./_ItemControl",
           "dijit/form/RadioButton",
           "dojo/text!./templates/_ArmourControl.html" ],
 function( declare,
+          topic,
           _ItemControl,
           RadioButton,
           template )
@@ -69,6 +71,14 @@ function( declare,
         {
             this.recalcValues();
             this.itemType = this.itemTypeSelect.get( "value" );
+        },
+        setEnvironmentalArmour : function()
+        {
+            topic.publish( "/SetArmour/", this.environmentalArmourInput.get( "value" ) );
+        },
+        setDirectArmour : function()
+        {
+            topic.publish( "/SetArmour/", this.directArmourInput.get( "value" ) );
         },
         /**
          * Set directArmourInput, environmentalArmourInput, and movementPenaltyInput values with
