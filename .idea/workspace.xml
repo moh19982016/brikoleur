@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8a17e52c-56a9-479f-8db4-d5e95b67b5de" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/Controller.js" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/Controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js" />
     </list>
     <ignored path="brikoleur.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,21 +91,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buttons.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="buttons.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56081706">
+            <state vertical-scroll-proportion="-25.166666">
               <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_ResolverControl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_ResolverControl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="262" column="47" selection-start-line="262" selection-start-column="47" selection-end-line="262" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.524069">
+              <caret line="261" column="86" selection-start-line="261" selection-start-column="86" selection-end-line="261" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -209,10 +208,10 @@
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ArmourControl.html" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_TrainingControl.html" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_TrainingControl.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/inventory.css" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/Controller.js" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css" />
+        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js" />
       </list>
     </option>
   </component>
@@ -995,12 +994,6 @@
       <option name="number" value="Default" />
       <updated>1442586349278</updated>
     </task>
-    <task id="LOCAL-00143" summary="More color codes for task resolution.">
-      <created>1446992206420</created>
-      <option name="number" value="00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1446992206420</updated>
-    </task>
     <task id="LOCAL-00144" summary="Handles defence and taking damage, rudimentarily.">
       <created>1448127906280</created>
       <option name="number" value="00144" />
@@ -1289,7 +1282,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464631534813</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="Disables Ekip menu in Play mode since it won't work correctly anyway.">
+      <created>1464632176646</created>
+      <option name="number" value="00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1464632176646</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1357,7 +1356,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Harmonizes chrome across assets." />
     <MESSAGE value="Improvements to portrait and print." />
     <MESSAGE value="Some improvements to print, plus clearer Task Resolver interface, which now displays target number to beat, automatic success, and inevitable failure." />
     <MESSAGE value="Updates formula for calculating damage to match changes in Sourcebook." />
@@ -1382,7 +1380,8 @@
     <MESSAGE value="Tweaks to colours, and fixes layout issue with stats pane." />
     <MESSAGE value="Better Resolver UI, also for combat." />
     <MESSAGE value="Makes it possible to set defender's armour by clicking on the appropriate value in the inventory item." />
-    <option name="LAST_COMMIT_MESSAGE" value="Makes it possible to set defender's armour by clicking on the appropriate value in the inventory item." />
+    <MESSAGE value="Disables Ekip menu in Play mode since it won't work correctly anyway." />
+    <option name="LAST_COMMIT_MESSAGE" value="Disables Ekip menu in Play mode since it won't work correctly anyway." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1743,14 +1742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_ArmourControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ArmourControl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.125">
@@ -1791,14 +1782,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="262" column="47" selection-start-line="262" selection-start-column="47" selection-end-line="262" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-26.125">
@@ -1829,8 +1812,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56081706">
+        <state vertical-scroll-proportion="-25.166666">
           <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_ArmourControl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.524069">
+          <caret line="261" column="86" selection-start-line="261" selection-start-column="86" selection-end-line="261" selection-end-column="86" />
           <folding />
         </state>
       </provider>

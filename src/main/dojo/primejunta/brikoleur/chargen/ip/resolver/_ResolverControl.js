@@ -259,7 +259,7 @@ function( declare,
         },
         _setArmour : function( armour )
         {
-            this.defenceArmourControl.set( "value", armour );
+            this.defenceArmourControl.set( "value", armour + Controller.get( "armour" ) );
             fx.flash( this.defenceArmourControl.domNode, "br-valueChanged" );
         },
         /**
