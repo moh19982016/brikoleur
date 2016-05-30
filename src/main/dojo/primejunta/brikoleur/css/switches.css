@@ -16,6 +16,10 @@
     display: block;
 }
 
+.br-inCombat tbody.br-hideOutOfCombat {
+    display: table-row-group;
+}
+
 .br-inCombat .br-hideInCombat {
     display: none;
 }
@@ -45,7 +49,7 @@
 }
 
 .br-status-wounded .br-showWhenWounded, .br-status-incapacitated .br-showWhenWounded, .br-status-dead .br-showWhenWounded {
-    display: block;
+    display: inherit;
 }
 
 .mblSwitch {
@@ -83,4 +87,16 @@
 
 .br-newCharacter .br-hideForOld {
     visibility: visible;
+}
+
+.br-resolveButton .dijitButtonNode {
+    width: 72px;
+}
+
+.br-woundedMalus {
+    color: #c00;
+    float: right;
+    font-weight: bold;
+    height: 34px;
+    line-height: 34px;
 }

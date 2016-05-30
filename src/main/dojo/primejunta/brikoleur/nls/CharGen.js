@@ -118,6 +118,7 @@ define({
         // in-play
         "ReturnToBase" : "End the session and return to base?",
         "ResolveTask" : "Resolve Task",
+        "Resolve" : "Resolve",
         "ResourceBonus" : "Resource",
         "IntelBonus" : "Intel",
         "CoverBonus" : "Cover",
@@ -132,8 +133,6 @@ define({
         "DieTarget" : "Target",
         "RollDie" : "Roll",
         "TaskResult" : "Result",
-        "AttackDamage" : "Attack",
-        "DefenceDamage" : "Defence",
         "BaseDamage" : "Base Dmg",
         "WeaponLevel" : "Wpn Lvl",
         "CalculatedDamage" : "Damage",

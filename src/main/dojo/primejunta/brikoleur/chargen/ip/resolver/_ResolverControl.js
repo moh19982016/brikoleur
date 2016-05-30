@@ -106,6 +106,25 @@ function( declare,
                 this.rollDie();
             }
         },
+        onAttack : function()
+        {
+            this.rollDie().then( lang.hitch( this, function( result )
+            {
+                this.set( "calculated-damage", this._calcDamage( result ) );
+                this.set( "damage", Math.max( 0, this._calcDamage( result ) - this.armourControl.get( "value" ) ) );
+            }));
+        },
+        onDefend : function()
+        {
+            this.rollDie().then( lang.hitch( this, function( result )
+            {
+                var dmg = this._calcDefenceDamage( result );
+                var fDmg = dmg - this.defenceArmourControl.get( "value" );
+                this.set( "defence-calculated-damage", dmg );
+                this.set( "defence-damage", fDmg );
+                topic.publish( "/DamageTaken/", fDmg );
+            } ) );
+        },
         /**
          * Roll a die with ._rollFx, then compute the results depending on what type of task we're resolving (attack,
          * defence, or other). Will display computed damage and fire off /DamageTaken/ if needed.
@@ -114,6 +133,7 @@ function( declare,
          */
         rollDie : function()
         {
+            var prom = new Deferred();
             this._resultShown = true;
             domClass.remove( this.rollDieNode, "br-automaticSuccess br-taskFailed" );
             this.dieLabelNode.innerHTML = i18n.RollDie;
@@ -129,24 +149,9 @@ function( declare,
                 domClass.replace( this.taskResultNode,
                 result < 0 ? "br-taskFailed" : "br-taskSucceeded",
                 "br-taskFailed br-taskSucceeded" );
-                if( this.baseDamageControl.get( "value" ) && Controller.inPlayPane.inCombat )
-                {
-                    if( Controller.lastClicked && Controller.lastClicked.state.defence )
-                    {
-                        var dmg = this._calcDefenceDamage( result );
-                        var fDmg = dmg - this.defenceArmourControl.get( "value" );
-                        this.set( "defence-calculated-damage", dmg );
-                        this.set( "defence-damage", fDmg );
-                        topic.publish( "/DamageTaken/", fDmg );
-                    }
-                    else
-                    {
-                        this.set( "calculated-damage", this._calcDamage( result ) );
-                        this.set( "damage",
-                        Math.max( 0, this._calcDamage( result ) - this.armourControl.get( "value" ) ) );
-                    }
-                }
+                prom.resolve( result );
             } ) );
+            return prom;
         },
         /**
          * Intercepts "bonus", "base-damage", and "damage".

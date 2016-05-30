@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8a17e52c-56a9-479f-8db4-d5e95b67b5de" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/numbers/NumbersPane.js" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/numbers/NumbersPane.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/globals.css" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/globals.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-resolver.css" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-resolver.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/states.css" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/states.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/switches.css" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/switches.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/nls/CharGen.js" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/nls/CharGen.js" />
     </list>
     <ignored path="brikoleur.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,112 +33,107 @@
     <favorites_list name="brikoleur" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_TraitControl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/_TraitControl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="57" column="41" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="globals.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/globals.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.75">
-              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_FileUploader.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_FileUploader.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_FileUploader.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_FileUploader.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.875">
-              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="buttons.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35468894">
-              <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_FeaturePaneBase.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_FeaturePaneBase.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="129" column="73" selection-start-line="129" selection-start-column="73" selection-end-line="129" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NumbersPane.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/numbers/NumbersPane.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="76" column="60" selection-start-line="76" selection-start-column="60" selection-end-line="76" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PowersPane.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/powers/PowersPane.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="74" column="51" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_SubPaneContainerMixin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_SubPaneContainerMixin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_ControlPaneMixin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_ControlPaneMixin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="73" column="19" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="ResolverPane.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/ResolverPane.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-20.0">
+                  <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+                  <folding>
+                    <element signature="n#style#0;n#div#6;n#div#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_ResolverControl.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-0.0">
+                  <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+                  <folding>
+                    <element signature="n#style#0;n#td#8;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                    <marker date="1464622103000" expanded="true" signature="7653:7863" placeholder="..." />
+                    <marker date="1464622103000" expanded="true" signature="7653:7876" placeholder="..." />
+                    <marker date="1464622103000" expanded="true" signature="7653:7878" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="pane-resolver.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-resolver.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-29.375">
+                  <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="states.css" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/states.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.15320334">
+                  <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="switches.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/switches.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-8.823529">
+                  <caret line="64" column="27" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CharGen.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/nls/CharGen.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-28.11111">
+                  <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_ResolverControl.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="125" column="18" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="_ResolverControl.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.45454547">
+                  <caret line="47" column="58" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
+                  <folding>
+                    <element signature="n#style#0;n#td#8;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#10;n#tr#1;n#tbody#1;n#table#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#10;n#tr#2;n#tbody#1;n#table#0;n#div#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -155,10 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/splash.css" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemHeader.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ArmourControl.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemControl.html" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/header.css" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/widget/templates/Switch.html" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/widget/Switch.js" />
@@ -176,7 +170,6 @@
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/powers/templates/_PowerControl.html" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/control-base.css" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_FeatureControlBase.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/nls/CharGen.js" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-name.css" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/name/NamePane.js" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/ohun/_OhunControl.js" />
@@ -196,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_OopPane.js" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/templates/_TraitFeatureControl.html" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/KnacksPane.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/switches.css" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/_KnackControl.js" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/character-store.js" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_ControlContainerMixin.js" />
@@ -206,6 +198,12 @@
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/numbers/NumbersPane.js" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/globals.css" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css" />
+        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/nls/CharGen.js" />
+        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js" />
+        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-resolver.css" />
+        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/switches.css" />
+        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html" />
+        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/states.css" />
       </list>
     </option>
   </component>
@@ -215,7 +213,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1534" />
+    <option name="width" value="1620" />
     <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -308,6 +306,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nls" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -494,6 +496,132 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="numbers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dojo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="primejunta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chargen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ip" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dojo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="primejunta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chargen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ip" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resolver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dojo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="primejunta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chargen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ip" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resolver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -727,12 +855,6 @@
       <created>1442586349278</created>
       <option name="number" value="Default" />
       <updated>1442586349278</updated>
-    </task>
-    <task id="LOCAL-00140" summary="Cleaner UI for creating weapons.">
-      <created>1446983192843</created>
-      <option name="number" value="00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1446983192843</updated>
     </task>
     <task id="LOCAL-00141" summary="Sorted inventory.">
       <created>1446990467114</created>
@@ -1022,7 +1144,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464526772772</updated>
     </task>
-    <option name="localTasksCounter" value="189" />
+    <task id="LOCAL-00189" summary="Tweaks to colours, and fixes layout issue with stats pane.">
+      <created>1464550444596</created>
+      <option name="number" value="00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1464550444596</updated>
+    </task>
+    <option name="localTasksCounter" value="190" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1035,10 +1163,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1534" height="1440" extended-state="6" />
+    <frame x="0" y="0" width="1620" height="1440" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3139458" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2532833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919708" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28613138" sideWeight="0.50184697" order="9" side_tool="true" content_ui="tabs" />
@@ -1090,7 +1218,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have support for portraits." />
     <MESSAGE value="Solves problem where transitioning back to splash leaves it sometimes zoomed all the way in to red." />
     <MESSAGE value="Better mode switching." />
     <MESSAGE value="Harmonizes chrome across assets." />
@@ -1115,7 +1242,8 @@
     <MESSAGE value="Fixes problem with data leaking from one character to another when switching between them." />
     <MESSAGE value="Fixes issue starting character creation over, and makes knacks immutable for saved characters." />
     <MESSAGE value="Fixes bug which causes powers or ohun not to appear in control pane." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes bug which causes powers or ohun not to appear in control pane." />
+    <MESSAGE value="Tweaks to colours, and fixes layout issue with stats pane." />
+    <option name="LAST_COMMIT_MESSAGE" value="Tweaks to colours, and fixes layout issue with stats pane." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1124,54 +1252,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/spacer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/xman.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/_OgaControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/chargen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/dijit.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_OopPane.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="96" selection-start-line="55" selection-start-column="96" selection-end-line="55" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/templates/_TraitFeatureControl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.0">
@@ -1379,14 +1459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/switches.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-43.0">
-          <caret line="83" column="31" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/KnacksPane.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1476,7 +1548,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/powers/PowersPane.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.71389645">
           <caret line="74" column="51" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="51" />
           <folding />
         </state>
@@ -1484,7 +1556,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_SubPaneContainerMixin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.537693">
           <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
@@ -1492,7 +1564,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_ControlPaneMixin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.76930064">
           <caret line="73" column="19" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
           <folding />
         </state>
@@ -1508,7 +1580,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/numbers/NumbersPane.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.7629428">
           <caret line="76" column="60" selection-start-line="76" selection-start-column="60" selection-end-line="76" selection-end-column="60" />
           <folding />
         </state>
@@ -1535,9 +1607,9 @@
         <state vertical-scroll-proportion="-1.875">
           <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1546,6 +1618,69 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35468894">
           <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/ResolverPane.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.0">
+          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#6;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/nls/CharGen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.11111">
+          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="125" column="18" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding>
+            <element signature="n#style#0;n#td#8;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1464622103000" expanded="true" signature="7653:7863" placeholder="..." />
+            <marker date="1464622103000" expanded="true" signature="7653:7876" placeholder="..." />
+            <marker date="1464622103000" expanded="true" signature="7653:7878" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/switches.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.823529">
+          <caret line="64" column="27" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-resolver.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.375">
+          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/states.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15320334">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
           <folding />
         </state>
       </provider>

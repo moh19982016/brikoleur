@@ -1,11 +1,11 @@
 .br-status-wounded .br-nameContainer {
-    background-color: #800;
+    background-color: #800 !important;
 }
 .br-status-incapacitated .br-nameContainer {
-    background-color: #888;
+    background-color: #888 !important;
 }
 .br-status-dead .br-nameContainer {
-    background-color: black;
+    background-color: black !important;
 }
 .br-status-dead .br-characterName {
     color: #444;
