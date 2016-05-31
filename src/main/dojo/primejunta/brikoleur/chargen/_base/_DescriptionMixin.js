@@ -47,7 +47,10 @@ function( declare,
                 domClass.replace( this.descriptionButton, "fa-chevron-circle-down", "fa-chevron-circle-right" );
                 domClass.add( this.domNode, "br-descriptionOpen" );
                 setTimeout( lang.hitch( this, function() {
-                    this.descriptionWrapper.style.height = "auto";
+                    if( this.descriptionWrapper )
+                    {
+                        this.descriptionWrapper.style.height = "auto";
+                    }
                 }), 300 );
             }
             else if( !this.description )

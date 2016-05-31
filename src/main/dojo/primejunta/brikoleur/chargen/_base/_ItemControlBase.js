@@ -248,6 +248,10 @@ function( declare,
          */
         set : function( /* string */ prop, /* {*} */ val )
         {
+            if( this._destroyed )
+            {
+                return;
+            }
             if( prop == "value" )
             {
                 this._setValue( val );
@@ -358,10 +362,17 @@ function( declare,
          */
         _setValue : function( /* string */ val )
         {
-            this.valueNode.innerHTML = this._formatValue( val );
-            if( this._selector )
+            try
             {
-                this._selector.set( "value", val );
+                this.valueNode.innerHTML = this._formatValue( val );
+                if( this._selector )
+                {
+                    this._selector.set( "value", val );
+                }
+            }
+            catch( e )
+            {
+                console.log( "WTF?", this, this._destroyed );
             }
         },
         /**

@@ -102,6 +102,25 @@ function( declare,
             this._printFeature( kwObj, ctrl.domNode, "before" );
             topic.publish( "/AddFreeFeature/", ctrl.key, this.state.free_features );
         },
+        createSelector : function()
+        {
+            this.inherited( arguments );
+            setTimeout( lang.hitch( this, function()
+            {
+                if( !this.complete && !this._destroyed )
+                {
+                    this._onSelectorChange( this._selector.get( "value" ) );
+                }
+            } ), 1 );
+        },
+        showDescription : function()
+        {
+
+        },
+        hideDescription : function()
+        {
+
+        },
         /**
          * If the gift was an Ohun or Power, publish a topic to that effect, with data looked up with ._lookupProperty.
          *
@@ -187,6 +206,15 @@ function( declare,
             }
             this._displayFeatures( features );
         },
+        _onSelectorChange : function( val )
+        {
+            this.inherited( arguments );
+            var data = this._store.get( val );
+            if( data && data.features )
+            {
+                this._printFeatures( data.features );
+            }
+        },
         /**
          * Iterate through features and handle the three possible types: "knack," which adds a bonus knack, "free,"
          * which adds a control letting you make one (or recurses with values retrieved from data), or other, which
@@ -197,6 +225,7 @@ function( declare,
          */
         _displayFeatures : function( /* Object[] */ features )
         {
+            domConstruct.empty( this.featuresNode );
             for( var i = 0; i < features.length; i++ )
             {
                 switch( features[ i ].type )
@@ -236,6 +265,18 @@ function( declare,
             }
             this.showDescription();
         },
+        _printFeatures : function( features )
+        {
+            domConstruct.empty( this.featuresNode );
+            if( !features || !features.length )
+            {
+                return;
+            }
+            for( var i = 0; i < features.length; i++ )
+            {
+                this._printFeature( features[ i ] );
+            }
+        },
         /**
          * Prints out feature description as list item in refNode at pos.
          *
@@ -246,7 +287,18 @@ function( declare,
          */
         _printFeature : function( /* Object */ feature, /* node */ refNode, /* string */ pos )
         {
-            domConstruct.create( "li", { innerHTML : "<b>" + feature.name + ":</b> " + feature.value }, refNode || this.featuresNode, pos || "last" );
+            if( !feature.name )
+            {
+                return;
+            }
+            else if( feature.value )
+            {
+                domConstruct.create( "li", { innerHTML : "<b>" + feature.name + ":</b> " + feature.value }, refNode || this.featuresNode, pos || "last" );
+            }
+            else
+            {
+                domConstruct.create( "li", { innerHTML : "<b>" + feature.name + "</b>" }, refNode || this.featuresNode, pos || "last" );
+            }
         }
     });
 });
