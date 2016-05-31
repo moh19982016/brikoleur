@@ -73,6 +73,19 @@
     font-size: 12px;
     padding: 4px;
     text-align:right;
+    bottom: 99px;
+    color: #444;
+    height: 18px;
+    left: -94px;
+    overflow: visible;
+    position: absolute;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    width: 200px;
+}
+
+.br-copyright a {
+    color: #444;
 }
 
 .br-compactLayout .br-headerContent .br-fieldLabel,

@@ -14,14 +14,14 @@
 .br-bonusHeader {
     display: inline-block;
     position: relative;
-    top: 14px;
+    top: 15px;
     left: 10px;
     margin: 0 auto;
     text-align: right;
-    transform: rotate(55deg);
-    -webkit-transform: rotate(55deg);
-    -ms-transform: rotate(55deg);
-    -moz-transform: rotate(55deg);
+    transform: rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
 }
 
 .br-bonusButtons {

@@ -26,6 +26,13 @@ function( declare,
 {
     return declare( [ LayoutContainer, _TemplatedMixin, _WidgetsInTemplateMixin ], {
         /**
+         * URL to licensing information.
+         *
+         * @final
+         * @public string
+         */
+        licenseUrl : "http://shared.brikoleur.com/license.html",
+        /**
          * Localization.
          *
          * @final

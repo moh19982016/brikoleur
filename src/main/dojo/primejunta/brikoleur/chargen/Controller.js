@@ -100,13 +100,6 @@ function( declare,
          */
         manualUrl : "http://manual.brikoleur.com/",
         /**
-         * URL to licensing information.
-         *
-         * @final
-         * @public string
-         */
-        licenseUrl : "http://shared.brikoleur.com/license.html",
-        /**
          * Localization.
          *
          * @final

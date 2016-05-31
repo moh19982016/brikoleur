@@ -136,7 +136,7 @@ define({
         "BaseDamage" : "Base Dmg",
         "WeaponLevel" : "Wpn Lvl",
         "CalculatedDamage" : "Damage",
-        "ResultingDamage" : "Final",
+        "ResultingDamage" : "Final Dmg",
         // combat
         "StartCombat" : "Enter Combat",
         "ExitCombat" : "End Combat",
