@@ -115,11 +115,9 @@ function( declare,
         },
         showDescription : function()
         {
-
         },
         hideDescription : function()
         {
-
         },
         /**
          * If the gift was an Ohun or Power, publish a topic to that effect, with data looked up with ._lookupProperty.
@@ -209,10 +207,23 @@ function( declare,
         _onSelectorChange : function( val )
         {
             this.inherited( arguments );
+            domConstruct.empty( this.featuresNode );
             var data = this._store.get( val );
-            if( data && data.features )
+            if( !data )
+            {
+                return;
+            }
+            if( data.features )
             {
                 this._printFeatures( data.features );
+            }
+            if( data.ohun )
+            {
+                this._printTraitFeatures( i18n.Ohun, data.ohun );
+            }
+            if( data.powers )
+            {
+                this._printTraitFeatures( i18n.Powers, data.powers );
             }
         },
         /**
@@ -267,7 +278,6 @@ function( declare,
         },
         _printFeatures : function( features )
         {
-            domConstruct.empty( this.featuresNode );
             if( !features || !features.length )
             {
                 return;
@@ -275,6 +285,23 @@ function( declare,
             for( var i = 0; i < features.length; i++ )
             {
                 this._printFeature( features[ i ] );
+            }
+        },
+        _printTraitFeatures: function( type, features )
+        {
+            if( features && features.length > 0 )
+            {
+                for( var i = 0; i < features.length; i++ )
+                {
+                    this._printTraitFeature( type, features[ i ] );
+                }
+            }
+        },
+        _printTraitFeature : function( type, feature )
+        {
+            if( feature.name && feature.description )
+            {
+                domConstruct.create( "li", { innerHTML : "<b>" + type + " - " + feature.name + ":</b> " + feature.description }, this.featuresNode, "last" );
             }
         },
         /**
@@ -287,7 +314,7 @@ function( declare,
          */
         _printFeature : function( /* Object */ feature, /* node */ refNode, /* string */ pos )
         {
-            if( !feature.name )
+            if( !feature.name || feature.type == "oga" )
             {
                 return;
             }
