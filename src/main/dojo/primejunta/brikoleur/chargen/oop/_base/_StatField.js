@@ -7,6 +7,7 @@ define( [ "dojo/_base/declare",
           "dojo/_base/lang",
           "dojo/on",
           "dojo/topic",
+          "dojo/dom-construct",
           "./../../_base/_FieldBase",
           "dijit/form/Button",
           "dijit/form/NumberTextBox",
@@ -15,6 +16,7 @@ function( declare,
           lang,
           on,
           topic,
+          domConstruct,
           _FieldBase,
           Button,
           NumberTextBox,
@@ -82,6 +84,21 @@ function( declare,
                 {
                     this._incrementButton.domNode.style.display = juju < this.cost ? "none" : "unset";
                 } ) ) );
+            }
+            else
+            {
+                this._decrementButton =
+                new Button( {
+                    label : '<span class="br-stackedButtonLabel">'
+                            + '<span class="fa-stack">'
+                            + '<i class="fa fa-square fa-stack-2x br-red"></i>'
+                            + '<i class="fa fa-stack-1x fa-inverse fa-minus"></i>'
+                            + '</span>'
+                            + '</span>',
+                    onClick : lang.hitch( this, this.sellPoint ),
+                    "class" : "br-smallButton br-hideInPlay",
+                    style : "visibility:hidden"
+                } ).placeAt( this.controlNode, "first" );
             }
             this.own( topic.subscribe( "/PleasePublishInfo/", lang.hitch( this, this.publishInfo ) ),
             on( this._input, "change", lang.hitch( this, function( val )

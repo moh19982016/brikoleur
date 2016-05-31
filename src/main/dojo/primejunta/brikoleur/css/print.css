@@ -12,7 +12,7 @@
 }
 
 .pr-printWrapper {
-    transform: scale( 1 );
+    transform: scale(1);
 }
 
 .pr-printPage {
@@ -44,7 +44,7 @@
 }
 
 .pr-nameArea {
-    transform : rotate( -270deg );
+    transform: rotate(-270deg);
 }
 
 .pr-contentArea {
@@ -56,7 +56,11 @@
     display: none;
 }
 
-.pr-printSheet .fa, .pr-printSheet .br-manualLink, .pr-printSheet .br-namePaneButtons, .pr-printSheet .br-addControl {
+.pr-printSheet .fa,
+.pr-printSheet .br-manualLink,
+.pr-printSheet .br-namePaneButtons,
+.pr-printSheet .br-addControl,
+.pr-printSheet .br-smallButton {
     display: none;
 }
 
@@ -98,27 +102,26 @@
     font-size: 24px;
 }
 
-@media print
-{
-    @page
-    {
+@media print {
+    @page {
         size: 297mm 210mm;
-        margin : 0.5cm;
+        margin: 0.5cm;
     }
+
     /* Needed to make page breaks work as intended on Firefox */
-    html, body, .pr-printSheet
-    {
-        overflow : visible !important;
+    html, body, .pr-printSheet {
+        overflow: visible !important;
     }
+
     .br-controller {
         display: none;
     }
-    .pr-printSheet
-    {
+
+    .pr-printSheet {
         display: block;
     }
-    .pr-printPage
-    {
+
+    .pr-printPage {
         margin: 0;
         border: none;
         box-shadow: none;
