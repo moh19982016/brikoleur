@@ -45,6 +45,8 @@
 
 .pr-nameArea {
     transform: rotate(-270deg);
+    white-space: nowrap;
+    overflow:visible;
 }
 
 .pr-contentArea {
@@ -64,13 +66,24 @@
     display: none;
 }
 
-.pr-printSheet .dijitCheckBoxChecked, .pr-printSheet .dijitCheckBoxDisabled {
-    background-position: -16px center !important;
+.flat .pr-printSheet .dijitCheckBoxIcon::before,
+.flat .pr-printSheet .dijitCheckBoxChecked::before,
+.flat .pr-printSheet .dijitCheckBoxCheckedDisabled::before {
+    content: "";
 }
 
-.pr-printSheet .dijitRadioChecked {
-    background-position: -112px center !important;
+.flat .pr-printSheet .dijitCheckBoxChecked {
+    background: none;
+    border-color: black;
+}
 
+
+.flat .pr-printSheet .dijitRadioChecked::after, .flat .pr-printSheet .dijitChecked .dijitRadioIcon::after {
+    opacity: 0;
+}
+
+.flat .pr-printSheet .dijitRadioChecked {
+    border-color: black;
 }
 
 .pr-printSheet .br-featurePane {
