@@ -34,6 +34,7 @@ function( lang,
             "delete" : "deleted",
             "flush" : "flushed"
         },
+        LOG_LEVELS : [ "debug", "info", "warn", "error", "fatal", "off" ],
         fileNameRegExp : /\.\./,
         /**
          * Writes message into response and ends stream. Default contentType is application/json and default status
@@ -211,58 +212,25 @@ function( lang,
                 req._reqMessage = message;
                 if( this.VALID_ACTION_STRINGS.indexOf( message.action_str ) == -1 )
                 {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Invalid action_str: " + message.action_str
-                    }]);
+                    return this.rejectRequest( "invalid_action_str" );
                 }
                 else if( !message.request_map )
                 {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing request_map."
-                    }]);
+                    return this.rejectRequest( "missing_request_map" );
                 }
                 else if( validDataTypes.indexOf( message.data_type ) == -1 )
                 {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Invalid data_type: " + message.data_type
-                    }]);
-                }
-                else if( typeof message.request_map.collection_name != "string" )
-                {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing request_map.collection_name."
-                    }]);
-                }
-                else if( message.action_str == "create" && !( message.request_map.object_data instanceof Object ) )
-                {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing object_data."
-                    }]);
-                }
-                else if( message.action_str == "update"
-                         && ( typeof message.request_map.object_id != "string"
-                              || !( message.request_map.object_data instanceof Object ) ) )
-                {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing object_id or missing object_data."
-                    }]);
-                }
-                else if( message.action_str == "delete"
-                         && typeof message.request_map.object_id != "string" )
-                {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing object_id."
-                    }]);
+                    return this.rejectRequest( "invalid_data_type" );
                 }
                 return new Deferred().resolve( message );
             }));
+        },
+        rejectRequest : function( userMessage )
+        {
+            return new Deferred().reject([{
+                code_key : "400",
+                user_message : userMessage || "invalid_request"
+            }]);
         },
         getResponseMessage : function( req, respData, logList, isError )
         {
@@ -272,8 +240,28 @@ function( lang,
                 action_str : isError ? actionStr + "_fail" : this.ACTION_MAP[ actionStr ],
                 data_type : reqMessage.data_type,
                 log_list : logList || [],
-                response_map : respData
+                response_map : respData || {}
             }
+        },
+        getErrorMessage : function( req, codeKey, codeStr, userMsg, errLevel )
+        {
+            return this.getResponseMessage( req, false, [
+                this.getLogItem( {
+                    code_key : codeKey,
+                    code_str : codeStr,
+                    user_msg : userMsg,
+                    level_int : errLevel || 3
+                } ) ], true );
+        },
+        getLogItem : function( kwObj )
+        {
+            return {
+                code_key : ( kwObj.code_key || "500" ) + "",
+                code_str : kwObj.code_str || "internal_error",
+                user_msg : kwObj.user_msg || "internal_error",
+                level_int : kwObj.level_int || 0,
+                level_str : this.LOG_LEVELS[ kwObj.level_int || 0 ]
+            };
         }
     }
 });

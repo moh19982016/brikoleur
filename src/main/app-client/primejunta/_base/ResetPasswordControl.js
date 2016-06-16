@@ -2,6 +2,7 @@ define( [ "dojo/_base/declare",
           "dojo/_base/lang",
           "dojo/on",
           "dojo/string",
+          "./util",
           "dijit/form/Form",
           "dijit/form/TextBox",
           "dijit/form/ValidationTextBox",
@@ -17,6 +18,7 @@ function( declare,
           lang,
           on,
           string,
+          util,
           Form,
           TextBox,
           ValidationTextBox,
@@ -30,17 +32,20 @@ function( declare,
           i18n )
 {
     return declare( [ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
-        SET_PASSWORD_URL : "setpw",
+        API_URL : "authenticate",
         dict : i18n,
         passwordRegExp : "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$",
         returnUrl : "",
         token : "",
-        user : "",
+        username : "",
+        displayName : "",
         status : "ok",
         templateString : template,
         postMixInProperties : function()
         {
             this.title = this.title || i18n.ResetPassword;
+            this.displayName = this.displayName || this.username;
+            this.resetMessage = string.substitute( i18n.ResetPasswordMessage, { displayName : this.displayName } );
         },
         postCreate : function()
         {
@@ -66,12 +71,14 @@ function( declare,
                 }
                 else
                 {
-                    jsonRequest.post( this.SET_PASSWORD_URL, {
-                        user : this.user,
+                    jsonRequest.post( this.API_URL, util.getRequestMessage( "update", "password", {
+                        username : this.username,
                         token : this.token,
                         password : vals.password
-                    } ).then(
-                    lang.hitch( this, this.handleResetResponse ), lang.hitch( this, this.handleResetError ) );
+                    } ) ).then(
+                        lang.hitch( this, this.handleResetResponse ),
+                        lang.hitch( this, this.handleResetError )
+                    );
                 }
             }
         },
@@ -93,7 +100,7 @@ function( declare,
         },
         handleResetResponse : function( resp )
         {
-            if( resp.status == "success" )
+            if( resp.action_str == "updated" )
             {
                 var vals = this.submitForm.getValues();
                 this.submitForm.reset();
@@ -106,8 +113,15 @@ function( declare,
         },
         handleResetError : function( err )
         {
-            this.displayMessage( i18n.UnexpectedError );
-            console.log( "Unexpected error registering user:", err );
+            if( util.hasStatus( err, "user_msg", "no_valid_token" ) )
+            {
+                this.displayMessage( string.substitute( i18n.CantResetPasswordMessage, { returnUrl : this.returnUrl } ) );
+            }
+            else
+            {
+                this.displayMessage( i18n.UnexpectedError );
+                console.error( "Unexpected error resetting password:", err );
+            }
         }
     } );
 } );

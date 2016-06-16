@@ -1,6 +1,7 @@
 define( [ "dojo/_base/declare",
           "dojo/_base/lang",
           "dojo/topic",
+          "./util",
           "dijit/form/Form",
           "dijit/form/TextBox",
           "dijit/form/ValidationTextBox",
@@ -15,6 +16,7 @@ define( [ "dojo/_base/declare",
 function( declare,
           lang,
           topic,
+          util,
           Form,
           TextBox,
           ValidationTextBox,
@@ -28,8 +30,7 @@ function( declare,
           i18n )
 {
     return declare( [ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
-        TOKEN_ENDPOINT : "login",
-        RESET_PASSWORD_URL : "resetpw",
+        API_URL : "authenticate",
         REDIRECT_URL : "hello.html",
         dict : i18n,
         templateString : template,
@@ -44,20 +45,23 @@ function( declare,
             if( this.submitForm.validate() )
             {
                 var vals = this.submitForm.getValues();
-                //this.submitForm.reset();
                 this.pleaseLogin( vals );
             }
         },
         handleLoginResponse : function( resp )
         {
-            if( resp.status == "success" )
+            if( resp.action_str == "created" )
             {
                 if( !confirm( "Return to app?" ) ) return;
                 window.location.assign( this.REDIRECT_URL ); // forget about state for now
             }
-            else if( resp.status == "fail" && resp.cause == "invalid_grant" )
+            else if( util.hasStatus( resp, "user_msg", "invalid_grant" ) )
             {
                 this.displayMessage( i18n.LoginFailed );
+            }
+            else
+            {
+                this.handleLoginError( resp );
             }
         },
         handleLoginError : function( err )
@@ -87,14 +91,14 @@ function( declare,
         },
         resetPassword : function()
         {
-            jsonRequest.post( this.RESET_PASSWORD_URL, {
+            jsonRequest.post( this.API_URL, util.getRequestMessage( "create", "password_reset_token", {
                 locale : dojoConfig.locale,
-                user : this.usernameField.get( "value" ) }
-            ).then( lang.hitch( this, this.handleResetResponse ), lang.hitch( this, this.handleResetError ) );
+                username : this.usernameField.get( "value" )
+            } ) ).then( lang.hitch( this, this.handleResetResponse ), lang.hitch( this, this.handleResetError ) );
         },
         handleResetResponse : function( resp )
         {
-            if( resp.status == "success" )
+            if( resp.action_str == "created" )
             {
                 this.displayMessage( i18n.ResetMessageSent );
             }
@@ -113,7 +117,7 @@ function( declare,
         },
         pleaseLogin : function( credentials )
         {
-            jsonRequest.post( this.TOKEN_ENDPOINT, credentials ).then(
+            jsonRequest.post( this.API_URL, util.getRequestMessage( "create", "access_token", credentials ) ).then(
             lang.hitch( this, this.handleLoginResponse ), lang.hitch( this, this.handleLoginError ) );
         }
     } );

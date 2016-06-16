@@ -2,6 +2,7 @@ define( [ "dojo/_base/declare",
           "dojo/_base/lang",
           "dojo/on",
           "dojo/topic",
+          "./util",
           "dijit/form/Form",
           "dijit/form/TextBox",
           "dijit/form/ValidationTextBox",
@@ -17,6 +18,7 @@ function( declare,
           lang,
           on,
           topic,
+          util,
           Form,
           TextBox,
           ValidationTextBox,
@@ -30,7 +32,7 @@ function( declare,
           i18n )
 {
     return declare( [ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
-        REGISTER_URL : "register",
+        API_URL : "authenticate",
         dict : i18n,
         passwordRegExp : "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$",
         templateString : template,
@@ -50,7 +52,7 @@ function( declare,
                 }
                 else
                 {
-                    jsonRequest.post( this.REGISTER_URL, this.submitForm.getValues() ).then(
+                    jsonRequest.post( this.API_URL, util.getRequestMessage( "create", "user", this.submitForm.getValues() ) ).then(
                     lang.hitch( this, this.handleRegisterResponse ), lang.hitch( this, this.handleRegisterError ) );
                 }
             }
@@ -73,14 +75,14 @@ function( declare,
         },
         handleRegisterResponse : function( resp )
         {
-            if( resp.status == "success" )
+            if( resp.action_str == "created" )
             {
                 var vals = this.submitForm.getValues();
                 this.submitForm.reset();
                 this.displayMessage( i18n.RegistrationSuccessful );
                 setTimeout( lang.hitch( topic, topic.publish, "/PleaseLogin", { username : vals.username, password : vals.password } ), 5000 );
             }
-            else if( resp.status == "fail" && resp.cause == "duplicate_unique_property_exists" )
+            else if( util.hasStatus( resp, "user_msg", "duplicate_unique_property_exists" ) )
             {
                 this.displayMessage( i18n.UserOrEmailExists );
             }
@@ -92,7 +94,7 @@ function( declare,
         handleRegisterError : function( err )
         {
             this.displayMessage( i18n.UnexpectedError );
-            console.log( "Unexpected error registering user:", err );
+            console.error( "Unexpected error registering user:", err );
         }
     } );
 } );
