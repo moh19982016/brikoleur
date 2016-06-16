@@ -31,7 +31,7 @@ function( declare,
 {
     return declare( [ _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin ], {
         API_URL : "authenticate",
-        REDIRECT_URL : "hello.html",
+        redirectUrl : "",
         dict : i18n,
         templateString : template,
         postMixInProperties : function()
@@ -53,7 +53,7 @@ function( declare,
             if( resp.action_str == "created" )
             {
                 if( !confirm( "Return to app?" ) ) return;
-                window.location.assign( this.REDIRECT_URL ); // forget about state for now
+                window.location.assign( this.redirectUrl ); // forget about state for now
             }
             else if( util.hasStatus( resp, "user_msg", "invalid_grant" ) )
             {

@@ -43,7 +43,7 @@
                 function( LoginControl,
                           RegisterUserControl )
                 {
-                  new LoginControl( { "class" : "br-userControl" } ).placeAt( "loginControlNode" ).startup();
+                  new LoginControl( { "class" : "br-userControl", redirectUrl : "/index.html" } ).placeAt( "loginControlNode" ).startup();
                   new RegisterUserControl( { "class" : "br-userControl" } ).placeAt( "registerControlNode" ).startup();
                 } );
       }
