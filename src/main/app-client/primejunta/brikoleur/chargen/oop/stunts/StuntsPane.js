@@ -73,6 +73,7 @@ function( declare,
          */
         postCreate : function()
         {
+            this.allowedControls = 0;
             this.own( topic.subscribe( "/TrainingAdded/", lang.hitch( this, this.checkStunt ) ) );
             this.own( topic.subscribe( "/TrainingRemoved/", lang.hitch( this, this.removeStunt ) ) );
             this.onAddDescendant();

@@ -1,11 +1,13 @@
 define( [ "dojo/_base/lang",
           "dojo/Deferred",
+          "dojo/node!stream",
           "dojo/node!config",
           "dojo/node!fs",
           "dojo/node!path",
           "dojo/node!nodemailer" ],
 function( lang,
           Deferred,
+          stream,
           config,
           fs,
           path,
@@ -53,31 +55,41 @@ function( lang,
             var statusCode = message.status || 200;
             var headers = message.headers || {};
             var body = message.body || {};
-            if( message.isStream )
+            var inStream;
+            if( body.pipe )
             {
-                resp.writeHead( statusCode, lang.mixin( {
-                    'Content-Type': contentType }, headers ) );
-                if( body.pipe )
-                {
-                    body.pipe( resp );
-                }
-                else
-                {
-                    this.writeResponse( resp, { status : 500, body : { error : "internal_error" } } );
-                }
+                inStream = body;
             }
             else
             {
-                if( contentType == "application/json" && typeof body != "string" )
+                if( typeof body != "string" )
                 {
-                    body = JSON.stringify( body, false, 2 );
+                    if( contentType == "application/json" )
+                    {
+                        try
+                        {
+                            body = JSON.stringify( body, false, 2 );
+                        }
+                        catch( e )
+                        {
+                            this.writeResponse( resp, { status : 500, body : { error : internal_error } } );
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        this.writeResponse( resp, { status : 500, body : { error : internal_error } } );
+                        return;
+                    }
                 }
-                resp.writeHead( statusCode, lang.mixin( {
-                    'Content-Length': body.length,
-                    'Content-Type': contentType }, headers ) );
-                resp.write( body );
-                resp.end();
+                inStream = new stream.Readable;
+                inStream.push( body );
+                inStream.push( null );
             }
+            resp.writeHead( statusCode, lang.mixin( {
+                'Content-Type': contentType
+            }, headers ) );
+            inStream.pipe( resp );
         },
         readBody : function( req, handleAs )
         {

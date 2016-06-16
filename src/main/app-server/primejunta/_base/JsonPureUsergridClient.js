@@ -49,34 +49,26 @@ function( declare,
             {
                 if( typeof message.request_map.collection_name != "string" )
                 {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing request_map.collection_name."
-                    }]);
+                    return util.rejectRequest( "missing_request_map.collection_name" );
                 }
                 else if( message.action_str == "create" && !( message.request_map.object_data instanceof Object ) )
                 {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing object_data."
-                    }]);
+                    return util.rejectRequest( "missing_object_data" );
                 }
                 else if( message.action_str == "update"
                          && ( typeof message.request_map.object_id != "string"
                               || !( message.request_map.object_data instanceof Object ) ) )
                 {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing object_id or missing object_data."
-                    }]);
+                    return util.rejectRequest( "missing_object_id_or_object_data" );
                 }
                 else if( message.action_str == "delete"
                          && typeof message.request_map.object_id != "string" )
                 {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing object_id."
-                    }]);
+                    return util.rejectRequest( "missing_object_id" );
+                }
+                else
+                {
+                    return new Deferred().resolve( message );
                 }
             } ) );
         },

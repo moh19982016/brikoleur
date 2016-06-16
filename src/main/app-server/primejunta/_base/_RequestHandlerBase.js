@@ -62,15 +62,26 @@ function( declare,
             {
                 segm = segm.substring( 0, segm.indexOf( '?' ) );
             }
-            return util.getStream( config.get( "paths" ).dojo + segm );
+            return this._serveStaticResource( config.get( "paths" ).dojo + segm );
         },
         serveClientResource : function( req )
         {
-            return util.getStream( "app-client" + req.url.substring( "/app-client".length ) );
+            return this._serveStaticResource( "app-client" + req.url.substring( "/app-client".length ) );
         },
         serveSharedResource : function( req )
         {
-            return util.getStream( "app" + req.url.substring( "/app".length ) );
+            return this._serveStaticResource( "app" + req.url.substring( "/app".length ) );
+        },
+        _serveStaticResource : function( path )
+        {
+            return util.getStream( path ).then( lang.hitch( this, function( reslt )
+            {
+                return new Deferred().resolve( reslt );
+            }),
+            lang.hitch( this, function()
+            {
+                return new Deferred().reject( { "status" : 404, "message" : "not_found" } );
+            }));
         },
         defaultRequestHandler : function( req )
         {
@@ -86,7 +97,12 @@ function( declare,
         handleError : function( req, resp, err )
         {
             // maybe do some logging here also?
-            if( err && err instanceof Array )
+            if( err && err.status )
+            {
+                // this was a call for a static resource, not an API call
+                util.writeResponse( resp, { body : err.message, status : err.status } );
+            }
+            else if( err && err instanceof Array )
             {
                 util.writeResponse( resp, { body : util.getResponseMessage( req, false, err, true ) } );
             }

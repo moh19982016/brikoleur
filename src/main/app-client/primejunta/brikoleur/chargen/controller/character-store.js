@@ -106,7 +106,7 @@ function( declare,
          */
         doSaveCharacter : function()
         {
-            var cName = this.characterPane.panes.name.get( "state" ).characterName;
+            var cName = this.characterPane.panes.character_name.get( "state" );
             var juju = this.get( "juju" );
             if( !this.is_new )
             {
@@ -184,7 +184,7 @@ function( declare,
          */
         deleteCharacter : function()
         {
-            var charName = this.characterPane.panes.name.get( "state" ).characterName;
+            var charName = this.characterPane.panes.character_name.get( "state" );
             var keys = CharacterStore.list();
             if( charName && array.indexOf( keys, charName ) != -1 )
             {
@@ -208,9 +208,9 @@ function( declare,
          */
         revertCharacter : function()
         {
-            if( this.characterPane.panes.name.get( "state" ).characterName )
+            if( this.characterPane.panes.character_name.get( "state" ) )
             {
-                this.loadCharacter( this.characterPane.panes.name.get( "state" ).characterName, true );
+                this.loadCharacter( this.characterPane.panes.character_name.get( "state" ), true );
             }
         },
         downloadCharacters : function()
@@ -227,7 +227,7 @@ function( declare,
             domConstruct.create( "div", {} ) );
             for( var i = 0; i < keys.length; i++ )
             {
-                var name = CharacterStore.load( keys[ i ] ).name.characterName;
+                var name = CharacterStore.load( keys[ i ] ).character_name;
                 var row = domConstruct.create( "label", { "class" : "br-characterListItem" }, div );
                 var cb = new CheckBox( { value : keys[ i ] } ).placeAt( row );
                 on( cb, "change", lang.hitch( this, this._updateDownloadLink, div, link ) );

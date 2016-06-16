@@ -48,7 +48,7 @@ function( declare,
         setupPanes : function()
         {
             domClass.add( this.domNode, "br-outOfCombat br-inPlay" );
-            this._addPane( "name", new NamePane( { manager : this } ).placeAt( this.nameContainer ) );
+            this._addPane( "character_name", new NamePane( { manager : this } ).placeAt( this.nameContainer ) );
             this._addPane( "knacks", new ResolverPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "gear", new InventoryPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "numbers", new NumbersPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );

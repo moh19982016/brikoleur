@@ -22,7 +22,7 @@ function( declare,
     return declare( [ _WidgetBase, CloudClient ], {
         authorizationEndpoint : "/login.html",
         returnUrl : "/hello.html",
-        apiUrl : "pirates",
+        apiUrl : "brikoleur",
         _defaultData : {
             name : "cook",
             hello : "Stay in the kitchen!"

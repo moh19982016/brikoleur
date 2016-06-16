@@ -10,6 +10,6 @@ function( lang,
     return {
         "authenticate" : lang.hitch( mgr, mgr.authenticate ),
         "resetpw.html" : lang.hitch( mgr, mgr.serveResetPasswordForm ),
-        "pirates" : lang.hitch( ugc, ugc.handleRequest )
+        "brikoleur" : lang.hitch( ugc, ugc.handleRequest )
     };
 });

@@ -177,6 +177,20 @@ function( lang,
             }
             return n;
         },
+        countCompleteControls : function( /* Widget[] */ controls )
+        {
+            controls = controls || [];
+            var n = 0;
+            for( var i = 0; i < controls.length; i++ )
+            {
+                if( controls[ i ].complete )
+                {
+                    n++;
+                    n += this.countCompleteControls( controls[ i ].controls );
+                }
+            }
+            return n;
+        },
         /**
          * Removes falsy members from arr and returns the result. Used in connection with .getProperties.
          *

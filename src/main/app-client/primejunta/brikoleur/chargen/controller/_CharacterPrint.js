@@ -16,7 +16,7 @@ function( declare,
         templateString : template,
         postCreate : function()
         {
-            var name = util.escape( this.manager.panes.name.get( "state" ).characterName );
+            var name = util.escape( this.manager.panes.character_name.get( "state" ) );
             this.nameNode1.innerHTML = name;
             this.nameNode2.innerHTML = name;
             for( var o in this.manager.panes )

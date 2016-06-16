@@ -54,7 +54,7 @@ function( declare,
                 for( var i = 0; i < chars.length; i++ )
                 {
                     var manager = this.manager;
-                    var name = chars[ i ].name.characterName;
+                    var name = chars[ i ].character_name;
                     var present = ( array.indexOf( keys, name ) != -1 );
                     var row = domConstruct.create( "label", {
                         "class" : "br-characterListItem" + ( present ? " br-characterPresent" : "" )

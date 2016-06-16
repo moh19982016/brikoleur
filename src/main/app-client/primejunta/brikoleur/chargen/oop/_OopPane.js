@@ -45,7 +45,7 @@ function( declare,
          */
         setupPanes : function()
         {
-            this._addPane( "name", new NamePane().placeAt( this.nameContainer ) );
+            this._addPane( "character_name", new NamePane().placeAt( this.nameContainer ) );
             this._addPane( "traits", new TraitsPane( { dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "knacks", new KnacksPane( { minimized : true, manualMaximizeOnly : true, dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
             this._addPane( "numbers", new NumbersPane( { minimized : true, dock : this.dockContainer } ).placeAt( this.dynamicGrid ) );
@@ -66,13 +66,17 @@ function( declare,
          */
         getAllowedStunts : function()
         {
-            var stunts = util.getProperties( this.panes.knacks.controls, {
-                property : "complete",
-                recurse : true,
-                level : 1,
-                filter : true
-            } );
-            return stunts.length;
+            var n = 0;
+            var controls = this.panes.knacks.controls;
+            for( var i = 0; i < controls.length; i++ )
+            {
+                console.log( controls[ i ].get( "state" ).type  );
+                if( controls[ i ].get( "state" ).type == "combat" )
+                {
+                    n += util.countCompleteControls( controls[ i ].controls );
+                }
+            }
+            return n;
         }
     } );
 } );

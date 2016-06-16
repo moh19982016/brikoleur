@@ -131,7 +131,8 @@ function( declare,
             this._loadSettings();
             this.own(
                 topic.subscribe( "/PleaseAutoSave/", lang.hitch( this, this.saveCharacter, true ) ),
-                topic.subscribe( "/JujuReleased/", lang.hitch( this, this.onReleaseJuju ) )
+                topic.subscribe( "/JujuReleased/", lang.hitch( this, this.onReleaseJuju ) ),
+                topic.subscribe( "/PleaseRefreshEkip/", lang.hitch( this, this.refreshEkip ) )
             );
         },
         /**
@@ -347,7 +348,7 @@ function( declare,
             }
             else if( prop == "charName" )
             {
-                return this.characterPane.panes.name.get( "state" ).characterName;
+                return this.characterPane.panes.character_name.get( "state" );
             }
             else
             {
@@ -552,6 +553,10 @@ function( declare,
                 this.loadingTemplate = true;
             }
             this.characterPane.set( "state", state );
+            if( !state.type == "template" )
+            {
+                // lock the name input
+            }
             this.publishJuju();
             setTimeout( lang.hitch( this, function()
             {

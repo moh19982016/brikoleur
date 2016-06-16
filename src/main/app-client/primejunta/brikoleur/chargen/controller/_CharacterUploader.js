@@ -27,10 +27,10 @@ function( declare,
             var msg = i18n.NoCharactersToSave;
             for( var i = 0; i < this.characterData.length; i++ )
             {
-                if( this.selected[ this.characterData[ i ].name.characterName ] )
+                if( this.selected[ this.characterData[ i ].character_name ] )
                 {
                     msg = i18n.CharactersSaved;
-                    CharacterStore.save( this.characterData[ i ].name.characterName, this.characterData[ i ] );
+                    CharacterStore.save( this.characterData[ i ].character_name, this.characterData[ i ] );
                 }
             }
             this.manager.refreshEkip();

@@ -45,9 +45,7 @@ function( declare,
         {
             if( prop == "state" )
             {
-                return {
-                    characterName : this.nameInput.get( "value" )
-                };
+                return this.nameInput.get( "value" );
             }
             else
             {
@@ -81,11 +79,7 @@ function( declare,
          */
         _setState : function( /* Object */ state )
         {
-            this.nameInput.set( "value", state.characterName );
-            if( !state.is_template )
-            {
-                this.nameInput.set( "disabled", true );
-            }
+            this.nameInput.set( "value", state );
         }
     });
 });

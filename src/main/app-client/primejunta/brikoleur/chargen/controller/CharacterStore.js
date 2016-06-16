@@ -5,12 +5,27 @@
  *
  * @public Class
  */
-define([ "dojo/_base/array",
-         "dojo/json" ],
-function( array,
-          json )
+define([ "dojo/_base/declare",
+         "dojo/_base/lang",
+         "dojo/_base/array",
+         "dojo/json",
+         "dojo/topic",
+         "dojo/Deferred",
+         "primejunta/_base/CloudClient" ],
+function( declare,
+          lang,
+          array,
+          json,
+          topic,
+          Deferred,
+          CloudClient )
 {
-    return {
+    var ctor = declare( [], {
+        postscript : function()
+        {
+            this._cc = new CloudClient({ apiUrl : "brikoleur" });
+            this._sync();
+        },
         /**
          * Store name. Everything will be stored in .localStorage behind this prefix.
          *
@@ -44,7 +59,10 @@ function( array,
          */
         save : function( /* string */ name, /* Object */ obj )
         {
-            localStorage[ this.STORE_NAME + "." + name ] = json.stringify( obj );
+            console.log( "SAVING", obj );
+            delete obj.timestamp;
+            this._save( name, obj );
+            this._push( obj );
         },
         /**
          * Serves data matching name from store as Object, or false if no match is found.
@@ -112,6 +130,49 @@ function( array,
         get : function( prop )
         {
             return localStorage[ this.SETTINGS_NAME + "." + prop ];
+        },
+        _save : function( name, obj )
+        {
+            localStorage[ this.STORE_NAME + "." + name ] = json.stringify( obj );
+        },
+        _sync : function()
+        {
+            this._pullAll().then( lang.hitch( this, this._pushAll() ) );
+        },
+        _pullAll : function()
+        {
+            return this._cc.retrieveObjects( "characters" ).then( lang.hitch( this, function( resp )
+            {
+                var chars = resp.response_map.entities;
+                for( var i = 0; i < chars.length; i++ )
+                {
+                    chars[ i ].timestamp = resp.response_map.timestamp;
+                    this._save( chars[ i ].character_name, chars[ i ] );
+                }
+                topic.publish( "/PleaseRefreshEkip/" );
+                return new Deferred().resolve();
+            } ) );
+        },
+        _push : function( char )
+        {
+            this._cc.createObject( "characters", char ).then( lang.hitch( this, function( char, resp )
+            {
+                char.timestamp = resp.response_map.timestamp;
+                this._save( char.character_name, char );
+            }, char ) );
+        },
+        _pushAll : function()
+        {
+            var chars = this.list();
+            for( var i = 0; i < chars.length; i++ )
+            {
+                var char = this.load( chars[ i ] );
+                if( !char.timestamp )
+                {
+                    this._push( char );
+                }
+            }
         }
-    };
+    });
+    return new ctor();
 });
