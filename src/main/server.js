@@ -2,8 +2,8 @@
  * Boilerplate for booting up a Node.js app written in Dojo. This will pull up Dojo, then the bootstrap for the server
  * app (app-server/server.js).
  */
-// Configuration parameters. Need to find a way to easily change this for deployed/in-IDE apps...
-serverConfig = require( "./config/config.js" );
+// Configuration parameters.
+var config = require( "config" );
 // The module to bootstrap.
 var loadModule = "app-server/primejunta/_base/bootstrap";
 // Configuration Object for Dojo Loader:
@@ -21,7 +21,7 @@ dojoConfig = {
     packages : [
         {
             name : "dojo",
-            location : serverConfig.paths.dojo + "/dojo" // This is an external dependency.
+            location : config.get( "paths" ).dojo + "/dojo" // This is an external dependency.
         },
         {
             name : "app",
@@ -38,4 +38,4 @@ dojoConfig = {
     deps : [ loadModule ] // An array of modules to load on "boot"
 };
 // Now load the Dojo loader
-require( serverConfig.paths.dojo + "/dojo/dojo.js" );
+require( config.get( "paths" ).dojo + "/dojo/dojo.js" );

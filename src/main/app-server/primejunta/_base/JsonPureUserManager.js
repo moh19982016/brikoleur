@@ -6,6 +6,7 @@ define([ "dojo/_base/declare",
          "./util",
          "app/primejunta/_base/json-request",
          "app-server/primejunta/_base/UsergridClient",
+         "dojo/node!config",
          "dojo/node!cookie",
          "dojo/node!object-hash",
          "dojo/text!./templates/ResetPasswordForm.html",
@@ -18,14 +19,15 @@ function( declare,
           util,
           jsonRequest,
           UsergridClient,
+          config,
           cookie,
           hash,
           resetPasswordForm,
           i18n )
 {
     return declare( [], {
-        TOKEN_ENDPOINT : serverConfig.usergrid.url + "/" + serverConfig.usergrid.organizationName + "/" + serverConfig.usergrid.applicationName + "/token",
-        PWRESET_PATH : "/" + serverConfig.usergrid.organizationName + "/" + serverConfig.usergrid.applicationName + "/users",
+        TOKEN_ENDPOINT : config.get( "usergrid" ).url + "/" + config.get( "usergrid" ).organizationName + "/" + config.get( "usergrid" ).applicationName + "/token",
+        PWRESET_PATH : "/" + config.get( "usergrid" ).organizationName + "/" + config.get( "usergrid" ).applicationName + "/users",
         postscript : function()
         {
             this._ugc = new UsergridClient( { mode : "application" } );
@@ -100,7 +102,7 @@ function( declare,
         },
         registerUser : function( req, parsedRequest )
         {
-            return jsonRequest.post( serverConfig.usergrid.url + "/udwc/brikoleur/users", parsedRequest.request_map ).then(
+            return jsonRequest.post( config.get( "usergrid" ).url + "/udwc/brikoleur/users", parsedRequest.request_map ).then(
                 lang.hitch( this, function( _resp )
                 {
                     return new Deferred().resolve({
@@ -147,7 +149,7 @@ function( declare,
                     user.now = new Date();
                     user.salt = ",.nn,asf knhjsadfui756fsh43 hjaku2ﬁª d˛√ﬁªa afl.";
                     var tkn = hash( user );
-                    var link = serverConfig.users.resetpw.url + ".html?username=" + encodeURIComponent( user.username ) + "&token=" + tkn + "&locale=" + ( parsedRequest.locale || "en" );
+                    var link = config.get( "users" ).resetpw.url + ".html?username=" + encodeURIComponent( user.username ) + "&token=" + tkn + "&locale=" + ( parsedRequest.locale || "en" );
                     return this._ugc.put( this.PWRESET_PATH + "/" + user.username, { "pwreset" : tkn, "pwresettime" : new Date().getTime() } ).then( lang.hitch( this, function()
                     {
                         util.sendMail({
@@ -178,7 +180,7 @@ function( declare,
                         username : props.username,
                         displayName : user.name,
                         status : "ok",
-                        returnUrl : serverConfig.users.resetpw.returnUrl
+                        returnUrl : config.get( "users" ).resetpw.returnUrl
                     } );
                 }
                 else
@@ -203,7 +205,7 @@ function( declare,
                 username : "",
                 displayName : "",
                 status : "failed",
-                returnUrl : serverConfig.users.resetpw.returnUrl
+                returnUrl : config.get( "users" ).resetpw.returnUrl
             });
         },
         setPassword : function( req, parsedRequest )
@@ -232,7 +234,7 @@ function( declare,
         },
         _tokenIsValid : function( token, user )
         {
-            return token == user.pwreset && new Date().getTime() < user.pwresettime + serverConfig.users.resetpw.expires * 1000
+            return token == user.pwreset && new Date().getTime() < user.pwresettime + config.get( "users" ).resetpw.expires * 1000
         },
         _fetchUser : function( userIdentifier )
         {

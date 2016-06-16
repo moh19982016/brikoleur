@@ -1,20 +1,26 @@
 define( [ "dojo/_base/lang",
-          "dojo/string",
           "dojo/Deferred",
+          "dojo/node!config",
           "dojo/node!fs",
           "dojo/node!path",
-          "dojo/node!nodemailer",
-          "dojo/text!./templates/ErrorTemplate.html" ],
+          "dojo/node!nodemailer" ],
 function( lang,
-          string,
           Deferred,
+          config,
           fs,
           path,
-          nodemailer,
-          errorTemplate )
+          nodemailer )
 {
     return {
         RESPONSE_PARAMS_TO_SANITIZE : [ "exception", "application", "organization" ],
+        ACTION_MAP : {
+            "create" : "created",
+            "retrieve" : "retrieved",
+            "update" : "updated",
+            "delete" : "deleted",
+            "flush" : "flushed"
+        },
+        LOG_LEVELS : [ "debug", "info", "warn", "error", "fatal", "off" ],
         contentTypes : {
             "js" : "application/javascript",
             "html" : "text/html",
@@ -26,15 +32,6 @@ function( lang,
             "ttf" : "application/x-font-ttf",
             "otf" : "application/x-font-opentype"
         },
-        VALID_ACTION_STRINGS : [ "create", "retrieve", "update", "delete", "flush" ],
-        ACTION_MAP : {
-            "create" : "created",
-            "retrieve" : "retrieved",
-            "update" : "updated",
-            "delete" : "deleted",
-            "flush" : "flushed"
-        },
-        LOG_LEVELS : [ "debug", "info", "warn", "error", "fatal", "off" ],
         fileNameRegExp : /\.\./,
         /**
          * Writes message into response and ends stream. Default contentType is application/json and default status
@@ -162,8 +159,8 @@ function( lang,
         sendMail : function( message )
         {
             var prom = new Deferred();
-            message.from = message.from || serverConfig.mail.from;
-            var transport = nodemailer.createTransport( serverConfig.mail.transport );
+            message.from = message.from || config.get( "mail" ).from;
+            var transport = nodemailer.createTransport( config.get( "mail" ).transport );
             transport.sendMail( message, function( error, info )
             {
                 if( error )
@@ -209,7 +206,7 @@ function( lang,
             return this.readBody( req, false ).then( lang.hitch( this, function( message )
             {
                 req._reqMessage = message;
-                if( this.VALID_ACTION_STRINGS.indexOf( message.action_str ) == -1 )
+                if( !this.ACTION_MAP[ message.action_str ] )
                 {
                     return this.rejectRequest( "invalid_action_str" );
                 }

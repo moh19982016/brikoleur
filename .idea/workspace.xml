@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a17e52c-56a9-479f-8db4-d5e95b67b5de" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_JsonPureRequestHandlerBase.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/ApplicationClient.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UsergridClient.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/JsonPureUsergridClient.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/JsonPureUserManager.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ErrorTemplate.html" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/config/config.js" afterPath="$PROJECT_DIR$/src/main/config/default.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/JsonPureUserManager.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/JsonPureUserManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UsergridClient.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UsergridClient.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/url-handler.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/url-handler.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/server.js" afterPath="$PROJECT_DIR$/src/main/server.js" />
     </list>
     <ignored path="brikoleur.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,21 +36,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="JsonPureUserManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/JsonPureUserManager.js">
+      <file leaf-file-name="default.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/config/default.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-85.27778">
-              <caret line="307" column="20" selection-start-line="307" selection-start-column="20" selection-end-line="307" selection-end-column="20" />
+            <state vertical-scroll-proportion="-0.3846154">
+              <caret line="2" column="28" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JsonPureUserManager.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/JsonPureUserManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-29.074074">
+              <caret line="236" column="108" selection-start-line="236" selection-start-column="108" selection-end-line="236" selection-end-column="108" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.28793418">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -59,8 +69,8 @@
       <file leaf-file-name="UsergridClient.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/UsergridClient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="169" column="38" selection-start-line="169" selection-start-column="38" selection-end-line="169" selection-end-column="38" />
+            <state vertical-scroll-proportion="-6.685185">
+              <caret line="178" column="39" selection-start-line="178" selection-start-column="39" selection-end-line="178" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -90,17 +100,17 @@
         <entry file="file://$PROJECT_DIR$/src/main/server.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="util.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="util.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4670932">
-              <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+            <state vertical-scroll-proportion="-8.240741">
+              <caret line="171" column="41" selection-start-line="171" selection-start-column="41" selection-end-line="171" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -109,8 +119,8 @@
       <file leaf-file-name="_RequestHandlerBase.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.074074">
-              <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+            <state vertical-scroll-proportion="-11.259259">
+              <caret line="64" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -146,9 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/config/dev.js" />
-        <option value="$PROJECT_DIR$/src/main/app-server/helloworld.json" />
-        <option value="$PROJECT_DIR$/src/main/app-server/RequestHandler.js" />
         <option value="$PROJECT_DIR$/src/main/app-server/server.js" />
         <option value="$PROJECT_DIR$/src/main/util/cruft.json" />
         <option value="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/util.js" />
@@ -160,7 +167,6 @@
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/splash.css" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/json-request.js" />
         <option value="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/RequestHandler.js" />
-        <option value="$PROJECT_DIR$/src/main/server.js" />
         <option value="$PROJECT_DIR$/src/main/app-client/index.html" />
         <option value="$PROJECT_DIR$/src/main/app-client/register.html" />
         <option value="$PROJECT_DIR$/src/main/app-client/HelloControl.js" />
@@ -190,13 +196,17 @@
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/ResetPasswordControl.html" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/nls/UserControls.js" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/ResetPasswordControl.js" />
-        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js" />
         <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js" />
         <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js" />
         <option value="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/url-handler.js" />
-        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/JsonPureUserManager.js" />
+        <option value="$PROJECT_DIR$/src/main/config/default.js" />
+        <option value="$PROJECT_DIR$/src/main/config/default.json" />
         <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js" />
+        <option value="$PROJECT_DIR$/src/main/server.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/JsonPureUserManager.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UsergridClient.js" />
         <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js" />
       </list>
     </option>
   </component>
@@ -926,12 +936,6 @@
       <option name="number" value="Default" />
       <updated>1442586349278</updated>
     </task>
-    <task id="LOCAL-00155" summary="Adds link to new homepage.">
-      <created>1449489627006</created>
-      <option name="number" value="00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1449489627006</updated>
-    </task>
     <task id="LOCAL-00156" summary="Fixes issues with descriptions repeating, introduced in previous commit.">
       <created>1449490937779</created>
       <option name="number" value="00156" />
@@ -1220,7 +1224,13 @@
       <option name="project" value="LOCAL" />
       <updated>1466071600790</updated>
     </task>
-    <option name="localTasksCounter" value="204" />
+    <task id="LOCAL-00204" summary="General cleanup and refactoring.">
+      <created>1466074849568</created>
+      <option name="number" value="00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1466074849568</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1288,7 +1298,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Cleans up UI." />
     <MESSAGE value="Rollback works better. Relationship between stunts and combat training is retained." />
     <MESSAGE value="Improvements to menus and save/load UI." />
     <MESSAGE value="Adds the Genius trait." />
@@ -1313,7 +1322,8 @@
     <MESSAGE value="Cleans up resp from where it's no longer needed." />
     <MESSAGE value="On our way towards a JSON-pure server: utilities migrated to where they belong." />
     <MESSAGE value="JSON-pures login, register, and reset password flows." />
-    <option name="LAST_COMMIT_MESSAGE" value="JSON-pures login, register, and reset password flows." />
+    <MESSAGE value="General cleanup and refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="General cleanup and refactoring." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1417,14 +1427,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.625">
           <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ErrorTemplate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.125">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1567,14 +1569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/config/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.375">
@@ -1658,14 +1652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/JsonPureUsergridClient.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1682,42 +1668,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/JsonPureUserManager.js">
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-85.27778">
-          <caret line="307" column="20" selection-start-line="307" selection-start-column="20" selection-end-line="307" selection-end-column="20" />
+        <state vertical-scroll-proportion="-11.259259">
+          <caret line="64" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js">
+    <entry file="file://$PROJECT_DIR$/src/main/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/config/default.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.3846154">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/JsonPureUserManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.074074">
+          <caret line="236" column="108" selection-start-line="236" selection-start-column="108" selection-end-line="236" selection-end-column="108" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/UsergridClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="169" column="38" selection-start-line="169" selection-start-column="38" selection-end-line="169" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.074074">
-          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        <state vertical-scroll-proportion="-6.685185">
+          <caret line="178" column="39" selection-start-line="178" selection-start-column="39" selection-end-line="178" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4670932">
-          <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+        <state vertical-scroll-proportion="-8.240741">
+          <caret line="171" column="41" selection-start-line="171" selection-start-column="41" selection-end-line="171" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28793418">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>

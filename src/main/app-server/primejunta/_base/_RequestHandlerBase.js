@@ -10,11 +10,13 @@ define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/Deferred",
          "dojo/node!url",
+         "dojo/node!config",
          "./util" ],
 function( declare,
           lang,
           Deferred,
           url,
+          config,
           util )
 {
     return declare([], {
@@ -60,7 +62,7 @@ function( declare,
             {
                 segm = segm.substring( 0, segm.indexOf( '?' ) );
             }
-            return util.getStream( serverConfig.paths.dojo + segm );
+            return util.getStream( config.get( "paths" ).dojo + segm );
         },
         serveClientResource : function( req )
         {

@@ -8,17 +8,19 @@
 define( [ "dojo/_base/declare",
           "dojo/_base/lang",
           "dojo/Deferred",
+          "dojo/node!config",
           "app/primejunta/_base/json-request" ],
 function( declare,
           lang,
           Deferred,
+          config,
           jsonRequest )
 {
     return declare( [], {
         mode : "user",
         access_token : "",
-        serverPath : "/" + serverConfig.usergrid.organizationName + "/" + serverConfig.usergrid.applicationName,
-        TOKEN_ENDPOINT : serverConfig.usergrid.url + "/" + serverConfig.usergrid.organizationName + "/" + serverConfig.usergrid.applicationName + "/token",
+        serverPath : "/" + config.get( "usergrid" ).organizationName + "/" + config.get( "usergrid" ).applicationName,
+        TOKEN_ENDPOINT : config.get( "usergrid" ).url + "/" + config.get( "usergrid" ).organizationName + "/" + config.get( "usergrid" ).applicationName + "/token",
         postscript : function( kwObj )
         {
             lang.mixin( this, kwObj );
@@ -157,8 +159,8 @@ function( declare,
         {
             return jsonRequest.post( this.TOKEN_ENDPOINT, {
                 grant_type : "client_credentials",
-                client_id : serverConfig.usergrid.clientId,
-                client_secret : serverConfig.usergrid.clientSecret
+                client_id : config.get( "usergrid" ).clientId,
+                client_secret : config.get( "usergrid" ).clientSecret
             } ).then( lang.hitch( this, function( resp )
             {
                 this.access_token = resp.access_token;
@@ -174,7 +176,7 @@ function( declare,
             {
                 headers.Authorization = "Bearer " + this.access_token;
             }
-            jsonRequest[ req.method ]( serverConfig.usergrid.url + req.path, req.data, headers ).then(
+            jsonRequest[ req.method ]( config.get( "usergrid" ).url + req.path, req.data, headers ).then(
                 lang.hitch( this, this._handleResponse, req ),
                 lang.hitch( this, this._handleError, req ) );
             return prom;
