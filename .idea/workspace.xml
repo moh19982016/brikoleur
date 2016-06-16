@@ -5,11 +5,193 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a17e52c-56a9-479f-8db4-d5e95b67b5de" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/hello.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/login.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/HelloControl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/CloudClient.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/LoginControl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/RegisterUserControl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/ResetPasswordControl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/_PureJsonClientBase.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/nls/UserControls.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/LoginControl.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/RegisterUserControl.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/ResetPasswordControl.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/login.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/register.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/ApplicationClient.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/nls/UsergridClient.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ErrorTemplate.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ResetPasswordForm.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/RequestHandler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/templates/RegisterForm.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/url-handler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app/primejunta/_base/json-request.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/config/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/helloworld.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/server.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/util/cruft.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/Controller.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/Controller.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/DynamicGrid.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/DynamicGrid.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_ControlContainerMixin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_ControlContainerMixin.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_DescriptionMixin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_DescriptionMixin.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_DockButton.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_DockButton.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_FeaturePaneBase.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_FeaturePaneBase.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_FieldBase.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_FieldBase.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_FileUploader.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_FileUploader.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_ItemControlBase.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_ItemControlBase.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_MainPaneBase.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_MainPaneBase.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_NamePaneBase.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_NamePaneBase.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/fx.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/fx.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_FeaturePaneBase.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/templates/_FeaturePaneBase.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_FieldBase.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/templates/_FieldBase.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_FileUploader.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/templates/_FileUploader.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_ItemControlBase.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/templates/_ItemControlBase.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_MainPaneBase.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/templates/_MainPaneBase.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_NamePaneBase.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/templates/_NamePaneBase.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/util.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/util.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/CharacterStore.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/CharacterStore.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/_CharacterFileSelector.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/_CharacterFileSelector.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/_CharacterPrint.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/_CharacterPrint.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/_CharacterUploader.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/_CharacterUploader.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/_Splash.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/_Splash.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/character-store.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/character-store.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/templates/_CharacterPrint.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/templates/_CharacterPrint.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/templates/_Splash.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/templates/_Splash.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/_custom.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/_custom.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/brikoleur.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/brikoleur.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/flyer.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/flyer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/grunt.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/grunt.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/poseidonian.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/poseidonian.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/ronin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/ronin.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/santero.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/santero.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/spacer.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/spacer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/xman.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/xman.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/knacks.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/knacks.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/stunts.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/stunts.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/_base/chems.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/_base/chems.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/_common.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/_common.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/akoto.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/akoto.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/cs.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/cs.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/gen.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/gen.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/gen_aquatic.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/gen_aquatic.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/gen_jagun.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/gen_jagun.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/gen_spacer.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/gen_spacer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/genius.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/genius.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/lwas_horse.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/lwas_horse.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/mni.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/mni.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/zonetouched.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/zonetouched.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/_IpPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/_IpPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/_base/NumberInput.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/_base/NumberInput.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/_base/_PoweredAbilityInPlayMixin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/_base/_PoweredAbilityInPlayMixin.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/inventory/InventoryPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/inventory/InventoryPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/name/NamePane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/name/NamePane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/numbers/NumbersPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/numbers/NumbersPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/ohun/OhunPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/ohun/OhunPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/powers/PowersPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/powers/PowersPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/powers/_PowerControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/powers/_PowerControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/powers/_PowerSubPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/powers/_PowerSubPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/powers/templates/_PowerControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/powers/templates/_PowerControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/ResolverPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/ResolverPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_BonusControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/_BonusControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_TrainingControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/_TrainingControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/ResolverPane.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/templates/ResolverPane.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_BonusControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/templates/_BonusControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_TrainingControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/templates/_TrainingControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/stunts/StuntsPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/stunts/StuntsPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/stunts/_StuntControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/stunts/_StuntControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/stunts/templates/_StuntControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/stunts/templates/_StuntControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_OopPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_OopPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/FilteringMemory.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/FilteringMemory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_ControlPaneMixin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/_ControlPaneMixin.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_FeatureControlBase.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/_FeatureControlBase.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_FeatureSubPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/_FeatureSubPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_PoweredAbilityMixin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/_PoweredAbilityMixin.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_StatField.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/_StatField.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_SubPaneContainerMixin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/_SubPaneContainerMixin.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/templates/_FeatureControlBase.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/templates/_FeatureControlBase.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/templates/_FeatureSubPane.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/templates/_FeatureSubPane.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/description/DescriptionPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/description/DescriptionPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/description/_ImageControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/description/_ImageControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/description/_PortraitControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/description/_PortraitControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/description/templates/_ImageControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/description/templates/_ImageControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/description/templates/_PortraitControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/description/templates/_PortraitControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/InventoryPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/InventoryPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_AddItemControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/_AddItemControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_ArmourControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/_ArmourControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_ItemControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/_ItemControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_ItemHeader.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/_ItemHeader.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_WeaponControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/_WeaponControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/InventoryPane.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/InventoryPane.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_AddItemControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_AddItemControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ArmourControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_ArmourControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemHeader.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemHeader.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_WeaponControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_WeaponControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/KnacksPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/knacks/KnacksPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/_KnackControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/knacks/_KnackControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/_OgaControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/knacks/_OgaControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/templates/_OgaControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/knacks/templates/_OgaControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/name/NamePane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/name/NamePane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/numbers/NumbersPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/numbers/NumbersPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/ohun/OhunPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/ohun/OhunPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/ohun/_OhunControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/ohun/_OhunControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/ohun/_OhunSubPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/ohun/_OhunSubPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/ohun/templates/_OhunControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/ohun/templates/_OhunControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/powers/PowersPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/powers/PowersPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/powers/_PowerControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/powers/_PowerControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/powers/_PowerSubPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/powers/_PowerSubPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/powers/templates/_PowerControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/powers/templates/_PowerControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/stunts/StuntsPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/stunts/StuntsPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/stunts/_StuntControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/stunts/_StuntControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/TraitsPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/traits/TraitsPane.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/_TraitControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/traits/_TraitControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/_TraitFeatureControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/traits/_TraitFeatureControl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/templates/_TraitControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/traits/templates/_TraitControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/templates/_TraitFeatureControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/traits/templates/_TraitFeatureControl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/templates/Controller.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/templates/Controller.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/widget/Switch.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/widget/Switch.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/widget/templates/Switch.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/widget/templates/Switch.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/buttons.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/chargen.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/chargen.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/control-base.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/control-base.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/dijit.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/dijit.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/fonts.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/fonts.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/fx.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/fx.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/globals.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/globals.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/grid.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/grid.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/header.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/header.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/icons.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/icons.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/inventory.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/inventory.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/layout.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/layout.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-base.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/pane-base.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-description.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/pane-description.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-name.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/pane-name.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-numbers.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/pane-numbers.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-resolver.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/pane-resolver.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-traits.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/pane-traits.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/powers.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/powers.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/print.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/print.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/splash.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/splash.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/states.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/states.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/switches.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/switches.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/utils.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/utils.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/nls/CharGen.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/nls/CharGen.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/html/index.html" afterPath="$PROJECT_DIR$/src/main/app-client/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/brikoleur.iml" afterPath="$PROJECT_DIR$/.idea/brikoleur.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_AddItemControl.html" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_AddItemControl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemControl.html" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemControl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemHeader.html" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemHeader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/print.css" afterPath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/print.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/assembly/sh/build.sh" afterPath="$PROJECT_DIR$/src/main/assembly/sh/build.sh" />
     </list>
     <ignored path="brikoleur.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,109 +214,108 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_AddItemControl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_AddItemControl.html">
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/config/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.625">
-              <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResetPasswordForm.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ResetPasswordForm.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-36.875">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginControl.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/LoginControl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.5">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="26" />
               <folding>
-                <element signature="n#style#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_ItemControl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemControl.html">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.375">
-              <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/login.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.375">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_RequestHandlerBase.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.69716376">
+              <caret line="54" column="59" selection-start-line="54" selection-start-column="59" selection-end-line="54" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginControl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/LoginControl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="64" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResetPasswordControl.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/ResetPasswordControl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.5">
+              <caret line="12" column="77" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InventoryPane.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/InventoryPane.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_ItemHeader.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_ItemHeader.js">
+      <file leaf-file-name="UserControls.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/nls/UserControls.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_ItemHeader.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemHeader.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.75">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="akoto.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/akoto.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="249" column="9" selection-start-line="249" selection-start-column="9" selection-end-line="249" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="character-store.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/character-store.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49046323">
-              <caret line="250" column="12" selection-start-line="250" selection-start-column="12" selection-end-line="250" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_CharacterPrint.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/_CharacterPrint.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_CharacterPrint.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/templates/_CharacterPrint.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="print.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/print.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9230769">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -160,57 +341,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_NamePaneBase.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/name/NamePane.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/lwas_horse.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/genius.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_FeaturePaneBase.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/InventoryPane.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/ResolverPane.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/stunts/StuntsPane.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/dijit.css" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/TraitsPane.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_OopPane.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/templates/_TraitFeatureControl.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/KnacksPane.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/_KnackControl.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_ControlContainerMixin.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_SubPaneContainerMixin.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_ControlPaneMixin.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_FeaturePaneBase.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/numbers/NumbersPane.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/globals.css" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/switches.css" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/states.css" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_ArmourControl.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ArmourControl.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_TrainingControl.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_TrainingControl.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/inventory.css" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/templates/Controller.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/Controller.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_MainPaneBase.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_MainPaneBase.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/layout.css" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/nls/CharGen.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_BonusControl.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-resolver.css" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_DescriptionMixin.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_FeatureControlBase.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_ItemControlBase.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/templates/_TraitControl.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/akoto.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/_TraitControl.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_StatField.js" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_AddItemControl.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemControl.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemHeader.html" />
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/print.css" />
         <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/character-store.js" />
+        <option value="$PROJECT_DIR$/src/main/server/node/server.js" />
+        <option value="$PROJECT_DIR$/src/main/assembly/sh/build.sh" />
+        <option value="$PROJECT_DIR$/src/main/config/dev.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/helloworld.json" />
+        <option value="$PROJECT_DIR$/src/main/app-server/RequestHandler.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/server.js" />
+        <option value="$PROJECT_DIR$/src/main/util/cruft.json" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/util.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/UrlHandler.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/templates/RegisterForm.html" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_JsonRequestHandlerBase.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ErrorTemplate.html" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/switches.css" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/splash.css" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/json-request.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/RequestHandler.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js" />
+        <option value="$PROJECT_DIR$/src/main/server.js" />
+        <option value="$PROJECT_DIR$/src/main/app-client/index.html" />
+        <option value="$PROJECT_DIR$/src/main/app-client/register.html" />
+        <option value="$PROJECT_DIR$/src/main/app-client/HelloControl.js" />
+        <option value="$PROJECT_DIR$/src/main/app-client/hello.html" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/AuthenticatingClient.js" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/PureJsonClient.js" />
+        <option value="$PROJECT_DIR$/src/main/app/primejunta/_base/ApplicationClient.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_PureJsonUsergridClientBase.js" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/_PureJsonClientBase.js" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/UsergridClient.js" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/CloudClient.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/HelloControl.js" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/chargen.css" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/RegisterUserControl.js" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/RegisterUserControl.html" />
+        <option value="$PROJECT_DIR$/src/main/app-client/login.html" />
+        <option value="$PROJECT_DIR$/src/main/app/primejunta/_base/json-request.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/ApplicationClient.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/nls/UsergridClient.js" />
+        <option value="$PROJECT_DIR$/src/main/config/config.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/url-handler.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/ResetPasswordControl.html" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/ResetPasswordControl.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ResetPasswordForm.html" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/nls/UserControls.js" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/login.css" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/LoginControl.html" />
+        <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/LoginControl.js" />
       </list>
     </option>
   </component>
@@ -220,8 +401,33 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1808" />
+    <option name="width" value="1668" />
     <option name="height" value="1440" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>XML</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>BashSupport</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -248,8 +454,34 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="brikoleur">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="brikoleur">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -257,6 +489,14 @@
               <option name="myItemId" value="brikoleur" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dojo 1.11" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -304,7 +544,73 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assembly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app-server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -313,6 +619,134 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="primejunta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="primejunta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="primejunta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="primejunta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_base" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -338,7 +772,85 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
+              <option name="myItemId" value="app-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="primejunta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="primejunta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brikoleur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app-client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -372,431 +884,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
+              <option name="myItemId" value="app-client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traits" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traits" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="numbers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inventory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inventory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="description" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oop" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -822,23 +914,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
+              <option name="myItemId" value="app-client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oop" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -868,427 +948,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
+              <option name="myItemId" value="app-client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ip" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ip" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resolver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ip" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resolver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ip" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="numbers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ip" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inventory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="traits" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="_base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dojo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="primejunta" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brikoleur" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chargen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1296,7 +960,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="nls" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1318,12 +982,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assembly" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="primejunta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_base" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1331,10 +1004,10 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../brikoleur-manual" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dojo-trunk/util" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="411" />
@@ -1354,25 +1027,39 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1222" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates" />
+      <recent name="$PROJECT_DIR$/src/main/app-client" />
       <recent name="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits" />
       <recent name="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/nls" />
       <recent name="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/templates" />
-      <recent name="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates" />
-      <recent name="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates" />
-      <recent name="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base" />
-      <recent name="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css" />
+      <recent name="$PROJECT_DIR$/src/main/app-server/primejunta/_base" />
+      <recent name="$PROJECT_DIR$/src/main/app-client/primejunta" />
+      <recent name="$PROJECT_DIR$/src/main/app/primejunta/_base" />
+      <recent name="$PROJECT_DIR$/src/main/app-client" />
+      <recent name="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.Controller.js">
+  <component name="RunManager" selected="Node.js.server.js">
+    <configuration default="false" name="server.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="$PROJECT_DIR$/src/main/server.js" working-dir="$PROJECT_DIR$/src/main">
+      <method />
+    </configuration>
+    <configuration default="false" name="server.js (1)" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js" working-dir="$PROJECT_DIR$/src/main/app-server">
+      <method />
+    </configuration>
+    <configuration default="false" name="UserManager.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="UserManager.js" working-dir="$PROJECT_DIR$/src/main/app-server/primejunta/_base">
+      <method />
+    </configuration>
+    <configuration default="false" name="ApplicationClient.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="$PROJECT_DIR$/src/main/app-server/primejunta/_base/ApplicationClient.js" working-dir="$PROJECT_DIR$/src/main/app/primejunta/_base">
+      <method />
+    </configuration>
     <configuration default="true" type="BashConfigurationType" factoryName="Bash">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="INTERPRETER_PATH" value="/bin/bash" />
@@ -1433,12 +1120,24 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <configuration default="false" name="Controller.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="Controller.js" working-dir="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen">
+    <configuration default="false" name="Controller.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/Controller.js" working-dir="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen">
       <method />
     </configuration>
-    <list size="1">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Node.js.Controller.js" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.server.js" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.server.js (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.UserManager.js" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.ApplicationClient.js" />
     </list>
+    <recent_temporary>
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.server.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.UserManager.js" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.ApplicationClient.js" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.server.js (1)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -1450,12 +1149,6 @@
       <created>1442586349278</created>
       <option name="number" value="Default" />
       <updated>1442586349278</updated>
-    </task>
-    <task id="LOCAL-00149" summary="Implements possibility to set stats from traits. Used with jagun adaptation to give armour. Then uses this base armour in computations in-play.">
-      <created>1448189176631</created>
-      <option name="number" value="00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1448189176631</updated>
     </task>
     <task id="LOCAL-00150" summary="Implements oga control and fixes problem with incorrectly set knack cap for archetypes which allow bonus knacks.">
       <created>1448198940693</created>
@@ -1745,7 +1438,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464724868353</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="Tweaks inventory and fixes some print layout issues.">
+      <created>1464810064939</created>
+      <option name="number" value="00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1464810064939</updated>
+    </task>
+    <option name="localTasksCounter" value="199" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1758,21 +1457,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1808" height="1440" extended-state="6" />
+    <frame x="0" y="0" width="1668" height="1440" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24342473" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24772313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919708" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28613138" sideWeight="0.50184697" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29343066" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17591241" sideWeight="0.49815303" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18175182" sideWeight="0.49815303" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22627737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24970461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39969718" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919708" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1789,16 +1488,16 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28613138" sideWeight="0.50184697" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11052233" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17591241" sideWeight="0.49815303" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18243755" sideWeight="0.49815303" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18613139" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2532833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3114504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29343066" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24970461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39969718" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1813,7 +1512,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Better calculation and display of defence actions." />
     <MESSAGE value="Fixes bug resolving defence reactions." />
     <MESSAGE value="Switches to Flat theme, fixes a bug, and displays juju cost in add button." />
     <MESSAGE value="Layout fixes." />
@@ -1838,7 +1536,8 @@
     <MESSAGE value="Better information display for traits." />
     <MESSAGE value="Cosmetic." />
     <MESSAGE value="Cleans up some formatting issues in print and OOP view." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleans up some formatting issues in print and OOP view." />
+    <MESSAGE value="Tweaks inventory and fixes some print layout issues." />
+    <option name="LAST_COMMIT_MESSAGE" value="Tweaks inventory and fixes some print layout issues." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1847,446 +1546,56 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_ControlPaneMixin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76930064">
-          <caret line="73" column="19" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/numbers/NumbersPane.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7629428">
-          <caret line="76" column="60" selection-start-line="76" selection-start-column="60" selection-end-line="76" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/globals.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.75">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_FileUploader.js">
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/_ItemHeader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_FileUploader.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.875">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/states.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.875">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_WeaponControl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.125">
-          <caret line="37" column="75" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="75" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#6;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ArmourControl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.125">
-          <caret line="21" column="115" selection-start-line="21" selection-start-column="115" selection-end-line="21" selection-end-column="115" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#3;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#4;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_TrainingControl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="16" column="53" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_TrainingControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.592592">
-          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/numbers/NumbersPane.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="42" selection-start-line="40" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/inventory.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-37.5">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_ArmourControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="261" column="86" selection-start-line="261" selection-start-column="86" selection-end-line="261" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_FeaturePaneBase.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_FeaturePaneBase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="129" column="73" selection-start-line="129" selection-start-column="73" selection-end-line="129" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/templates/Controller.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/Controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_MainPaneBase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_MainPaneBase.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.875">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/nls/CharGen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.777779">
-          <caret line="138" column="38" selection-start-line="138" selection-start-column="38" selection-end-line="138" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_BonusControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.875">
-          <caret line="82" column="10" selection-start-line="82" selection-start-column="10" selection-end-line="82" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/ResolverPane.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0">
-          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_BonusControl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="8" column="72" selection-start-line="8" selection-start-column="72" selection-end-line="8" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-48.0">
-          <caret line="87" column="15" selection-start-line="87" selection-start-column="15" selection-end-line="87" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-resolver.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/TraitsPane.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_ItemControlBase.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.875">
-          <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/_TraitFeatureControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/templates/_FeatureControlBase.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_FeatureControlBase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="220" column="20" selection-start-line="220" selection-start-column="8" selection-end-line="220" selection-end-column="20" />
-          <folding>
-            <marker date="1464700001000" expanded="true" signature="3900:4200" placeholder="..." />
-            <marker date="1464700001000" expanded="true" signature="3900:4241" placeholder="..." />
-            <marker date="1464700001000" expanded="true" signature="3960:4197" placeholder="..." />
-            <marker date="1464700001000" expanded="true" signature="3960:4200" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_ItemControlBase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="252" column="23" selection-start-line="252" selection-start-column="23" selection-end-line="252" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_DescriptionMixin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="63" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/templates/_TraitControl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="4" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/_TraitControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-32.0">
-          <caret line="223" column="16" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/switches.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.875">
-          <caret line="83" column="14" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/inventory/InventoryPane.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_StatField.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="63" selection-start-line="72" selection-start-column="63" selection-end-line="72" selection-end-column="63" />
-          <folding>
-            <marker date="1464791643000" expanded="true" signature="1718:2033" placeholder="..." />
-            <marker date="1464791643000" expanded="true" signature="1774:1993" placeholder="..." />
-            <marker date="1464791643000" expanded="true" signature="2346:2645" placeholder="..." />
-            <marker date="1464791643000" expanded="true" signature="2402:2605" placeholder="..." />
-            <marker date="1464791643000" expanded="true" signature="3321:3620" placeholder="..." />
-            <marker date="1464791643000" expanded="true" signature="3377:3580" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_AddItemControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/InventoryPane.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_ItemHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_AddItemControl.html">
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_AddItemControl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.625">
           <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemControl.html">
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemControl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.375">
           <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemHeader.html">
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemHeader.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.75">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/akoto.js">
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/akoto.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="249" column="9" selection-start-line="249" selection-start-column="9" selection-end-line="249" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/_CharacterPrint.js">
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/_CharacterPrint.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/templates/_CharacterPrint.html">
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/templates/_CharacterPrint.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/print.css">
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/print.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9230769">
           <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
@@ -2294,10 +1603,349 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/character-store.js">
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/character-store.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49046323">
+        <state vertical-scroll-proportion="0.0">
           <caret line="250" column="12" selection-start-line="250" selection-start-column="12" selection-end-line="250" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/util/html/toc.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/util/xsl/list2json.xsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/assembly/sh/build.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/widget/Switch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/util/cruft.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39027148">
+          <caret line="128" column="25" selection-start-line="128" selection-start-column="25" selection-end-line="128" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/helloworld.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ErrorTemplate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.125">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/buttons.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.625">
+          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/switches.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/RequestHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dojo-trunk/dijit/form/Textarea.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/HelloControl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/nls/CharGen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/_PureJsonClientBase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.333334">
+          <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/CloudClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/splash.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.458334">
+          <caret line="191" column="4" selection-start-line="191" selection-start-column="4" selection-end-line="191" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/chargen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.75">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/RegisterUserControl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1153846">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#p#5;n#form#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app/primejunta/_base/json-request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="46" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/ApplicationClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.018518">
+          <caret line="169" column="38" selection-start-line="169" selection-start-column="38" selection-end-line="169" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/nls/UsergridClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="104" column="47" selection-start-line="104" selection-start-column="47" selection-end-line="104" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.875">
+          <caret line="35" column="45" selection-start-line="0" selection-start-column="0" selection-end-line="55" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/hello.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.875">
+          <caret line="35" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="53" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/RegisterUserControl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="46" selection-start-line="0" selection-start-column="0" selection-end-line="97" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/url-handler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="50" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="109" column="40" selection-start-line="109" selection-start-column="40" selection-end-line="109" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/ResetPasswordControl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="49" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/templates/RegisterForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.125">
+          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-38.0">
+          <caret line="83" column="25" selection-start-line="83" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/config/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/nls/UserControls.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/ResetPasswordControl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5">
+          <caret line="12" column="77" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
+          <folding>
+            <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.375">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/LoginControl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ResetPasswordForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-36.875">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/LoginControl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69716376">
+          <caret line="54" column="59" selection-start-line="54" selection-start-column="59" selection-end-line="54" selection-end-column="59" />
           <folding />
         </state>
       </provider>

@@ -8,7 +8,7 @@ echo Clearing sandbox
 rm -Rf work/
 mkdir work
 echo Copying resources to source directory
-cp -R $BRIKOLEUR_HOME/brikoleur/src/main/html/* ../devbox/
+cp -R $BRIKOLEUR_HOME/brikoleur/src/main/app-client/html/* ../devbox/
 cp -RL ../devbox/*  work
 echo Updating build script
 cp $BRIKOLEUR_HOME/brikoleur/src/main/assembly/sh/build.sh . # update this file for next time

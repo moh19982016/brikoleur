@@ -1,5 +1,3 @@
-@import "../../../themes/flat/flat.css";
-@import "http://shared.brikoleur.com/fonts/fonts.css";
 @import "icons.css";
 @import "grid.css";
 @import "globals.css";
@@ -22,6 +20,7 @@
 @import "fx.css";
 @import "utils.css";
 @import "print.css";
+@import "login.css";
 
 html, body {
     width: 100%;

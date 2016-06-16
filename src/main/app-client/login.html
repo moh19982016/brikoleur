@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Index page for Character Creation Utility. -->
+  <title>brikoleur</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="user-scalable=no,initial-scale=1.0,width=device-width"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <link rel="icon" type="image/png" href="http://shared.brikoleur.com/ikons/brikoleur-icon-48.png" sizes="48x48">
+  <link rel="icon" type="image/png" href="http://shared.brikoleur.com/ikons/brikoleur-icon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="http://shared.brikoleur.com/ikons/brikoleur-icon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="http://shared.brikoleur.com/ikons/brikoleur-icon-60.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="http://shared.brikoleur.com/ikons/brikoleur-icon-76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="http://shared.brikoleur.com/ikons/brikoleur-icon-120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="http://shared.brikoleur.com/ikons/brikoleur-icon-152.png">
+  <style type="text/css">
+    @import "dojo/themes/flat/flat.css";
+    @import "http://shared.brikoleur.com/fonts/fonts.css";
+    @import "http://shared.brikoleur.com/font-awesome/css/font-awesome.min.css";
+    @import "app-client/primejunta/brikoleur/css/chargen.css";
+  </style>
+  <script type="text/javascript">
+    var dojoConfig = {
+      async : true,
+      parseOnLoad : false,
+      locale : "en",
+      deps : [],
+      packages : [
+        {
+          name : "primejunta",
+          location : "/app-client/primejunta"
+        },
+        {
+          name : "app",
+          location : "/app"
+        }
+      ],
+      callback : function()
+      {
+        require( [ "primejunta/_base/LoginControl",
+                   "primejunta/_base/RegisterUserControl",
+                   "dojo/domReady!" ],
+                function( LoginControl,
+                          RegisterUserControl )
+                {
+                  new LoginControl( { "class" : "br-userControl" } ).placeAt( "loginControlNode" ).startup();
+                  new RegisterUserControl( { "class" : "br-userControl" } ).placeAt( "registerControlNode" ).startup();
+                } );
+      }
+    }
+  </script>
+  <script type="text/javascript" src="dojo/dojo/dojo.js">
+  </script>
+</head>
+<body class="flat br-loginPage">
+<div id="top-bar">
+  <a href="http://www.brikoleur.com/"><i class="fa fa-home"></i></a> •
+  <a href="http://manual.brikoleur.com/">Sourcebook</a> •
+  <a href="http://chargen.brikoleur.com/">Character Maker</a> • <a href="http://blog.brikoleur.com/"><i class="fa fa-tumblr-square"></i></a> • <a href="http://twitter.com/thebrikoleur"><i class="fa fa-twitter"></i></a> • <a href="https://www.facebook.com/brikoleurgame"><i class="fa fa-facebook-square"></i></a>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td>
+      <div class="br-appDescription">
+        <h1>Welcome to Brikoleur</h1>
+        <p>By registering an account, you will be able to store your characters and access them from different devices.
+        </p>
+        <ul>
+          <li>You are not required to user your real name or e-mail address in order to register for this service.</li>
+          <li>Your e-mail address will only be used for password recovery, in case you forget it. If you leave it out or submit an invalid address, you will not be able to reset your password and recover your account.</li>
+          <li>Any information you submit will remain your property. By using the service, you grant us the right to store and distribute it as needed for the service to function.</li>
+          <li>We do not disclose your personal information to third parties.</li>
+        </ul>
+      </div>
+    </td>
+    <td>
+      <div class="br-userControls">
+        <div id="loginControlNode"></div>
+        <div id="registerControlNode"></div>
+      </div>
+    </td>
+  </tr>
+</table>
+<h1 class="br-partHeading br-withShadow">brikoleur</h1>
+</body>
+</html>

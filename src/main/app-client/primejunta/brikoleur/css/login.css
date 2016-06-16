@@ -1,0 +1,70 @@
+.br-loginPage {
+    background-image: url( http://shared.brikoleur.com/img/titlebg.jpg );
+    background-size: cover;
+}
+
+.br-loginPage .br-partHeading {
+    text-shadow: 2px 2px #c00, -2px -2px #c00, -2px 2px #c00, 2px -2px #c00;
+}
+
+.br-userControls {
+}
+
+.br-appDescription {
+    margin: 10px 0 10px 10px;
+    padding: 10px;
+    color: white;
+    background-color: rgba( 0, 0, 0, 0.5 );
+}
+
+.br-userControl {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba( 255, 255, 255, 0.9 );
+}
+
+.br-loginPage h1 {
+    margin-top: 0;
+}
+
+.br-userControl p {
+    margin: 5px 0;
+    width: 16em;
+}
+
+.br-userControl .dijitSelect .dijitButtonContents, .br-userControl .dijitSelect, .br-userControl .dijitTextBox {
+    border-color: silver;
+}
+
+#top-bar {
+    background-color: #222222;
+    box-sizing: border-box;
+    color: white;
+    font-family: Dosis,sans-serif;
+    height: 32px;
+    padding: 5px;
+}
+
+#top-bar a {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.br-resetPasswordControl {
+    margin : 10px;
+    padding : 10px;
+    max-width: 300px;
+    background-color: rgba( 255, 255, 255, 0.9 );
+}
+
+.br-resetLink {
+    color: blue;
+    cursor: pointer;
+}
+
+.br-resetLink:hover {
+    text-decoration: underline;
+}

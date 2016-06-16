@@ -133,3 +133,68 @@
 .br-hideWhenLoaded {
     background-color: #c00;
 }
+
+.br-partHeadingContainer {
+    position: relative;
+    width: 100%;
+}
+
+.br-partNumber {
+    bottom: -110px;
+    color: #c00;
+    font-family: Stalinist One, sans-serif;
+    font-size: 275px;
+    margin-left: 50px;
+    margin-top: 80px;
+    position: absolute;
+    z-index: 1;
+}
+
+.br-partHeading {
+    font-family: Stalinist One, sans-serif;
+    text-transform: uppercase;
+    font-size: 76px;
+    position: absolute;
+    bottom: -20px;
+    z-index: 99;
+}
+
+.br-partHeadingSpacer {
+    height: 400px;
+}
+.br-controlWrapper, .br-controlBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    z-index:101;
+}
+
+.br-controlBackground {
+    opacity: 0.5;
+    background-color:  #c00; /* black; */
+    z-index: 99;
+}
+
+.br-documentContent {
+    font-family: Old Standard TT, serif;
+    position: fixed;
+    font-size: 18px;
+    top: 0;
+    left: 330px;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background-color: #c00; /* silver; */
+}
+
+.br-pageContent {
+    background-color: #c00; /* #fafafa; */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 330px;
+    z-index: 1;
+}
