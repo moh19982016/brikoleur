@@ -14,7 +14,7 @@ function( lang,
           errorTemplate )
 {
     return {
-        RESPONSE_PARAMS_TO_SANITIZE : [ "exception" ],
+        RESPONSE_PARAMS_TO_SANITIZE : [ "exception", "application", "organization" ],
         contentTypes : {
             "js" : "application/javascript",
             "html" : "text/html",
@@ -25,6 +25,14 @@ function( lang,
             "eot" : "application/vnd.ms-fontobject",
             "ttf" : "application/x-font-ttf",
             "otf" : "application/x-font-opentype"
+        },
+        VALID_ACTION_STRINGS : [ "create", "retrieve", "update", "delete", "flush" ],
+        ACTION_MAP : {
+            "create" : "created",
+            "retrieve" : "retrieved",
+            "update" : "updated",
+            "delete" : "deleted",
+            "flush" : "flushed"
         },
         fileNameRegExp : /\.\./,
         /**
@@ -121,11 +129,18 @@ function( lang,
             }
             return new Deferred().resolve( { body : message, status : status });
         },
-        sanitizeResponse : function( message )
+        sanitize : function( message )
         {
             if( typeof message == "string" )
             {
-                message = JSON.parse( message );
+                try
+                {
+                    message = JSON.parse( message );
+                }
+                catch( e )
+                {
+                    return {};
+                }
             }
             for( var i = 0; i < this.RESPONSE_PARAMS_TO_SANITIZE.length; i++ )
             {
@@ -188,6 +203,77 @@ function( lang,
                 } ) );
             }
             return prom;
+        },
+        parseRequest : function( req, validDataTypes )
+        {
+            return this.readBody( req, false ).then( lang.hitch( this, function( message )
+            {
+                req._reqMessage = message;
+                if( this.VALID_ACTION_STRINGS.indexOf( message.action_str ) == -1 )
+                {
+                    return new Deferred().reject([{
+                        code_key : "400",
+                        user_message : "Invalid action_str: " + message.action_str
+                    }]);
+                }
+                else if( !message.request_map )
+                {
+                    return new Deferred().reject([{
+                        code_key : "400",
+                        user_message : "Missing request_map."
+                    }]);
+                }
+                else if( validDataTypes.indexOf( message.data_type ) == -1 )
+                {
+                    return new Deferred().reject([{
+                        code_key : "400",
+                        user_message : "Invalid data_type: " + message.data_type
+                    }]);
+                }
+                else if( typeof message.request_map.collection_name != "string" )
+                {
+                    return new Deferred().reject([{
+                        code_key : "400",
+                        user_message : "Missing request_map.collection_name."
+                    }]);
+                }
+                else if( message.action_str == "create" && !( message.request_map.object_data instanceof Object ) )
+                {
+                    return new Deferred().reject([{
+                        code_key : "400",
+                        user_message : "Missing object_data."
+                    }]);
+                }
+                else if( message.action_str == "update"
+                         && ( typeof message.request_map.object_id != "string"
+                              || !( message.request_map.object_data instanceof Object ) ) )
+                {
+                    return new Deferred().reject([{
+                        code_key : "400",
+                        user_message : "Missing object_id or missing object_data."
+                    }]);
+                }
+                else if( message.action_str == "delete"
+                         && typeof message.request_map.object_id != "string" )
+                {
+                    return new Deferred().reject([{
+                        code_key : "400",
+                        user_message : "Missing object_id."
+                    }]);
+                }
+                return new Deferred().resolve( message );
+            }));
+        },
+        getResponseMessage : function( req, respData, logList, isError )
+        {
+            var reqMessage = req._jsonMessage || {};
+            var actionStr = reqMessage.action_str || "retrieve";
+            return {
+                action_str : isError ? actionStr + "_fail" : this.ACTION_MAP[ actionStr ],
+                data_type : reqMessage.data_type,
+                log_list : logList || [],
+                response_map : respData
+            }
         }
     }
 });

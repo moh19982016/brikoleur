@@ -18,16 +18,7 @@ function( declare,
           ApplicationClient )
 {
     return declare( [], {
-        VALID_ACTION_STRINGS : [ "create", "retrieve", "update", "delete", "flush" ],
-        ACTION_MAP : {
-            "create" : "created",
-            "retrieve" : "retrieved",
-            "update" : "updated",
-            "delete" : "deleted",
-            "flush" : "flushed"
-        },
         VALID_DATA_TYPES : [ "object", "connection" ],
-        PROPERTIES_TO_SANITIZE : [ "exception", "application", "organization" ],
         postscript : function()
         {
             this.inherited( arguments );
@@ -35,7 +26,7 @@ function( declare,
         },
         handleRequest : function( req )
         {
-            return this._parseRequest( req ).then( lang.hitch( this, function( message )
+            return util.parseRequest( req, this.VALID_DATA_TYPES ).then( lang.hitch( this, function( message )
             {
                 this._ugc.set( "access_token", cookie.parse( req.headers.cookie || "" ).access_token || false );
                 switch( message.action_str.toLowerCase() )
@@ -51,66 +42,6 @@ function( declare,
                 }
             }),
             lang.hitch( this, this._handleProtocolError, req ) );
-        },
-        _parseRequest : function( req )
-        {
-            return util.readBody( req, false ).then( lang.hitch( this, function( message )
-            {
-                req._reqMessage = message;
-                if( this.VALID_ACTION_STRINGS.indexOf( message.action_str ) == -1 )
-                {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Invalid action_str: " + message.action_str
-                    }]);
-                }
-                else if( !message.request_map )
-                {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing request_map."
-                    }]);
-                }
-                else if( this.VALID_DATA_TYPES.indexOf( message.data_type ) == -1 )
-                {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Invalid data_type: " + message.data_type
-                    }]);
-                }
-                else if( typeof message.request_map.collection_name != "string" )
-                {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing request_map.collection_name."
-                    }]);
-                }
-                else if( message.action_str == "create" && !( message.request_map.object_data instanceof Object ) )
-                {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing object_data."
-                    }]);
-                }
-                else if( message.action_str == "update"
-                         && ( typeof message.request_map.object_id != "string"
-                              || !( message.request_map.object_data instanceof Object ) ) )
-                {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing object_id or missing object_data."
-                    }]);
-                }
-                else if( message.action_str == "delete"
-                         && typeof message.request_map.object_id != "string" )
-                {
-                    return new Deferred().reject([{
-                        code_key : "400",
-                        user_message : "Missing object_id."
-                    }]);
-                }
-                return new Deferred().resolve( message );
-            }));
         },
         _create : function( req, message )
         {
@@ -172,14 +103,14 @@ function( declare,
         _handleUsergridResponse : function( req, message )
         {
             return new Deferred().resolve( {
-                body : this._getResponseObject( req._reqMessage, this._sanitize( message ), [ {
+                body : util.getResponseMessage( req, util.sanitize( message ), [ {
                     code_key : "200", user_message : "ok"
                 } ] )
             } );
         },
         _handleUsergridError : function( req, error )
         {
-            var errMessage = this._sanitize( JSON.parse( error.response.text ) );
+            var errMessage = util.sanitize( JSON.parse( error.response.text ) );
             var userMessage = error.response.statusMessage;
             if( error.response.status == 401 )
             {
@@ -190,32 +121,12 @@ function( declare,
                 code_key : "" + error.response.status,
                 user_message : userMessage
             } ));
-            var message = this._getResponseObject( req._reqMessage, {}, logList, true );
+            var message = util.getResponseMessage( req, {}, logList, true );
             return new Deferred().resolve( { body :  message } );
         },
         _handleProtocolError : function( req, errors )
         {
-            return new Deferred().resolve({ body : this._getResponseObject( req._reqMessage || {}, {}, errors, true ) } );
-        },
-        _sanitize : function( message )
-        {
-            for( var o in message )
-            {
-                if( this.PROPERTIES_TO_SANITIZE.indexOf( o ) != -1 )
-                {
-                    delete message[ o ];
-                }
-            }
-            return message;
-        },
-        _getResponseObject : function( reqMessage, respData, logList, isError )
-        {
-            return {
-                action_str : isError ? ( reqMessage.action_str || "retrieve" ) + "_fail" : this.ACTION_MAP[ reqMessage.action_str ],
-                data_type : reqMessage.data_type,
-                log_list : logList || [],
-                response_map : respData
-            }
+            return new Deferred().resolve({ body : util.getResponseMessage( req || {}, {}, errors, true ) } );
         }
     } );
 } );

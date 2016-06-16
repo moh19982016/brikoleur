@@ -90,6 +90,9 @@ function( declare,
         },
         handleError : function( resp, err )
         {
+
+            console.log( "IN ERROR HANDLER", err );
+
             // maybe do some logging here also?
             util.writeResponse( resp, { status : 400, body : { "error" : "bad_request" } } );
         },
