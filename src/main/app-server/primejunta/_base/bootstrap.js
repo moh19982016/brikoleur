@@ -1,8 +1,8 @@
 /**
- * Bootstrap which sets up and starts an HTTP server, using the class defined in serverConfig.server.requestHandlerClass as the request
- * handler.
+ * Bootstrap which sets up and starts an HTTP server, using the class defined in serverConfig.server.requestHandlerClass
+ * as the request handler.
  *
- * @public Server
+ * @public void
  */
 require([ "dojo/_base/lang",
           serverConfig.server.requestHandlerClass,

@@ -1,12 +1,12 @@
 define([ "dojo/_base/lang",
-         "../_base/PureJsonUsergridClient",
-         "../_base/UserManager"],
+         "../_base/JsonPureUsergridClient",
+         "../_base/JsonPureUserManager"],
 function( lang,
-          PureJsonUsergridClient,
-          UserManager )
+          JsonPureUsergridClient,
+          JsonPureUserManager )
 {
-    var mgr = new UserManager();
-    var ugc = new PureJsonUsergridClient();
+    var mgr = new JsonPureUserManager();
+    var ugc = new JsonPureUsergridClient();
     return {
         "authenticate" : lang.hitch( mgr, mgr.authenticate ),
         "resetpw.html" : lang.hitch( mgr, mgr.serveResetPasswordForm ),

@@ -84,51 +84,50 @@ function( lang,
         },
         readBody : function( req, handleAs )
         {
+            handleAs = handleAs || "json";
             if( req.method == "GET" )
             {
                 return new Deferred().resolve( "" );
             }
-            else if( req._body )
+            else if( handleAs == "json" && req._jsonMessage )
             {
-                return new Deferred().resolve( handleAs == "text" ? req._body : JSON.parse( req._body ) )
+                return new Deferred().resolve( req._jsonMessage )
             }
-            var prom = new Deferred();
-            var body = [];
-            req.on( "data", lang.hitch( this, function( chunk )
+            else if( handleAs != "json" && req._body )
             {
-                body.push( chunk );
-            } ) ).on( "end", lang.hitch( this, function()
+                return new Deferred().resolve( req._body )
+            }
+            else
             {
-                body = Buffer.concat( body ).toString();
-                try
+                var prom = new Deferred();
+                var body = [];
+                req.on( "data", lang.hitch( this, function( chunk )
                 {
+                    body.push( chunk );
+                } ) ).on( "end", lang.hitch( this, function()
+                {
+                    body = Buffer.concat( body ).toString();
                     req._body = body;
-                    prom.resolve( handleAs == "text" ? body : JSON.parse( body ) );
-                }
-                catch( e )
-                {
-                    console.error( "Failed to parse response body:", body );
-                    prom.reject( "Failed to parse response body." );
-                }
-            } ) );
-            return prom;
-        },
-        forwardJsonError : function( resp, err )
-        {
-            var message = {
-                error : "bad_request"
-            };
-            var status = 400;
-            try
-            {
-                message = this.sanitizeResponse( err.response.text );
-                status = err.response.status;
+                    if( handleAs == "json" )
+                    {
+                        try
+                        {
+                            req._jsonMessage = JSON.parse( body );
+                            prom.resolve( req._jsonMessage );
+                        }
+                        catch( e )
+                        {
+                            console.error( "Failed to parse response body:", body );
+                            prom.reject( "Failed to parse response body." );
+                        }
+                    }
+                    else
+                    {
+                        prom.resolve( req._body );
+                    }
+                } ) );
+                return prom;
             }
-            catch( e )
-            {
-                console.error( "Unexpected error processing response:", err );
-            }
-            return new Deferred().resolve( { body : message, status : status });
         },
         sanitize : function( message )
         {

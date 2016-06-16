@@ -5,7 +5,7 @@ define([ "dojo/_base/declare",
          "dojo/io-query",
          "./util",
          "app/primejunta/_base/json-request",
-         "app-server/primejunta/_base/ApplicationClient",
+         "app-server/primejunta/_base/UsergridClient",
          "dojo/node!cookie",
          "dojo/node!object-hash",
          "dojo/text!./templates/ResetPasswordForm.html",
@@ -17,18 +17,18 @@ function( declare,
           ioQuery,
           util,
           jsonRequest,
-          ApplicationClient,
+          UsergridClient,
           cookie,
           hash,
           resetPasswordForm,
           i18n )
 {
-    return declare( "app-server/primejunta/_base/UserManager", [], {
+    return declare( [], {
         TOKEN_ENDPOINT : serverConfig.usergrid.url + "/" + serverConfig.usergrid.organizationName + "/" + serverConfig.usergrid.applicationName + "/token",
         PWRESET_PATH : "/" + serverConfig.usergrid.organizationName + "/" + serverConfig.usergrid.applicationName + "/users",
         postscript : function()
         {
-            this._applicationClient = new ApplicationClient( { mode : "application" } );
+            this._ugc = new UsergridClient( { mode : "application" } );
         },
         authenticate : function( req )
         {
@@ -58,8 +58,7 @@ function( declare,
                     {
                         return this._handleAuthError( req, false );
                     }
-                } ),
-                lang.hitch( this, this._handleAuthError, req, false ) );
+                } ) );
         },
         parseRequest : function( req )
         {
@@ -149,7 +148,7 @@ function( declare,
                     user.salt = ",.nn,asf knhjsadfui756fsh43 hjaku2ﬁª d˛√ﬁªa afl.";
                     var tkn = hash( user );
                     var link = serverConfig.users.resetpw.url + ".html?username=" + encodeURIComponent( user.username ) + "&token=" + tkn + "&locale=" + ( parsedRequest.locale || "en" );
-                    return this._applicationClient.put( this.PWRESET_PATH + "/" + user.username, { "pwreset" : tkn, "pwresettime" : new Date().getTime() } ).then( lang.hitch( this, function()
+                    return this._ugc.put( this.PWRESET_PATH + "/" + user.username, { "pwreset" : tkn, "pwresettime" : new Date().getTime() } ).then( lang.hitch( this, function()
                     {
                         util.sendMail({
                             to : email,
@@ -160,7 +159,7 @@ function( declare,
                         return new Deferred().resolve( { body : util.getResponseMessage( req ) } );
                     } ) );
                 }
-            } ), lang.hitch( this, this._handleAuthError, req, false ) );
+            } ), lang.hitch( this, this._handleAuthError, req ) );
         },
         serveResetPasswordForm : function( req )
         {
@@ -213,11 +212,11 @@ function( declare,
             {
                 if( this._tokenIsValid( parsedRequest.request_map.token, user ) )
                 {
-                    return this._applicationClient.put( this.PWRESET_PATH + "/" + parsedRequest.request_map.username, {
+                    return this._ugc.put( this.PWRESET_PATH + "/" + parsedRequest.request_map.username, {
                         "pwreset" : "", "pwresettime" : ""
                     } ).then( lang.hitch( this, function()
                     {
-                        return this._applicationClient.put( this.PWRESET_PATH + "/" + parsedRequest.request_map.username + "/password", {
+                        return this._ugc.put( this.PWRESET_PATH + "/" + parsedRequest.request_map.username + "/password", {
                             newpassword : parsedRequest.request_map.password
                         } ).then( lang.hitch( this, function( reslt )
                         {
@@ -229,7 +228,7 @@ function( declare,
                 {
                     return new Deferred().resolve( { body : util.getErrorMessage( req, 404, "not_found", "no_valid_token", 2 ) } );
                 }
-            } ), lang.hitch( this, this._handleAuthError, req, false ) );
+            } ) );
         },
         _tokenIsValid : function( token, user )
         {
@@ -237,7 +236,7 @@ function( declare,
         },
         _fetchUser : function( userIdentifier )
         {
-            return this._applicationClient.get( this.PWRESET_PATH + "/" + userIdentifier ).then(
+            return this._ugc.get( this.PWRESET_PATH + "/" + userIdentifier ).then(
             lang.hitch( this, function( resp )
             {
                 if( resp && resp.entities && resp.entities[ 0 ] )
@@ -271,7 +270,7 @@ function( declare,
         },
         _handleAuthError : function( req, handledError, err )
         {
-            if( err && err.response && err.response.text )
+            if( handledError && err && err.response && err.response.text )
             {
                 try
                 {
@@ -300,6 +299,12 @@ function( declare,
             {
                 return new Deferred().resolve( {
                     body : util.getResponseMessage( req, false, err, true )
+                } );
+            }
+            else
+            {
+                return new Deferred().resolve( {
+                    body : util.getErrorMessage( req )
                 } );
             }
         }

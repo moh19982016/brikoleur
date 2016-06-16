@@ -1,12 +1,18 @@
+/**
+ * Base request handler class. Looks up the request handler from urlMap, and adds a few built-in ones:
+ *
+ * * *.html - serves static HTML page from app-client
+ * * app-client/** - serves static resource from app-client
+ * * app/** - serves static resource from app
+ * * dojo/** - serves static resource from Dojo directory
+ */
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
-         "dojo/string",
          "dojo/Deferred",
          "dojo/node!url",
          "./util" ],
 function( declare,
           lang,
-          string,
           Deferred,
           url,
           util )
@@ -32,39 +38,20 @@ function( declare,
                     {
                         req._jsonMessage = jsonMessage;
                         this._getHandlerFor( req.url )( req ).then(
-                            lang.hitch( this, this.writeResponse, resp ),
-                            lang.hitch( this, this.handleError, resp ) );
+                            lang.hitch( this, this.writeResponse, resp ) );
                     } ),
-                    lang.hitch( this, this.handleError, resp ) );
+                    lang.hitch( this, this.handleError, req, resp ) );
             }
             else
             {
                 this._getHandlerFor( req.url )( req ).then(
                     lang.hitch( this, this.writeResponse, resp ),
-                    lang.hitch( this, this.handleError, resp ) );
+                    lang.hitch( this, this.handleError, req, resp ) );
             }
-        },
-        defaultRequestHandler : function( req )
-        {
-            return new Deferred().resolve( {
-                body : {
-                    status : 404,
-                    status_message : "404 Not Found"
-                },
-                status : 404
-            } );
         },
         serveHtmlPage : function( req )
         {
-            var prom = new Deferred();
-            require( [ "dojo/text!" + this._parseResourcePath( this._getPath( req.url ) ) ], lang.hitch( this, function( resource )
-            {
-                prom.resolve( {
-                    body : string.substitute( resource, this._htmlProperties ),
-                    contentType : "text/html"
-                } );
-            } ) );
-            return prom;
+            return util.getStream( "app-client" + req.url );
         },
         serveDojoResource : function( req )
         {
@@ -83,18 +70,28 @@ function( declare,
         {
             return util.getStream( "app" + req.url.substring( "/app".length ) );
         },
+        defaultRequestHandler : function( req )
+        {
+            return new Deferred().resolve( {
+                body : util.getErrorMessage( req, 404, "not_found", "not_found" )
+            } );
+        },
         writeResponse : function( resp, message )
         {
             // maybe do some logging here?
             util.writeResponse( resp, message );
         },
-        handleError : function( resp, err )
+        handleError : function( req, resp, err )
         {
-
-            console.log( "IN ERROR HANDLER", err );
-
             // maybe do some logging here also?
-            util.writeResponse( resp, { status : 400, body : { "error" : "bad_request" } } );
+            if( err && err instanceof Array )
+            {
+                util.writeResponse( resp, { body : util.getResponseMessage( req, false, err, true ) } );
+            }
+            else
+            {
+                util.writeResponse( resp, { body : util.getErrorMessage( req, 400, "bad_request", "bad_request" ) } );
+            }
         },
         _getHandlerFor : function( url )
         {

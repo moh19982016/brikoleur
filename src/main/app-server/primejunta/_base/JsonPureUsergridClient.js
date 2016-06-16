@@ -9,20 +9,20 @@ define( [ "dojo/_base/declare",
           "dojo/Deferred",
           "./util",
           "dojo/node!cookie",
-          "./ApplicationClient" ],
+          "./UsergridClient" ],
 function( declare,
           lang,
           Deferred,
           util,
           cookie,
-          ApplicationClient )
+          UsergridClient )
 {
     return declare( [], {
         VALID_DATA_TYPES : [ "object", "connection" ],
         postscript : function()
         {
             this.inherited( arguments );
-            this._ugc = new ApplicationClient();
+            this._ugc = new UsergridClient();
         },
         handleRequest : function( req )
         {
