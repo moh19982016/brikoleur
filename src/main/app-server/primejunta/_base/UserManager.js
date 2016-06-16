@@ -30,8 +30,9 @@ function( declare,
         {
             this._applicationClient = new ApplicationClient( { mode : "application" } );
         },
-        register : function( req, resp, jsonMessage )
+        register : function( req )
         {
+            var jsonMessage = req._jsonMessage || {};
             delete jsonMessage.repeatPassword;
             return jsonRequest.post( serverConfig.usergrid.url + "/udwc/brikoleur/users", jsonMessage ).then(
                 lang.hitch( this, function( _resp )
@@ -41,10 +42,11 @@ function( declare,
                             "status" : "success"
                         }
                     } );
-                }), lang.hitch( this, this._handleAuthError, resp, "duplicate_unique_property_exists" ) );
+                }), lang.hitch( this, this._handleAuthError, "duplicate_unique_property_exists" ) );
         },
-        login : function( req, resp, jsonMessage )
+        login : function( req )
         {
+            var jsonMessage = req._jsonMessage || {};
             return jsonRequest.post( this.TOKEN_ENDPOINT, {
                 grant_type : "password",
                 username : jsonMessage.username,
@@ -62,10 +64,11 @@ function( declare,
                         } )
                     }
                 } );
-            } ), lang.hitch( this, this._handleAuthError, resp, "invalid_grant" ) );
+            } ), lang.hitch( this, this._handleAuthError, "invalid_grant" ) );
         },
-        requestResetPassword : function( req, resp, jsonMessage )
+        requestResetPassword : function( req )
         {
+            var jsonMessage = req._jsonMessage || {};
             return this._fetchUser( jsonMessage.user ).then( lang.hitch( this, function( user )
             {
                 var email = user.email;
@@ -88,11 +91,11 @@ function( declare,
                             html : string.substitute( i18n.ResetPasswordMessageHTML, { link : link } )
                         } );
                         return new Deferred().resolve( { body : { "status" : "success" } } );
-                    } ), lang.hitch( this, this._handleResetError, resp ) );
+                    } ), lang.hitch( this, this._handleResetError ) );
                 }
-            } ), lang.hitch( this, this._handleResetError, resp ) );
+            } ), lang.hitch( this, this._handleResetError ) );
         },
-        serveResetPasswordForm : function( req, resp )
+        serveResetPasswordForm : function( req )
         {
             var props = this._parseResetProps( req.url );
             return this._fetchUser( props.user ).then( lang.hitch( this, function( user )
@@ -124,10 +127,11 @@ function( declare,
                     } );
                 }
             } ),
-            lang.hitch( this, this._handleResetError, resp ) );
+            lang.hitch( this, this._handleResetError ) );
         },
-        setPassword : function( req, resp, jsonMessage )
+        setPassword : function( req )
         {
+            var jsonMessage = req._jsonMessage || {};
             return this._fetchUser( jsonMessage.user ).then( lang.hitch( this, function( user )
             {
                 if( this._tokenIsValid( jsonMessage.token, user ) )
@@ -141,14 +145,14 @@ function( declare,
                         } ).then( lang.hitch( this, function( reslt )
                         {
                             return new Deferred().resolve( { body : { status : "success" } } );
-                        } ), lang.hitch( this, this._handleResetError, resp ) );
-                    } ), lang.hitch( this, this._handleResetError, resp ) );
+                        } ), lang.hitch( this, this._handleResetError ) );
+                    } ), lang.hitch( this, this._handleResetError ) );
                 }
                 else
                 {
                     return new Deferred().resolve( { body : { status : "fail", cause : "no_valid_token" } } );
                 }
-            } ), lang.hitch( this, this._handleResetError, resp ) );
+            } ), lang.hitch( this, this._handleResetError ) );
         },
         _tokenIsValid : function( token, user )
         {
@@ -192,7 +196,7 @@ function( declare,
         {
 
         },
-        _handleResetError : function( resp )
+        _handleResetError : function()
         {
             return new Deferred().resolve( {
                 body : {
@@ -201,7 +205,7 @@ function( declare,
                 }
             } );
         },
-        _handleAuthError : function( resp, handledError, err )
+        _handleAuthError : function( handledError, err )
         {
             try
             {

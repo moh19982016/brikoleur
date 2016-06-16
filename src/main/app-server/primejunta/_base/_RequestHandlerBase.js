@@ -24,12 +24,14 @@ function( declare,
         },
         handleRequest : function( req, resp )
         {
+            // maybe do logging here?
             if( req.headers[ "content-type" ] == "application/json" )
             {
                 util.readBody( req ).then(
                     lang.hitch( this, function( jsonMessage )
                     {
-                        this._getHandlerFor( req.url )( req, resp, jsonMessage ).then(
+                        req._jsonMessage = jsonMessage;
+                        this._getHandlerFor( req.url )( req ).then(
                             lang.hitch( this, this.writeResponse, resp ),
                             lang.hitch( this, this.handleError, resp ) );
                     } ),
@@ -37,12 +39,12 @@ function( declare,
             }
             else
             {
-                this._getHandlerFor( req.url )( req, resp ).then(
+                this._getHandlerFor( req.url )( req ).then(
                     lang.hitch( this, this.writeResponse, resp ),
                     lang.hitch( this, this.handleError, resp ) );
             }
         },
-        defaultRequestHandler : function( req, resp )
+        defaultRequestHandler : function( req )
         {
             return new Deferred().resolve( {
                 body : {
@@ -52,7 +54,7 @@ function( declare,
                 status : 404
             } );
         },
-        serveHtmlPage : function( req, resp )
+        serveHtmlPage : function( req )
         {
             var prom = new Deferred();
             require( [ "dojo/text!" + this._parseResourcePath( this._getPath( req.url ) ) ], lang.hitch( this, function( resource )
@@ -64,7 +66,7 @@ function( declare,
             } ) );
             return prom;
         },
-        serveDojoResource : function( req, resp )
+        serveDojoResource : function( req )
         {
             var segm = req.url.substring( "/dojo".length );
             if( segm.indexOf( '?' ) != -1 )
@@ -73,26 +75,23 @@ function( declare,
             }
             return util.getStream( serverConfig.paths.dojo + segm );
         },
-        serveClientResource : function( req, resp )
+        serveClientResource : function( req )
         {
             return util.getStream( "app-client" + req.url.substring( "/app-client".length ) );
         },
-        serveSharedResource : function( req, resp )
+        serveSharedResource : function( req )
         {
             return util.getStream( "app" + req.url.substring( "/app".length ) );
         },
         writeResponse : function( resp, message )
         {
             // maybe do some logging here?
-
-            console.log( "WRITING RESPONSE", message );
-
             util.writeResponse( resp, message );
         },
         handleError : function( resp, err )
         {
             // maybe do some logging here also?
-            util.writeResponse( resp, { status : 400, body : { "error" : "bad_requeset" } } );
+            util.writeResponse( resp, { status : 400, body : { "error" : "bad_request" } } );
         },
         _getHandlerFor : function( url )
         {

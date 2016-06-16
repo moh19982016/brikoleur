@@ -33,25 +33,24 @@ function( declare,
             this.inherited( arguments );
             this._ugc = new ApplicationClient();
         },
-        handleRequest : function( req, resp )
+        handleRequest : function( req )
         {
-            util.readBody( req, false, function( msg ) { console.log( "MSG", msg  ) } );
             return this._parseRequest( req ).then( lang.hitch( this, function( message )
             {
                 this._ugc.set( "access_token", cookie.parse( req.headers.cookie || "" ).access_token || false );
                 switch( message.action_str.toLowerCase() )
                 {
                     case "create" :
-                        return this._create( req, resp, message );
+                        return this._create( req, message );
                     case "retrieve" :
-                        return this._retrieve( req, resp, message );
+                        return this._retrieve( req, message );
                     case "update" :
-                        return this._update( req, resp, message );
+                        return this._update( req, message );
                     case "delete" :
-                        return this._delete( req, resp, message );
+                        return this._delete( req, message );
                 }
             }),
-            lang.hitch( this, this._handleProtocolError, req, resp ) );
+            lang.hitch( this, this._handleProtocolError, req ) );
         },
         _parseRequest : function( req )
         {
@@ -113,7 +112,7 @@ function( declare,
                 return new Deferred().resolve( message );
             }));
         },
-        _create : function( req, resp, message )
+        _create : function( req, message )
         {
             switch( message.data_type )
             {
@@ -121,15 +120,15 @@ function( declare,
                     return this._ugc.createObject( message.request_map.collection_name,
                                                    message.request_map.object_data,
                                                    message.request_map.connection_name ).then(
-                        lang.hitch( this, this._handleUsergridResponse, req, resp  ),
-                        lang.hitch( this, this._handleUsergridError, req, resp  ) );
+                        lang.hitch( this, this._handleUsergridResponse, req  ),
+                        lang.hitch( this, this._handleUsergridError, req  ) );
                 case "connection" :
-                    return this._handleProtocolError( req, resp, [ { code_key : "404", user_message : "not_found" } ] ); // not implemented yet
+                    return this._handleProtocolError( req, [ { code_key : "404", user_message : "not_found" } ] ); // not implemented yet
                 default :
-                    return this._handleProtocolError( req, resp, [ { code_key : "400", user_message : "bad_request" } ] );
+                    return this._handleProtocolError( req, [ { code_key : "400", user_message : "bad_request" } ] );
             }
         },
-        _retrieve : function( req, resp, message )
+        _retrieve : function( req, message )
         {
             switch( message.data_type )
             {
@@ -137,24 +136,24 @@ function( declare,
                     return this._ugc.retrieveObjects( message.request_map.collection_name,
                                                       message.request_map.object_id,
                                                       message.request_map.connection_name ).then(
-                        lang.hitch( this, this._handleUsergridResponse, req, resp  ),
-                        lang.hitch( this, this._handleUsergridError, req, resp  ) );
+                        lang.hitch( this, this._handleUsergridResponse, req  ),
+                        lang.hitch( this, this._handleUsergridError, req  ) );
                 case "connection" :
-                    return this._handleProtocolError( req, resp, [ { code_key : "404", user_message : "not_found" } ] ); // not implemented yet
+                    return this._handleProtocolError( req, [ { code_key : "404", user_message : "not_found" } ] ); // not implemented yet
                 default :
-                    return this._handleProtocolError( req, resp, [ { code_key : "400", user_message : "bad_request" } ] );
+                    return this._handleProtocolError( req, [ { code_key : "400", user_message : "bad_request" } ] );
             }
         },
-        _update : function( req, resp, message )
+        _update : function( req, message )
         {
             return this._ugc.updateObject( message.request_map.collection_name,
                                            message.request_map.object_id,
                                            message.request_map.object_data,
                                            message.request_map.connection_name ).then(
-                lang.hitch( this, this._handleUsergridResponse, req, resp  ),
-                lang.hitch( this, this._handleUsergridError, req, resp  ) );
+                lang.hitch( this, this._handleUsergridResponse, req  ),
+                lang.hitch( this, this._handleUsergridError, req  ) );
         },
-        _delete : function( req, resp, message )
+        _delete : function( req, message )
         {
             switch( message.data_type )
             {
@@ -162,15 +161,15 @@ function( declare,
                     return this._ugc.deleteObject( message.request_map.collection_name,
                                                    message.request_map.object_id,
                                                    message.request_map.connection_name ).then(
-                        lang.hitch( this, this._handleUsergridResponse, req, resp  ),
-                        lang.hitch( this, this._handleUsergridError, req, resp  ) );
+                        lang.hitch( this, this._handleUsergridResponse, req  ),
+                        lang.hitch( this, this._handleUsergridError, req  ) );
                 case "connection" :
-                    return this._handleProtocolError( req, resp, [ { code_key : "404", user_message : "not_found" } ] ); // not implemented yet
+                    return this._handleProtocolError( req, [ { code_key : "404", user_message : "not_found" } ] ); // not implemented yet
                 default :
-                    return this._handleProtocolError( req, resp, [ { code_key : "400", user_message : "bad_request" } ] );
+                    return this._handleProtocolError( req, [ { code_key : "400", user_message : "bad_request" } ] );
             }
         },
-        _handleUsergridResponse : function( req, resp, message )
+        _handleUsergridResponse : function( req, message )
         {
             return new Deferred().resolve( {
                 body : this._getResponseObject( req._reqMessage, this._sanitize( message ), [ {
@@ -178,7 +177,7 @@ function( declare,
                 } ] )
             } );
         },
-        _handleUsergridError : function( req, resp, error )
+        _handleUsergridError : function( req, error )
         {
             var errMessage = this._sanitize( JSON.parse( error.response.text ) );
             var userMessage = error.response.statusMessage;
@@ -194,7 +193,7 @@ function( declare,
             var message = this._getResponseObject( req._reqMessage, {}, logList, true );
             return new Deferred().resolve( { body :  message } );
         },
-        _handleProtocolError : function( req, resp, errors )
+        _handleProtocolError : function( req, errors )
         {
             return new Deferred().resolve({ body : this._getResponseObject( req._reqMessage || {}, {}, errors, true ) } );
         },
