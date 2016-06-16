@@ -27,20 +27,51 @@ function( lang,
             "otf" : "application/x-font-opentype"
         },
         fileNameRegExp : /\.\./,
-        writeResponse : function( resp, body, contentType, statusCode, headers )
+        /**
+         * Writes message into response and ends stream. Default contentType is application/json and default status
+         * is 200.
+         *
+         * @param resp
+         * @param message - {
+         *                      body? : {string|Object|fileStream},
+         *                      isStream? : boolean,
+         *                      headers? : {Object},
+         *                      contentType? : {string},
+         *                      status? : int
+         *                  }
+         */
+        writeResponse : function( resp, message )
         {
-            contentType = contentType || "application/json";
-            statusCode = statusCode || 200;
-            if( contentType == "application/json" && typeof body != "string" )
+            message = message || {};
+            var contentType = message.contentType || "application/json";
+            var statusCode = message.status || 200;
+            var headers = message.headers || {};
+            var body = message.body || {};
+            if( message.isStream )
             {
-                body = JSON.stringify( body, false, 2 );
+                resp.writeHead( statusCode, lang.mixin( {
+                    'Content-Type': contentType }, headers ) );
+                if( body.pipe )
+                {
+                    body.pipe( resp );
+                }
+                else
+                {
+                    this.writeResponse( resp, { status : 500, body : { error : "internal_error" } } );
+                }
             }
-            headers = headers || {};
-            resp.writeHead( statusCode, lang.mixin( {
-                'Content-Length': body.length,
-                'Content-Type': contentType }, headers ) );
-            resp.write( body );
-            resp.end();
+            else
+            {
+                if( contentType == "application/json" && typeof body != "string" )
+                {
+                    body = JSON.stringify( body, false, 2 );
+                }
+                resp.writeHead( statusCode, lang.mixin( {
+                    'Content-Length': body.length,
+                    'Content-Type': contentType }, headers ) );
+                resp.write( body );
+                resp.end();
+            }
         },
         readBody : function( req, handleAs )
         {
@@ -88,11 +119,7 @@ function( lang,
             {
                 console.error( "Unexpected error processing response:", err );
             }
-            this.writeResponse( resp, message, false, status );
-        },
-        writeErrorResponse : function( resp, message, status )
-        {
-            this.forwardJsonError( resp, message );
+            return new Deferred().resolve( { body : message, status : status });
         },
         sanitizeResponse : function( message )
         {
@@ -135,11 +162,12 @@ function( lang,
             });
             return prom;
         },
-        serveStaticResource : function( fileName, resp )
+        getStream : function( fileName )
         {
+            var prom = new Deferred();
             if( this.fileNameRegExp.test( fileName ) )
             {
-                this.writeErrorResponse( resp, "500 Internal Error", 500 );
+                return prom.reject();
             }
             else
             {
@@ -147,17 +175,19 @@ function( lang,
                 {
                     if( err )
                     {
-                        this.writeErrorResponse( resp, "404 Not Found", 404 );
+                        prom.reject();
                     }
                     else
                     {
-                        var mimeType = this.contentTypes[ path.extname( fileName ).split( "." )[ 1 ] ] || "application/octet-stream";
-                        resp.writeHead( 200, { "Content-Type" : mimeType } );
-                        var fileStream = fs.createReadStream( fileName );
-                        fileStream.pipe( resp );
+                        prom.resolve( {
+                            isStream : true,
+                            contentType : this.contentTypes[ path.extname( fileName ).split( "." )[ 1 ] ] || "application/octet-stream",
+                            body : fs.createReadStream( fileName )
+                        } );
                     }
                 } ) );
             }
+            return prom;
         }
     }
 });

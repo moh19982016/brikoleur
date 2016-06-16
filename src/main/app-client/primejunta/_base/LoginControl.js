@@ -43,8 +43,8 @@ function( declare,
             this.displayMessage( "" );
             if( this.submitForm.validate() )
             {
-                this.submitForm.reset();
                 var vals = this.submitForm.getValues();
+                //this.submitForm.reset();
                 this.pleaseLogin( vals );
             }
         },

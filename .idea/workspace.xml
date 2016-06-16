@@ -5,193 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a17e52c-56a9-479f-8db4-d5e95b67b5de" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/hello.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/HelloControl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/CloudClient.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/LoginControl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/RegisterUserControl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/ResetPasswordControl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/_PureJsonClientBase.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/nls/UserControls.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/LoginControl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/RegisterUserControl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/ResetPasswordControl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/login.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-client/register.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/ApplicationClient.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/nls/UsergridClient.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ErrorTemplate.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ResetPasswordForm.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/RequestHandler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/templates/RegisterForm.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/url-handler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app/primejunta/_base/json-request.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_JsonPureRequestHandlerBase.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/config/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/helloworld.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/server.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/util/cruft.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/Controller.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/Controller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/DynamicGrid.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/DynamicGrid.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_ControlContainerMixin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_ControlContainerMixin.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_DescriptionMixin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_DescriptionMixin.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_DockButton.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_DockButton.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_FeaturePaneBase.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_FeaturePaneBase.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_FieldBase.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_FieldBase.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_FileUploader.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_FileUploader.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_ItemControlBase.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_ItemControlBase.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_MainPaneBase.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_MainPaneBase.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/_NamePaneBase.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/_NamePaneBase.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/fx.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/fx.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_FeaturePaneBase.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/templates/_FeaturePaneBase.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_FieldBase.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/templates/_FieldBase.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_FileUploader.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/templates/_FileUploader.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_ItemControlBase.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/templates/_ItemControlBase.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_MainPaneBase.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/templates/_MainPaneBase.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/templates/_NamePaneBase.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/templates/_NamePaneBase.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/_base/util.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/_base/util.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/CharacterStore.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/CharacterStore.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/_CharacterFileSelector.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/_CharacterFileSelector.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/_CharacterPrint.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/_CharacterPrint.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/_CharacterUploader.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/_CharacterUploader.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/_Splash.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/_Splash.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/character-store.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/character-store.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/templates/_CharacterPrint.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/templates/_CharacterPrint.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/templates/_Splash.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/controller/templates/_Splash.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/_custom.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/_custom.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/brikoleur.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/brikoleur.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/flyer.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/flyer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/grunt.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/grunt.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/poseidonian.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/poseidonian.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/ronin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/ronin.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/santero.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/santero.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/spacer.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/spacer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/archetypes/xman.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/archetypes/xman.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/knacks.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/knacks.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/stunts.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/stunts.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/_base/chems.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/_base/chems.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/_common.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/_common.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/akoto.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/akoto.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/cs.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/cs.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/gen.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/gen.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/gen_aquatic.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/gen_aquatic.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/gen_jagun.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/gen_jagun.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/gen_spacer.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/gen_spacer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/genius.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/genius.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/lwas_horse.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/lwas_horse.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/mni.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/mni.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/data/traits/zonetouched.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/data/traits/zonetouched.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/_IpPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/_IpPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/_base/NumberInput.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/_base/NumberInput.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/_base/_PoweredAbilityInPlayMixin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/_base/_PoweredAbilityInPlayMixin.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/inventory/InventoryPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/inventory/InventoryPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/name/NamePane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/name/NamePane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/numbers/NumbersPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/numbers/NumbersPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/ohun/OhunPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/ohun/OhunPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/powers/PowersPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/powers/PowersPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/powers/_PowerControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/powers/_PowerControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/powers/_PowerSubPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/powers/_PowerSubPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/powers/templates/_PowerControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/powers/templates/_PowerControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/ResolverPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/ResolverPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_BonusControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/_BonusControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/_ResolverControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/_TrainingControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/_TrainingControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/ResolverPane.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/templates/ResolverPane.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_BonusControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/templates/_BonusControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/templates/_ResolverControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/resolver/templates/_TrainingControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/resolver/templates/_TrainingControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/stunts/StuntsPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/stunts/StuntsPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/stunts/_StuntControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/stunts/_StuntControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/ip/stunts/templates/_StuntControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/ip/stunts/templates/_StuntControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_OopPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_OopPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/FilteringMemory.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/FilteringMemory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_ControlPaneMixin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/_ControlPaneMixin.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_FeatureControlBase.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/_FeatureControlBase.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_FeatureSubPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/_FeatureSubPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_PoweredAbilityMixin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/_PoweredAbilityMixin.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_StatField.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/_StatField.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/_SubPaneContainerMixin.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/_SubPaneContainerMixin.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/templates/_FeatureControlBase.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/templates/_FeatureControlBase.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/_base/templates/_FeatureSubPane.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/_base/templates/_FeatureSubPane.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/description/DescriptionPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/description/DescriptionPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/description/_ImageControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/description/_ImageControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/description/_PortraitControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/description/_PortraitControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/description/templates/_ImageControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/description/templates/_ImageControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/description/templates/_PortraitControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/description/templates/_PortraitControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/InventoryPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/InventoryPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_AddItemControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/_AddItemControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_ArmourControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/_ArmourControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_ItemControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/_ItemControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_ItemHeader.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/_ItemHeader.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/_WeaponControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/_WeaponControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/InventoryPane.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/InventoryPane.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_AddItemControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_AddItemControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ArmourControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_ArmourControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemHeader.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_ItemHeader.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/inventory/templates/_WeaponControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_WeaponControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/KnacksPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/knacks/KnacksPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/_KnackControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/knacks/_KnackControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/_OgaControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/knacks/_OgaControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/knacks/templates/_OgaControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/knacks/templates/_OgaControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/name/NamePane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/name/NamePane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/numbers/NumbersPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/numbers/NumbersPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/ohun/OhunPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/ohun/OhunPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/ohun/_OhunControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/ohun/_OhunControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/ohun/_OhunSubPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/ohun/_OhunSubPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/ohun/templates/_OhunControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/ohun/templates/_OhunControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/powers/PowersPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/powers/PowersPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/powers/_PowerControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/powers/_PowerControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/powers/_PowerSubPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/powers/_PowerSubPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/powers/templates/_PowerControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/powers/templates/_PowerControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/stunts/StuntsPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/stunts/StuntsPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/stunts/_StuntControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/stunts/_StuntControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/TraitsPane.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/traits/TraitsPane.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/_TraitControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/traits/_TraitControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/_TraitFeatureControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/traits/_TraitFeatureControl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/templates/_TraitControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/traits/templates/_TraitControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/oop/traits/templates/_TraitFeatureControl.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/traits/templates/_TraitFeatureControl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/templates/Controller.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/templates/Controller.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/widget/Switch.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/widget/Switch.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/widget/templates/Switch.html" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/widget/templates/Switch.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/buttons.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/buttons.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/chargen.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/chargen.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/control-base.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/control-base.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/dijit.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/dijit.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/fonts.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/fonts.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/fx.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/fx.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/globals.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/globals.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/grid.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/grid.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/header.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/header.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/icons.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/icons.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/inventory.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/inventory.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/layout.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/layout.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-base.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/pane-base.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-description.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/pane-description.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-name.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/pane-name.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-numbers.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/pane-numbers.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-resolver.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/pane-resolver.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/pane-traits.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/pane-traits.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/powers.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/powers.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/print.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/print.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/splash.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/splash.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/states.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/states.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/switches.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/switches.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/css/utils.css" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/utils.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/nls/CharGen.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/nls/CharGen.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/html/index.html" afterPath="$PROJECT_DIR$/src/main/app-client/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/brikoleur.iml" afterPath="$PROJECT_DIR$/.idea/brikoleur.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/assembly/sh/build.sh" afterPath="$PROJECT_DIR$/src/main/assembly/sh/build.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/LoginControl.js" afterPath="$PROJECT_DIR$/src/main/app-client/primejunta/_base/LoginControl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js" afterPath="$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js" />
     </list>
     <ignored path="brikoleur.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -213,115 +34,126 @@
     <favorites_list name="brikoleur" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/config/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResetPasswordForm.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ResetPasswordForm.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-36.875">
-              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginControl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/LoginControl.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="26" />
-              <folding>
-                <element signature="n#style#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/login.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.375">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_RequestHandlerBase.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69716376">
-              <caret line="54" column="59" selection-start-line="54" selection-start-column="59" selection-end-line="54" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginControl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/LoginControl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="64" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResetPasswordControl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/ResetPasswordControl.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5">
-              <caret line="12" column="77" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
-              <folding>
-                <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserControls.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/nls/UserControls.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="ResetPasswordForm.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ResetPasswordForm.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-36.875">
+                  <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="bootstrap.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/bootstrap.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_JsonPureRequestHandlerBase.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/_JsonPureRequestHandlerBase.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UserManager.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-32.77778">
+                  <caret line="226" column="9" selection-start-line="226" selection-start-column="9" selection-end-line="226" selection-end-column="9" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/server.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="util.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="121" column="78" selection-start-line="121" selection-start-column="78" selection-end-line="121" selection-end-column="78" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_RequestHandlerBase.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-19.722221">
+                  <caret line="87" column="55" selection-start-line="87" selection-start-column="55" selection-end-line="87" selection-end-column="55" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="url-handler.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/url-handler.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="16" column="50" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="50" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PureJsonUsergridClient.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="1.048446">
+                  <caret line="214" column="79" selection-start-line="214" selection-start-column="79" selection-end-line="214" selection-end-column="79" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="LoginControl.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/LoginControl.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="46" column="18" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="util.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.3153565">
+                  <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -341,7 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/dojo/primejunta/brikoleur/chargen/controller/character-store.js" />
         <option value="$PROJECT_DIR$/src/main/server/node/server.js" />
         <option value="$PROJECT_DIR$/src/main/assembly/sh/build.sh" />
         <option value="$PROJECT_DIR$/src/main/config/dev.js" />
@@ -371,27 +202,28 @@
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/_PureJsonClientBase.js" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/UsergridClient.js" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/CloudClient.js" />
-        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js" />
-        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/HelloControl.js" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/chargen.css" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/RegisterUserControl.js" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/RegisterUserControl.html" />
         <option value="$PROJECT_DIR$/src/main/app-client/login.html" />
         <option value="$PROJECT_DIR$/src/main/app/primejunta/_base/json-request.js" />
-        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js" />
         <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/ApplicationClient.js" />
         <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/nls/UsergridClient.js" />
         <option value="$PROJECT_DIR$/src/main/config/config.js" />
         <option value="$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/url-handler.js" />
-        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/ResetPasswordControl.html" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/ResetPasswordControl.js" />
         <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/templates/ResetPasswordForm.html" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/nls/UserControls.js" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/css/login.css" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/templates/LoginControl.html" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_JsonPureRequestHandlerBase.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js" />
         <option value="$PROJECT_DIR$/src/main/app-client/primejunta/_base/LoginControl.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js" />
+        <option value="$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js" />
       </list>
     </option>
   </component>
@@ -401,7 +233,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1668" />
+    <option name="width" value="1726" />
     <option name="height" value="1440" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -1150,12 +982,6 @@
       <option name="number" value="Default" />
       <updated>1442586349278</updated>
     </task>
-    <task id="LOCAL-00150" summary="Implements oga control and fixes problem with incorrectly set knack cap for archetypes which allow bonus knacks.">
-      <created>1448198940693</created>
-      <option name="number" value="00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1448198940693</updated>
-    </task>
     <task id="LOCAL-00151" summary="Terminology and text update.">
       <created>1448263552960</created>
       <option name="number" value="00151" />
@@ -1444,7 +1270,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464810064939</updated>
     </task>
-    <option name="localTasksCounter" value="199" />
+    <task id="LOCAL-00199" summary="Refactor for client/server architecture. WIP...">
+      <created>1466051762268</created>
+      <option name="number" value="00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1466051762269</updated>
+    </task>
+    <option name="localTasksCounter" value="200" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1457,21 +1289,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1668" height="1440" extended-state="6" />
+    <frame x="0" y="0" width="1726" height="1440" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24772313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23929618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919708" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28613138" sideWeight="0.50184697" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29343066" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18175182" sideWeight="0.49815303" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1810219" sideWeight="0.49815303" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22627737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24970461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39969718" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919708" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1512,7 +1344,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixes bug resolving defence reactions." />
     <MESSAGE value="Switches to Flat theme, fixes a bug, and displays juju cost in add button." />
     <MESSAGE value="Layout fixes." />
     <MESSAGE value="Better combat toggle." />
@@ -1537,7 +1368,8 @@
     <MESSAGE value="Cosmetic." />
     <MESSAGE value="Cleans up some formatting issues in print and OOP view." />
     <MESSAGE value="Tweaks inventory and fixes some print layout issues." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tweaks inventory and fixes some print layout issues." />
+    <MESSAGE value="Refactor for client/server architecture. WIP..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor for client/server architecture. WIP..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1546,13 +1378,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/_ItemHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/brikoleur/chargen/oop/inventory/templates/_AddItemControl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.625">
@@ -1585,6 +1410,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1630,6 +1456,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1637,6 +1464,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="23" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1652,6 +1480,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.625">
           <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1659,6 +1488,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.125">
           <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1682,6 +1512,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1783,22 +1614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="104" column="47" selection-start-line="104" selection-start-column="47" selection-end-line="104" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/app-client/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.875">
@@ -1819,22 +1634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="57" column="46" selection-start-line="0" selection-start-column="0" selection-end-line="97" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/url-handler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="50" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="109" column="40" selection-start-line="109" selection-start-column="40" selection-end-line="109" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -1884,9 +1683,7 @@
         <state vertical-scroll-proportion="-7.5">
           <caret line="12" column="77" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
           <folding>
-            <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1904,8 +1701,8 @@
         <state vertical-scroll-proportion="-7.5">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="26" />
           <folding>
-            <element signature="n#style#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1914,14 +1711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-36.875">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/LoginControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -1942,10 +1731,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/_JsonPureRequestHandlerBase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/_RequestHandlerBase.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69716376">
-          <caret line="54" column="59" selection-start-line="54" selection-start-column="59" selection-end-line="54" selection-end-column="59" />
+        <state vertical-scroll-proportion="-19.722221">
+          <caret line="87" column="55" selection-start-line="87" selection-start-column="55" selection-end-line="87" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-client/primejunta/_base/LoginControl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="18" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="121" column="78" selection-start-line="121" selection-start-column="78" selection-end-line="121" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/brikoleur/url-handler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="50" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/UserManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-32.77778">
+          <caret line="226" column="9" selection-start-line="226" selection-start-column="9" selection-end-line="226" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/app-server/primejunta/_base/PureJsonUsergridClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.048446">
+          <caret line="214" column="79" selection-start-line="214" selection-start-column="79" selection-end-line="214" selection-end-column="79" />
           <folding />
         </state>
       </provider>

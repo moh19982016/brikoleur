@@ -1,11 +1,13 @@
 define([ "dojo/_base/declare",
          "dojo/_base/lang",
          "dojo/string",
+         "dojo/Deferred",
          "dojo/node!url",
          "./util" ],
 function( declare,
           lang,
           string,
+          Deferred,
           url,
           util )
 {
@@ -24,26 +26,43 @@ function( declare,
         {
             if( req.headers[ "content-type" ] == "application/json" )
             {
-                util.readBody( req ).then( lang.hitch( this, function( jsonMessage )
-                {
-                    this._getHandlerFor( req.url )( req, resp, jsonMessage );
-                }), lang.hitch( this, this.handleError ));
+                util.readBody( req ).then(
+                    lang.hitch( this, function( jsonMessage )
+                    {
+                        this._getHandlerFor( req.url )( req, resp, jsonMessage ).then(
+                            lang.hitch( this, this.writeResponse, resp ),
+                            lang.hitch( this, this.handleError, resp ) );
+                    } ),
+                    lang.hitch( this, this.handleError, resp ) );
             }
             else
             {
-                this._getHandlerFor( req.url )( req, resp );
+                this._getHandlerFor( req.url )( req, resp ).then(
+                    lang.hitch( this, this.writeResponse, resp ),
+                    lang.hitch( this, this.handleError, resp ) );
             }
         },
         defaultRequestHandler : function( req, resp )
         {
-            util.writeErrorResponse( resp, "404 Not Found", 404 );
+            return new Deferred().resolve( {
+                body : {
+                    status : 404,
+                    status_message : "404 Not Found"
+                },
+                status : 404
+            } );
         },
         serveHtmlPage : function( req, resp )
         {
+            var prom = new Deferred();
             require( [ "dojo/text!" + this._parseResourcePath( this._getPath( req.url ) ) ], lang.hitch( this, function( resource )
             {
-                util.writeResponse( resp, string.substitute( resource, this._htmlProperties ), "text/html" );
+                prom.resolve( {
+                    body : string.substitute( resource, this._htmlProperties ),
+                    contentType : "text/html"
+                } );
             } ) );
+            return prom;
         },
         serveDojoResource : function( req, resp )
         {
@@ -52,19 +71,28 @@ function( declare,
             {
                 segm = segm.substring( 0, segm.indexOf( '?' ) );
             }
-            util.serveStaticResource( serverConfig.paths.dojo + segm, resp );
+            return util.getStream( serverConfig.paths.dojo + segm );
         },
         serveClientResource : function( req, resp )
         {
-            util.serveStaticResource( "app-client" + req.url.substring( "/app-client".length ), resp );
+            return util.getStream( "app-client" + req.url.substring( "/app-client".length ) );
         },
         serveSharedResource : function( req, resp )
         {
-            util.serveStaticResource( "app" + req.url.substring( "/app".length ), resp );
+            return util.getStream( "app" + req.url.substring( "/app".length ) );
         },
-        handleError : function( err )
+        writeResponse : function( resp, message )
         {
-            util.writeErrorResponse( resp, "400 Bad Request" );
+            // maybe do some logging here?
+
+            console.log( "WRITING RESPONSE", message );
+
+            util.writeResponse( resp, message );
+        },
+        handleError : function( resp, err )
+        {
+            // maybe do some logging here also?
+            util.writeResponse( resp, { status : 400, body : { "error" : "bad_requeset" } } );
         },
         _getHandlerFor : function( url )
         {

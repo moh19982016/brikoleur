@@ -36,7 +36,7 @@ function( declare,
         handleRequest : function( req, resp )
         {
             util.readBody( req, false, function( msg ) { console.log( "MSG", msg  ) } );
-            this._parseRequest( req ).then( lang.hitch( this, function( message )
+            return this._parseRequest( req ).then( lang.hitch( this, function( message )
             {
                 this._ugc.set( "access_token", cookie.parse( req.headers.cookie || "" ).access_token || false );
                 switch( message.action_str.toLowerCase() )
@@ -172,8 +172,11 @@ function( declare,
         },
         _handleUsergridResponse : function( req, resp, message )
         {
-            util.writeResponse( resp, this._getResponseObject( req._reqMessage, this._sanitize( message ), [ { code_key : "200", user_message : "ok" } ] ) );
-
+            return new Deferred().resolve( {
+                body : this._getResponseObject( req._reqMessage, this._sanitize( message ), [ {
+                    code_key : "200", user_message : "ok"
+                } ] )
+            } );
         },
         _handleUsergridError : function( req, resp, error )
         {
@@ -189,11 +192,11 @@ function( declare,
                 user_message : userMessage
             } ));
             var message = this._getResponseObject( req._reqMessage, {}, logList, true );
-            util.writeResponse( resp, message );
+            return new Deferred().resolve( { body :  message } );
         },
         _handleProtocolError : function( req, resp, errors )
         {
-            util.writeResponse( resp, this._getResponseObject( req._reqMessage || {}, {}, errors, true ) );
+            return new Deferred().resolve({ body : this._getResponseObject( req._reqMessage || {}, {}, errors, true ) } );
         },
         _sanitize : function( message )
         {
@@ -209,7 +212,7 @@ function( declare,
         _getResponseObject : function( reqMessage, respData, logList, isError )
         {
             return {
-                action_str : isError ? reqMessage.action_str + "_fail" : this.ACTION_MAP[ reqMessage.action_str ],
+                action_str : isError ? ( reqMessage.action_str || "retrieve" ) + "_fail" : this.ACTION_MAP[ reqMessage.action_str ],
                 data_type : reqMessage.data_type,
                 log_list : logList || [],
                 response_map : respData
