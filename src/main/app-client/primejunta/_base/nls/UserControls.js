@@ -9,6 +9,7 @@ define({
         "RepeatPassword": "Repeat password",
         "ResetPassword" : "Reset Password",
         "ResetPasswordMessage" : "Reset password for ${displayName}:",
+        "EnterLoginOrEmail" : "Enter your username or e-mail and click the link again to request a password reset.",
         "CantResetPassword" : "Can't reset password",
         "CantResetPasswordMessage" : "Your password reset request has expired. Request a new one from <a href='${returnUrl}'>the login page.</a>",
         "Register" : "Register",

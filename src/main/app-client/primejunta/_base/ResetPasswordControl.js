@@ -71,6 +71,7 @@ function( declare,
                 }
                 else
                 {
+                    this.submitForm.domNode.style.display = "none";
                     jsonRequest.post( this.API_URL, util.getRequestMessage( "update", "password", {
                         username : this.username,
                         token : this.token,

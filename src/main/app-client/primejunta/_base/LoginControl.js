@@ -73,7 +73,6 @@ function( declare,
         {
             if( this.usernameField.get( "value" ) )
             {
-                this.resetPasswordButton.style.visibility = "visible";
                 if( this.passwordField.get( "value" ) )
                 {
                     this.loginButton.set( "disabled", false );
@@ -85,16 +84,23 @@ function( declare,
             }
             else
             {
-                this.resetPasswordButton.style.visibility = "hidden";
                 this.loginButton.set( "disabled", true );
             }
         },
         resetPassword : function()
         {
-            jsonRequest.post( this.API_URL, util.getRequestMessage( "create", "password_reset_token", {
-                locale : dojoConfig.locale,
-                username : this.usernameField.get( "value" )
-            } ) ).then( lang.hitch( this, this.handleResetResponse ), lang.hitch( this, this.handleResetError ) );
+            if( !this.usernameField.get( "value" ) )
+            {
+                this.displayMessage( i18n.EnterLoginOrEmail );
+            }
+            else
+            {
+                this.displayMessage( "" );
+                jsonRequest.post( this.API_URL, util.getRequestMessage( "create", "password_reset_token", {
+                    locale : dojoConfig.locale,
+                    username : this.usernameField.get( "value" )
+                } ) ).then( lang.hitch( this, this.handleResetResponse ), lang.hitch( this, this.handleResetError ) );
+            }
         },
         handleResetResponse : function( resp )
         {
