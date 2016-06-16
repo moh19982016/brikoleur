@@ -59,8 +59,8 @@ function( declare,
          */
         save : function( /* string */ name, /* Object */ obj )
         {
-            console.log( "SAVING", obj );
             delete obj.timestamp;
+            // ... and lock the name pane
             this._save( name, obj );
             this._push( obj );
         },
@@ -155,11 +155,22 @@ function( declare,
         },
         _push : function( char )
         {
-            this._cc.createObject( "characters", char ).then( lang.hitch( this, function( char, resp )
+            if( char.uuid )
             {
-                char.timestamp = resp.response_map.timestamp;
-                this._save( char.character_name, char );
-            }, char ) );
+                this._cc.updateObject( "characters", char.uuid, char ).then( lang.hitch( this, this._timestampChar, char ) );
+            }
+            else
+            {
+                this._cc.createObject( "characters", char ).then( lang.hitch( this, this._timestampChar, char ) );
+            }
+        },
+        _timestampChar : function( char, resp )
+        {
+            char.timestamp = resp.response_map.timestamp;
+            char.uuid = resp.response_map.entities[ 0 ].uuid;
+            Controller.characterPane._timestamp = char.timestamp;
+            Controller.characterPane._uuid = char.uuid;
+            this._save( char.character_name, char );
         },
         _pushAll : function()
         {

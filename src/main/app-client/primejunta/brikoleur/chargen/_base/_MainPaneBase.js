@@ -131,6 +131,8 @@ function( declare,
             {
                 this.panes[ o ].set( "state", state[ o ] );
             }
+            this._uuid = state.uuid;
+            this._timestamp = state.timestamp;
             topic.publish( "/PleasePublishInfo/", true );
         },
         /**
@@ -144,6 +146,14 @@ function( declare,
             for( var o in this.panes )
             {
                 out[ o ] = this.panes[ o ].get( "state" );
+            }
+            if( this._timestamp )
+            {
+                out.timestamp = this._timestamp;
+            }
+            if( this._uuid )
+            {
+                out.uuid = this._uuid;
             }
             return out;
         }

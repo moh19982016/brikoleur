@@ -50,6 +50,10 @@ function( declare,
             this.own( topic.subscribe( "/CharacterSaved/", lang.hitch( this, this.disableSave ) ),
             topic.subscribe( "/PropertyChanged/", lang.hitch( this, this.checkSave ) ) );
         },
+        lock : function()
+        {
+            this.nameInput.set( "disabled", true );
+        },
         /**
          * If a name has been provided and Controller.isValidName is true, enable save button and return true. Else
          * disable save button and return true if no name has been given (since it's not actually invalid, just

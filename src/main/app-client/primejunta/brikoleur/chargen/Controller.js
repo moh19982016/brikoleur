@@ -553,9 +553,9 @@ function( declare,
                 this.loadingTemplate = true;
             }
             this.characterPane.set( "state", state );
-            if( !state.type == "template" )
+            if( state.type != "template" )
             {
-                // lock the name input
+                this.characterPane.panes.character_name.lock();
             }
             this.publishJuju();
             setTimeout( lang.hitch( this, function()
