@@ -11,12 +11,14 @@ define([ "dojo/_base/declare",
          "dojo/Deferred",
          "dojo/node!url",
          "dojo/node!config",
+         "./log",
          "./util" ],
 function( declare,
           lang,
           Deferred,
           url,
           config,
+          log,
           util )
 {
     return declare([], {
@@ -40,14 +42,14 @@ function( declare,
                     {
                         req._jsonMessage = jsonMessage;
                         this._getHandlerFor( req.url )( req ).then(
-                            lang.hitch( this, this.writeResponse, resp ) );
+                            lang.hitch( this, this.writeResponse, req, resp ) );
                     } ),
                     lang.hitch( this, this.handleError, req, resp ) );
             }
             else
             {
                 this._getHandlerFor( req.url )( req ).then(
-                    lang.hitch( this, this.writeResponse, resp ),
+                    lang.hitch( this, this.writeResponse, req, resp ),
                     lang.hitch( this, this.handleError, req, resp ) );
             }
         },
@@ -89,14 +91,17 @@ function( declare,
                 body : util.getErrorMessage( req, 404, "not_found", "not_found" )
             } );
         },
-        writeResponse : function( resp, message )
+        writeResponse : function( req, resp, message )
         {
-            // maybe do some logging here?
+            message.body = message.body || {};
+            var logList = [].concat( ( req.log_list || [] ) ).concat( ( message.body.log_list || [] ) );
+            log.writeLog( logList );
+            message.body.log_list = logList;
             util.writeResponse( resp, message );
         },
         handleError : function( req, resp, err )
         {
-            // maybe do some logging here also?
+            log.writeLog( [].concat( ( req.log_list || [] ) ).concat( ( message.log_list || [] ) ) );
             if( err && err.status )
             {
                 // this was a call for a static resource, not an API call

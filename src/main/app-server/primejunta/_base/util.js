@@ -242,23 +242,33 @@ function( lang,
         },
         getResponseMessage : function( req, respData, logList, isError )
         {
+            logList = logList || [];
             var reqMessage = req._jsonMessage || {};
             var actionStr = reqMessage.action_str || "retrieve";
+            if( !isError )
+            {
+                logList.push( this.getLogItem( {
+                    code_key : "200",
+                    code_str : "ok",
+                    user_msg : reqMessage.data_type + " " + this.ACTION_MAP[ actionStr ],
+                    level_int : 1
+                } ) );
+            }
             return {
                 action_str : isError ? actionStr + "_fail" : this.ACTION_MAP[ actionStr ],
                 data_type : reqMessage.data_type,
-                log_list : logList || [],
+                log_list : logList,
                 response_map : respData || {}
             }
         },
-        getErrorMessage : function( req, codeKey, codeStr, userMsg, errLevel )
+        getErrorMessage : function( req, codeKey, codeStr, userMsg, logLevel )
         {
             return this.getResponseMessage( req, false, [
                 this.getLogItem( {
                     code_key : codeKey,
                     code_str : codeStr,
                     user_msg : userMsg,
-                    level_int : errLevel || 3
+                    level_int : logLevel || 3
                 } ) ], true );
         },
         getLogItem : function( kwObj )

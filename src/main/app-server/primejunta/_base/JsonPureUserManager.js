@@ -4,6 +4,7 @@ define([ "dojo/_base/declare",
          "dojo/Deferred",
          "dojo/io-query",
          "./util",
+         "./log",
          "app/primejunta/_base/json-request",
          "app-server/primejunta/_base/UsergridClient",
          "dojo/node!config",
@@ -17,6 +18,7 @@ function( declare,
           Deferred,
           ioQuery,
           util,
+          log,
           jsonRequest,
           UsergridClient,
           config,
@@ -123,6 +125,7 @@ function( declare,
                 password : jsonMessage.password
             } ).then( lang.hitch( this, function( _resp )
             {
+                log.info( req, "authentication_in_success " + jsonMessage.username );
                 return new Deferred().resolve( {
                     body : util.getResponseMessage( req ),
                     headers : {
@@ -135,6 +138,7 @@ function( declare,
         },
         requestPasswordReset : function( req, parsedRequest )
         {
+            log.info( req, "password_reset_token_requested: " + parsedRequest.request_map.username );
             return this._fetchUser( parsedRequest.request_map.username ).then( lang.hitch( this, function( user )
             {
                 var email = user.email;
@@ -222,6 +226,7 @@ function( declare,
                             newpassword : parsedRequest.request_map.password
                         } ).then( lang.hitch( this, function( reslt )
                         {
+                            log.info( req, "password_reset_for ", parsedRequest.request_map.username );
                             return new Deferred().resolve( { body : util.getResponseMessage( req ) } );
                         } ) );
                     } ) );
