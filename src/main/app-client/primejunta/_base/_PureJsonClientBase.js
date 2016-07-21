@@ -122,7 +122,7 @@ function( declare,
         },
         _redirectToAuthorization : function()
         {
-            if( !confirm( "Redirect to login?" ) ) return;
+            //if( !confirm( "Redirect to login?" ) ) return;
             window.location.assign( this.authorizationEndpoint + "?return_url=" + encodeURIComponent( this.returnUrl ) ); //TODO: make this more like the real thing
         }
     } );

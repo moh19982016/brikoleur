@@ -104,7 +104,8 @@ function( declare,
         },
         registerUser : function( req, parsedRequest )
         {
-            return jsonRequest.post( config.get( "usergrid" ).url + "/udwc/brikoleur/users", parsedRequest.request_map ).then(
+            var conf = config.get( "usergrid" );
+            return jsonRequest.post( conf.url + "/" + conf.organizationName + "/" + conf.applicationName + "/users", parsedRequest.request_map ).then(
                 lang.hitch( this, function( _resp )
                 {
                     return new Deferred().resolve({

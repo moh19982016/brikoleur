@@ -52,7 +52,7 @@ function( declare,
         {
             if( resp.action_str == "created" )
             {
-                if( !confirm( "Return to app?" ) ) return;
+                //if( !confirm( "Return to app?" ) ) return;
                 window.location.assign( this.redirectUrl ); // forget about state for now
             }
             else if( util.hasStatus( resp, "user_msg", "invalid_grant" ) )
