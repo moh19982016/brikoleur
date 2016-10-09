@@ -10,22 +10,22 @@ define([ "dojo/_base/declare",
          "dojo/_base/array",
          "dojo/json",
          "dojo/topic",
-         "dojo/Deferred",
-         "primejunta/_base/CloudClient" ],
+         "dojo/Deferred" ],
 function( declare,
           lang,
           array,
           json,
           topic,
-          Deferred,
-          CloudClient )
+          Deferred )
 {
     var ctor = declare( [], {
-        _______postscript : function()
+        /*
+        postscript : function()
         {
             this._cc = new CloudClient({ apiUrl : "brikoleur" });
             this._sync();
         },
+        */
         /**
          * Store name. Everything will be stored in .localStorage behind this prefix.
          *
@@ -134,7 +134,9 @@ function( declare,
         _save : function( name, obj )
         {
             localStorage[ this.STORE_NAME + "." + name ] = json.stringify( obj );
-        },
+        }
+        /*
+        ,
         _sync : function()
         {
             this._pullAll().then( lang.hitch( this, this._pushAll() ) );
@@ -157,20 +159,20 @@ function( declare,
         {
             if( char.uuid )
             {
-                this._cc.updateObject( "characters", char.uuid, char ).then( lang.hitch( this, this._timestampChar, char ) );
+                this._cc.updateObject( "characters", char.uuid, char ).then( lang.hitch( this, this._timestampCharacter, char ) );
             }
             else
             {
-                this._cc.createObject( "characters", char ).then( lang.hitch( this, this._timestampChar, char ) );
+                this._cc.createObject( "characters", char ).then( lang.hitch( this, this._timestampCharacter, char ) );
             }
         },
-        _timestampChar : function( char, resp )
+        _timestampCharacter : function( character, resp )
         {
-            char.timestamp = resp.response_map.timestamp;
-            char.uuid = resp.response_map.entities[ 0 ].uuid;
-            Controller.characterPane._timestamp = char.timestamp;
-            Controller.characterPane._uuid = char.uuid;
-            this._save( char.character_name, char );
+            character.timestamp = resp.response_map.timestamp;
+            character.uuid = resp.response_map.entities[ 0 ].uuid;
+            Controller.characterPane._timestamp = character.timestamp;
+            Controller.characterPane._uuid = character.uuid;
+            this._save( character.character_name, character );
         },
         _pushAll : function()
         {
@@ -184,6 +186,7 @@ function( declare,
                 }
             }
         }
+        */
     });
     return new ctor();
 });

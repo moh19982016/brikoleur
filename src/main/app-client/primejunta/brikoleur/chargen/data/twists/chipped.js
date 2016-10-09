@@ -25,6 +25,6 @@ define( {
             "name" : "Bonus: Social Interaction with Chipped",
             "type" : "passive",
             "value" : "You get a one-level Special Bonus in all social interactions with other Chipped."
-        },
+        }
     ]
 } );
