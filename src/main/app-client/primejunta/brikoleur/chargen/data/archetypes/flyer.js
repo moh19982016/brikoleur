@@ -7,19 +7,33 @@ define({
         },
         "traits": [
             {
-                "name": "Military Neural Interface",
-                "value": "Military Neural Interface",
-                "key": false,
-                "description": "You have been implanted with a NATO or Almaz-Norinco standard military neural interface by a former employer. You retain the interface and the possibility to implant further military-grade wetware.",
-                "link": "#MilitaryNeuralInterface",
-                "id": "Military Neural Interface",
-                "controls": []
+                "name" : "Trait",
+                "key":"",
+                "controls" : [
+                    {
+                        "name": "Military Neural Interface",
+                        "value": "Military Neural Interface",
+                        "key": false,
+                        "description": "You have been implanted with a NATO or Almaz-Norinco standard military neural interface by a former employer. You retain the interface and the possibility to implant further military-grade wetware.",
+                        "link": "#MilitaryNeuralInterface",
+                        "id": "Military Neural Interface",
+                        "controls": []
+                    }
+                ]
             },
             {
-                "name": "Trait",
-                "value": false,
-                "key": false,
-                "controls": []
+                "name" : "Twist",
+                "key" : "",
+                "controls" : [
+                    {
+                        "name" : "Genius",
+                        "description" : "Some people are just born smart. Others get that way through the miracles of modern technology." +
+                                        " Either way, competence comes to them easily and in more areas than to more ordinary people.",                        "id" : "Connected",
+                        "value" : "Genius",
+                        "key" : "",
+                        "controls" : []
+                    }
+                ]
             }
         ],
         "knacks": [

@@ -1,7 +1,7 @@
 define({
-    "name": "Akoto Interface",
-    "description" : "The Akoto Interface allows you to jack into Q-Space.",
-    "link" : "#AkotoInterface",
+    "name": "Brikoleur",
+    "description" : "Your Akoto Interface allows you to jack into Q-Space.",
+    "link" : "#Brikoleur",
     "powers": [
         {
             "name": "Zoutis",
@@ -229,12 +229,6 @@ define({
                     "description": "Increases the user's zam damage by ${3+level} for ${1+level} rounds."
                 }
             ]
-        },
-        {
-            "name": "Esprís",
-            "type": "persistent",
-            "description": "Esprís are autonomous Q-Space constructs. They are reusable unless destroyed.",
-            "list": []
         }
     ],
     "features": [

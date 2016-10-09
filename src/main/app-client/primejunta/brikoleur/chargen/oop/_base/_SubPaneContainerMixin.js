@@ -51,7 +51,7 @@ function( declare,
             var values = util.getProperties( this.controls, { property : "key" } );
             for( var i = 0; i < features.length; i++ )
             {
-                if( features[ i ] && array.indexOf( values, features[ i ] ) == -1 )
+                if( features[ i ] && array.indexOf( values, features[ i ] ) == -1 && this._store.get( features[ i ] ) )
                 {
                     var items = this._store.get( features[ i ] )[ this.featureProperty ];
                     if( items )

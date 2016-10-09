@@ -86,9 +86,9 @@ function( declare,
          */
         checkStunt : function( /* _KnackControl */ control )
         {
-            if( control.type == "combat" )
+            this.updateAllowedControls();
+            if( this.allowedControls > this.countAllowedItems() )
             {
-                this.set( "allowedControls", this.allowedControls + 1 );
                 this.enableAddStunt();
             }
         },

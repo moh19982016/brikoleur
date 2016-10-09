@@ -1,173 +1,185 @@
-define({
-    name: "Grunt",
-    data: {
+define( {
+    name : "Grunt",
+    data : {
         "type" : "template",
-        "name": {
-            "characterName": ""
+        "name" : {
+            "characterName" : ""
         },
-        "traits": [
+        "traits" : [
             {
-                "name": "Military Neural Interface",
-                "value": "Military Neural Interface",
-                "key": false,
-                "controls": [],
-                "description": "You have been implanted with a NATO or Almaz-Norinco standard military neural interface by a former employer. You retain the interface and the possibility to implant further military-grade wetware.",
-                "link": "#MilitaryNeuralInterface",
-                "id": "Military Neural Interface"
+                "name" : "Trait",
+                "key" : "",
+                "controls" : [
+                    {
+                        "name" : "Military Neural Interface",
+                        "value" : "Military Neural Interface",
+                        "key" : false,
+                        "controls" : [],
+                        "description" : "You have been implanted with a NATO or Almaz-Norinco standard military neural interface by a former employer. You retain the interface and the possibility to implant further military-grade wetware.",
+                        "link" : "#MilitaryNeuralInterface",
+                        "id" : "Military Neural Interface"
+                    }
+                ]
             },
             {
-                "name": "Genetically Engineered - Jagun",
-                "value": "Genetically Engineered - Jagun",
-                "key": false,
-                "description": "Jagun are genetically enhanced super-warriors. They are faster, stronger, and tougher than baseline humans.",
-                "link": "#Jagun",
-                "id": "Genetically Engineered - Jagun",
-                "controls": []
+                "name" : "Twist",
+                "key" : "",
+                "controls" : [
+                    {
+                        "name" : "Jagun",
+                        "value" : "Jagun",
+                        "key" : false,
+                        "description" : "Jagun are genetically enhanced super-warriors. They are faster, stronger, and tougher than baseline humans.",
+                        "link" : "#Jagun",
+                        "id" : "Jagun",
+                        "controls" : []
+                    }
+                ]
             }
         ],
-        "knacks": [
+        "knacks" : [
             {
-                "name": "Knack",
-                "value": false,
-                "key": false,
-                "controls": []
+                "name" : "Knack",
+                "value" : false,
+                "key" : false,
+                "controls" : []
             },
             {
-                "key": "Close Combat",
-                "value": "Close Combat",
+                "key" : "Close Combat",
+                "value" : "Close Combat",
                 "type" : "combat",
-                "controls": [
+                "controls" : [
                     {
-                        "name": "Unarmed Combat",
-                        "value": "Unarmed Combat",
-                        "key": "Close Combat",
-                        "id": "Unarmed Combat",
-                        "controls": [
+                        "name" : "Unarmed Combat",
+                        "value" : "Unarmed Combat",
+                        "key" : "Close Combat",
+                        "id" : "Unarmed Combat",
+                        "controls" : [
                             {
-                                "name": "Unarmed Combat",
-                                "value": false,
-                                "key": "Close Combat",
-                                "controls": []
+                                "name" : "Unarmed Combat",
+                                "value" : false,
+                                "key" : "Close Combat",
+                                "controls" : []
                             }
                         ]
                     },
                     {
-                        "name": "Close Combat",
-                        "value": false,
-                        "key": "Close Combat",
-                        "controls": []
+                        "name" : "Close Combat",
+                        "value" : false,
+                        "key" : "Close Combat",
+                        "controls" : []
                     }
                 ]
             }
         ],
-        "numbers": [
+        "numbers" : [
             {
-                "name": "body",
-                "value": 6
+                "name" : "body",
+                "value" : 6
             },
             {
-                "name": "mind",
-                "value": 6
+                "name" : "mind",
+                "value" : 6
             },
             {
-                "name": "stamina",
-                "value": 12
+                "name" : "stamina",
+                "value" : 12
             },
             {
-                "name": "armour",
-                "value": 4
+                "name" : "armour",
+                "value" : 4
             },
             {
-                "name": "aps",
-                "value": 2
+                "name" : "aps",
+                "value" : 2
             },
             {
-                "name": "os",
-                "value": 2
+                "name" : "os",
+                "value" : 2
             }
         ],
-        "powers": [
+        "powers" : [
             {
-                "name": "Military Grade Wetware",
-                "key": "Military Neural Interface",
-                "controls": [
+                "name" : "Military Grade Wetware",
+                "key" : "Military Neural Interface",
+                "controls" : [
                     {
-                        "name": "Military Grade Wetware",
-                        "value": false,
-                        "key": "Military Neural Interface",
-                        "controls": [],
-                        "active": false
+                        "name" : "Military Grade Wetware",
+                        "value" : false,
+                        "key" : "Military Neural Interface",
+                        "controls" : [],
+                        "active" : false
                     }
                 ]
             }
         ],
-        "ohun": [
+        "ohun" : [
             {
-                "name": "Chems",
-                "key": "_common",
-                "controls": [
+                "name" : "Chems",
+                "key" : "_common",
+                "controls" : [
                     {
-                        "name": "Chems",
-                        "value": false,
-                        "key": "_common",
-                        "controls": []
+                        "name" : "Chems",
+                        "value" : false,
+                        "key" : "_common",
+                        "controls" : []
                     }
                 ]
             },
             {
-                "name": "Drones",
-                "key": "Military Neural Interface",
-                "controls": [
+                "name" : "Drones",
+                "key" : "Military Neural Interface",
+                "controls" : [
                     {
-                        "name": "Drones",
-                        "value": false,
-                        "key": "Military Neural Interface",
-                        "controls": []
+                        "name" : "Drones",
+                        "value" : false,
+                        "key" : "Military Neural Interface",
+                        "controls" : []
                     }
                 ]
             }
         ],
-        "stunts": [
+        "stunts" : [
             {
-                "name": "Burst of Strength",
-                "value": "Burst of Strength",
-                "key": false,
-                "description": "Any combat actions involving strength are 1 level easier.",
-                "id": "Burst of Strength",
-                "controls": [
+                "name" : "Burst of Strength",
+                "value" : "Burst of Strength",
+                "key" : false,
+                "description" : "Any combat actions involving strength are 1 level easier.",
+                "id" : "Burst of Strength",
+                "controls" : [
                     {
-                        "name": "Burst of Strength",
-                        "value": false,
-                        "key": false,
-                        "controls": []
+                        "name" : "Burst of Strength",
+                        "value" : false,
+                        "key" : false,
+                        "controls" : []
                     }
                 ]
             },
             {
-                "name": "Stunt",
-                "value": false,
-                "key": false,
-                "controls": []
+                "name" : "Stunt",
+                "value" : false,
+                "key" : false,
+                "controls" : []
             }
         ],
-        "gear": [
+        "gear" : [
             {
-                "value": "false|gear|NaN|"
+                "value" : "false|gear|NaN|"
             }
         ],
-        "description": [
+        "description" : [
             {
-                "name": "handle",
-                "value": ""
+                "name" : "handle",
+                "value" : ""
             },
             {
-                "name": "ekip",
-                "value": ""
+                "name" : "ekip",
+                "value" : ""
             },
             {
-                "name": "background",
-                "value": ""
+                "name" : "background",
+                "value" : ""
             }
         ]
     }
-});
+} );

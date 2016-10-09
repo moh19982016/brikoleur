@@ -8,7 +8,6 @@ define([ "dojo/_base/declare",
          "dojo/topic",
          "dojo/dom-construct",
          "./_TraitFeatureControl",
-         "./../../data/traits",
          "./../_base/_FeatureControlBase",
          "dojo/text!./templates/_TraitControl.html",
          "dojo/i18n!primejunta/brikoleur/nls/CharGen" ],
@@ -17,7 +16,6 @@ function( declare,
           topic,
           domConstruct,
           _TraitFeatureControl,
-          traits,
           _FeatureControlBase,
           template,
           i18n )
@@ -40,7 +38,7 @@ function( declare,
          *
          * @public Object
          */
-        data : traits,
+        data : {},
         /**
          * Topic published when feature selection changes. The list of selected features will be included.
          *
@@ -146,15 +144,15 @@ function( declare,
          */
         _lookupProperty : function( /* string */ prop, /* string */ val )
         {
-            for( var i = 0; i < traits.list.length; i++ )
+            for( var i = 0; i < this.data.list.length; i++ )
             {
-                for( var j = 0; j < ( traits.list[ i ][ prop ] || [] ).length; j++ )
+                for( var j = 0; j < ( this.data.list[ i ][ prop ] || [] ).length; j++ )
                 {
-                    if( traits.list[ i ][ prop ][ j ].name == val )
+                    if( this.data.list[ i ][ prop ][ j ].name == val )
                     {
                         return {
-                            key : traits.list[ i ].name,
-                            data : traits.list[ i ][ prop ][ j ]
+                            key : this.data.list[ i ].name,
+                            data : this.data.list[ i ][ prop ][ j ]
                         }
                     }
                 }

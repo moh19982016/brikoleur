@@ -271,7 +271,7 @@ function( declare,
             }
             if( data.length > 0 )
             {
-                link.href = "data:application/json;charset=utf-8," + encodeURIComponent( json.stringify( data ) );
+                link.href = "data:application/json;charset=utf-8," + encodeURIComponent( json.stringify( data, true, 2 ) );
                 link.style.display = "block";
             }
             else

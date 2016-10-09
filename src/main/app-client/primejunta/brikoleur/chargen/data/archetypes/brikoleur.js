@@ -1,27 +1,41 @@
-define({
+define( {
     "name" : "Brikoleur",
     "data" : {
         "type" : "template",
-        "name": {
-            "characterName": ""
+        "name" : {
+            "characterName" : ""
         },
-        "traits": [
+        "traits" : [
             {
-                "name": "Akoto Interface",
-                "value": "Akoto Interface",
-                "key": false,
-                "link": "#AkotoInterface",
-                "id": "Akoto Interface",
-                "controls": []
+                "name" : "Trait",
+                "key" : "",
+                "controls" : [
+                    {
+                        "name" : "Brikoleur",
+                        "value" : "Brikoleur",
+                        "key" : false,
+                        "link" : "#Brikoleur",
+                        "id" : "Brikoleur",
+                        "controls" : []
+                    }
+                ]
             },
             {
-                "name": "Trait",
-                "value": false,
-                "key": false,
-                "controls": []
+                "name" : "Twist",
+                "key" : "",
+                "controls" : [
+                    {
+                        "name" : "Genius",
+                        "description" : "Some people are just born smart. Others get that way through the miracles of modern technology." +
+                                        " Either way, competence comes to them easily and in more areas than to more ordinary people.",                        "id" : "Connected",
+                        "value" : "Genius",
+                        "key" : "",
+                        "controls" : []
+                    }
+                ]
             }
         ],
-        "knacks": [
+        "knacks" : [
             {
                 "name" : "&lt;Oga&gt;",
                 "value" : "&lt;Oga&gt;",
@@ -30,122 +44,110 @@ define({
                 "controls" : []
             },
             {
-                "name": "Q-Space",
-                "value": "Q-Space",
-                "key": false,
-                "description": "You have an unusual affinity for Q-Space, and all that happens within it.",
-                "link": "#ChapterFifteenQSpace",
-                "id": "Q-Space",
-                "controls": [
+                "name" : "Q-Space",
+                "value" : "Q-Space",
+                "key" : false,
+                "description" : "You have an unusual affinity for Q-Space, and all that happens within it.",
+                "link" : "#ChapterFifteenQSpace",
+                "id" : "Q-Space",
+                "controls" : [
                     {
-                        "name": "Q-Space",
-                        "value": false,
-                        "key": false,
-                        "controls": []
+                        "name" : "Q-Space",
+                        "value" : false,
+                        "key" : false,
+                        "controls" : []
                     }
                 ]
             },
             {
-                "name": "Knack",
-                "value": false,
-                "key": false,
-                "controls": []
+                "name" : "Knack",
+                "value" : false,
+                "key" : false,
+                "controls" : []
             }
         ],
-        "numbers": [
+        "numbers" : [
             {
-                "name": "body",
-                "value": 6
+                "name" : "body",
+                "value" : 6
             },
             {
-                "name": "mind",
-                "value": 6
+                "name" : "mind",
+                "value" : 6
             },
             {
-                "name": "stamina",
-                "value": 12
+                "name" : "stamina",
+                "value" : 12
             },
             {
-                "name": "aps",
-                "value": 2
+                "name" : "aps",
+                "value" : 2
             },
             {
-                "name": "os",
-                "value": 2
+                "name" : "os",
+                "value" : 2
             }
         ],
-        "powers": [
+        "powers" : [
             {
-                "name": "Zoutis",
-                "key": "Akoto Interface",
-                "controls": [
+                "name" : "Zoutis",
+                "key" : "Brikoleur",
+                "controls" : [
                     {
-                        "name": "Zoutis",
-                        "value": false,
-                        "key": "Akoto Interface",
-                        "controls": [],
-                        "active": false
+                        "name" : "Zoutis",
+                        "value" : false,
+                        "key" : "Brikoleur",
+                        "controls" : [],
+                        "active" : false
                     }
                 ]
             }
         ],
-        "ohun": [
+        "ohun" : [
             {
-                "name": "Chems",
-                "key": "_common",
-                "controls": [
+                "name" : "Chems",
+                "key" : "_common",
+                "controls" : [
                     {
-                        "name": "Chems",
-                        "value": false,
-                        "key": "_common",
-                        "controls": []
+                        "name" : "Chems",
+                        "value" : false,
+                        "key" : "_common",
+                        "controls" : []
                     }
                 ]
             },
             {
-                "name": "Fwés",
-                "key": "Akoto Interface",
-                "controls": [
+                "name" : "Fwés",
+                "key" : "Brikoleur",
+                "controls" : [
                     {
-                        "name": "Fwés",
-                        "value": false,
-                        "key": "Akoto Interface",
-                        "controls": []
-                    }
-                ]
-            },
-            {
-                "name": "Esprís",
-                "key": "Akoto Interface",
-                "controls": [
-                    {
-                        "name": "Esprís",
-                        "value": false,
-                        "key": "Akoto Interface",
-                        "controls": []
+                        "name" : "Fwés",
+                        "value" : false,
+                        "key" : "Brikoleur",
+                        "controls" : []
                     }
                 ]
             }
         ],
-        "stunts": [],
-        "gear": [
+        "stunts" : [],
+        "gear" : [
             {
-                "value": "false|gear|NaN|"
+                "value" : "false|gear|NaN|"
             }
         ],
-        "description": [
+        "description" : [
             {
-                "name": "handle",
-                "value": ""
+                "name" : "handle",
+                "value" : ""
             },
             {
-                "name": "ekip",
-                "value": ""
+                "name" : "ekip",
+                "value" : ""
             },
             {
-                "name": "background",
-                "value": ""
+                "name" : "background",
+                "value" : ""
             }
         ]
     }
-});
+} );

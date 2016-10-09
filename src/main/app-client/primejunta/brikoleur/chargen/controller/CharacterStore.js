@@ -21,7 +21,7 @@ function( declare,
           CloudClient )
 {
     var ctor = declare( [], {
-        postscript : function()
+        _______postscript : function()
         {
             this._cc = new CloudClient({ apiUrl : "brikoleur" });
             this._sync();
@@ -62,7 +62,7 @@ function( declare,
             delete obj.timestamp;
             // ... and lock the name pane
             this._save( name, obj );
-            this._push( obj );
+            // this._push( obj );
         },
         /**
          * Serves data matching name from store as Object, or false if no match is found.

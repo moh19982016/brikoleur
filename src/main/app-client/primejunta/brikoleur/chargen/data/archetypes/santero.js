@@ -1,174 +1,152 @@
-define({
+define( {
     name : "Santero",
     data : {
-        "name": {
-            "characterName": ""
+        "name" : {
+            "characterName" : ""
         },
-        "traits": [
+        "traits" : [
             {
-                "name": "Akoto Interface",
-                "value": "Akoto Interface",
-                "key": false,
-                "description": "The Akoto Interface allows you to jack into Q-Space.",
-                "link": "#AkotoInterface",
-                "id": "Akoto Interface",
-                "controls": []
+                "name" : "Trait",
+                "key" : "",
+                "controls" : [
+                    {
+                        "name" : "Santero",
+                        "value" : "Santero",
+                        "key" : false,
+                        "description" : "A Santero is crowned with a lwa. He serves it, and in turn may petition it for favours.",
+                        "link" : "#Santero",
+                        "id" : "Santero",
+                        "controls" : []
+                    } ]
             },
             {
-                "name": "Lwa's Horse",
-                "value": "Lwa's Horse",
-                "key": false,
-                "description": "A Lwa's Horse is crowned with a lwa. He serves it, and in turn may petition it for favours. Lwa's Horses are respected by their friends and feared by their enemies.",
-                "link": "#LwasHorse",
-                "id": "Lwa's Horse",
-                "controls": []
+                "name" : "Twist",
+                "key" : "",
+                "controls" : [
+                    {
+                        "name" : "Spiritual",
+                        "value" : "Spiritual",
+                        "key" : false,
+                        "description" : "You have a special connection with the numinous. This gives you unique advantages both when dealing with the Lwa, and with people.",
+                        "link" : "#Spiritual",
+                        "id" : "Spiritual",
+                        "controls" : []
+                    }
+                ]
             }
         ],
-        "knacks": [
+        "knacks" : [
             {
-                "name" : "&lt;Oga&gt;",
-                "value" : "&lt;Oga&gt;",
-                "oga" : true,
+                "name" : "Knack",
+                "value" : false,
                 "key" : false,
                 "controls" : []
-            },
-            {
-                "name": "Knack",
-                "value": false,
-                "key": false,
-                "controls": []
             }
         ],
-        "numbers": [
+        "numbers" : [
             {
-                "name": "body",
-                "value": 6
+                "name" : "body",
+                "value" : 6
             },
             {
-                "name": "mind",
-                "value": 6
+                "name" : "mind",
+                "value" : 6
             },
             {
-                "name": "stamina",
-                "value": 12
+                "name" : "stamina",
+                "value" : 12
             },
             {
-                "name": "aps",
-                "value": 2
+                "name" : "aps",
+                "value" : 2
             },
             {
-                "name": "os",
-                "value": 2
+                "name" : "os",
+                "value" : 2
             }
         ],
-        "powers": [
+        "powers" : [],
+        "ohun" : [
             {
-                "name": "Zoutis",
-                "key": "Akoto Interface",
-                "controls": [
+                "name" : "Chems",
+                "key" : "_common",
+                "controls" : [
                     {
-                        "name": "Zoutis",
-                        "value": false,
-                        "key": "Akoto Interface",
-                        "controls": [],
-                        "active": false
-                    }
-                ]
-            }
-        ],
-        "ohun": [
-            {
-                "name": "Chems",
-                "key": "_common",
-                "controls": [
-                    {
-                        "name": "Chems",
-                        "value": false,
-                        "key": "_common",
-                        "controls": []
+                        "name" : "Chems",
+                        "value" : false,
+                        "key" : "_common",
+                        "controls" : []
                     }
                 ]
             },
             {
-                "name": "Fwés",
-                "key": "Akoto Interface",
-                "controls": [
+                "name" : "Esprís",
+                "key" : "Santero",
+                "controls" : [
                     {
-                        "name": "Fwés",
-                        "value": false,
-                        "key": "Akoto Interface",
-                        "controls": []
+                        "name" : "Esprís",
+                        "value" : false,
+                        "key" : "Brikoleur",
+                        "controls" : []
                     }
                 ]
             },
             {
-                "name": "Esprís",
-                "key": "Akoto Interface",
-                "controls": [
+                "name" : "Vévés",
+                "key" : "Santero",
+                "controls" : [
                     {
-                        "name": "Esprís",
-                        "value": false,
-                        "key": "Akoto Interface",
-                        "controls": []
+                        "name" : "Vévés",
+                        "value" : false,
+                        "key" : "Santero",
+                        "controls" : []
                     }
                 ]
             },
             {
-                "name": "Vévés",
-                "key": "Lwa's Horse",
-                "controls": [
+                "name" : "Zombies",
+                "key" : "Santero",
+                "controls" : [
                     {
-                        "name": "Vévés",
-                        "value": false,
-                        "key": "Lwa's Horse",
-                        "controls": []
+                        "name" : "Zombies",
+                        "value" : false,
+                        "key" : "Santero",
+                        "controls" : []
                     }
                 ]
             },
             {
-                "name": "Zombies",
-                "key": "Lwa's Horse",
-                "controls": [
+                "name" : "Golems",
+                "key" : "Santero",
+                "controls" : [
                     {
-                        "name": "Zombies",
-                        "value": false,
-                        "key": "Lwa's Horse",
-                        "controls": []
-                    }
-                ]
-            },
-            {
-                "name": "Golems",
-                "key": "Lwa's Horse",
-                "controls": [
-                    {
-                        "name": "Golems",
-                        "value": false,
-                        "key": "Lwa's Horse",
-                        "controls": []
+                        "name" : "Golems",
+                        "value" : false,
+                        "key" : "Santero",
+                        "controls" : []
                     }
                 ]
             }
         ],
-        "stunts": [],
-        "gear": [
+        "stunts" : [],
+        "gear" : [
             {
-                "value": "false|gear|NaN|"
+                "value" : "false|gear|NaN|"
             }
         ],
-        "description": [
+        "description" : [
             {
-                "name": "handle",
-                "value": ""
+                "name" : "handle",
+                "value" : ""
             },
             {
-                "name": "ekip",
-                "value": ""
+                "name" : "ekip",
+                "value" : ""
             },
             {
-                "name": "background",
-                "value": ""
+                "name" : "background",
+                "value" : ""
             }
         ]
     }
-});
+} );

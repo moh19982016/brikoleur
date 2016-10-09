@@ -5,11 +5,6 @@ define({
     "ohun" : [],
     "features" : [
         {
-            "name" : "Bonus knack",
-            "value" : false,
-            "type" : "knack"
-        },
-        {
             "name" : "Adaptations and Resistances",
             "type" : "free",
             "max" : 4

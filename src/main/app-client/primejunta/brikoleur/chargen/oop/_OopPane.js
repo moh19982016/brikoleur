@@ -70,7 +70,6 @@ function( declare,
             var controls = this.panes.knacks.controls;
             for( var i = 0; i < controls.length; i++ )
             {
-                console.log( controls[ i ].get( "state" ).type  );
                 if( controls[ i ].get( "state" ).type == "combat" )
                 {
                     n += util.countCompleteControls( controls[ i ].controls );

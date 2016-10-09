@@ -372,7 +372,7 @@ function( declare,
             }
             catch( e )
             {
-                console.log( "WTF?", this, this._destroyed );
+                console.log( "Unexpected error setting value:", this, this._destroyed );
             }
         },
         /**
