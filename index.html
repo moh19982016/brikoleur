@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="style/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="style/libs/fontawesome-free-6.0.0-beta2-web/css/all.css">
+    <link rel="stylesheet" href="style/compiled-style/my-style.css">
+</head>
+<body>
+    <!--start header-->
+    <head>
+        <nav class="navbar navbar-expand-lg fixed-top my-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="#">bricol 7dak</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fas fa-bars active"></i><i class="fas fa-times"></i></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">about us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">contact us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                            language
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Ar</a>
+                            <a class="dropdown-item" href="#">En</a>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </head>
+    <!--end header-->
+
+    <!--start section accueil-->
+    <section class="accueil-page">
+        <div class="container-icons">
+            <div class="row-icons">
+                <i class="fas fa-bath"></i>
+                <i class="fas fa-cogs"></i>
+                <i class="fab fa-medapps"></i>
+                <i class="fas fa-screwdriver"></i>
+                <i class="fas fa-cut"></i>
+                <i class="fas fa-faucet"></i>
+                <i class="fas fa-hammer"></i>
+                <i class="fas fa-lock"></i>
+                <i class="fas fa-lightbulb"></i>
+                <i class="fas fa-paint-brush"></i>
+                <i class="fas fa-drafting-compass"></i>
+                <i class="fas fa-gavel"></i>
+                <i class="fab fa-whmcs"></i>
+                <i class="fas fa-wrench"></i>
+                <i class="fas fa-tractor"></i>
+                <i class="fas fa-ruler-combined"></i>
+                <i class="fas fa-graduation-cap"></i>
+                <i class="fas fa-tools"></i>
+                <i class="fas fa-ruler-combined"></i>
+                <i class="fas fa-toolbox"></i>
+                <i class="fas fa-bath"></i>
+                <i class="fas fa-cogs"></i>
+                <i class="fab fa-medapps"></i>
+                <i class="fas fa-screwdriver"></i>
+                <i class="fas fa-cut"></i>
+                <i class="fas fa-faucet"></i>
+                <i class="fas fa-hammer"></i>
+                <i class="fas fa-lock"></i>
+                <i class="fas fa-lightbulb"></i>
+                <i class="fas fa-paint-brush"></i>
+                <i class="fas fa-drafting-compass"></i>
+                <i class="fas fa-gavel"></i>
+                <i class="fab fa-whmcs"></i>
+                <i class="fas fa-wrench"></i>
+                <i class="fas fa-tractor"></i>
+                <i class="fas fa-ruler-combined"></i>
+                <i class="fas fa-graduation-cap"></i>
+                <i class="fas fa-tools"></i>
+                <i class="fas fa-ruler-combined"></i>
+                <i class="fas fa-toolbox"></i>
+            </div>
+        </div>
+            
+           
+            <h1 class="accueil-title"><div>Bric<span><i class="fas fa-cog active1-cog"></i><i class="fas fa-cog active2-cog"></i></span>l</div><div><span><i class="fas fa-hammer my-hammer"></i></span>dak</div></h1>
+            
+            <div class="accueil-buttons">
+                <button>connexion</button>
+                <button>inscription</button>
+            </div>
+            
+    </section>
+    <!--end sction accueil-->
+
+    <script src="js/libs/jQuery.js"></script>
+    <script src="js/libs/bootstrap.min.js"></script>
+
+    <script>
+        /*var full_height = $(window).height();
+        var head_height = $('nav').innerHeight();
+        $('.accueil-page').height(full_height-head_height);*/
+
+
+        $('.navbar-toggler span').click(function(){
+            $(this).children().toggleClass('active');
+        });
+
+
+       
+        var el = $('.container-icons').html();
+        for(i=0;i<20;i++){
+            $('.container-icons').append(el);
+        }
+
+
+        $('.accueil-page .accueil-title').hover(function(){
+            $('.active1-cog').css('AnimationName','rotate_cog1');
+            $('.active2-cog').css('AnimationName','rotate_cog2');
+            $('.my-hammer').css('AnimationName','frap_hammer');
+        },function(){
+            $('.active1-cog').css('AnimationName','');
+            $('.active2-cog').css('AnimationName','');
+            $('.my-hammer').css('AnimationName','');
+        });
+
+
+        
+    </script>
+
+</body>
+</html>

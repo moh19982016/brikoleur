@@ -1,0 +1,120 @@
+html {
+  position: relative; }
+
+.my-navbar {
+  background-color: #fffa65; }
+  .my-navbar i {
+    color: #4b4b4b;
+    font-size: 1.5em; }
+  .my-navbar a {
+    color: #4b4b4b; }
+    .my-navbar a:hover {
+      color: #3d3d3d; }
+  .my-navbar .navbar-toggler i {
+    display: none; }
+    .my-navbar .navbar-toggler i.active {
+      display: inline; }
+
+.accueil-page {
+  background-color: #4b4b4b;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .accueil-page .container-icons {
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: -60%;
+    left: -60%; }
+    .accueil-page .container-icons .row-icons {
+      display: flex;
+      flex-wrap: nowrap;
+      transform: rotate(-30deg); }
+      .accueil-page .container-icons .row-icons:nth-child(even) {
+        flex-direction: row-reverse; }
+      .accueil-page .container-icons .row-icons i {
+        transition: 1s;
+        margin: 10px;
+        color: #3d3d3d;
+        font-size: 3em; }
+        .accueil-page .container-icons .row-icons i:hover {
+          color: #fff200;
+          text-shadow: 0 0 50px #fff200;
+          transition: 0s; }
+
+.accueil-title {
+  color: #fffa65;
+  padding: 0;
+  font-size: 5em;
+  font-weight: bolder;
+  text-align: center;
+  user-select: none;
+  z-index: 1; }
+  .accueil-title:hover {
+    color: #fff200;
+    text-shadow: 0 0 50px #fff200; }
+  .accueil-title div {
+    display: inline-block; }
+  .accueil-title i {
+    font-size: 0.8em; }
+  .accueil-title .active1-cog {
+    transform: translateX(5px) rotate(30deg);
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; }
+  .accueil-title .active2-cog {
+    transform: translateX(-5px);
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; }
+  .accueil-title .my-hammer {
+    transform: rotate(-45deg) translate(20px, -5px);
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; }
+
+.accueil-buttons {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 0; }
+  .accueil-buttons button {
+    width: 270px;
+    height: 50px;
+    margin: 20px;
+    border-radius: 30px;
+    border: none;
+    background-color: #fffa65;
+    color: #4b4b4b;
+    font-size: 20px; }
+    .accueil-buttons button:hover {
+      transform: scale(1.03);
+      background-color: #fff200;
+      transition: all 0.3s; }
+
+@keyframes rotate_cog1 {
+  0% {
+    transform: translateX(5px) rotate(30deg); }
+  100% {
+    transform: translateX(5px) rotate(390deg); } }
+@keyframes rotate_cog2 {
+  0% {
+    transform: translateX(-5px) rotate(0deg); }
+  100% {
+    transform: translateX(-5px) rotate(-360deg); } }
+@keyframes frap_hammer {
+  0% {
+    transform: rotate(-45deg) translate(20px, -5px); }
+  30% {
+    transform: rotate(0deg) translate(20px, -5px); }
+  100% {
+    transform: rotate(-45deg) translate(20px, -5px); } }
+
+/*# sourceMappingURL=my-style.css.map */
